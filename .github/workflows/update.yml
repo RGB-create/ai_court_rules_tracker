@@ -1,17 +1,19 @@
 name: Weekly agent update
 
+# Runs the autonomous Claude Code agent to refresh data/rules.json and
+# data/news.json. Trigger manually the first time (discovery pass);
+# thereafter it runs every Monday at 13:00 UTC.
+
 on:
   schedule:
-    # Every Monday at 13:00 UTC.
     - cron: "0 13 * * 1"
   workflow_dispatch:
-    # Allows triggering manually from the Actions tab — use this for the
-    # first discovery pass.
     inputs:
       mode_note:
         description: "Optional note (logged in commit message)"
         required: false
         type: string
+        default: ""
 
 permissions:
   contents: write           # so the agent can commit data updates
