@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "snapshots": [
+    {
+      "date": "2026-04-16",
+      "total_rules": 5,
+      "by_jurisdiction": {
+        "federal": 5,
+        "state": 0
+      },
+      "by_category": {
+        "prohibited": 0,
+        "prohibited_except_assisted_research": 0,
+        "disclosure_required": 5,
+        "disclosure_except_assisted_research": 0,
+        "permitted_with_caution": 0,
+        "no_explicit_rule": 0,
+        "permitted": 0
+      },
+      "note": null
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "schema_version": "1.0.0",
+  "last_updated": "2026-04-16",
+  "discovery_pass_completed": false,
+  "categories": {
+    "prohibited": {
+      "label": "AI prohibited",
+      "color": "#7f0000",
+      "order": 1,
+      "description": "Generative AI use in court filings is outright prohibited."
+    },
+    "prohibited_except_assisted_research": {
+      "label": "AI prohibited except approved legal-research tools",
+      "color": "#c0392b",
+      "order": 2,
+      "description": "Generative AI prohibited; traditional/approved legal-research tools (e.g., Lexis, Westlaw, Bloomberg Law) permitted."
+    },
+    "disclosure_required": {
+      "label": "AI permitted with disclosure / certification",
+      "color": "#e67e22",
+      "order": 3,
+      "description": "AI use permitted but counsel must disclose use and/or certify human verification."
+    },
+    "disclosure_except_assisted_research": {
+      "label": "Disclosure required except for approved legal-research tools",
+      "color": "#f1c40f",
+      "order": 4,
+      "description": "Disclosure required for generative AI; approved legal-research tools exempted from disclosure obligation."
+    },
+    "permitted_with_caution": {
+      "label": "AI permitted with general accuracy obligation",
+      "color": "#a3cb38",
+      "order": 5,
+      "description": "Order acknowledges AI use, imposes general accuracy/competence obligation, no affirmative disclosure duty."
+    },
+    "no_explicit_rule": {
+      "label": "No explicit AI rule",
+      "color": "#95a5a6",
+      "order": 6,
+      "description": "Court or judge has standing orders or local rules but none specifically address AI."
+    },
+    "permitted": {
+      "label": "AI affirmatively permitted",
+      "color": "#27ae60",
+      "order": 7,
+      "description": "Order or rule affirmatively permits AI use without disclosure or special conditions beyond default professional-conduct rules."
+    }
+  },
+  "rules": [
+    {
+      "id": "us-fed-ndtx-starr-2023-05",
+      "jurisdiction": "federal",
+      "court": "U.S. District Court for the Northern District of Texas",
+      "court_short": "N.D. Tex.",
+      "court_level": "district",
+      "circuit": "5th",
+      "state": "TX",
+      "judge": "Brantley Starr",
+      "rule_type": "standing_order",
+      "category": "disclosure_required",
+      "category_confidence": "high",
+      "title": "Mandatory Certification Regarding Generative Artificial Intelligence",
+      "effective_date": "2023-05-30",
+      "source_url": "https://www.txnd.uscourts.gov/judge/judge-brantley-starr",
+      "source_pdf": null,
+      "summary": "Requires every attorney appearing before the court to file a certification that either (a) no portion of any filing was drafted by generative AI, or (b) any language drafted by generative AI was checked for accuracy by a human being using print reporters or traditional legal databases.",
+      "verbatim_key_language": null,
+      "last_verified": null,
+      "provenance": "hand-seeded; widely reported as one of the first U.S. judicial AI standing orders; verbatim language and current status pending agent verification on first run",
+      "superseded_by": null
+    },
+    {
+      "id": "us-fed-cit-vaden-2023-06",
+      "jurisdiction": "federal",
+      "court": "U.S. Court of International Trade",
+      "court_short": "CIT",
+      "court_level": "specialty",
+      "circuit": "Federal",
+      "state": null,
+      "judge": "Stephen Alexander Vaden",
+      "rule_type": "standing_order",
+      "category": "disclosure_required",
+      "category_confidence": "high",
+      "title": "Order on Artificial Intelligence",
+      "effective_date": "2023-06-08",
+      "source_url": "https://www.cit.uscourts.gov/",
+      "source_pdf": null,
+      "summary": "Requires parties using generative AI to draft any portion of a filing to disclose the program used and the specific portions drafted by AI, and to certify human verification of citations and legal analysis.",
+      "verbatim_key_language": null,
+      "last_verified": null,
+      "provenance": "hand-seeded; verbatim language and current status pending agent verification on first run",
+      "superseded_by": null
+    },
+    {
+      "id": "us-fed-ndil-fuentes-2023-05",
+      "jurisdiction": "federal",
+      "court": "U.S. District Court for the Northern District of Illinois",
+      "court_short": "N.D. Ill.",
+      "court_level": "district",
+      "circuit": "7th",
+      "state": "IL",
+      "judge": "Gabriel A. Fuentes",
+      "rule_type": "standing_order",
+      "category": "disclosure_required",
+      "category_confidence": "high",
+      "title": "Standing Order for Civil Cases Before Magistrate Judge Fuentes",
+      "effective_date": "2023-05-31",
+      "source_url": "https://www.ilnd.uscourts.gov/judge-info.aspx?dEUyy/r25Bm9I8H4dkEy0w==",
+      "source_pdf": null,
+      "summary": "Requires disclosure in any filing of any use of generative AI, identification of the AI tool used, and certification that a human has checked the accuracy of any AI-generated content including citations.",
+      "verbatim_key_language": null,
+      "last_verified": null,
+      "provenance": "hand-seeded; verbatim language and current status pending agent verification on first run",
+      "superseded_by": null
+    },
+    {
+      "id": "us-fed-edpa-baylson-2023-06",
+      "jurisdiction": "federal",
+      "court": "U.S. District Court for the Eastern District of Pennsylvania",
+      "court_short": "E.D. Pa.",
+      "court_level": "district",
+      "circuit": "3rd",
+      "state": "PA",
+      "judge": "Michael M. Baylson",
+      "rule_type": "standing_order",
+      "category": "disclosure_required",
+      "category_confidence": "high",
+      "title": "Standing Order Re: Use of Artificial Intelligence",
+      "effective_date": "2023-06-06",
+      "source_url": "https://www.paed.uscourts.gov/judges-info/active-judges/michael-m-baylson",
+      "source_pdf": null,
+      "summary": "Requires counsel to disclose any use of AI in preparing a filing and to certify that the accuracy of all citations and legal arguments has been verified.",
+      "verbatim_key_language": null,
+      "last_verified": null,
+      "provenance": "hand-seeded; verbatim language and current status pending agent verification on first run",
+      "superseded_by": null
+    },
+    {
+      "id": "us-fed-ca5-proposed-2023-11",
+      "jurisdiction": "federal",
+      "court": "U.S. Court of Appeals for the Fifth Circuit",
+      "court_short": "5th Cir.",
+      "court_level": "circuit",
+      "circuit": "5th",
+      "state": null,
+      "judge": null,
+      "rule_type": "proposed_local_rule",
+      "category": "disclosure_required",
+      "category_confidence": "medium",
+      "title": "Proposed amendment requiring AI certification (proposed Rule 32.3 / Form 6 amendment)",
+      "effective_date": "2023-11-21",
+      "source_url": "https://www.ca5.uscourts.gov/",
+      "source_pdf": null,
+      "summary": "The Fifth Circuit proposed an amendment to its local rules requiring counsel to certify either that no generative AI was used in drafting briefs or that any AI-generated text and citations were reviewed for accuracy by a human. Public comment period followed; status of final adoption pending agent verification.",
+      "verbatim_key_language": null,
+      "last_verified": null,
+      "provenance": "hand-seeded; this entry was a *proposal* and may have been withdrawn, modified, or adopted; status pending agent verification on first run",
+      "superseded_by": null
+    }
+  ]
+}

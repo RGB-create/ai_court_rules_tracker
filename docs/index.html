@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI Court Rules Tracker</title>
+<meta name="description" content="A continuously-updating index of U.S. judicial standing orders and local rules addressing generative AI in court filings." />
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <h1>AI Court Rules Tracker</h1>
+    <p class="tagline">Where U.S. courts stand on generative AI in court filings &mdash; updated weekly by an autonomous agent.</p>
+    <p class="meta">
+      Last updated: <span id="last-updated">&mdash;</span>
+      &middot; Total rules tracked: <span id="total-rules">&mdash;</span>
+      &middot; <a href="https://github.com/rgb-create/final_project" target="_blank" rel="noopener">Source &amp; methodology</a>
+    </p>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button class="tab active" data-tab="federal" role="tab" aria-selected="true">Federal courts</button>
+  <button class="tab" data-tab="state" role="tab" aria-selected="false">State courts</button>
+</nav>
+
+<main>
+  <section class="controls">
+    <input id="search" type="search" placeholder="Search court, judge, state, keyword&hellip;" aria-label="Search rules" />
+    <div class="legend" id="legend" aria-label="Category legend (click to filter)"></div>
+  </section>
+
+  <section class="map-panel">
+    <div id="map-container">
+      <svg id="us-map" viewBox="0 0 960 600" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Map of U.S. states colored by strictest AI rule in force"></svg>
+    </div>
+    <aside id="detail-panel" class="detail-panel">
+      <h2 id="detail-title">Click a state to see rules</h2>
+      <div id="detail-body">
+        <p class="muted">Hover over a state to preview the strictest rule currently in force; click to see the full list of orders for that jurisdiction.</p>
+      </div>
+    </aside>
+  </section>
+
+  <section class="trend-panel">
+    <h2>Cumulative rules over time</h2>
+    <canvas id="trend-chart" height="120"></canvas>
+  </section>
+
+  <section class="table-panel">
+    <h2>All tracked rules <span id="visible-count" class="muted"></span></h2>
+    <div class="table-wrapper">
+      <table id="rules-table">
+        <thead>
+          <tr>
+            <th data-sort="effective_date">Date</th>
+            <th data-sort="court">Court</th>
+            <th data-sort="judge">Judge</th>
+            <th data-sort="rule_type">Type</th>
+            <th data-sort="category">Category</th>
+            <th>Summary</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>
+    Built as a final project. The dataset is updated weekly by an agentic GitHub Action running Claude Code.
+    Hand-seeded entries are flagged with a provenance note pending agent verification.
+    This is a research artifact, not legal advice.
+  </p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

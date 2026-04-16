@@ -1,0 +1,2 @@
+# Per-run agent logs land here. Format: <UTC-date>-discovery.md (first run)
+# or <UTC-date>-incremental.md (subsequent runs). See AGENT_PROMPT.md.

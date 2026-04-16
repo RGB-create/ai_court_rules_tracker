@@ -1,0 +1,101 @@
+name: Weekly agent update
+
+on:
+  schedule:
+    # Every Monday at 13:00 UTC.
+    - cron: "0 13 * * 1"
+  workflow_dispatch:
+    # Allows triggering manually from the Actions tab — use this for the
+    # first discovery pass.
+    inputs:
+      mode_note:
+        description: "Optional note (logged in commit message)"
+        required: false
+        type: string
+
+permissions:
+  contents: write           # so the agent can commit data updates
+  id-token: write
+  pull-requests: write      # reserved for future PR-mode
+
+concurrency:
+  group: agent-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Skip if no Claude credentials configured
+        id: gate
+        run: |
+          if [ -z "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}" ] && [ -z "${{ secrets.ANTHROPIC_API_KEY }}" ]; then
+            echo "No CLAUDE_CODE_OAUTH_TOKEN or ANTHROPIC_API_KEY secret is set. Skipping agent run."
+            echo "Add a secret named CLAUDE_CODE_OAUTH_TOKEN (preferred — uses your Claude Pro subscription)"
+            echo "or ANTHROPIC_API_KEY (pay-as-you-go API balance) under Settings → Secrets and variables → Actions."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up Python
+        if: steps.gate.outputs.skip == 'false'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compose agent prompt
+        if: steps.gate.outputs.skip == 'false'
+        id: prompt
+        run: |
+          {
+            echo 'PROMPT<<__EOF__'
+            cat AGENT_PROMPT.md
+            echo
+            echo "---"
+            echo "Run trigger: ${{ github.event_name }}"
+            echo "Run note: ${{ inputs.mode_note }}"
+            echo "__EOF__"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Run Claude Code agent
+        if: steps.gate.outputs.skip == 'false'
+        uses: anthropics/claude-code-base-action@beta
+        with:
+          prompt: ${{ steps.prompt.outputs.PROMPT }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          allowed_tools: "Bash,Read,Write,Edit,Glob,Grep,WebFetch,WebSearch"
+          model: "claude-sonnet-4-5"
+
+      - name: Validate dataset
+        if: steps.gate.outputs.skip == 'false'
+        run: python scripts/validate.py
+
+      - name: Recompute history (in case agent forgot)
+        if: steps.gate.outputs.skip == 'false'
+        run: python scripts/compute_history.py
+
+      - name: Commit and push any changes
+        if: steps.gate.outputs.skip == 'false'
+        run: |
+          git config user.name "ai-court-rules-tracker-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "Agent update: $(date -u +%Y-%m-%d) ${{ inputs.mode_note }}"
+            for attempt in 1 2 3 4; do
+              if git push -u origin "${GITHUB_REF#refs/heads/}"; then
+                echo "Push succeeded on attempt $attempt"
+                exit 0
+              fi
+              sleep $((2 ** attempt))
+            done
+            echo "Push failed after retries" >&2
+            exit 1
+          else
+            echo "No changes to commit."
+          fi

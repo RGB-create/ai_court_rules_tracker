@@ -1,0 +1,64 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; color: #1a1a1a; background: #f6f7f9; }
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.muted { color: #666; font-weight: normal; font-size: 0.9em; }
+
+.site-header { background: #0f172a; color: #f8fafc; padding: 1.5rem 1rem; }
+.header-inner { max-width: 1280px; margin: 0 auto; }
+.site-header h1 { margin: 0 0 0.25rem 0; font-size: 1.75rem; letter-spacing: -0.01em; }
+.site-header .tagline { margin: 0 0 0.5rem 0; color: #cbd5e1; font-size: 1rem; }
+.site-header .meta { margin: 0; color: #94a3b8; font-size: 0.85rem; }
+.site-header .meta a { color: #93c5fd; }
+
+.tabs { max-width: 1280px; margin: 0 auto; padding: 0 1rem; display: flex; gap: 0.25rem; border-bottom: 1px solid #d1d5db; background: #f6f7f9; position: sticky; top: 0; z-index: 5; }
+.tab { background: transparent; border: none; padding: 0.85rem 1.25rem; font-size: 1rem; cursor: pointer; color: #475569; border-bottom: 3px solid transparent; font-weight: 500; }
+.tab:hover { color: #0f172a; }
+.tab.active { color: #0f172a; border-bottom-color: #0f172a; }
+
+main { max-width: 1280px; margin: 0 auto; padding: 1rem; }
+
+.controls { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem; flex-wrap: wrap; }
+#search { flex: 1; min-width: 240px; padding: 0.65rem 0.85rem; font-size: 1rem; border: 1px solid #d1d5db; border-radius: 6px; background: white; }
+#search:focus { outline: 2px solid #2563eb; outline-offset: -1px; border-color: transparent; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.legend-item { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.6rem; border-radius: 999px; background: white; border: 1px solid #e5e7eb; cursor: pointer; font-size: 0.8rem; user-select: none; }
+.legend-item:hover { border-color: #94a3b8; }
+.legend-item.active { background: #0f172a; color: white; border-color: #0f172a; }
+.legend-swatch { width: 12px; height: 12px; border-radius: 3px; }
+
+.map-panel { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; background: white; border-radius: 8px; border: 1px solid #e5e7eb; padding: 1rem; margin-bottom: 1rem; }
+@media (max-width: 900px) { .map-panel { grid-template-columns: 1fr; } }
+
+#map-container { width: 100%; }
+#us-map { width: 100%; height: auto; display: block; }
+#us-map .state { stroke: #ffffff; stroke-width: 0.75; cursor: pointer; transition: opacity 0.15s; }
+#us-map .state:hover { opacity: 0.75; }
+#us-map .state.selected { stroke: #0f172a; stroke-width: 2; }
+#us-map .state.no-data { fill: #f1f5f9; }
+
+.detail-panel { background: #f8fafc; border-radius: 6px; padding: 1rem; max-height: 480px; overflow-y: auto; }
+.detail-panel h2 { margin: 0 0 0.75rem 0; font-size: 1.1rem; }
+.detail-rule { background: white; border: 1px solid #e5e7eb; border-radius: 6px; padding: 0.75rem; margin-bottom: 0.5rem; border-left: 4px solid #94a3b8; }
+.detail-rule h3 { margin: 0 0 0.25rem 0; font-size: 0.95rem; }
+.detail-rule .meta-row { font-size: 0.8rem; color: #64748b; margin-bottom: 0.4rem; }
+.detail-rule .summary { font-size: 0.85rem; line-height: 1.4; margin: 0.4rem 0; }
+.detail-rule .category-pill { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 999px; font-size: 0.75rem; color: white; margin-right: 0.3rem; }
+.detail-rule .pending-flag { display: inline-block; padding: 0.1rem 0.4rem; background: #fef3c7; color: #92400e; border-radius: 4px; font-size: 0.7rem; margin-left: 0.3rem; }
+
+.trend-panel { background: white; border-radius: 8px; border: 1px solid #e5e7eb; padding: 1rem; margin-bottom: 1rem; }
+.trend-panel h2 { margin: 0 0 0.75rem 0; font-size: 1.1rem; }
+
+.table-panel { background: white; border-radius: 8px; border: 1px solid #e5e7eb; padding: 1rem; margin-bottom: 1rem; }
+.table-panel h2 { margin: 0 0 0.75rem 0; font-size: 1.1rem; }
+.table-wrapper { overflow-x: auto; }
+#rules-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+#rules-table th { text-align: left; padding: 0.5rem; border-bottom: 2px solid #e5e7eb; cursor: pointer; user-select: none; background: #f8fafc; position: sticky; top: 0; }
+#rules-table th:hover { background: #f1f5f9; }
+#rules-table td { padding: 0.5rem; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+#rules-table tr.row-tinted { border-left: 4px solid #94a3b8; }
+#rules-table .category-cell { white-space: nowrap; }
+#rules-table .category-pill { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 999px; font-size: 0.7rem; color: white; }
+
+footer { max-width: 1280px; margin: 0 auto; padding: 2rem 1rem; color: #64748b; font-size: 0.85rem; text-align: center; }
