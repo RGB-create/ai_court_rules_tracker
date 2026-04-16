@@ -16,8 +16,10 @@
     <h1>AI Court Rules Tracker</h1>
     <p class="tagline">Where U.S. courts stand on generative AI in court filings &mdash; updated weekly by an autonomous agent.</p>
     <p class="meta">
-      Last updated: <span id="last-updated">&mdash;</span>
+      Last updated: <span id="last-updated" title="&mdash;">&mdash;</span>
+      <span id="last-updated-relative" class="muted"></span>
       &middot; Total rules tracked: <span id="total-rules">&mdash;</span>
+      &middot; News items: <span id="total-news">&mdash;</span>
       &middot; <a href="https://github.com/rgb-create/final_project" target="_blank" rel="noopener">Source &amp; methodology</a>
     </p>
   </div>
@@ -26,15 +28,17 @@
 <nav class="tabs" role="tablist">
   <button class="tab active" data-tab="federal" role="tab" aria-selected="true">Federal courts</button>
   <button class="tab" data-tab="state" role="tab" aria-selected="false">State courts</button>
+  <button class="tab" data-tab="news" role="tab" aria-selected="false">In the news</button>
 </nav>
 
 <main>
   <section class="controls">
-    <input id="search" type="search" placeholder="Search court, judge, state, keyword&hellip;" aria-label="Search rules" />
+    <input id="search" type="search" placeholder="Search court, judge, state, keyword&hellip;" aria-label="Search" />
     <div class="legend" id="legend" aria-label="Category legend (click to filter)"></div>
+    <div class="legend" id="tag-legend" aria-label="News tag filter" hidden></div>
   </section>
 
-  <section class="map-panel">
+  <section class="map-panel" id="map-panel">
     <div id="map-container">
       <svg id="us-map" viewBox="0 0 960 600" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Map of U.S. states colored by strictest AI rule in force"></svg>
     </div>
@@ -46,12 +50,22 @@
     </aside>
   </section>
 
-  <section class="trend-panel">
+  <section class="trend-panel" id="trend-panel">
     <h2>Cumulative rules over time</h2>
     <canvas id="trend-chart" height="120"></canvas>
   </section>
 
-  <section class="table-panel">
+  <section class="news-panel" id="news-panel" hidden>
+    <h2>In the news <span id="news-count" class="muted"></span></h2>
+    <p class="muted" id="news-empty-hint" hidden>
+      The news sweep runs with each weekly agent pass. Once the first discovery run completes,
+      reputable reporting on judicial AI activity &mdash; new orders, hallucinated-citation
+      incidents, sanctions, bar guidance &mdash; will populate here.
+    </p>
+    <div id="news-list"></div>
+  </section>
+
+  <section class="table-panel" id="table-panel">
     <h2>All tracked rules <span id="visible-count" class="muted"></span></h2>
     <div class="table-wrapper">
       <table id="rules-table">

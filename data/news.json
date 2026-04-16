@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "last_updated": "2026-04-16T00:00:00Z",
+  "tag_vocabulary": {
+    "new_standing_order": {
+      "label": "New standing order",
+      "description": "Article reports a newly issued judicial AI order or local rule."
+    },
+    "rule_update": {
+      "label": "Rule update",
+      "description": "Article reports an amendment, withdrawal, or clarification of an existing AI rule."
+    },
+    "hallucinated_citations": {
+      "label": "Hallucinated citations",
+      "description": "Reporting on filings with fabricated or AI-hallucinated case citations."
+    },
+    "sanctions": {
+      "label": "Sanctions",
+      "description": "Attorneys sanctioned, referred to bar authorities, or otherwise disciplined for AI misuse."
+    },
+    "state_court": {
+      "label": "State court",
+      "description": "Activity originating in state courts or state bar authorities."
+    },
+    "federal_court": {
+      "label": "Federal court",
+      "description": "Activity originating in federal courts."
+    },
+    "scholarship": {
+      "label": "Scholarship",
+      "description": "Academic or think-tank analysis of judicial AI policy."
+    },
+    "bar_guidance": {
+      "label": "Bar guidance",
+      "description": "State or local bar association ethics opinions or practice guidance on AI."
+    },
+    "policy_debate": {
+      "label": "Policy debate",
+      "description": "Opinion pieces, policy arguments, or debates about how courts should approach AI."
+    }
+  },
+  "articles": []
+}

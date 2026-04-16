@@ -6,38 +6,82 @@
 const STATE_TOPOJSON_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 const RULES_URL = "../data/rules.json";
 const HISTORY_URL = "../data/history.json";
+const NEWS_URL = "../data/news.json";
 
 const state = {
   rules: [],
   categories: {},
   history: null,
-  activeTab: "federal",          // "federal" | "state"
+  news: { articles: [], tag_vocabulary: {} },
+  activeTab: "federal",          // "federal" | "state" | "news"
   activeCategories: new Set(),   // empty = show all
+  activeTags: new Set(),         // for News tab
   searchTerm: "",
   selectedState: null,           // two-letter postal code
   topology: null,
   trendChart: null,
+  lastUpdated: null,             // Date object
 };
 
 // --------- bootstrap ---------
 async function init() {
-  const [rulesResp, historyResp, topo] = await Promise.all([
+  const [rulesResp, historyResp, newsResp, topo] = await Promise.all([
     fetch(RULES_URL).then(r => r.json()),
     fetch(HISTORY_URL).then(r => r.json()).catch(() => null),
+    fetch(NEWS_URL).then(r => r.json()).catch(() => ({ articles: [], tag_vocabulary: {} })),
     fetch(STATE_TOPOJSON_URL).then(r => r.json()),
   ]);
   state.rules = rulesResp.rules || [];
   state.categories = rulesResp.categories || {};
   state.history = historyResp;
+  state.news = newsResp;
   state.topology = topo;
 
-  document.getElementById("last-updated").textContent = rulesResp.last_updated || "—";
+  // Pick the most recent of rules / news last_updated as the site-wide timestamp.
+  const stamps = [rulesResp.last_updated, newsResp.last_updated].filter(Boolean).map(s => new Date(s));
+  state.lastUpdated = stamps.length ? new Date(Math.max(...stamps.map(d => d.getTime()))) : null;
+
   document.getElementById("total-rules").textContent = state.rules.length;
+  document.getElementById("total-news").textContent = (state.news.articles || []).length;
+
+  renderLastUpdated();
+  // Keep the relative timestamp fresh without a page reload.
+  setInterval(renderLastUpdated, 60_000);
 
   renderLegend();
+  renderTagLegend();
   bindTabs();
   bindSearch();
   renderAll();
+}
+
+function renderLastUpdated() {
+  const absEl = document.getElementById("last-updated");
+  const relEl = document.getElementById("last-updated-relative");
+  if (!state.lastUpdated) {
+    absEl.textContent = "—";
+    absEl.title = "";
+    relEl.textContent = "";
+    return;
+  }
+  const d = state.lastUpdated;
+  const abs = d.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
+  absEl.textContent = abs;
+  absEl.title = d.toISOString();
+  relEl.textContent = "(" + relativeTime(d) + ")";
+}
+
+function relativeTime(d) {
+  const diffSec = Math.round((Date.now() - d.getTime()) / 1000);
+  if (diffSec < 60) return "just now";
+  if (diffSec < 3600) return Math.floor(diffSec / 60) + " min ago";
+  if (diffSec < 86400) return Math.floor(diffSec / 3600) + " hr ago";
+  const days = Math.floor(diffSec / 86400);
+  if (days === 1) return "yesterday";
+  if (days < 30) return days + " days ago";
+  const months = Math.floor(days / 30);
+  if (months < 12) return months + " mo ago";
+  return Math.floor(days / 365) + " yr ago";
 }
 
 // --------- rendering ---------
@@ -58,10 +102,29 @@ function activeRules() {
 }
 
 function renderAll() {
-  renderMap();
-  renderDetail();
-  renderTable();
-  renderTrend();
+  applyTabVisibility();
+  if (state.activeTab === "news") {
+    renderNews();
+  } else {
+    renderMap();
+    renderDetail();
+    renderTable();
+    renderTrend();
+  }
+}
+
+function applyTabVisibility() {
+  const isNews = state.activeTab === "news";
+  document.getElementById("map-panel").hidden = isNews;
+  document.getElementById("trend-panel").hidden = isNews;
+  document.getElementById("table-panel").hidden = isNews;
+  document.getElementById("news-panel").hidden = !isNews;
+  document.getElementById("legend").hidden = isNews;
+  document.getElementById("tag-legend").hidden = !isNews;
+  const searchEl = document.getElementById("search");
+  searchEl.placeholder = isNews
+    ? "Search news (headline, publication, summary, tag)\u2026"
+    : "Search court, judge, state, keyword\u2026";
 }
 
 function renderLegend() {
@@ -71,13 +134,37 @@ function renderLegend() {
   for (const [slug, cat] of sorted) {
     const btn = document.createElement("button");
     btn.className = "legend-item" + (state.activeCategories.has(slug) ? " active" : "");
-    btn.innerHTML = `<span class="legend-swatch" style="background:${cat.color}"></span><span>${cat.label}</span>`;
+    btn.innerHTML = `<span class="legend-swatch" style="background:${cat.color}"></span><span>${escapeHtml(cat.label)}</span>`;
     btn.title = cat.description;
     btn.addEventListener("click", () => {
       if (state.activeCategories.has(slug)) state.activeCategories.delete(slug);
       else state.activeCategories.add(slug);
       renderLegend();
       renderAll();
+    });
+    el.appendChild(btn);
+  }
+}
+
+function renderTagLegend() {
+  const el = document.getElementById("tag-legend");
+  el.innerHTML = "";
+  const vocab = state.news.tag_vocabulary || {};
+  const slugs = Object.keys(vocab);
+  if (slugs.length === 0) {
+    el.innerHTML = `<span class="muted" style="padding: 0.35rem 0.6rem; font-size: 0.8rem;">News tags appear once the agent populates news.json.</span>`;
+    return;
+  }
+  for (const slug of slugs) {
+    const btn = document.createElement("button");
+    btn.className = "legend-item" + (state.activeTags.has(slug) ? " active" : "");
+    btn.innerHTML = `<span>${escapeHtml(vocab[slug].label || slug)}</span>`;
+    btn.title = vocab[slug].description || "";
+    btn.addEventListener("click", () => {
+      if (state.activeTags.has(slug)) state.activeTags.delete(slug);
+      else state.activeTags.add(slug);
+      renderTagLegend();
+      renderNews();
     });
     el.appendChild(btn);
   }
@@ -245,10 +332,23 @@ function renderTable() {
 
 function renderTrend() {
   const ctx = document.getElementById("trend-chart");
+  if (!ctx) return;
   if (!state.history || !state.history.snapshots || state.history.snapshots.length === 0) {
-    ctx.replaceWith(Object.assign(document.createElement("p"), { className: "muted", textContent: "No history yet — the trend chart will populate as the agent runs over time." }));
+    if (state.trendChart) { state.trendChart.destroy(); state.trendChart = null; }
+    const parent = ctx.parentElement;
+    ctx.style.display = "none";
+    let placeholder = parent.querySelector(".trend-empty");
+    if (!placeholder) {
+      placeholder = document.createElement("p");
+      placeholder.className = "muted trend-empty";
+      placeholder.textContent = "No history yet — the trend chart will populate as the agent runs over time.";
+      parent.appendChild(placeholder);
+    }
     return;
   }
+  ctx.style.display = "";
+  const placeholder = ctx.parentElement.querySelector(".trend-empty");
+  if (placeholder) placeholder.remove();
   const snaps = state.history.snapshots;
   const labels = snaps.map(s => s.date);
   const cats = Object.entries(state.categories).sort((a, b) => a[1].order - b[1].order);
@@ -270,6 +370,73 @@ function renderTrend() {
       elements: { line: { tension: 0.2 } },
     }
   });
+}
+
+// --------- News ---------
+function activeArticles() {
+  let arts = (state.news.articles || []).slice();
+  if (state.activeTags.size > 0) {
+    arts = arts.filter(a => (a.topic_tags || []).some(t => state.activeTags.has(t)));
+  }
+  const q = state.searchTerm.trim().toLowerCase();
+  if (q) {
+    arts = arts.filter(a => {
+      const hay = [a.title, a.publication, a.author, a.summary, (a.topic_tags || []).join(" ")]
+        .filter(Boolean).join(" ").toLowerCase();
+      return hay.includes(q);
+    });
+  }
+  arts.sort((x, y) => String(y.published_date || "").localeCompare(String(x.published_date || "")));
+  return arts;
+}
+
+function renderNews() {
+  const arts = activeArticles();
+  document.getElementById("news-count").textContent = `(${arts.length} article${arts.length === 1 ? "" : "s"})`;
+  const list = document.getElementById("news-list");
+  const hint = document.getElementById("news-empty-hint");
+
+  if ((state.news.articles || []).length === 0) {
+    hint.hidden = false;
+    list.innerHTML = "";
+    return;
+  }
+  hint.hidden = true;
+
+  if (arts.length === 0) {
+    list.innerHTML = `<p class="muted">No articles match the current filters.</p>`;
+    return;
+  }
+
+  list.innerHTML = arts.map(a => {
+    const vocab = state.news.tag_vocabulary || {};
+    const tags = (a.topic_tags || []).map(t => {
+      const label = (vocab[t] && vocab[t].label) || t;
+      const cls = (t === "hallucinated_citations" || t === "sanctions") ? " incident"
+               : (t === "new_standing_order" || t === "rule_update" || t === "bar_guidance") ? " policy"
+               : "";
+      return `<span class="news-tag${cls}">${escapeHtml(label)}</span>`;
+    }).join("");
+    const metaBits = [a.publication, a.author, formatDisplayDate(a.published_date)].filter(Boolean);
+    const related = (a.related_rule_ids || []).length
+      ? `<div class="related-rule-hint">Related tracked rule${a.related_rule_ids.length === 1 ? "" : "s"}: ${a.related_rule_ids.map(escapeHtml).join(", ")}</div>`
+      : "";
+    return `
+      <a class="news-card" href="${escapeAttr(a.url || '#')}" target="_blank" rel="noopener">
+        <h3>${escapeHtml(a.title || "(untitled)")}</h3>
+        <div class="news-meta">${metaBits.map(escapeHtml).join(" \u00b7 ")}</div>
+        <p class="news-summary">${escapeHtml(a.summary || "")}</p>
+        <div class="news-tags">${tags}</div>
+        ${related}
+      </a>`;
+  }).join("");
+}
+
+function formatDisplayDate(isoDate) {
+  if (!isoDate) return "";
+  const d = new Date(isoDate);
+  if (isNaN(d.getTime())) return isoDate;
+  return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
 }
 
 function escapeHtml(s) {
