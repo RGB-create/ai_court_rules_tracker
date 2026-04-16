@@ -15,34 +15,40 @@
       "order": 2,
       "description": "Generative AI prohibited; traditional/approved legal-research tools (e.g., Lexis, Westlaw, Bloomberg Law) permitted."
     },
+    "disclosure_with_traditional_verification": {
+      "label": "AI permitted with disclosure and verification against traditional sources",
+      "color": "#d35400",
+      "order": 3,
+      "description": "AI use permitted but counsel must disclose and/or certify that any AI-generated content was checked for accuracy against print reporters or traditional legal databases — i.e., verification via a non-AI source is required."
+    },
     "disclosure_required": {
       "label": "AI permitted with disclosure / certification",
       "color": "#e67e22",
-      "order": 3,
-      "description": "AI use permitted but counsel must disclose use and/or certify human verification."
+      "order": 4,
+      "description": "AI use permitted but counsel must disclose use and/or certify human verification, without specifying the method or source of verification."
     },
     "disclosure_except_assisted_research": {
       "label": "Disclosure required except for approved legal-research tools",
       "color": "#f1c40f",
-      "order": 4,
+      "order": 5,
       "description": "Disclosure required for generative AI; approved legal-research tools exempted from disclosure obligation."
     },
     "permitted_with_caution": {
       "label": "AI permitted with general accuracy obligation",
       "color": "#a3cb38",
-      "order": 5,
+      "order": 6,
       "description": "Order acknowledges AI use, imposes general accuracy/competence obligation, no affirmative disclosure duty."
     },
     "no_explicit_rule": {
       "label": "No explicit AI rule",
       "color": "#95a5a6",
-      "order": 6,
+      "order": 7,
       "description": "Court or judge has standing orders or local rules but none specifically address AI."
     },
     "permitted": {
       "label": "AI affirmatively permitted",
       "color": "#27ae60",
-      "order": 7,
+      "order": 8,
       "description": "Order or rule affirmatively permits AI use without disclosure or special conditions beyond default professional-conduct rules."
     }
   },
@@ -57,7 +63,7 @@
       "state": "TX",
       "judge": "Brantley Starr",
       "rule_type": "standing_order",
-      "category": "disclosure_required",
+      "category": "disclosure_with_traditional_verification",
       "category_confidence": "high",
       "title": "Mandatory Certification Regarding Generative Artificial Intelligence",
       "effective_date": "2023-05-30",

@@ -1,25 +1,18 @@
 # AI Court Rules Tracker
 
-A continuously-updating, public dashboard of U.S. judicial standing orders
-and local rules addressing generative AI in court filings.
+A public, continuously-updating index of U.S. judicial standing orders,
+general orders, administrative orders, and local rules that address
+generative AI in court filings.
 
-The project ingests court orders that speak to AI use, classifies each
-along a seven-point spectrum from outright prohibition to affirmative
-permission, and visualizes the result as an interactive U.S. map with
-search, category filters, and a cumulative trend chart. The dataset is
-maintained by an autonomous weekly Claude Code agent that runs as a GitHub
-Action.
+Each tracked rule is classified along an eight-point spectrum — from
+outright prohibition through disclosure-and-verification regimes to
+affirmative permission — and visualized as an interactive U.S. map with
+search, category filters, a table view, and a cumulative-rules-over-time
+chart. A companion "In the news" tab surfaces reputable reporting on new
+orders, hallucinated-citation incidents, sanctions, and bar ethics
+guidance.
 
-This is the second deliverable of a final-project assignment whose
-descriptive question is: across the accelerationist / safetyist / skeptic
-"Triad," who is more accurate about where the U.S. judiciary is heading
-on generative AI? The metric this dashboard tracks — the count and
-distribution of judicial AI orders over time — is designed to make that
-debate empirical rather than rhetorical.
-
-The accompanying short paper (deliverable 1) and the conversation
-transcript that produced this codebase (deliverable 3,
-[`TRANSCRIPT.md`](TRANSCRIPT.md)) live alongside this README.
+The dashboard is informational and is not legal advice.
 
 ---
 
@@ -28,10 +21,17 @@ transcript that produced this codebase (deliverable 3,
 Once GitHub Pages is enabled (see *Setup* below), the dashboard is
 published at `https://<your-github-username>.github.io/final_project/`.
 
-It has two tabs (Federal | State), a U.S. map color-coded by the strictest
+It has three tabs:
+
+- **Federal courts** — federal district, circuit, and specialty-court
+  orders and rules.
+- **State courts** — state trial, appellate, and supreme-court orders
+  and rules.
+- **In the news** — curated recent reporting on judicial AI activity.
+
+Each of the first two tabs includes a U.S. map colored by the strictest
 rule currently in force in each state, a category-filterable legend, a
-search box, a cumulative-rules-over-time chart, and a sortable detail
-table.
+keyword search, a cumulative trend chart, and a sortable detail table.
 
 ---
 
@@ -41,41 +41,44 @@ table.
 final_project/
 ├── data/
 │   ├── rules.json              # Canonical dataset; one entry per order/rule
-│   └── history.json            # Time-series of category counts
+│   └── news.json               # Curated news articles + locked tag vocabulary
 ├── docs/                       # GitHub Pages site (vanilla HTML/CSS/JS)
 │   ├── index.html
 │   ├── style.css
 │   └── app.js
 ├── scripts/
-│   ├── validate.py             # Schema validator (CI gate)
-│   └── compute_history.py      # Appends today's snapshot to history.json
+│   └── validate.py             # Schema validator (CI gate)
 ├── .github/workflows/
-│   ├── update.yml              # Weekly agent run
+│   ├── update.yml              # Scheduled weekly update
 │   └── pages.yml               # Dashboard deployment
-├── AGENT_PROMPT.md             # The prompt the agent reads each run
-├── TRANSCRIPT.md               # Conversation that built this project
+├── AGENT_PROMPT.md             # Update-worker instructions
 └── README.md
 ```
 
+The trend chart on the dashboard is computed on the client directly from
+each rule's `effective_date`, so there is no separate history file to
+maintain.
+
 ---
 
-## How the autonomous updater works
+## How updates work
 
 A scheduled GitHub Action (`.github/workflows/update.yml`) runs every
-Monday at 13:00 UTC and on manual trigger. It:
+Monday at 13:00 UTC and on manual trigger. Each run:
 
 1. Checks out the repo.
-2. Invokes the `anthropics/claude-code-base-action`, passing the contents
-   of `AGENT_PROMPT.md` as the prompt.
-3. The agent reads the current dataset, decides whether this is a
-   "discovery pass" (first real run) or an "incremental update," and
-   uses web search + web fetch to find new or changed orders.
-4. The agent writes structured updates to `data/rules.json`, runs the
-   validator and the history script, and commits.
-5. The push to the branch triggers `pages.yml`, which redeploys the
-   dashboard with the new data.
+2. Invokes `anthropics/claude-code-base-action` with the instructions in
+   `AGENT_PROMPT.md`.
+3. The worker reads the current dataset, decides whether this is a
+   "discovery pass" (first real run) or an "incremental update," uses
+   web search + web fetch to find new or changed orders, and writes
+   structured updates to `data/rules.json` and `data/news.json`.
+4. The validator in `scripts/validate.py` runs as a gate on the changes.
+5. The worker commits directly to the branch.
+6. The push triggers `pages.yml`, which redeploys the dashboard with the
+   new data.
 
-The agent reasons over a strict schema and a fixed seven-category
+The worker reasons over a strict schema and a fixed eight-category
 taxonomy (defined in `AGENT_PROMPT.md`). If it encounters a rule that
 doesn't fit any category, the prompt instructs it to surface the
 mismatch in `taxonomy_review.md` rather than silently invent a new
@@ -83,7 +86,7 @@ slug.
 
 ---
 
-## Setup (one-time, by you)
+## Setup (one-time)
 
 ### 1. Push this repo to GitHub
 
@@ -91,30 +94,23 @@ slug.
 git push -u origin claude/ai-impact-tracking-tool-YOHsc
 ```
 
-Open a PR into `main` if you want, or merge directly. The dashboard
-deploys from whichever branch GitHub Pages is configured to read.
+The dashboard deploys from whichever branch GitHub Pages is configured
+to read.
 
-### 2. Add your Claude Code OAuth token as a repo secret
+### 2. Add an API credential as a repo secret
 
-The agent authenticates against your existing Claude Pro subscription
-via an OAuth token, so each weekly run consumes a small slice of your
-Pro quota instead of being billed to a separate API balance.
+The update workflow needs one of:
 
-Generate the token locally:
+- `CLAUDE_CODE_OAUTH_TOKEN` — generated locally via `claude setup-token`
+  (uses your Claude Pro subscription).
+- `ANTHROPIC_API_KEY` — pay-as-you-go API balance.
 
-```bash
-claude setup-token
-```
+In the repo's **Settings → Secrets and variables → Actions**, click
+**New repository secret** and add whichever you prefer. The workflow
+uses the OAuth token if both are present.
 
-Copy the resulting token. Then in GitHub:
-
-1. Open the repo's **Settings → Secrets and variables → Actions**.
-2. Click **New repository secret**.
-3. Name: `CLAUDE_CODE_OAUTH_TOKEN`. Value: paste the token. Save.
-
-(Alternatively, if you'd rather use pay-as-you-go API billing, add
-`ANTHROPIC_API_KEY` instead. The workflow will use whichever is set,
-preferring the OAuth token.)
+If neither secret is set, the workflow no-ops with a helpful message
+rather than failing.
 
 ### 3. Enable GitHub Pages
 
@@ -122,26 +118,22 @@ In the repo's **Settings → Pages**:
 
 - Source: **GitHub Actions**.
 
-The first push to the deployment branch will trigger `pages.yml` and
-publish the dashboard.
+The first push to the deployment branch triggers `pages.yml` and
+publishes the dashboard.
 
 ### 4. Run the first discovery pass
 
 Open the **Actions** tab, pick **Weekly agent update**, click **Run
-workflow**, and trigger it manually. Optionally add a note like "first
-discovery pass" — it'll show up in the commit message.
-
-The discovery pass will replace the hand-seeded entries with verified
-ones, set `discovery_pass_completed: true`, and write a summary log to
-`transcripts/runs/<date>-discovery.md`. It typically takes 5–15 minutes
-and consumes a modest amount of your Claude Pro quota (roughly equivalent
-to a long interactive coding session).
+workflow**, and trigger it manually. The discovery pass replaces the
+hand-seeded entries with verified ones, sets
+`discovery_pass_completed: true`, and writes a summary log to
+`transcripts/runs/<date>-discovery.md`.
 
 ### 5. Sit back
 
 After the discovery pass, the workflow runs automatically every Monday.
-You can also re-run manually any time. Each run commits its changes
-directly to the branch and re-deploys the dashboard.
+You can re-run manually any time. Each run commits directly to the
+branch and redeploys the dashboard.
 
 ---
 
@@ -154,10 +146,10 @@ cd final_project
 python3 -m http.server 8080 --directory .
 ```
 
-Then open `http://localhost:8080/docs/`. The dashboard will fetch
-`../data/rules.json`, which works because we're serving the repo root.
-(In the deployed version, the build step in `pages.yml` flattens
-`data/` next to `index.html` and rewrites the fetch path accordingly.)
+Then open `http://localhost:8080/docs/`. The dashboard fetches
+`../data/rules.json`, which works because the server is rooted at the
+repo root. (In the deployed version, `pages.yml` flattens `data/` next
+to `index.html` and rewrites the fetch path accordingly.)
 
 To validate the dataset:
 
@@ -165,36 +157,32 @@ To validate the dataset:
 python3 scripts/validate.py
 ```
 
-To recompute the trend snapshot:
-
-```bash
-python3 scripts/compute_history.py
-```
-
 ---
 
 ## Data schema
 
 See [`AGENT_PROMPT.md`](AGENT_PROMPT.md) for the full schema, category
-definitions, and rules the agent must follow. The schema is intentionally
-strict so that the dashboard can render reliably and so that misclassified
-or unverified entries are visible rather than hidden.
+definitions, and editorial rules. The schema is intentionally strict so
+that the dashboard can render reliably and so that misclassified or
+unverified entries are visible rather than hidden.
 
-Hand-seeded entries (the five orders that ship with the initial commit)
-have `last_verified: null` and a `provenance` note indicating they need
-verification on the first agent run. The dashboard renders them with an
-`unverified` flag.
+Entries that ship with the initial commit are hand-seeded with
+`last_verified: null` and a `provenance` note indicating they need
+reconciliation against the primary source on the first automated run.
+The dashboard renders them with an `unverified` flag.
 
 ---
 
 ## Caveats
 
-- This is a research artifact for a course project, **not legal advice**.
-- The seven-category taxonomy is provisional; the discovery pass is
-  designed to surface mismatches via `taxonomy_review.md`.
+- This is an informational project, **not legal advice**. Always
+  consult the order itself and current court guidance before relying
+  on any entry.
+- The eight-category taxonomy is provisional; mismatches should be
+  surfaced via `taxonomy_review.md`.
 - State-level coverage will lag federal-court coverage because state
   judicial orders are less consistently published online.
-- The federal map uses state-level granularity (each state colored by the
-  strictest federal rule in force in any federal court located there). A
-  true federal-judicial-district map is a planned follow-up; it requires
-  the agent to bootstrap a district-boundary GeoJSON file into `docs/geo/`.
+- The federal map uses state-level granularity (each state colored by
+  the strictest federal rule in force in any federal court located
+  there). A true federal-judicial-district map is a planned follow-up;
+  it requires a district-boundary GeoJSON file in `docs/geo/`.

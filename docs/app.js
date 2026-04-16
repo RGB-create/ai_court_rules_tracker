@@ -1,17 +1,16 @@
 // AI Court Rules Tracker — dashboard
-// Pure vanilla JS. Loads ../data/rules.json and ../data/history.json,
+// Pure vanilla JS. Loads ../data/rules.json and ../data/news.json,
 // renders a US state choropleth (D3 + us-atlas), a search-filtered table,
-// a category legend that doubles as a filter, and a trend chart (Chart.js).
+// a category legend that doubles as a filter, and a trend chart (Chart.js)
+// computed directly from each rule's effective_date.
 
 const STATE_TOPOJSON_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 const RULES_URL = "../data/rules.json";
-const HISTORY_URL = "../data/history.json";
 const NEWS_URL = "../data/news.json";
 
 const state = {
   rules: [],
   categories: {},
-  history: null,
   news: { articles: [], tag_vocabulary: {} },
   activeTab: "federal",          // "federal" | "state" | "news"
   activeCategories: new Set(),   // empty = show all
@@ -25,15 +24,13 @@ const state = {
 
 // --------- bootstrap ---------
 async function init() {
-  const [rulesResp, historyResp, newsResp, topo] = await Promise.all([
+  const [rulesResp, newsResp, topo] = await Promise.all([
     fetch(RULES_URL).then(r => r.json()),
-    fetch(HISTORY_URL).then(r => r.json()).catch(() => null),
     fetch(NEWS_URL).then(r => r.json()).catch(() => ({ articles: [], tag_vocabulary: {} })),
     fetch(STATE_TOPOJSON_URL).then(r => r.json()),
   ]);
   state.rules = rulesResp.rules || [];
   state.categories = rulesResp.categories || {};
-  state.history = historyResp;
   state.news = newsResp;
   state.topology = topo;
 
@@ -152,7 +149,7 @@ function renderTagLegend() {
   const vocab = state.news.tag_vocabulary || {};
   const slugs = Object.keys(vocab);
   if (slugs.length === 0) {
-    el.innerHTML = `<span class="muted" style="padding: 0.35rem 0.6rem; font-size: 0.8rem;">News tags appear once the agent populates news.json.</span>`;
+    el.innerHTML = `<span class="muted" style="padding: 0.35rem 0.6rem; font-size: 0.8rem;">News tags appear once articles are indexed.</span>`;
     return;
   }
   for (const slug of slugs) {
@@ -291,17 +288,30 @@ function ruleCardHtml(r) {
   const cat = state.categories[r.category];
   const color = cat ? cat.color : "#94a3b8";
   const label = cat ? cat.label : r.category;
-  const pending = r.last_verified == null ? `<span class="pending-flag" title="Hand-seeded; awaiting agent verification">unverified</span>` : "";
+  const pending = r.last_verified == null ? `<span class="pending-flag" title="Not yet reconciled against the primary source">unverified</span>` : "";
   const courtBits = [r.court_short || r.court, r.judge].filter(Boolean).join(" — ");
   const link = r.source_pdf || r.source_url;
+  const summary = r.summary || "";
+  const isQuote = isQuotedExcerpt(summary);
+  const summaryCls = isQuote ? "summary" : "summary plain";
   return `
     <div class="detail-rule" style="border-left-color:${color}">
       <h3>${escapeHtml(r.title || r.id)} ${pending}</h3>
       <div class="meta-row">${escapeHtml(courtBits)} &middot; ${escapeHtml(r.effective_date || "date unknown")} &middot; ${escapeHtml(r.rule_type || "")}</div>
       <div><span class="category-pill" style="background:${color}">${escapeHtml(label)}</span></div>
-      <p class="summary">${escapeHtml(r.summary || "")}</p>
+      ${isQuote
+        ? `<blockquote class="${summaryCls}">${escapeHtml(summary)}</blockquote>`
+        : `<p class="${summaryCls}">${escapeHtml(summary)}</p>`}
       ${link ? `<p class="meta-row"><a href="${escapeAttr(link)}" target="_blank" rel="noopener">Source &rarr;</a></p>` : ""}
     </div>`;
+}
+
+// A summary rendered as an italic blockquote if it opens with a quotation mark
+// (indicating the agent populated it as a direct excerpt from the order).
+function isQuotedExcerpt(s) {
+  if (!s) return false;
+  const first = s.trim().charAt(0);
+  return first === "\"" || first === "\u201C"; // straight or curly open-quote
 }
 
 function renderTable() {
@@ -317,6 +327,8 @@ function renderTable() {
     const color = cat ? cat.color : "#94a3b8";
     const label = cat ? cat.label : r.category;
     const link = r.source_pdf || r.source_url;
+    const summary = r.summary || "";
+    const summaryCls = isQuotedExcerpt(summary) ? "summary-cell" : "summary-cell plain";
     return `
       <tr class="row-tinted" style="border-left-color:${color}">
         <td>${escapeHtml(r.effective_date || "")}</td>
@@ -324,7 +336,7 @@ function renderTable() {
         <td>${escapeHtml(r.judge || "—")}</td>
         <td>${escapeHtml((r.rule_type || "").replace(/_/g, " "))}</td>
         <td class="category-cell"><span class="category-pill" style="background:${color}">${escapeHtml(label)}</span></td>
-        <td>${escapeHtml(r.summary || "")}</td>
+        <td class="${summaryCls}">${escapeHtml(summary)}</td>
         <td>${link ? `<a href="${escapeAttr(link)}" target="_blank" rel="noopener">link</a>` : "—"}</td>
       </tr>`;
   }).join("");
@@ -333,7 +345,16 @@ function renderTable() {
 function renderTrend() {
   const ctx = document.getElementById("trend-chart");
   if (!ctx) return;
-  if (!state.history || !state.history.snapshots || state.history.snapshots.length === 0) {
+
+  // Consider only the currently-visible jurisdiction, and exclude superseded entries
+  // so the stacked counts reflect what is actually in force.
+  const inForce = state.rules.filter(r =>
+    r.jurisdiction === state.activeTab &&
+    !r.superseded_by &&
+    r.effective_date
+  );
+
+  if (inForce.length === 0) {
     if (state.trendChart) { state.trendChart.destroy(); state.trendChart = null; }
     const parent = ctx.parentElement;
     ctx.style.display = "none";
@@ -341,7 +362,7 @@ function renderTrend() {
     if (!placeholder) {
       placeholder = document.createElement("p");
       placeholder.className = "muted trend-empty";
-      placeholder.textContent = "No history yet — the trend chart will populate as the agent runs over time.";
+      placeholder.textContent = "No rules with an effective date are tracked yet.";
       parent.appendChild(placeholder);
     }
     return;
@@ -349,16 +370,37 @@ function renderTrend() {
   ctx.style.display = "";
   const placeholder = ctx.parentElement.querySelector(".trend-empty");
   if (placeholder) placeholder.remove();
-  const snaps = state.history.snapshots;
-  const labels = snaps.map(s => s.date);
+
+  // X axis: one label per month from the earliest effective_date (or 2023-01 — whichever is earlier)
+  // through the current month.
+  const earliest = inForce.reduce((min, r) => r.effective_date < min ? r.effective_date : min, "9999-12-31");
+  const startYM = Math.min(ym(earliest), ym("2023-01-01"));
+  const now = new Date();
+  const endYM = now.getUTCFullYear() * 12 + now.getUTCMonth();
+
+  const labels = [];
+  for (let m = startYM; m <= endYM; m++) {
+    const y = Math.floor(m / 12);
+    const mo = (m % 12) + 1;
+    labels.push(`${y}-${String(mo).padStart(2, "0")}`);
+  }
+
   const cats = Object.entries(state.categories).sort((a, b) => a[1].order - b[1].order);
-  const datasets = cats.map(([slug, cat]) => ({
-    label: cat.label,
-    data: snaps.map(s => (s.by_category && s.by_category[slug]) || 0),
-    backgroundColor: cat.color,
-    borderColor: cat.color,
-    fill: true,
-  }));
+  const datasets = cats.map(([slug, cat]) => {
+    const rulesInCat = inForce.filter(r => r.category === slug);
+    const data = labels.map(label => {
+      const cutoff = label + "-31"; // anything effective on or before this month-end counts
+      return rulesInCat.filter(r => r.effective_date <= cutoff).length;
+    });
+    return {
+      label: cat.label,
+      data,
+      backgroundColor: cat.color,
+      borderColor: cat.color,
+      fill: true,
+    };
+  });
+
   if (state.trendChart) state.trendChart.destroy();
   state.trendChart = new Chart(ctx, {
     type: "line",
@@ -366,10 +408,19 @@ function renderTrend() {
     options: {
       responsive: true,
       plugins: { legend: { position: "bottom", labels: { boxWidth: 12, font: { size: 10 } } } },
-      scales: { y: { stacked: true, beginAtZero: true, title: { display: true, text: "Cumulative rules" } } },
-      elements: { line: { tension: 0.2 } },
+      scales: {
+        y: { stacked: true, beginAtZero: true, title: { display: true, text: "Cumulative rules in force" } },
+        x: { ticks: { maxTicksLimit: 12, autoSkip: true } },
+      },
+      elements: { line: { tension: 0.2 }, point: { radius: 0 } },
     }
   });
+}
+
+// Convert an ISO date string (YYYY-MM-DD) to a month-index: year*12 + month0.
+function ym(isoDate) {
+  const [y, m] = isoDate.split("-");
+  return parseInt(y, 10) * 12 + (parseInt(m, 10) - 1);
 }
 
 // --------- News ---------

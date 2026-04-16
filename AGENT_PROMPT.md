@@ -6,8 +6,10 @@ generative AI in court filings.
 
 Your job each run is to keep **`data/rules.json`** accurate, complete, and
 honest, and to keep **`data/news.json`** current with recent reputable
-reporting on judicial AI activity. After updating them, run
-`scripts/compute_history.py` so the trend chart on the dashboard updates.
+reporting on judicial AI activity. The dashboard's trend chart is computed
+on the client from each rule's `effective_date`, so there is no separate
+history file to maintain — but each rule's `effective_date` must be as
+accurate as you can make it.
 
 Always set `last_updated` on both `rules.json` and `news.json` to the
 current UTC time in ISO-8601 format with the `Z` suffix
@@ -57,9 +59,9 @@ Read `data/rules.json` and inspect `discovery_pass_completed`.
 | `category_confidence` | yes | `"high"` \| `"medium"` \| `"low"` \| `"uncategorized"` | Your read of how cleanly the rule fits the chosen category. |
 | `title` | yes | string | The order's official title, or a descriptive title if untitled. |
 | `effective_date` | yes | string (ISO-8601) | `YYYY-MM-DD`. Use the order's effective or signing date. If only the year is known, use `YYYY-01-01` and add a note. |
-| `source_url` | yes | string\|null | Best canonical URL. Court's own page when available; otherwise a reputable legal-press URL. |
-| `source_pdf` | recommended | string\|null | Direct PDF link to the order itself if available. |
-| `summary` | yes | string | 1–3 sentence plain-English summary. |
+| `source_url` | yes | string\|null | Best canonical URL. Court's own page when available; otherwise a reputable legal-press URL. Prefer a deep-link to the specific order page rather than the court's home page. |
+| `source_pdf` | **yes when available** | string\|null | Direct link to the order PDF itself. **Populate this whenever the order is available as a PDF** — the dashboard surfaces it as the primary "Source" link so readers land on the order, not a court home page. |
+| `summary` | yes | string | A **direct quoted excerpt** from the order — not a paraphrase. Use double quotation marks around the quote, `[bracketed text]` for editorial insertions or clarifications, and `...` for any omitted language, following standard legal-writing convention. Keep the excerpt short (≤ 3 sentences) and focus on the operative language that explains the rule's substance. If the order is not available in text form, a concise plain-English summary is acceptable as a fallback — flag this in the `provenance` field. |
 | `verbatim_key_language` | recommended | string\|null | Direct quote of the order's operative sentence. **Only fill this if you can copy from the source — do not paraphrase into this field.** |
 | `last_verified` | yes | string\|null | ISO date of the most recent run on which you confirmed the order is still in force at the cited URL. `null` for unverified seed entries. |
 | `provenance` | yes | string | How this entry got here: `"hand-seeded; pending verification"`, `"agent discovery 2026-04"`, `"agent incremental update 2026-08"`, etc. |
@@ -73,16 +75,35 @@ Read `data/rules.json` and inspect `discovery_pass_completed`.
 2. `prohibited_except_assisted_research` — generative AI prohibited; approved
    legal-research tools (Lexis, Westlaw, Bloomberg Law, Fastcase, etc.)
    permitted.
-3. `disclosure_required` — AI use permitted but requires disclosure and/or
-   certification of human verification.
-4. `disclosure_except_assisted_research` — disclosure required for generative
+3. `disclosure_with_traditional_verification` — AI use permitted but counsel
+   must disclose and/or certify that any AI-generated content was checked
+   for accuracy **against print reporters or traditional legal databases**
+   (i.e., the order specifies that verification must come from a non-AI
+   source). The Starr (N.D. Tex.) standing order is the canonical example.
+4. `disclosure_required` — AI use permitted but requires disclosure and/or
+   certification of human verification, without specifying the verification
+   method or source.
+5. `disclosure_except_assisted_research` — disclosure required for generative
    AI; approved legal-research tools exempted from disclosure.
-5. `permitted_with_caution` — order acknowledges AI, imposes general accuracy
+6. `permitted_with_caution` — order acknowledges AI, imposes general accuracy
    obligation, no affirmative disclosure duty.
-6. `no_explicit_rule` — court has standing orders or local rules but none
+7. `no_explicit_rule` — court has standing orders or local rules but none
    address AI. **Use sparingly — do not enumerate every AI-silent court.**
-7. `permitted` — order or rule affirmatively permits AI use without
+8. `permitted` — order or rule affirmatively permits AI use without
    disclosure or special conditions.
+
+**Distinguishing 2, 3, and 4 (the three closest categories):**
+
+- If the order *prohibits* generative AI outright but carves out Lexis /
+  Westlaw / similar named legal-research tools → **`prohibited_except_assisted_research`**.
+- If the order *permits* AI but requires the user to verify AI-generated
+  content against print reporters or traditional legal databases (i.e.,
+  "don't trust the AI — go check a non-AI source") → **`disclosure_with_traditional_verification`**.
+- If the order *permits* AI with a generic disclosure or human-verification
+  requirement but does not specify *what* source verification must come
+  from → **`disclosure_required`**.
+- If the order requires disclosure generally but carves out a disclosure
+  exemption for Lexis / Westlaw / similar → **`disclosure_except_assisted_research`**.
 
 If a real-world order doesn't fit any of these cleanly, do **not** force it.
 Add it to `taxonomy_review.md` with the verbatim language and a proposed new
@@ -117,10 +138,9 @@ Steps:
    verified entry with a fresh `id`.
 6. After all updates: set `discovery_pass_completed: true` and update
    `last_updated` to today's date.
-7. Run validation and history compute:
+7. Run validation:
    ```
    python scripts/validate.py
-   python scripts/compute_history.py
    ```
 8. Write `transcripts/runs/<UTC-date>-discovery.md` summarizing: how many
    entries you added, how many you verified vs. couldn't verify, sources
@@ -139,8 +159,8 @@ Goal: find what's new or changed since the last run.
 
 Steps:
 
-1. Read `data/history.json` to find the date of the previous snapshot.
-   Your "since" window is from that date through today.
+1. Read `data/rules.json::last_updated` to find the timestamp of the
+   previous run. Your "since" window is from that timestamp through today.
 2. Search for orders issued, amended, or withdrawn in that window. Useful
    queries: same as discovery pass but scoped to recent dates.
 3. For each candidate, fetch the primary source and either:
@@ -152,7 +172,7 @@ Steps:
    `last_verified` older than 90 days. Update `last_verified` if the URL
    still resolves and the order is unchanged.
 5. Update `last_updated` to today's date.
-6. Run validation and history compute (same commands as discovery pass).
+6. Run validation (`python scripts/validate.py`).
 7. Write `transcripts/runs/<UTC-date>-incremental.md` summarizing changes
    in 5–10 lines.
 
