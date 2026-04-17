@@ -235,14 +235,26 @@ Steps:
   where the standing order, local rule, or AI policy is published —
   NOT the court's home page, NOT a generic judge bio page, and NOT a
   law-firm or press article. `source_pdf` should be a direct link to
-  the order PDF on the court's domain (e.g.,
-  `https://www.txnd.uscourts.gov/sites/default/files/orders/...pdf`).
-  To find these:
-  - Search `site:<court-domain> "artificial intelligence"` or
-    `site:<court-domain> "generative AI"`
-  - Look for the court's standing-orders or local-rules page and
-    navigate to the specific order
-  - Check the judge's individual page for standing orders
+  the order PDF on the court's domain.
+
+  **Worked example — Northern District of Texas:**
+  1. Search `site:txnd.uscourts.gov "artificial intelligence"`.
+  2. Find the court's local civil rules PDF:
+     `https://www.txnd.uscourts.gov/sites/default/files/documents/CIVRULES.pdf`
+  3. Read the PDF section titled "Disclosure of Use of Generative
+     Artificial Intelligence."
+  4. Set `source_pdf` to that URL. Set `source_url` to the court's
+     local-rules landing page that links to the PDF.
+  5. Quote the operative language from that section in `summary`.
+
+  **Follow this same pattern for every entry:**
+  - Search `site:<court-domain> "artificial intelligence"` to find the
+    specific document.
+  - Look for the court's standing-orders, local-rules, or general-
+    orders page and navigate to the specific order or PDF.
+  - Check the judge's individual page for standing orders.
+  - Read the PDF or HTML page and quote from the actual text.
+
   If after searching you truly cannot find a court-hosted URL for a
   specific order, set `source_url` to `null` and note the gap in the
   `provenance` field. Do not substitute a law-firm or press URL in
