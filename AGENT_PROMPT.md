@@ -247,12 +247,24 @@ Steps:
      local-rules landing page that links to the PDF.
   5. Quote the operative language from that section in `summary`.
 
+  **Another example — Judge Iain Johnston (N.D. Ill.):**
+  1. Search `site:ilnd.uscourts.gov Johnston "artificial intelligence"`.
+  2. Find the judge's page:
+     `https://www.ilnd.uscourts.gov/judge_display.php?LastName=Johnston`
+  3. The page has a dropdown section called "Artificial Intelligence"
+     containing the judge's AI guidelines directly in the HTML.
+  4. Set `source_url` to the judge's page URL above.
+  5. Quote the operative language from that section in `summary`.
+
   **Follow this same pattern for every entry:**
   - Search `site:<court-domain> "artificial intelligence"` to find the
     specific document.
   - Look for the court's standing-orders, local-rules, or general-
     orders page and navigate to the specific order or PDF.
-  - Check the judge's individual page for standing orders.
+  - Check each judge's individual page — some judges publish AI
+    guidelines directly on their page (in dropdown sections, standing-
+    order links, or practice-guidelines tabs) rather than in a
+    separate PDF.
   - Read the PDF or HTML page and quote from the actual text.
 
   If after searching you truly cannot find a court-hosted URL for a
