@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "last_updated": "2026-04-16T00:00:00Z",
+  "last_updated": "2026-04-17T00:00:00Z",
   "tag_vocabulary": {
     "new_standing_order": {
       "label": "New standing order",
@@ -39,5 +39,126 @@
       "description": "Opinion pieces, policy arguments, or debates about how courts should approach AI."
     }
   },
-  "articles": []
+  "articles": [
+    {
+      "id": "reuters-ai-privilege-warning-2026-04-15",
+      "title": "AI ruling prompts warnings from US lawyers: Your chats could be used against you",
+      "publication": "Reuters",
+      "author": null,
+      "url": "https://www.investing.com/news/economic-indicators/ai-ruling-prompts-warnings-from-us-lawyers-your-chats-could-be-used-against-you-4614595",
+      "published_date": "2026-04-15",
+      "date_added": "2026-04-17",
+      "summary": "Federal judge in New York ruled that a former CEO of a bankrupt financial services company could not shield his AI chats from prosecutors pursuing securities fraud charges. Attorneys are now warning that conversations with chatbots like Claude and ChatGPT could be demanded by prosecutors in criminal cases or by litigation adversaries in civil cases.",
+      "topic_tags": ["federal_court", "scholarship"],
+      "related_rule_ids": []
+    },
+    {
+      "id": "globenewswire-litigators-ai-platform-2026-04-16",
+      "title": "BCC Research Launches Litigators AI, a Platform to Transform Legal Research and Citation Accuracy for Trial Attorneys",
+      "publication": "Globe Newswire",
+      "author": null,
+      "url": "https://www.globenewswire.com/news-release/2026/04/16/3275327/0/en/BCC-Research-Launches-Litigators-AI-a-Platform-to-Transform-Legal-Research-and-Citation-Accuracy-for-Trial-Attorneys.html",
+      "published_date": "2026-04-16",
+      "date_added": "2026-04-17",
+      "summary": "New AI platform launched specifically to address citation accuracy concerns for trial attorneys, responding to the growing crisis of AI hallucinations in legal filings and the escalating sanctions imposed by courts.",
+      "topic_tags": ["policy_debate"],
+      "related_rule_ids": []
+    },
+    {
+      "id": "bloomberglaw-ai-hallucinations-sanctions-reporting-2026",
+      "title": "Spread of AI Hallucinations Drives Need for Sanctions Reporting",
+      "publication": "Bloomberg Law",
+      "author": null,
+      "url": "https://news.bloomberglaw.com/legal-exchange-insights-and-commentary/spread-of-ai-hallucinations-drives-need-for-sanctions-reporting",
+      "published_date": "2026-02-01",
+      "date_added": "2026-04-17",
+      "summary": "Article argues that the growing prevalence of AI hallucinations in legal filings is driving a nationwide crisis, with hundreds of instances causing courts to spend meaningful time identifying fabricated authorities, issuing show-cause orders, conducting hearings, and drafting sanctions opinions. Calls for mandatory reporting of AI-related sanctions.",
+      "topic_tags": ["hallucinated_citations", "sanctions", "federal_court", "policy_debate"],
+      "related_rule_ids": []
+    },
+    {
+      "id": "bloomberglaw-bankruptcy-judges-sanctions-2025",
+      "title": "Bankruptcy Judges Step Up Sanctions on Attorneys Misusing AI",
+      "publication": "Bloomberg Law",
+      "author": null,
+      "url": "https://news.bloomberglaw.com/bankruptcy-law/bankruptcy-judges-step-up-sanctions-on-attorneys-misusing-ai",
+      "published_date": "2025-11-01",
+      "date_added": "2026-04-17",
+      "summary": "Reports on increasing trend of bankruptcy court judges imposing sanctions on attorneys who submit AI-generated filings with hallucinated case citations, reflecting a broader escalation in judicial responses to AI misuse across all court levels.",
+      "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
+      "related_rule_ids": ["us-fed-bkcy-ndtx-jernigan-2023-06", "us-fed-bkcy-ndtx-general-2023-06", "us-fed-bkcy-wdok-hall-loyd-2023-07"]
+    },
+    {
+      "id": "bloomberglaw-sanctions-grow-punitive-2025-04",
+      "title": "ANALYSIS: AI Hallucination Sanctions Grow as Judges Get Punitive",
+      "publication": "Bloomberg Law",
+      "author": null,
+      "url": "https://news.bloomberglaw.com/bloomberg-law-analysis/analysis-ai-hallucination-sanctions-grow-as-judges-get-punitive",
+      "published_date": "2025-04-01",
+      "date_added": "2026-04-17",
+      "summary": "Analysis finds that judges are issuing sanctions at an increased pace since early 2025, while the number of new judicial standing orders has dropped off. Suggests judges are shifting from preventative measures to punitive responses to address the AI problem.",
+      "topic_tags": ["sanctions", "federal_court", "policy_debate"],
+      "related_rule_ids": []
+    },
+    {
+      "id": "npr-penalties-stack-up-2026-04-03",
+      "title": "Penalties stack up as AI spreads through the legal system",
+      "publication": "NPR",
+      "author": null,
+      "url": "https://www.npr.org/2026/04/03/nx-s1-5761454/penalties-stack-up-ai-spreads-through-legal-system",
+      "published_date": "2026-04-03",
+      "date_added": "2026-04-17",
+      "summary": "NPR report documenting the escalating financial penalties imposed on attorneys for AI-generated errors, noting that U.S. courts imposed over $145,000 in sanctions in the first quarter of 2026 alone, with one Oregon case reaching $109,700.",
+      "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
+      "related_rule_ids": []
+    },
+    {
+      "id": "platinumids-ai-crisis-2026",
+      "title": "1,227 Fabricated Citations and Counting: Inside the AI Hallucination Crisis Hitting Courts Worldwide",
+      "publication": "PlatinumIDS Blog",
+      "author": null,
+      "url": "https://blog.platinumids.com/blog/ai-hallucination-crisis-courts-2026",
+      "published_date": "2026-03-15",
+      "date_added": "2026-04-17",
+      "summary": "Reports that a database maintained by researcher Damien Charlotin at HEC Paris's Smart Law Hub has cataloged 1,227 cases globally in which generative AI produced hallucinated content that was submitted to courts, with about 800 from U.S. courts. Notes that new cases are being documented at a rate of five to six per day.",
+      "topic_tags": ["hallucinated_citations", "federal_court", "state_court", "scholarship"],
+      "related_rule_ids": []
+    },
+    {
+      "id": "calmatters-chatgpt-fine-2025-09",
+      "title": "California issues historic fine over lawyer's ChatGPT fabrications",
+      "publication": "CalMatters",
+      "author": null,
+      "url": "https://calmatters.org/economy/technology/2025/09/chatgpt-lawyer-fine-ai-regulation/",
+      "published_date": "2025-09-01",
+      "date_added": "2026-04-17",
+      "summary": "California state court issued what was described as a historic fine against an attorney who submitted ChatGPT-generated fabricated case citations, marking one of the first major state court sanctions for AI misuse in legal practice.",
+      "topic_tags": ["sanctions", "state_court", "hallucinated_citations"],
+      "related_rule_ids": []
+    },
+    {
+      "id": "abajournal-california-courts-ai-policies-2025-07",
+      "title": "California's courts must adopt AI policies, judicial council says",
+      "publication": "ABA Journal",
+      "author": null,
+      "url": "https://www.abajournal.com/news/article/californias-courts-must-adopt-ai-policies-judicial-council-says",
+      "published_date": "2025-07-01",
+      "date_added": "2026-04-17",
+      "summary": "California Judicial Council requires each court to adopt policies prohibiting the entry of confidential or personal information into public generative AI systems and requiring disclosure of AI use when final work products consist entirely of generative AI outputs.",
+      "topic_tags": ["new_standing_order", "state_court", "bar_guidance"],
+      "related_rule_ids": []
+    },
+    {
+      "id": "abajournal-judicial-ai-consortium-2026-02",
+      "title": "New group focuses on judges' use of artificial intelligence",
+      "publication": "ABA Journal",
+      "author": null,
+      "url": "https://www.abajournal.com/news/article/new-group-focuses-on-judges-use-of-ai",
+      "published_date": "2026-02-01",
+      "date_added": "2026-04-17",
+      "summary": "Announces the formation of the Judicial Artificial Intelligence Consortium, a new organization focused on developing standards and best practices for judges' own use of AI tools across different jurisdictions. First meeting held February 25, 2026.",
+      "topic_tags": ["policy_debate", "federal_court", "state_court"],
+      "related_rule_ids": []
+    }
+  ]
 }
