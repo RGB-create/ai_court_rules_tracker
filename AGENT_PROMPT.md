@@ -113,7 +113,10 @@ category, and pause for human review.
 
 ## Discovery Pass
 
-Goal: build a comprehensive, verified seed dataset.
+Goal: build a comprehensive, verified seed dataset. There are **at least
+40–50 known federal orders** and a growing number of **state-court
+orders**. If you finish with fewer than 40 federal entries, you have
+not searched thoroughly enough.
 
 **Time management:** You have a limited execution window. Do NOT spend
 all your time searching — work in a tight search → write → validate
@@ -124,42 +127,66 @@ exhaustive research with nothing saved.
 
 Steps:
 
-1. Start with **one or two high-quality aggregator pages** — law-firm
-   trackers and legal-press compilations that list many orders in one
-   place. Useful starting queries:
-   - `judicial AI standing orders tracker`
-   - `generative AI court rules tracker list`
-   - law-firm aggregator pages (Ropes & Gray, BakerHostetler, Eversheds
-     Sutherland, Hunton Andrews Kurth, etc.)
-   Extract as many entries as you can from these pages first.
-2. For each candidate order, attempt to fetch the primary source (the
+1. Start with **high-quality aggregator pages** that compile many
+   orders in one place. These are your highest-yield sources — extract
+   as many entries as you can from each before moving on:
+   - Search `judicial AI standing orders tracker site:law.com OR
+     site:reuters.com OR site:bloomberglaw.com`
+   - Search `generative AI court rules tracker comprehensive list`
+   - Search `"standing order" "artificial intelligence" judge tracker
+     2024 2025`
+   - Fetch and scrape law-firm tracker pages — these often list 30–60+
+     orders each. Search for:
+     - `AI judicial standing orders tracker site:bakerhostetler.com`
+     - `AI court orders tracker site:ropesgray.com`
+     - `generative AI court rules site:huntonak.com`
+     - `AI standing orders compilation site:law.com`
+   - Search for the **American Bar Association** and **Federal Judicial
+     Center** compilations: `ABA AI court rules compilation`,
+     `Federal Judicial Center artificial intelligence`
+
+2. After exhausting aggregator pages, do **targeted searches by
+   circuit and state** to fill gaps:
+   - `"standing order" "generative AI" site:uscourts.gov` (all federal)
+   - For each federal circuit not yet covered: `"[circuit] circuit"
+     "artificial intelligence" standing order`
+   - **State courts are critical** — search specifically for them:
+     - `state court "generative AI" standing order OR local rule`
+     - `"state court" "artificial intelligence" disclosure certification`
+     - `Texas state court AI rule`, `California state court AI order`,
+       `New York state court AI`, `Florida state court AI rule` (and
+       other large states)
+     - `state supreme court "artificial intelligence" order 2024 2025`
+
+3. For each candidate order, attempt to fetch the primary source (the
    court's own page or the order PDF) to confirm details. If the
    primary source is not reachable, you may categorize from a reputable
    secondhand source (law-firm summary, legal press) with
    `category_confidence: "medium"` or `"low"`.
-3. Extract the schema fields. Fill `verbatim_key_language` with a direct
+4. Extract the schema fields. Fill `verbatim_key_language` with a direct
    quote when available.
-4. Categorize using the taxonomy above. Set `category_confidence`
+5. Categorize using the taxonomy above. Set `category_confidence`
    accordingly.
-5. **Write entries to `data/rules.json` in batches** — do not wait
+6. **Write entries to `data/rules.json` in batches** — do not wait
    until you have found every order. Replace or update each hand-seeded
    entry. Match by `id` if possible; otherwise, supersede the
    hand-seeded entry by setting its `superseded_by` to
    `"REPLACED-BY-VERIFIED-ENTRY"` and adding the verified entry with a
    fresh `id`.
-6. Run `python scripts/validate.py` after each batch to catch errors
+7. Run `python scripts/validate.py` after each batch to catch errors
    early.
-7. After all updates (or when time is running short): set
+8. After all updates (or when time is running short): set
    `discovery_pass_completed: true` and update `last_updated`.
-8. Do the news sweep (see below).
-9. Write `transcripts/runs/<UTC-date>-discovery.md` summarizing: how
-   many entries you added, how many you verified vs. couldn't verify,
-   sources you consulted, and any taxonomy questions raised.
+9. Do the news sweep (see below).
+10. Write `transcripts/runs/<UTC-date>-discovery.md` summarizing: how
+    many entries you added, how many you verified vs. couldn't verify,
+    sources you consulted, and any taxonomy questions raised.
 
-**Discovery-pass quality bar:** I would rather have 30 verified entries
-than 200 unverified ones. If you can't reach the primary source for an
-order, either skip it or include it with `category_confidence: "low"` and
-`last_verified: null`.
+**Discovery-pass quality bar:** Aim for at least 40 federal entries and
+any state-court entries you can find. If you can't reach the primary
+source for an order, include it with `category_confidence: "low"` and
+`last_verified: null` rather than skipping it entirely — breadth matters
+for the discovery pass.
 
 ---
 
@@ -193,8 +220,26 @@ Steps:
 - **Never fabricate.** If you cannot find a primary source for an order,
   do not invent dates, judges, or quotes. Set `category_confidence: "low"`
   and `last_verified: null` so it's flagged in the dashboard.
+- **Never fabricate quotes.** The `summary` field should contain a
+  **direct quoted excerpt** from the actual order text. If you cannot
+  access the order text (because the PDF is unreadable or the HTML page
+  doesn't include the full text), write a plain-English summary instead
+  and do NOT wrap it in quotation marks. A plain summary is fine — a
+  fake "quote" is not. The dashboard renders text starting with `"` as
+  an italic blockquote, so only use quotation marks when you are
+  genuinely quoting the order.
 - **Never silently change category slugs.** If the taxonomy is wrong,
   surface that in `taxonomy_review.md` and stop.
+- **URLs must be specific.** `source_url` must point to the specific
+  page for the order — NOT the court's home page or a generic judge
+  bio page. Acceptable URLs include:
+  - A court page that displays or links to the specific order
+  - A law-firm blog post analyzing the specific order
+  - A legal-press article about the specific order
+  If you cannot find a URL more specific than the court's home page,
+  set `source_url` to a law-firm or press page that discusses the
+  order, and note the court's domain in the `provenance` field.
+  `source_pdf` should be a direct link to the order PDF when available.
 - **Be cautious with PDFs.** Many court PDFs are behind redirects,
   CAPTCHAs, or access walls that return invalid data instead of the
   actual file. You may attempt to fetch and read a PDF if it is
@@ -266,13 +311,16 @@ no original reporting, and paywalled content without a readable excerpt.
 
 1. **Search window** — only search for articles published in the **last
    7 days**. Do not go further back.
-2. **Per-run cap** — add at most **10 new articles** per run. Stop
-   searching once you have 10.
-3. **Dedupe by URL** — if an article's URL already appears in
-   `articles[]`, skip it (it doesn't count toward the 10-article cap).
-4. **Retention window** — drop articles whose `published_date` is older
-   than 365 days, unless `related_rule_ids` is non-empty (those stay
-   for historical context).
+2. **Target exactly 10 articles from the past 7 days.** The goal is
+   that the news tab always shows 10 fresh, recent articles. Search
+   until you find 10 qualifying articles from the past week, or until
+   you have exhausted the available coverage — whichever comes first.
+3. **Drop stale articles** — before adding new ones, remove any
+   existing articles whose `published_date` is older than 7 days,
+   **unless** `related_rule_ids` is non-empty (those stay as long as
+   the linked rule is tracked).
+4. **Dedupe by URL** — if an article's URL already appears in
+   `articles[]`, skip it.
 5. **Total cap** — keep `articles[]` at ≤ 150 entries. If you're over,
    drop the oldest unlinked articles first.
 4. **Tag vocabulary is locked** — use only the slugs defined in
