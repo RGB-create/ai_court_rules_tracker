@@ -115,36 +115,46 @@ category, and pause for human review.
 
 Goal: build a comprehensive, verified seed dataset.
 
+**Time management:** You have a limited execution window. Do NOT spend
+all your time searching — work in a tight search → write → validate
+loop. After every batch of ~10 entries, write them to `data/rules.json`
+and run `python scripts/validate.py` to lock in progress. If you run
+out of time with partial results written, that is far better than
+exhaustive research with nothing saved.
+
 Steps:
 
-1. Use the web search tool to find published trackers and articles
-   compiling judicial AI orders. Useful starting queries:
-   - `"standing order" "generative AI" judge site:uscourts.gov`
-   - `"generative artificial intelligence" "local rule" court`
+1. Start with **one or two high-quality aggregator pages** — law-firm
+   trackers and legal-press compilations that list many orders in one
+   place. Useful starting queries:
    - `judicial AI standing orders tracker`
-   - `state court local rule generative AI`
+   - `generative AI court rules tracker list`
    - law-firm aggregator pages (Ropes & Gray, BakerHostetler, Eversheds
      Sutherland, Hunton Andrews Kurth, etc.)
-2. For each candidate order, **fetch the primary source** (the court's own
-   page or the order PDF). Do not categorize from a secondhand summary if
-   the primary source is reachable.
+   Extract as many entries as you can from these pages first.
+2. For each candidate order, attempt to fetch the primary source (the
+   court's own page or the order PDF) to confirm details. If the
+   primary source is not reachable, you may categorize from a reputable
+   secondhand source (law-firm summary, legal press) with
+   `category_confidence: "medium"` or `"low"`.
 3. Extract the schema fields. Fill `verbatim_key_language` with a direct
-   quote from the order itself, not the firm's paraphrase.
+   quote when available.
 4. Categorize using the taxonomy above. Set `category_confidence`
    accordingly.
-5. Replace or update each hand-seeded entry. Match by `id` if possible;
-   otherwise, supersede the hand-seeded entry by setting its
-   `superseded_by` to `"REPLACED-BY-VERIFIED-ENTRY"` and adding the
-   verified entry with a fresh `id`.
-6. After all updates: set `discovery_pass_completed: true` and update
-   `last_updated` to today's date.
-7. Run validation:
-   ```
-   python scripts/validate.py
-   ```
-8. Write `transcripts/runs/<UTC-date>-discovery.md` summarizing: how many
-   entries you added, how many you verified vs. couldn't verify, sources
-   you consulted, and any taxonomy questions raised.
+5. **Write entries to `data/rules.json` in batches** — do not wait
+   until you have found every order. Replace or update each hand-seeded
+   entry. Match by `id` if possible; otherwise, supersede the
+   hand-seeded entry by setting its `superseded_by` to
+   `"REPLACED-BY-VERIFIED-ENTRY"` and adding the verified entry with a
+   fresh `id`.
+6. Run `python scripts/validate.py` after each batch to catch errors
+   early.
+7. After all updates (or when time is running short): set
+   `discovery_pass_completed: true` and update `last_updated`.
+8. Do the news sweep (see below).
+9. Write `transcripts/runs/<UTC-date>-discovery.md` summarizing: how
+   many entries you added, how many you verified vs. couldn't verify,
+   sources you consulted, and any taxonomy questions raised.
 
 **Discovery-pass quality bar:** I would rather have 30 verified entries
 than 200 unverified ones. If you can't reach the primary source for an
