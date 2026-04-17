@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "last_updated": "2026-04-17T14:30:00Z",
+  "last_updated": "2026-04-17T19:09:10Z",
   "tag_vocabulary": {
     "new_standing_order": {
       "label": "New standing order",
@@ -89,15 +89,15 @@
       "related_rule_ids": []
     },
     {
-      "id": "reason-volokh-alabama-sanctions-2026-04-07",
-      "title": "AI 'Hallucinated Cases' Lead to $47K Sanctions",
-      "publication": "Reason",
+      "id": "hoodline-california-bar-charges-2026-04-14",
+      "title": "State Bar Charges Lawyers Over AI-Generated Fake Citations",
+      "publication": "Hoodline",
       "author": null,
-      "url": "https://reason.com/volokh/2026/04/07/ai-hallucinated-cases-lead-to-47k-sanctions/",
-      "published_date": "2026-04-07",
+      "url": "https://hoodline.com/2026/04/ai-hallucinations-put-three-california-lawyers-in-state-bar-crosshairs/",
+      "published_date": "2026-04-14",
       "date_added": "2026-04-17",
-      "summary": "Judge Anna Manasco in Alabama sanctioned Attorney Joshua Watkins and his law firm approximately $47,000 for misuse of AI that led to false statements to the court. The case demonstrates increasing willingness of courts to impose substantial financial penalties for AI-related errors.",
-      "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
+      "summary": "California State Bar filed charges against two attorneys for AI-generated fake citations and approved probation for a third. Omid Emile Khalifeh faces six counts of misconduct for an April 2025 trademark filing with fabricated citations, while Steven Thomas Romeyn is accused of filing an October 2025 brief with several made-up citations.",
+      "topic_tags": ["sanctions", "bar_guidance", "hallucinated_citations"],
       "related_rule_ids": []
     },
     {
@@ -149,14 +149,14 @@
       "related_rule_ids": []
     },
     {
-      "id": "npr-penalties-stack-up-2026-04-03",
-      "title": "Penalties stack up as AI spreads through the legal system",
-      "publication": "NPR",
+      "id": "sixth-circuit-blog-sanctions-2026-04-11",
+      "title": "Sixth Circuit Sanctions Attorneys for Fake Citations – What Does This Mean for Use of AI?",
+      "publication": "Sixth Circuit Appellate Blog",
       "author": null,
-      "url": "https://www.npr.org/2026/04/03/nx-s1-5761454/penalties-stack-up-ai-spreads-through-legal-system",
-      "published_date": "2026-04-03",
+      "url": "https://www.sixthcircuitappellateblog.com/recent-cases/sixth-circuit-sanctions-attorneys-for-fake-citations-what-does-this-mean-for-use-of-ai/",
+      "published_date": "2026-04-11",
       "date_added": "2026-04-17",
-      "summary": "NPR report documenting the escalating financial penalties imposed on attorneys for AI-generated errors, noting that U.S. courts imposed over $145,000 in sanctions in the first quarter of 2026 alone, with one Oregon case reaching $109,700.",
+      "summary": "Sixth Circuit imposed $30,000 sanctions against attorneys for submitting fabricated citations. The decision reinforces that attorneys bear full responsibility for citations regardless of the research method used, including AI-assisted research, and signals appellate courts' willingness to impose substantial penalties for citation fraud.",
       "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
       "related_rule_ids": []
     }
