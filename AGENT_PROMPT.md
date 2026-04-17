@@ -71,43 +71,64 @@ Read `data/rules.json` and inspect `discovery_pass_completed`.
 
 ## Categories (use these exact slugs)
 
-1. `prohibited` — AI use outright prohibited.
-2. `prohibited_except_assisted_research` — generative AI prohibited; approved
-   legal-research tools (Lexis, Westlaw, Bloomberg Law, Fastcase, etc.)
-   permitted.
-3. `disclosure_with_traditional_verification` — AI use permitted but counsel
-   must disclose and/or certify that any AI-generated content was checked
-   for accuracy **against print reporters or traditional legal databases**
-   (i.e., the order specifies that verification must come from a non-AI
-   source). The Starr (N.D. Tex.) standing order is the canonical example.
-4. `disclosure_required` — AI use permitted but requires disclosure and/or
-   certification of human verification, without specifying the verification
-   method or source.
-5. `disclosure_except_assisted_research` — disclosure required for generative
-   AI; approved legal-research tools exempted from disclosure.
-6. `permitted_with_caution` — order acknowledges AI, imposes general accuracy
-   obligation, no affirmative disclosure duty.
-7. `no_explicit_rule` — court has standing orders or local rules but none
-   address AI. **Use sparingly — do not enumerate every AI-silent court.**
-8. `permitted` — order or rule affirmatively permits AI use without
-   disclosure or special conditions.
+1. `prohibited` — **Prohibit all.** Prohibition of any use of AI, with
+   no exceptions.
+2. `prohibited_except_assisted_research` — **Prohibit except for
+   Westlaw, Lexis, etc.** The order/rule prohibits litigants from using
+   AI with an exception for legal tools such as Westlaw and Lexis.
+3. `disclosure_with_traditional_verification` — **Permit with
+   verification via traditional resources.** The order/rule permits
+   litigants to use AI as long as they verify the accuracy of any
+   AI-generated content using "print reporters" or "traditional legal
+   databases" (or "other reliable means" or similar language).
+4. `disclosure_required` — **Permit with disclosure/certification.**
+   The order/rule permits litigants to use any AI, but litigants must
+   disclose their AI usage and certify that they have reviewed and
+   verified any AI-generated content. The order/rule does not specify
+   exactly how litigants must verify the AI-generated content.
+5. `disclosure_except_assisted_research` — **Permit with
+   disclosure/certification for non-Westlaw, Lexis, etc.** The
+   order/rule permits litigants to use AI and requires them to disclose
+   and certify their AI usage. However, the disclosure and certification
+   requirement does not apply to the use of legal tools such as Westlaw
+   or Lexis.
+6. `permitted_with_caution` — **Permit with general accuracy
+   obligations.** The order/rule permits litigants to use any AI. It
+   may remind them of their obligations under FRCP Rule 11 or to verify
+   the accuracy of any AI-generated content, but it does not require
+   that litigants explicitly disclose and certify AI usage.
+7. `no_explicit_rule` — **No explicit AI rule.** Court or judge has
+   standing orders or local rules but none specifically address AI.
+   **Use sparingly — do not enumerate every AI-silent court.**
+8. `permitted` — **Permitted with no qualifications.** AI is permitted,
+   with no other conditions or reminders. This category is quite rare.
 
-**Distinguishing 2, 3, and 4 (the three closest categories):**
+**How to distinguish the categories — read the actual order text and
+ask these questions in order:**
 
-- If the order *prohibits* generative AI outright but carves out Lexis /
-  Westlaw / similar named legal-research tools → **`prohibited_except_assisted_research`**.
-- If the order *permits* AI but requires the user to verify AI-generated
-  content against print reporters or traditional legal databases (i.e.,
-  "don't trust the AI — go check a non-AI source") → **`disclosure_with_traditional_verification`**.
-- If the order *permits* AI with a generic disclosure or human-verification
-  requirement but does not specify *what* source verification must come
-  from → **`disclosure_required`**.
-- If the order requires disclosure generally but carves out a disclosure
-  exemption for Lexis / Westlaw / similar → **`disclosure_except_assisted_research`**.
+1. Does the order **prohibit** AI use entirely?
+   - Yes, with no exceptions → `prohibited`
+   - Yes, but carves out Westlaw / Lexis / similar → `prohibited_except_assisted_research`
+2. Does the order **permit** AI but require **verification via "print
+   reporters," "traditional legal databases," "traditional methods,"
+   "other reliable means,"** or similar language specifying that
+   verification must come from a non-AI source?
+   - Yes → `disclosure_with_traditional_verification`
+3. Does the order **permit** AI but require **disclosure and
+   certification** of AI usage (without specifying the verification
+   method)?
+   - Yes, with no carve-out for Westlaw/Lexis → `disclosure_required`
+   - Yes, but Westlaw/Lexis are exempt from the requirement → `disclosure_except_assisted_research`
+4. Does the order **permit** AI and merely **remind** litigants of
+   existing accuracy obligations (Rule 11, etc.) without requiring
+   explicit disclosure?
+   - Yes → `permitted_with_caution`
+5. Does the order **affirmatively permit** AI with no conditions at all?
+   - Yes → `permitted` (rare)
 
-If a real-world order doesn't fit any of these cleanly, do **not** force it.
-Add it to `taxonomy_review.md` with the verbatim language and a proposed new
-category, and pause for human review.
+If a real-world order doesn't fit any of these cleanly, do **not** force
+it. Add it to `taxonomy_review.md` with the verbatim language and a
+proposed new category, and pause for human review.
 
 ---
 

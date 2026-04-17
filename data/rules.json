@@ -7,37 +7,37 @@
       "label": "Prohibit all",
       "color": "#7f0000",
       "order": 1,
-      "description": "Generative AI use in court filings is outright prohibited."
+      "description": "Prohibition of any use of AI, with no exceptions."
     },
     "prohibited_except_assisted_research": {
       "label": "Prohibit except for Westlaw, Lexis, etc.",
       "color": "#c0392b",
       "order": 2,
-      "description": "Generative AI prohibited; traditional/approved legal-research tools (e.g., Lexis, Westlaw, Bloomberg Law) permitted."
+      "description": "The order/rule prohibits litigants from using AI with an exception for legal tools such as Westlaw and Lexis."
     },
     "disclosure_with_traditional_verification": {
       "label": "Permit with verification via traditional resources",
       "color": "#d35400",
       "order": 3,
-      "description": "AI use permitted but counsel must disclose and/or certify that any AI-generated content was checked for accuracy against print reporters or traditional legal databases — i.e., verification via a non-AI source is required."
+      "description": "The order/rule permits litigants to use AI as long as they verify the accuracy of any AI-generated content using \"print reporters\" or \"traditional legal databases\" (or \"other reliable means\" or similar language)."
     },
     "disclosure_required": {
       "label": "Permit with disclosure/certification",
       "color": "#e67e22",
       "order": 4,
-      "description": "AI use permitted but counsel must disclose use and/or certify human verification, without specifying the method or source of verification."
+      "description": "The order/rule permits litigants to use any AI, but litigants must disclose their AI usage and certify that they have reviewed and verified any AI-generated content. The order/rule does not specify exactly how litigants must verify the AI-generated content."
     },
     "disclosure_except_assisted_research": {
       "label": "Permit with disclosure/certification for non-Westlaw, Lexis, etc.",
       "color": "#f1c40f",
       "order": 5,
-      "description": "Disclosure required for generative AI; approved legal-research tools exempted from disclosure obligation."
+      "description": "The order/rule permits litigants to use AI and requires them to disclose and certify their AI usage. However, the disclosure and certification requirement does not apply to the use of legal tools such as Westlaw or Lexis."
     },
     "permitted_with_caution": {
       "label": "Permit with general accuracy obligations",
       "color": "#a3cb38",
       "order": 6,
-      "description": "Order acknowledges AI use, imposes general accuracy/competence obligation, no affirmative disclosure duty."
+      "description": "The order/rule permits litigants to use any AI. It may remind them of their obligations under FRCP Rule 11 or to verify the accuracy of any AI-generated content, but it does not require that litigants explicitly disclose and certify AI usage."
     },
     "no_explicit_rule": {
       "label": "No explicit AI rule",
@@ -49,7 +49,7 @@
       "label": "Permitted with no qualifications",
       "color": "#27ae60",
       "order": 8,
-      "description": "Order or rule affirmatively permits AI use without disclosure or special conditions beyond default professional-conduct rules."
+      "description": "AI is permitted, with no other conditions or reminders. This category is quite rare."
     }
   },
   "rules": [
