@@ -264,13 +264,17 @@ no original reporting, and paywalled content without a readable excerpt.
 
 ### Rules of the sweep
 
-1. **Dedupe by URL** — if an article's URL already appears in
-   `articles[]`, skip it.
-2. **Retention window** — drop articles whose `published_date` is older
+1. **Search window** — only search for articles published in the **last
+   7 days**. Do not go further back.
+2. **Per-run cap** — add at most **10 new articles** per run. Stop
+   searching once you have 10.
+3. **Dedupe by URL** — if an article's URL already appears in
+   `articles[]`, skip it (it doesn't count toward the 10-article cap).
+4. **Retention window** — drop articles whose `published_date` is older
    than 365 days, unless `related_rule_ids` is non-empty (those stay
    for historical context).
-3. **Cap** — keep `articles[]` at ≤ 150 entries. If you're over, drop
-   the oldest unlinked articles first.
+5. **Total cap** — keep `articles[]` at ≤ 150 entries. If you're over,
+   drop the oldest unlinked articles first.
 4. **Tag vocabulary is locked** — use only the slugs defined in
    `tag_vocabulary`. If you encounter a story that doesn't fit any
    tag, tag it with the closest match and note the mismatch in the
