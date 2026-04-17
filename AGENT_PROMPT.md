@@ -185,6 +185,16 @@ Steps:
   and `last_verified: null` so it's flagged in the dashboard.
 - **Never silently change category slugs.** If the taxonomy is wrong,
   surface that in `taxonomy_review.md` and stop.
+- **Do NOT read or pass PDF files to the API.** Many court PDFs are
+  behind redirects, CAPTCHAs, or access walls that return invalid data.
+  If WebFetch returns binary/PDF content, **do not attempt to read it
+  inline**. Instead: (1) record the PDF URL in the `source_pdf` field,
+  (2) extract the information you need from the HTML landing page,
+  law-firm summaries, or legal-press articles that describe the order,
+  and (3) populate `verbatim_key_language` only if you can copy text
+  from an HTML source — never from a PDF you tried to decode. If the
+  only source for an entry is a PDF you cannot read, include the entry
+  with `category_confidence: "low"` and `verbatim_key_language: null`.
 - **Cite sources in `source_url`.** Prefer the court's own domain
   (`uscourts.gov`, `[state].gov`); if unavailable, a reputable legal-press
   source (Reuters, Law360, Bloomberg Law, ABA Journal).
