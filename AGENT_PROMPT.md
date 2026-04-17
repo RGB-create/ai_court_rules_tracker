@@ -230,16 +230,23 @@ Steps:
   genuinely quoting the order.
 - **Never silently change category slugs.** If the taxonomy is wrong,
   surface that in `taxonomy_review.md` and stop.
-- **URLs must be specific.** `source_url` must point to the specific
-  page for the order — NOT the court's home page or a generic judge
-  bio page. Acceptable URLs include:
-  - A court page that displays or links to the specific order
-  - A law-firm blog post analyzing the specific order
-  - A legal-press article about the specific order
-  If you cannot find a URL more specific than the court's home page,
-  set `source_url` to a law-firm or press page that discusses the
-  order, and note the court's domain in the `provenance` field.
-  `source_pdf` should be a direct link to the order PDF when available.
+- **URLs must point to the court's own page or PDF for the order.**
+  `source_url` must link to the specific page on the court's website
+  where the standing order, local rule, or AI policy is published —
+  NOT the court's home page, NOT a generic judge bio page, and NOT a
+  law-firm or press article. `source_pdf` should be a direct link to
+  the order PDF on the court's domain (e.g.,
+  `https://www.txnd.uscourts.gov/sites/default/files/orders/...pdf`).
+  To find these:
+  - Search `site:<court-domain> "artificial intelligence"` or
+    `site:<court-domain> "generative AI"`
+  - Look for the court's standing-orders or local-rules page and
+    navigate to the specific order
+  - Check the judge's individual page for standing orders
+  If after searching you truly cannot find a court-hosted URL for a
+  specific order, set `source_url` to `null` and note the gap in the
+  `provenance` field. Do not substitute a law-firm or press URL in
+  `source_url` — those belong in the `provenance` field as context.
 - **Be cautious with PDFs.** Many court PDFs are behind redirects,
   CAPTCHAs, or access walls that return invalid data instead of the
   actual file. You may attempt to fetch and read a PDF if it is
