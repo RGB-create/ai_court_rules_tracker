@@ -113,80 +113,136 @@ category, and pause for human review.
 
 ## Discovery Pass
 
-Goal: build a comprehensive, verified seed dataset. There are **at least
-40–50 known federal orders** and a growing number of **state-court
-orders**. If you finish with fewer than 40 federal entries, you have
-not searched thoroughly enough.
+Goal: build a **comprehensive** and **accurate** dataset. There are
+at least 50+ known federal orders and a growing number of state-court
+orders. If you finish with fewer than 40 federal entries, you have not
+searched thoroughly enough.
 
-**Time management:** You have a limited execution window. Do NOT spend
-all your time searching — work in a tight search → write → validate
-loop. After every batch of ~10 entries, write them to `data/rules.json`
-and run `python scripts/validate.py` to lock in progress. If you run
-out of time with partial results written, that is far better than
-exhaustive research with nothing saved.
+**Time management:** You have a limited execution window. Work in a
+tight search → verify → write → validate loop. After every batch of
+~10 entries, write them to `data/rules.json` and run
+`python scripts/validate.py` to lock in progress. Partial results
+saved are far better than exhaustive research with nothing written.
 
-Steps:
+### Phase 1: Build a candidate list from aggregator pages
 
-1. Start with **high-quality aggregator pages** that compile many
-   orders in one place. These are your highest-yield sources — extract
-   as many entries as you can from each before moving on:
-   - Search `judicial AI standing orders tracker site:law.com OR
-     site:reuters.com OR site:bloomberglaw.com`
-   - Search `generative AI court rules tracker comprehensive list`
-   - Search `"standing order" "artificial intelligence" judge tracker
-     2024 2025`
-   - Fetch and scrape law-firm tracker pages — these often list 30–60+
-     orders each. Search for:
-     - `AI judicial standing orders tracker site:bakerhostetler.com`
-     - `AI court orders tracker site:ropesgray.com`
-     - `generative AI court rules site:huntonak.com`
-     - `AI standing orders compilation site:law.com`
-   - Search for the **American Bar Association** and **Federal Judicial
-     Center** compilations: `ABA AI court rules compilation`,
-     `Federal Judicial Center artificial intelligence`
+Use law-firm trackers and legal-press compilations to build a list of
+judge names, courts, and orders to verify. These are your highest-yield
+sources — but they are **only a starting point for the candidate list**.
+Do NOT take URLs, quotes, or categories from these pages. You will
+verify each candidate individually in Phase 2.
 
-2. After exhausting aggregator pages, do **targeted searches by
-   circuit and state** to fill gaps:
-   - `"standing order" "generative AI" site:uscourts.gov` (all federal)
-   - For each federal circuit not yet covered: `"[circuit] circuit"
-     "artificial intelligence" standing order`
-   - **State courts are critical** — search specifically for them:
-     - `state court "generative AI" standing order OR local rule`
-     - `"state court" "artificial intelligence" disclosure certification`
-     - `Texas state court AI rule`, `California state court AI order`,
-       `New York state court AI`, `Florida state court AI rule` (and
-       other large states)
-     - `state supreme court "artificial intelligence" order 2024 2025`
+Useful searches:
+- `judicial AI standing orders tracker`
+- `generative AI court rules tracker comprehensive list`
+- `AI judicial standing orders tracker site:bakerhostetler.com`
+- `AI court orders tracker site:ropesgray.com`
+- `generative AI court rules site:huntonak.com`
+- `ABA AI court rules compilation`
+- `state court "generative AI" standing order OR local rule`
+- `state supreme court "artificial intelligence" order`
 
-3. For each candidate order, attempt to fetch the primary source (the
-   court's own page or the order PDF) to confirm details. If the
-   primary source is not reachable, you may categorize from a reputable
-   secondhand source (law-firm summary, legal press) with
-   `category_confidence: "medium"` or `"low"`.
-4. Extract the schema fields. Fill `verbatim_key_language` with a direct
-   quote when available.
-5. Categorize using the taxonomy above. Set `category_confidence`
-   accordingly.
-6. **Write entries to `data/rules.json` in batches** — do not wait
-   until you have found every order. Replace or update each hand-seeded
-   entry. Match by `id` if possible; otherwise, supersede the
-   hand-seeded entry by setting its `superseded_by` to
-   `"REPLACED-BY-VERIFIED-ENTRY"` and adding the verified entry with a
-   fresh `id`.
-7. Run `python scripts/validate.py` after each batch to catch errors
-   early.
-8. After all updates (or when time is running short): set
+### Phase 2: Verify each candidate at the court's own website
+
+**For every single entry**, you must go to the court's own website and
+find the actual order text. This is the most important step. Do NOT
+skip it. The workflow for each entry is:
+
+**For judge-specific orders:**
+1. Go to the judge's page on the court website.
+2. Look for standing orders, practice guidelines, or procedures tabs/
+   sections/dropdowns. Some judges have an "Artificial Intelligence"
+   section directly on their page.
+3. If the judge links to PDF standing orders (civil or criminal),
+   fetch the PDF and search within it for "artificial intelligence."
+4. Set `source_url` to the judge's specific page. Set `source_pdf` to
+   the direct PDF link if the order is a PDF.
+5. **Read the actual AI policy text** and quote from it in `summary`.
+6. **Categorize based on what the order actually says** — not what a
+   law-firm summary says it says.
+
+**For court-wide local rules:**
+1. Go to the court's local-rules or general-orders page.
+2. Find the local rules PDF or the specific general order.
+3. Search within the document for "artificial intelligence."
+4. Set `source_url` to the rules landing page. Set `source_pdf` to
+   the direct PDF link.
+5. Quote from the actual text.
+
+### Worked examples
+
+**Example A — Court-wide local rule (N.D. Tex.):**
+1. Search `site:txnd.uscourts.gov "artificial intelligence"`.
+2. Find the local civil rules PDF:
+   `https://www.txnd.uscourts.gov/sites/default/files/documents/CIVRULES.pdf`
+3. Read the section "Disclosure of Use of Generative Artificial
+   Intelligence."
+4. Set `source_pdf` to that URL. Set `source_url` to the local-rules
+   page that links to it.
+5. Quote the operative language in `summary`.
+
+**Example B — Judge-specific webpage (Johnston, N.D. Ill.):**
+1. Search `site:ilnd.uscourts.gov Johnston "artificial intelligence"`.
+2. Find the judge's page:
+   `https://www.ilnd.uscourts.gov/judge_display.php?LastName=Johnston`
+3. The page has a dropdown section called "Artificial Intelligence"
+   with the AI guidelines directly in the HTML.
+4. Set `source_url` to that URL.
+5. Quote from the section in `summary`.
+
+**Example C — Judge-specific PDF (Hwang, C.D. Cal.):**
+1. Go to `https://apps.cacd.uscourts.gov/Jps/` — this lists all
+   judges. Click on Judge Hwang's specific page.
+2. Go to the "Orders and Additional Documents" tab.
+3. Find the civil standing order PDF. The direct link is:
+   `https://apps.cacd.uscourts.gov/JpsApi/file/958295e9-9590-493e-90bc-9e1f395df6bd`
+4. Read the PDF and find the "Artificial Intelligence" section.
+5. Set `source_pdf` to that direct PDF link. Set `source_url` to
+   Judge Hwang's specific page (not the all-judges listing page).
+6. The actual text says: "Any party who uses generative artificial
+   intelligence (such as ChatGPT, Harvey, CoCounsel, or Google Bard)
+   to generate any portion of a brief, pleading, or other filing must
+   attach to the filing a separate declaration disclosing the use of
+   artificial intelligence and certifying that the filer has reviewed
+   the source material and verified that the artificially generated
+   content is accurate and complies with the filer's Rule 11
+   obligations." — This is `disclosure_required`, NOT `permitted`.
+   Quote this (or a portion) in `summary`.
+
+**CRITICAL:** In Example C, a prior run incorrectly tagged Hwang as
+"permitted with no qualifications" and linked to the all-judges page.
+Both were wrong. The lesson: you MUST read the actual document and
+categorize based on what it says, not on assumptions.
+
+### Phase 3: Search for entries not on aggregator lists
+
+After verifying all candidates from aggregators, search for courts and
+judges that may have been missed:
+- `"standing order" "generative AI" site:uscourts.gov`
+- For each federal circuit not yet covered: `"[circuit] circuit"
+  "artificial intelligence" standing order`
+- **State courts:** `Texas state court AI rule`, `California state
+  court AI order`, `New York state court AI`, `Florida court AI`,
+  and other large states
+- `state court "artificial intelligence" disclosure certification`
+
+### Phase 4: Write and finalize
+
+1. **Write entries in batches** and run `python scripts/validate.py`
+   after each batch.
+2. After all updates (or when time is running short): set
    `discovery_pass_completed: true` and update `last_updated`.
-9. Do the news sweep (see below).
-10. Write `transcripts/runs/<UTC-date>-discovery.md` summarizing: how
-    many entries you added, how many you verified vs. couldn't verify,
-    sources you consulted, and any taxonomy questions raised.
+3. Do the news sweep (see below).
+4. Write `transcripts/runs/<UTC-date>-discovery.md` summarizing: how
+   many entries you added, sources consulted, and any taxonomy
+   questions raised.
 
-**Discovery-pass quality bar:** Aim for at least 40 federal entries and
-any state-court entries you can find. If you can't reach the primary
-source for an order, include it with `category_confidence: "low"` and
-`last_verified: null` rather than skipping it entirely — breadth matters
-for the discovery pass.
+**Quality bar:** Every entry must have (a) a `source_url` or
+`source_pdf` pointing to the court's own website, and (b) a `summary`
+that quotes or accurately paraphrases the actual order text. If you
+cannot verify an entry at the court's website, include it with
+`category_confidence: "low"`, `last_verified: null`, and a plain
+(non-quoted) summary.
 
 ---
 
@@ -231,46 +287,12 @@ Steps:
 - **Never silently change category slugs.** If the taxonomy is wrong,
   surface that in `taxonomy_review.md` and stop.
 - **URLs must point to the court's own page or PDF for the order.**
-  `source_url` must link to the specific page on the court's website
-  where the standing order, local rule, or AI policy is published —
-  NOT the court's home page, NOT a generic judge bio page, and NOT a
-  law-firm or press article. `source_pdf` should be a direct link to
-  the order PDF on the court's domain.
-
-  **Worked example — Northern District of Texas:**
-  1. Search `site:txnd.uscourts.gov "artificial intelligence"`.
-  2. Find the court's local civil rules PDF:
-     `https://www.txnd.uscourts.gov/sites/default/files/documents/CIVRULES.pdf`
-  3. Read the PDF section titled "Disclosure of Use of Generative
-     Artificial Intelligence."
-  4. Set `source_pdf` to that URL. Set `source_url` to the court's
-     local-rules landing page that links to the PDF.
-  5. Quote the operative language from that section in `summary`.
-
-  **Another example — Judge Iain Johnston (N.D. Ill.):**
-  1. Search `site:ilnd.uscourts.gov Johnston "artificial intelligence"`.
-  2. Find the judge's page:
-     `https://www.ilnd.uscourts.gov/judge_display.php?LastName=Johnston`
-  3. The page has a dropdown section called "Artificial Intelligence"
-     containing the judge's AI guidelines directly in the HTML.
-  4. Set `source_url` to the judge's page URL above.
-  5. Quote the operative language from that section in `summary`.
-
-  **Follow this same pattern for every entry:**
-  - Search `site:<court-domain> "artificial intelligence"` to find the
-    specific document.
-  - Look for the court's standing-orders, local-rules, or general-
-    orders page and navigate to the specific order or PDF.
-  - Check each judge's individual page — some judges publish AI
-    guidelines directly on their page (in dropdown sections, standing-
-    order links, or practice-guidelines tabs) rather than in a
-    separate PDF.
-  - Read the PDF or HTML page and quote from the actual text.
-
-  If after searching you truly cannot find a court-hosted URL for a
-  specific order, set `source_url` to `null` and note the gap in the
-  `provenance` field. Do not substitute a law-firm or press URL in
-  `source_url` — those belong in the `provenance` field as context.
+  See the worked examples in the Discovery Pass section. `source_url`
+  must be the judge's specific page or the court's specific rules page
+  — NOT a court home page, NOT an all-judges listing page, NOT a
+  law-firm or press article. `source_pdf` must be the direct PDF link
+  to the actual order document. If you cannot find a court-hosted URL,
+  set `source_url` to `null` and note the gap in `provenance`.
 - **Be cautious with PDFs.** Many court PDFs are behind redirects,
   CAPTCHAs, or access walls that return invalid data instead of the
   actual file. You may attempt to fetch and read a PDF if it is
