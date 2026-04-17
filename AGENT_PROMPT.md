@@ -267,8 +267,26 @@ WRONG — the order does not prohibit AI. It requires verification
 - A prior run categorized the Fla. 6th Cir. order as "prohibited
   except Westlaw/Lexis." The order permits AI with verification via
   traditional methods.
+- A prior run linked Judge Vaden (CIT) to the generic CIT home page.
+  Vaden is no longer listed as a CIT judge — his individual standing
+  order is no longer in effect. **Always check whether a judge is
+  still active.** If a judge has left the bench and there is no
+  court-wide policy, mark the entry `superseded_by: "WITHDRAWN"`.
+- A prior run linked Judge Fuentes (N.D. Ill.) to a broken URL and
+  fabricated a quote about AI disclosure. The actual standing order
+  PDF references the Illinois Supreme Court AI policy, which says
+  "Disclosure of AI use should not be required in a pleading." The
+  correct category is `permitted_with_caution`, not
+  `disclosure_required`. **Always follow cross-references** — if an
+  order says "see [external policy]," fetch that policy too.
+- A prior run linked Judge Baylson (E.D. Pa.) to the "active judges"
+  page, which returned a 404 because he is now a senior judge. The
+  correct page is under "senior judges." **Always verify that URLs
+  actually load. Check both active and senior judge listings.**
 - **The lesson: you MUST read the actual document, quote from it, and
-  categorize based on what it actually says.**
+  categorize based on what it actually says. Verify that URLs work.
+  Check whether judges are still on the bench. Follow cross-references
+  to external policies.**
 
 ### Phase 3: Search for entries not on aggregator lists
 
