@@ -46,7 +46,7 @@
       "description": "Court or judge has standing orders or local rules but none specifically address AI."
     },
     "permitted": {
-      "label": "AI affirmatively permitted",
+      "label": "Permitted with no qualifications",
       "color": "#27ae60",
       "order": 8,
       "description": "Order or rule affirmatively permits AI use without disclosure or special conditions beyond default professional-conduct rules."
