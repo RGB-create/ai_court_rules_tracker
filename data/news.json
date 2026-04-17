@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "last_updated": "2026-04-17T00:00:00Z",
+  "last_updated": "2026-04-17T14:30:00Z",
   "tag_vocabulary": {
     "new_standing_order": {
       "label": "New standing order",
@@ -65,39 +65,87 @@
       "related_rule_ids": []
     },
     {
-      "id": "bloomberglaw-ai-hallucinations-sanctions-reporting-2026",
-      "title": "Spread of AI Hallucinations Drives Need for Sanctions Reporting",
-      "publication": "Bloomberg Law",
+      "id": "reason-volokh-illinois-sanctions-2026-04-16",
+      "title": "$5K Sanctions for 'Egregious, Repeated, and Ongoing' AI Hallucinations in Self-Represented Litigant's Filings",
+      "publication": "Reason",
       "author": null,
-      "url": "https://news.bloomberglaw.com/legal-exchange-insights-and-commentary/spread-of-ai-hallucinations-drives-need-for-sanctions-reporting",
-      "published_date": "2026-02-01",
+      "url": "https://reason.com/volokh/2026/04/16/5k-sanctions-for-egregious-repeated-and-ongoing-ai-hallucinations-in-self-represented-litigants-filings/",
+      "published_date": "2026-04-16",
       "date_added": "2026-04-17",
-      "summary": "Article argues that the growing prevalence of AI hallucinations in legal filings is driving a nationwide crisis, with hundreds of instances causing courts to spend meaningful time identifying fabricated authorities, issuing show-cause orders, conducting hearings, and drafting sanctions opinions. Calls for mandatory reporting of AI-related sanctions.",
-      "topic_tags": ["hallucinated_citations", "sanctions", "federal_court", "policy_debate"],
+      "summary": "Federal judge in Illinois sanctioned a self-represented litigant $5,000 for egregious, repeated, and ongoing AI hallucinations in court filings, striking the plaintiff's motion for violating local rules.",
+      "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
       "related_rule_ids": []
     },
     {
-      "id": "bloomberglaw-bankruptcy-judges-sanctions-2025",
-      "title": "Bankruptcy Judges Step Up Sanctions on Attorneys Misusing AI",
-      "publication": "Bloomberg Law",
+      "id": "noah-news-courts-escalate-sanctions-2026-04-15",
+      "title": "Courts escalate sanctions as AI hallucinations in legal filings surge in 2026",
+      "publication": "Noah News",
       "author": null,
-      "url": "https://news.bloomberglaw.com/bankruptcy-law/bankruptcy-judges-step-up-sanctions-on-attorneys-misusing-ai",
-      "published_date": "2025-11-01",
+      "url": "https://noah-news.com/courts-escalate-sanctions-as-ai-hallucinations-in-legal-filings-surge-in-2026/",
+      "published_date": "2026-04-15",
       "date_added": "2026-04-17",
-      "summary": "Reports on increasing trend of bankruptcy court judges imposing sanctions on attorneys who submit AI-generated filings with hallucinated case citations, reflecting a broader escalation in judicial responses to AI misuse across all court levels.",
+      "summary": "U.S. courts escalate enforcement against AI-generated errors, with Q1 2026 sanctions totaling at least $145,000. Courts are moving from treating hallucinated citations as embarrassment to treating them as sanctionable misconduct requiring monetary penalties and professional discipline.",
       "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
-      "related_rule_ids": ["us-fed-bkcy-ndtx-jernigan-2023-06", "us-fed-bkcy-ndtx-general-2023-06", "us-fed-bkcy-wdok-hall-loyd-2023-07"]
+      "related_rule_ids": []
     },
     {
-      "id": "bloomberglaw-sanctions-grow-punitive-2025-04",
-      "title": "ANALYSIS: AI Hallucination Sanctions Grow as Judges Get Punitive",
-      "publication": "Bloomberg Law",
+      "id": "reason-volokh-alabama-sanctions-2026-04-07",
+      "title": "AI 'Hallucinated Cases' Lead to $47K Sanctions",
+      "publication": "Reason",
       "author": null,
-      "url": "https://news.bloomberglaw.com/bloomberg-law-analysis/analysis-ai-hallucination-sanctions-grow-as-judges-get-punitive",
-      "published_date": "2025-04-01",
+      "url": "https://reason.com/volokh/2026/04/07/ai-hallucinated-cases-lead-to-47k-sanctions/",
+      "published_date": "2026-04-07",
       "date_added": "2026-04-17",
-      "summary": "Analysis finds that judges are issuing sanctions at an increased pace since early 2025, while the number of new judicial standing orders has dropped off. Suggests judges are shifting from preventative measures to punitive responses to address the AI problem.",
-      "topic_tags": ["sanctions", "federal_court", "policy_debate"],
+      "summary": "Judge Anna Manasco in Alabama sanctioned Attorney Joshua Watkins and his law firm approximately $47,000 for misuse of AI that led to false statements to the court. The case demonstrates increasing willingness of courts to impose substantial financial penalties for AI-related errors.",
+      "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
+      "related_rule_ids": []
+    },
+    {
+      "id": "reason-volokh-tiger-king-sanctions-2026-04-12",
+      "title": "Tiger King Attorney Sanctioned for Filing Complaint with AI Hallucinations",
+      "publication": "Reason",
+      "author": null,
+      "url": "https://reason.com/volokh/2026/04/12/tiger-king-attorney-sanctioned-for-filing-complaint-with-ai-hallucinations/",
+      "published_date": "2026-04-12",
+      "date_added": "2026-04-17",
+      "summary": "Attorney sanctioned despite uncertainty about whether errors were from generative AI or counsel's own sloppiness. Court stated the resulting errors and legal misrepresentations are glaring and warranting sanctions, illustrating courts' intolerance for citation errors regardless of origin.",
+      "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
+      "related_rule_ids": []
+    },
+    {
+      "id": "ethics-reporter-judge-ai-paradox-2026-04-14",
+      "title": "The $145,000 Paradox: Courts Punish Lawyers for Using AI While 61% of Federal Judges Use It Themselves",
+      "publication": "The Ethics Reporter",
+      "author": null,
+      "url": "https://www.theethicsreporter.com/article/judges-use-ai-lawyers-face-record-sanctions-double-standard-2026",
+      "published_date": "2026-04-14",
+      "date_added": "2026-04-17",
+      "summary": "Analysis reveals that 61.6% of responding federal judges report using AI tools in their judicial work, primarily for legal research and document review, creating questions about enforcement standards while judges themselves use the technology. Examines the paradox of judicial AI use versus attorney sanctions.",
+      "topic_tags": ["policy_debate", "federal_court", "scholarship"],
+      "related_rule_ids": []
+    },
+    {
+      "id": "xira-not-ai-hallucination-2026-04-15",
+      "title": "It's Not An AI Hallucination — It's Lazy Editing Of A Human Paralegal",
+      "publication": "XIRA",
+      "author": null,
+      "url": "https://xira.com/p/2026/04/15/its-not-an-ai-hallucination-its-lazy-editing-of-a-human-paralegal/",
+      "published_date": "2026-04-15",
+      "date_added": "2026-04-17",
+      "summary": "Analysis argues that many cases attributed to AI hallucinations are actually human editing failures, where attorneys or paralegals fail to properly review and correct AI-generated content before filing, shifting the discourse from technological failure to professional responsibility.",
+      "topic_tags": ["policy_debate", "scholarship"],
+      "related_rule_ids": []
+    },
+    {
+      "id": "abajournal-new-orleans-attorneys-resign-2026-04-10",
+      "title": "2 government attorneys resign over use of fake AI citations",
+      "publication": "ABA Journal",
+      "author": null,
+      "url": "https://www.abajournal.com/news/article/2-new-orleans-government-attorneys-resign-over-use-of-fake-ai-citations",
+      "published_date": "2026-04-10",
+      "date_added": "2026-04-17",
+      "summary": "Two New Orleans government attorneys resigned after U.S. District Judge Carl Barbier of the Eastern District of Louisiana discovered false citations in a January 2026 motion. Attorney Harris admitted using ChatGPT to speed up research without verifying whether AI-generated cases were real.",
+      "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
       "related_rule_ids": []
     },
     {
@@ -110,54 +158,6 @@
       "date_added": "2026-04-17",
       "summary": "NPR report documenting the escalating financial penalties imposed on attorneys for AI-generated errors, noting that U.S. courts imposed over $145,000 in sanctions in the first quarter of 2026 alone, with one Oregon case reaching $109,700.",
       "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
-      "related_rule_ids": []
-    },
-    {
-      "id": "platinumids-ai-crisis-2026",
-      "title": "1,227 Fabricated Citations and Counting: Inside the AI Hallucination Crisis Hitting Courts Worldwide",
-      "publication": "PlatinumIDS Blog",
-      "author": null,
-      "url": "https://blog.platinumids.com/blog/ai-hallucination-crisis-courts-2026",
-      "published_date": "2026-03-15",
-      "date_added": "2026-04-17",
-      "summary": "Reports that a database maintained by researcher Damien Charlotin at HEC Paris's Smart Law Hub has cataloged 1,227 cases globally in which generative AI produced hallucinated content that was submitted to courts, with about 800 from U.S. courts. Notes that new cases are being documented at a rate of five to six per day.",
-      "topic_tags": ["hallucinated_citations", "federal_court", "state_court", "scholarship"],
-      "related_rule_ids": []
-    },
-    {
-      "id": "calmatters-chatgpt-fine-2025-09",
-      "title": "California issues historic fine over lawyer's ChatGPT fabrications",
-      "publication": "CalMatters",
-      "author": null,
-      "url": "https://calmatters.org/economy/technology/2025/09/chatgpt-lawyer-fine-ai-regulation/",
-      "published_date": "2025-09-01",
-      "date_added": "2026-04-17",
-      "summary": "California state court issued what was described as a historic fine against an attorney who submitted ChatGPT-generated fabricated case citations, marking one of the first major state court sanctions for AI misuse in legal practice.",
-      "topic_tags": ["sanctions", "state_court", "hallucinated_citations"],
-      "related_rule_ids": []
-    },
-    {
-      "id": "abajournal-california-courts-ai-policies-2025-07",
-      "title": "California's courts must adopt AI policies, judicial council says",
-      "publication": "ABA Journal",
-      "author": null,
-      "url": "https://www.abajournal.com/news/article/californias-courts-must-adopt-ai-policies-judicial-council-says",
-      "published_date": "2025-07-01",
-      "date_added": "2026-04-17",
-      "summary": "California Judicial Council requires each court to adopt policies prohibiting the entry of confidential or personal information into public generative AI systems and requiring disclosure of AI use when final work products consist entirely of generative AI outputs.",
-      "topic_tags": ["new_standing_order", "state_court", "bar_guidance"],
-      "related_rule_ids": []
-    },
-    {
-      "id": "abajournal-judicial-ai-consortium-2026-02",
-      "title": "New group focuses on judges' use of artificial intelligence",
-      "publication": "ABA Journal",
-      "author": null,
-      "url": "https://www.abajournal.com/news/article/new-group-focuses-on-judges-use-of-ai",
-      "published_date": "2026-02-01",
-      "date_added": "2026-04-17",
-      "summary": "Announces the formation of the Judicial Artificial Intelligence Consortium, a new organization focused on developing standards and best practices for judges' own use of AI tools across different jurisdictions. First meeting held February 25, 2026.",
-      "topic_tags": ["policy_debate", "federal_court", "state_court"],
       "related_rule_ids": []
     }
   ]
