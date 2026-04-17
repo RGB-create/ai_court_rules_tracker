@@ -148,38 +148,54 @@ Useful searches:
 find the actual order text. This is the most important step. Do NOT
 skip it. The workflow for each entry is:
 
-**For judge-specific orders:**
-1. Go to the judge's page on the court website.
-2. Look for standing orders, practice guidelines, or procedures tabs/
-   sections/dropdowns. Some judges have an "Artificial Intelligence"
-   section directly on their page.
-3. If the judge links to PDF standing orders (civil or criminal),
-   fetch the PDF and search within it for "artificial intelligence."
-4. Set `source_url` to the judge's specific page. Set `source_pdf` to
-   the direct PDF link if the order is a PDF.
-5. **Read the actual AI policy text** and quote from it in `summary`.
-6. **Categorize based on what the order actually says** — not what a
-   law-firm summary says it says.
+**The "zoom-out" workflow for each entry:**
 
-**For court-wide local rules:**
-1. Go to the court's local-rules or general-orders page.
-2. Find the local rules PDF or the specific general order.
-3. Search within the document for "artificial intelligence."
-4. Set `source_url` to the rules landing page. Set `source_pdf` to
-   the direct PDF link.
-5. Quote from the actual text.
+Start narrow and zoom out until you find the actual AI policy:
+
+1. **Check the judge's individual page.** Search for "artificial
+   intelligence" in any on-page text, dropdown sections, or linked
+   documents. If you find an AI policy here, great — use this URL.
+2. **If nothing on the judge's page:** check if the judge links to
+   PDF standing orders (civil or criminal). Fetch the PDF and search
+   for "artificial intelligence" within it.
+3. **If no judge-specific policy exists:** zoom out to the **court
+   level**. Go to the court's "rules and orders" or "local rules"
+   page. Find the local rules PDF (civil and/or criminal). Search
+   for "artificial intelligence" in the PDF.
+4. **Whichever level you find the policy at**, that is the entry you
+   create. If it's a court-wide local rule, set `judge: null` and
+   `rule_type: "local_rule"`. If it's a judge-specific order, set the
+   judge name and `rule_type: "standing_order"`.
+5. **Set `source_url`** to the court page where the document lives
+   (the rules-and-orders page or the judge's page), and `source_pdf`
+   to the direct PDF link.
+6. **Read the actual policy text** and quote from it in `summary`.
+7. **Categorize based on what the order actually says** — not what a
+   law-firm summary says it says. Read the text carefully.
 
 ### Worked examples
 
-**Example A — Court-wide local rule (N.D. Tex.):**
-1. Search `site:txnd.uscourts.gov "artificial intelligence"`.
-2. Find the local civil rules PDF:
+**Example A — Court-wide local rule (N.D. Tex.) — zoom-out in action:**
+1. Start at Judge Starr's page:
+   `https://www.txnd.uscourts.gov/judge/judge-brantley-starr`.
+   Search "artificial intelligence" in his judge-specific requirements
+   — nothing found. No PDFs to standing orders on his page.
+2. Zoom out: go to `https://www.txnd.uscourts.gov/rules-and-orders`.
+3. Find the civil local rules PDF:
    `https://www.txnd.uscourts.gov/sites/default/files/documents/CIVRULES.pdf`
-3. Read the section "Disclosure of Use of Generative Artificial
-   Intelligence."
-4. Set `source_pdf` to that URL. Set `source_url` to the local-rules
-   page that links to it.
-5. Quote the operative language in `summary`.
+4. Search "artificial intelligence" in the PDF → find the section
+   "Disclosure of Use of Generative Artificial Intelligence."
+5. This is a **court-wide local rule**, not a judge-specific order.
+   Set `judge: null`, `rule_type: "local_rule"`. Set `source_url` to
+   the rules-and-orders page, `source_pdf` to the PDF link.
+6. Quote the actual text: "A brief prepared using generative
+   artificial intelligence must disclose this fact on the first page
+   under the heading 'Use of Generative Artificial Intelligence.' ...
+   A party who files a brief that does not contain the disclosure
+   required by subsection (f)(1) of this rule certifies that no part
+   of the brief was prepared using generative artificial intelligence."
+7. Category: `disclosure_required` (requires disclosure, does not
+   specify verification method).
 
 **Example B — Judge-specific webpage (Johnston, N.D. Ill.):**
 1. Search `site:ilnd.uscourts.gov Johnston "artificial intelligence"`.
@@ -209,10 +225,29 @@ skip it. The workflow for each entry is:
    obligations." — This is `disclosure_required`, NOT `permitted`.
    Quote this (or a portion) in `summary`.
 
-**CRITICAL:** In Example C, a prior run incorrectly tagged Hwang as
-"permitted with no qualifications" and linked to the all-judges page.
-Both were wrong. The lesson: you MUST read the actual document and
-categorize based on what it says, not on assumptions.
+**Example D — Reading the text carefully for categorization (Fla. 6th Cir.):**
+The PDF at `https://www.jud6.org/LegalCommunity/PracticeRequirements/
+Circuit/Burgess/Section2220260119%20AI%20Standing%20Orderi.pdf` says:
+"I certify that I have personally reviewed this filing or submission,
+verified the accuracy of all legal authorities and factual assertions
+through traditional methods, and conducted a reasonable inquiry into
+the truth and accuracy of all statements herein." A prior run
+categorized this as `prohibited_except_assisted_research`. That was
+WRONG — the order does not prohibit AI. It requires verification
+"through traditional methods," making it
+`disclosure_with_traditional_verification`.
+
+**CRITICAL LESSONS FROM PRIOR ERRORS:**
+- A prior run linked Judge Hwang to the all-judges listing page and
+  tagged her as "permitted with no qualifications." Both were wrong —
+  her standing order PDF clearly requires disclosure.
+- A prior run attributed the N.D. Tex. AI rule to Judge Starr
+  individually. The rule is actually a court-wide local rule.
+- A prior run categorized the Fla. 6th Cir. order as "prohibited
+  except Westlaw/Lexis." The order permits AI with verification via
+  traditional methods.
+- **The lesson: you MUST read the actual document, quote from it, and
+  categorize based on what it actually says.**
 
 ### Phase 3: Search for entries not on aggregator lists
 
