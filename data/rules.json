@@ -4,37 +4,37 @@
   "discovery_pass_completed": false,
   "categories": {
     "prohibited": {
-      "label": "AI prohibited",
+      "label": "Prohibit all",
       "color": "#7f0000",
       "order": 1,
       "description": "Generative AI use in court filings is outright prohibited."
     },
     "prohibited_except_assisted_research": {
-      "label": "AI prohibited except approved legal-research tools",
+      "label": "Prohibit except for Westlaw, Lexis, etc.",
       "color": "#c0392b",
       "order": 2,
       "description": "Generative AI prohibited; traditional/approved legal-research tools (e.g., Lexis, Westlaw, Bloomberg Law) permitted."
     },
     "disclosure_with_traditional_verification": {
-      "label": "AI permitted with disclosure and verification against traditional sources",
+      "label": "Permit with verification via traditional resources",
       "color": "#d35400",
       "order": 3,
       "description": "AI use permitted but counsel must disclose and/or certify that any AI-generated content was checked for accuracy against print reporters or traditional legal databases — i.e., verification via a non-AI source is required."
     },
     "disclosure_required": {
-      "label": "AI permitted with disclosure / certification",
+      "label": "Permit with disclosure/certification",
       "color": "#e67e22",
       "order": 4,
       "description": "AI use permitted but counsel must disclose use and/or certify human verification, without specifying the method or source of verification."
     },
     "disclosure_except_assisted_research": {
-      "label": "Disclosure required except for approved legal-research tools",
+      "label": "Permit with disclosure/certification for non-Westlaw, Lexis, etc.",
       "color": "#f1c40f",
       "order": 5,
       "description": "Disclosure required for generative AI; approved legal-research tools exempted from disclosure obligation."
     },
     "permitted_with_caution": {
-      "label": "AI permitted with general accuracy obligation",
+      "label": "Permit with general accuracy obligations",
       "color": "#a3cb38",
       "order": 6,
       "description": "Order acknowledges AI use, imposes general accuracy/competence obligation, no affirmative disclosure duty."
