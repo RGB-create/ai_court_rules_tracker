@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "last_updated": "2026-04-18T12:30:00Z",
+  "last_updated": "2026-04-18T14:45:00Z",
   "tag_vocabulary": {
     "new_standing_order": {
       "label": "New standing order",
@@ -149,18 +149,6 @@
       "related_rule_ids": []
     },
     {
-      "id": "dorsey-ai-privilege-ruling-2026-02-17",
-      "title": "Federal Judge Rules AI-Generated Documents Are Not Privileged – A Game-Changer for Legal Strategy",
-      "publication": "Dorsey & Whitney",
-      "author": null,
-      "url": "https://www.dorsey.com/newsresources/publications/client-alerts/2026/2/ai-attorney-client-privilege",
-      "published_date": "2026-02-17",
-      "date_added": "2026-04-18",
-      "summary": "Judge Jed S. Rakoff of the Southern District of New York ruled on February 10, 2026 that documents generated through a public AI platform were not protected by attorney-client privilege or the work product doctrine in United States v. Heppner, concluding that Claude is plainly not an attorney and that privilege only protects discussions with lawyers.",
-      "topic_tags": ["federal_court", "policy_debate"],
-      "related_rule_ids": []
-    },
-    {
       "id": "complexdiscovery-ai-sanction-wave-2026-04-15",
       "title": "The AI Sanction Wave: $145K in Q1 Penalties Signals Courts Have Lost Patience with GenAI Filing Failures",
       "publication": "ComplexDiscovery",
@@ -173,30 +161,6 @@
       "related_rule_ids": []
     },
     {
-      "id": "npr-ai-penalties-stack-up-2026-04-03",
-      "title": "Penalties stack up as AI spreads through the legal system",
-      "publication": "NPR",
-      "author": null,
-      "url": "https://www.npr.org/2026/04/03/nx-s1-5761454/penalties-stack-up-ai-spreads-through-legal-system",
-      "published_date": "2026-04-03",
-      "date_added": "2026-04-18",
-      "summary": "NPR reports on the escalating pace of AI hallucination cases in courts, with researcher Damien Charlotin noting the pace has become relentless. Bloomberg Law counted 52 court rulings on improper AI use in February 2026 alone.",
-      "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
-      "related_rule_ids": []
-    },
-    {
-      "id": "azfamily-phoenix-suns-ai-2026-04-02",
-      "title": "Attorney disciplined for AI-generated fake cases in Phoenix Suns lawsuit",
-      "publication": "Arizona Family",
-      "author": null,
-      "url": "https://www.azfamily.com/2026/04/02/attorney-disciplined-ai-generated-fake-cases-phoenix-suns-lawsuit/",
-      "published_date": "2026-04-02",
-      "date_added": "2026-04-18",
-      "summary": "A federal judge disciplined a Valley lawyer after finding court filings in a Phoenix Suns discrimination case included at least 18 made-up legal citations. As punishment, the judge is ordering the attorney to cover some attorneys' fees and must also take additional training on ethical use of AI.",
-      "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
-      "related_rule_ids": []
-    },
-    {
       "id": "findlaw-doj-ai-brief-2026-04",
       "title": "DOJ Attorney's AI‑Generated Brief Sparks Sanctions Threat After Pro Se Plaintiff Uncovers Fabricated Quotes",
       "publication": "FindLaw",
@@ -205,18 +169,6 @@
       "published_date": "2026-04-15",
       "date_added": "2026-04-18",
       "summary": "An assistant U.S. attorney in the Eastern District of North Carolina came under fire after a federal judge found that a court filing contained fabricated quotes, misstated case law, and even fake regulatory language. At the show‑cause hearing, the attorney told Judge Numbers that after accidentally overwriting a prior draft, he felt panicked and had AI rewrite the brief, calling the decision the worst of his career.",
-      "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
-      "related_rule_ids": []
-    },
-    {
-      "id": "nwsidebar-oregon-sanctions-2026-03-02",
-      "title": "Parade of Horribles: Federal Court in Oregon Surveys Sanctions for AI Fake Citations",
-      "publication": "NWSidebar",
-      "author": null,
-      "url": "https://nwsidebar.wsba.org/2026/03/02/parade-of-horribles-federal-court-in-oregon-surveys-sanctions-for-ai-fake-citations/",
-      "published_date": "2026-03-02",
-      "date_added": "2026-04-18",
-      "summary": "Federal court in Oregon surveyed the growing landscape of sanctions for AI-generated fake citations, documenting a parade of horribles in which courts across the country have imposed increasingly severe penalties for attorneys submitting fabricated legal authorities.",
       "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
       "related_rule_ids": []
     }

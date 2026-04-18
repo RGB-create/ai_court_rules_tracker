@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-18T12:30:00Z",
+  "last_updated": "2026-04-18T14:45:00Z",
   "pass_number": 1,
   "pass_status": "in_progress",
   "notes": "Persistent checklist for the discovery agent. Each weekly run processes as many 'pending' items as fits in its time window (in the order defined by priority_order) and writes the updated queue back. When every item is marked 'completed', the pass_number increments and all items are reset to 'pending' for the next verification cycle. Do NOT delete this file between runs.",
@@ -233,145 +233,163 @@
       "priority": "court_level",
       "court_short": "W.D.N.C.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide standing order June 2024 - Charlotte division."
+      "status": "completed",
+      "result": "rule_found",
+      "result_details": {
+        "rule_id": "us-fed-wdnc-charlotte-2024-06"
+      },
+      "last_checked": "2026-04-18",
+      "note": "Court-wide standing order June 2024 - Charlotte division. Entry already exists and verified."
     },
     {
       "priority": "court_level",
       "court_short": "N.D. Ill.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Check for court-wide local rule (multiple judges have individual orders)."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No court-wide local rule. Individual judges (Johnston, Fuentes, Coleman) have standing orders."
     },
     {
       "priority": "court_level",
       "court_short": "C.D. Cal.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Check for court-wide local rule (multiple judges have individual orders)."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No court-wide local rule. Individual judges (Hwang, Martinez-Olguin) have standing orders."
     },
     {
       "priority": "court_level",
       "court_short": "E.D. Pa.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Check for court-wide local rule."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No court-wide local rule. Individual judges (Baylson, Pratter) have standing orders."
     },
     {
       "priority": "court_level",
       "court_short": "1st Cir.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
       "priority": "court_level",
       "court_short": "2d Cir.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
       "priority": "court_level",
       "court_short": "3d Cir.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
       "priority": "court_level",
       "court_short": "4th Cir.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
       "priority": "court_level",
       "court_short": "6th Cir.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No circuit-wide AI policy found. Sixth Circuit imposed $30K sanctions Feb 2026 for fabricated citations."
     },
     {
       "priority": "court_level",
       "court_short": "7th Cir.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
       "priority": "court_level",
       "court_short": "8th Cir.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
       "priority": "court_level",
       "court_short": "9th Cir.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No circuit-wide AI policy found. Ninth Circuit created study panel Jan 2024 but no rule adopted."
     },
     {
       "priority": "court_level",
       "court_short": "10th Cir.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
       "priority": "court_level",
       "court_short": "11th Cir.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
       "priority": "court_level",
       "court_short": "D.C. Cir.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No circuit-wide AI policy found. March 2025 ruled AI cannot be copyright author; no filing rules."
     },
     {
       "priority": "court_level",
       "court_short": "Fed. Cir.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
       "priority": "court_level",
@@ -557,10 +575,11 @@
       "priority": "court_level",
       "court_short": "D. Haw.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No district-wide local rule found. Individual judge (Kobayashi) has standing order. Hawaii Supreme Court AI committee found existing Rule 11 sufficient."
     },
     {
       "priority": "court_level",
@@ -782,10 +801,13 @@
       "priority": "court_level",
       "court_short": "D. Neb.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "rule_found",
+      "result_details": {
+        "rule_id": "us-fed-ned-localrule-2024-12"
+      },
+      "last_checked": "2026-04-18",
+      "note": "Court-wide local rule NECivR 7.0.1 effective Dec 1, 2024. Entry already exists and verified."
     },
     {
       "priority": "court_level",
@@ -1016,19 +1038,25 @@
       "priority": "court_level",
       "court_short": "E.D. Tex.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "rule_found",
+      "result_details": {
+        "rule_id": "us-fed-edtx-localrule-2025-12"
+      },
+      "last_checked": "2026-04-18",
+      "note": "Court-wide Local Rule CV-11(g) amended Dec 1, 2025 per General Order 25-07. Entry already exists and verified."
     },
     {
       "priority": "court_level",
       "court_short": "S.D. Tex.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "rule_found",
+      "result_details": {
+        "rule_id": "us-fed-sdtx-general-2025-05"
+      },
+      "last_checked": "2026-04-18",
+      "note": "Court-wide General Order 2025-04 effective May 7, 2025. Entry already exists and verified."
     },
     {
       "priority": "court_level",
