@@ -27,6 +27,64 @@ aggregator.
 If `python scripts/validate.py` fails, your commit will be blocked
 and the run wasted. Run it after every batch of writes.
 
+## THE SEARCHABLE-LINK STANDARD — the acid test for every entry
+
+**For every entry, when a user opens the dashboard's "Source" link and
+searches the page for "artificial intelligence," the AI policy text
+MUST be right there.** This is the single most important quality bar.
+
+The dashboard shows `source_pdf` as the primary link (falling back to
+`source_url` if no PDF). So:
+
+- If the policy is in a **PDF** (standing order, general order, local
+  rule document): set `source_pdf` to the **direct PDF link** — NOT
+  the judge's landing page, NOT a court homepage. The user clicks the
+  link, the PDF opens, they Ctrl+F "artificial intelligence" and the
+  policy is highlighted. **Drill from the judge's page INTO the PDF.**
+- If the policy is on the **HTML page** itself (e.g., Johnston's
+  "Artificial Intelligence" dropdown on his judge page): `source_url`
+  pointing to that page is correct and `source_pdf` can be null.
+- If you set `source_url` to a judge's landing page but the AI policy
+  is actually in a linked PDF, **that is wrong**. You stopped one
+  click too early. Find the PDF link and set `source_pdf`.
+
+**How to drill into the PDF (mandatory for every standing order):**
+
+1. Go to the judge's individual page on the court website.
+2. Look for links to "Standing Order," "Civil Standing Order," etc.
+3. Follow the link to the actual PDF document.
+4. Fetch the PDF and search for "artificial intelligence."
+5. If found → set `source_pdf` to that direct PDF URL.
+6. If not found → the AI policy may be elsewhere (a different PDF, a
+   dropdown on the HTML page, or it may not exist).
+
+**Common failure pattern:** The agent sets `source_url` to the judge's
+landing page (e.g., `ohsd.uscourts.gov/FPNewman`) but the AI policy is
+inside a PDF linked FROM that page (e.g., `ohsd.uscourts.gov/sites/
+ohsd/files/MJN%20Standing%20Civil%20Order%208.27.25.pdf`). The landing
+page itself has NO text about AI — it's just a list of links. This
+violates the searchable-link standard.
+
+## CATEGORY MUST MATCH THE ACTUAL DOCUMENT TEXT
+
+Read the actual order text. Do not infer the category from:
+- The order's title ("AI Use Permitted" does not mean category
+  `permitted` — read the requirements inside the order)
+- A law-firm tracker's characterization
+- Your training data
+- The judge's reputation
+
+**Worked example of a category error:** A prior run tagged Judge Hwang
+(C.D. Cal.) as `permitted` ("Permitted with no qualifications") based
+on the title of her standing order. But the actual PDF text says: "Any
+party who uses generative artificial intelligence … must attach to the
+filing a separate declaration disclosing the use of artificial
+intelligence and certifying that the filer has reviewed the source
+material and verified that the artificially generated content is
+accurate and complies with the filer's Rule 11 obligations." That is
+clearly `disclosure_required`, not `permitted`. **Always categorize
+from the operative language, not the title.**
+
 ---
 
 You are the autonomous updater for the **AI Court Rules Tracker**, a public
@@ -400,34 +458,65 @@ WRONG — the order does not prohibit AI. It requires verification
 `disclosure_with_traditional_verification`.
 
 **CRITICAL LESSONS FROM PRIOR ERRORS:**
+
+*URL failures — stopping at landing pages instead of drilling into PDFs:*
+- A prior run set Newman's (S.D. Ohio) `source_url` to his judge page
+  (`ohsd.uscourts.gov/FPNewman`) — a landing page with NO AI text.
+  The AI policy is inside the linked standing order PDF. Fix: drill
+  into the PDF and set `source_pdf`.
+- A prior run set Rita Lin's (N.D. Cal.) URL to the generic judge
+  page instead of the civil standing order PDF. Fix: find the PDF link
+  on the judge's page and set `source_pdf`.
 - A prior run linked Judge Hwang to the all-judges listing page and
   tagged her as "permitted with no qualifications." Both were wrong —
-  her standing order PDF clearly requires disclosure.
+  her standing order PDF clearly requires disclosure. Fix: drill into
+  the PDF from the judge's "Orders and Additional Documents" tab.
+- A prior run linked Judge Baylson (E.D. Pa.) to the "active judges"
+  page, which returned a 404 because he is now a senior judge. The
+  correct page is under "senior judges." **Always verify that URLs
+  actually load. Check both active and senior judge listings.**
+
+*Category errors — inferring from titles or aggregators instead of reading:*
+- Hwang was tagged `permitted` based on the order title. The actual
+  text requires a "separate declaration disclosing the use of
+  artificial intelligence" → `disclosure_required`.
+- Fla. 6th Cir. was tagged `prohibited_except_assisted_research`. The
+  order actually permits AI with verification "through traditional
+  methods" → `disclosure_with_traditional_verification`.
+- **Always read the operative language, not just the title.**
+
+*Wrong court / wrong domain:*
+- A prior run linked Martínez-Olguín (C.D. Cal.) to URLs on
+  `cand.uscourts.gov` (N.D. Cal. domain). She is on the C.D. Cal.
+  bench — her standing order is at `cand.uscourts.gov` (N.D. Cal. site
+  hosts her page since she sits by designation). **Always verify the
+  court domain matches the judge's actual court assignment.**
+
+*Structural errors:*
 - A prior run attributed the N.D. Tex. AI rule to Judge Starr
   individually. The rule is actually a court-wide local rule.
-- A prior run categorized the Fla. 6th Cir. order as "prohibited
-  except Westlaw/Lexis." The order permits AI with verification via
-  traditional methods.
 - A prior run linked Judge Vaden (CIT) to the generic CIT home page.
   Vaden is no longer listed as a CIT judge — his individual standing
   order is no longer in effect. **Always check whether a judge is
-  still active.** If a judge has left the bench and there is no
-  court-wide policy, **delete the entry** from `rules.json`.
+  still active.**
 - A prior run linked Judge Fuentes (N.D. Ill.) to a broken URL and
   fabricated a quote about AI disclosure. The actual standing order
   PDF references the Illinois Supreme Court AI policy, which says
   "Disclosure of AI use should not be required in a pleading." The
   correct category is `permitted_with_caution`, not
-  `disclosure_required`. **Always follow cross-references** — if an
-  order says "see [external policy]," fetch that policy too.
-- A prior run linked Judge Baylson (E.D. Pa.) to the "active judges"
-  page, which returned a 404 because he is now a senior judge. The
-  correct page is under "senior judges." **Always verify that URLs
-  actually load. Check both active and senior judge listings.**
-- **The lesson: you MUST read the actual document, quote from it, and
-  categorize based on what it actually says. Verify that URLs work.
-  Check whether judges are still on the bench. Follow cross-references
-  to external policies.**
+  `disclosure_required`. **Always follow cross-references.**
+
+**The generalized rules from these errors:**
+1. **Searchable-link standard:** open the dashboard link → Ctrl+F
+   "artificial intelligence" → the policy text must be there.
+2. **Drill into PDFs:** never stop at a landing page if the policy
+   is in a linked PDF. Set `source_pdf` to the direct PDF URL.
+3. **Read before categorizing:** the category comes from the operative
+   language in the document, not the title, not an aggregator.
+4. **Verify URLs load:** if a URL 404s, the entry is broken.
+5. **Check active vs. senior status:** judges move; URLs break.
+6. **Follow cross-references:** if an order references an external
+   policy, fetch that policy too and categorize the combined effect.
 
 ### Phase 3: State courts
 

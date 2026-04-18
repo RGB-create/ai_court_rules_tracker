@@ -134,6 +134,21 @@ def validate_rules(errors: list[str]) -> int:
                 )
                 break
 
+        # --- SOFT RULE 4: standing orders / local rules should have source_pdf ---
+        # The dashboard links to source_pdf as the primary "Source" link.
+        # For standing_order and local_rule entries, the PDF IS the policy.
+        # Exception: some judges publish AI policy as HTML on their page
+        # (e.g., Johnston N.D. Ill. has an "Artificial Intelligence" dropdown).
+        # Those are valid without source_pdf. This is a warning, not an error.
+        rtype = r.get("rule_type", "")
+        if rtype in ("standing_order", "local_rule", "general_order") and not r.get("source_pdf"):
+            print(
+                f"  WARNING: {loc}: rule_type is '{rtype}' but source_pdf is "
+                "null. If the AI policy is in a PDF (not on the HTML page), "
+                "set source_pdf to the direct PDF link.",
+                file=sys.stderr,
+            )
+
         # URL quality gates — catch generic court pages and all-judges
         # listings, which were a recurring failure mode.
         url = r.get("source_url")
