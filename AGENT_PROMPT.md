@@ -20,15 +20,26 @@ site's "last updated" indicator in the viewer's local timezone.
 
 ## Run mode
 
-Read `data/rules.json` and inspect `discovery_pass_completed`.
+Read `data/rules.json::discovery_pass_completed` and
+`data/discovery_queue.json::pass_status`. There are three possible modes:
 
-- **If `false` → Discovery Pass mode.** This is the first real run. Your job
-  is to *replace and expand* the hand-seeded dataset with a comprehensive,
-  verified initial sweep. See "Discovery Pass" below. When you finish, set
-  `discovery_pass_completed: true` and write a summary to
-  `transcripts/runs/<UTC-date>-discovery.md`.
-- **If `true` → Incremental Update mode.** Find what's *new* or *changed*
-  since the last run. See "Incremental Update" below.
+- **Queue not initialized** (`discovery_queue.json::pass_status ==
+  "not_started"`) → **Initialize the queue** (see "Discovery Pass /
+  Phase 1" below), then begin processing.
+- **Queue in progress** (`pass_status == "in_progress"` and pending
+  items remain) → **Continue processing the queue** in priority order.
+  Process as many items as fits your time window, then save progress.
+  You may be invoked many times until the queue is drained.
+- **Queue drained** (`pass_status == "pass_complete"` or all items
+  marked `completed`) → **Incremental Update** mode: do the roster
+  check against Wikipedia, handle genuinely-new orders from the news
+  cycle, sampled re-verification, and news sweep. When ready for a
+  fresh full sweep, reset all queue items to `pending` and increment
+  `pass_number`.
+
+Set `discovery_pass_completed: true` in `rules.json` the first time
+the queue reaches `pass_complete`. On every run, always do the news
+sweep regardless of mode.
 
 ---
 
@@ -134,92 +145,108 @@ proposed new category, and pause for human review.
 
 ## Discovery Pass
 
-Goal: build a **comprehensive** and **accurate** dataset. The approach
-is **court-first**: sweep every federal court (~94 district + 13
-circuit = ~107 courts) for court-wide local rules before drilling into
-individual judges. This guarantees no federal court is silently missed.
+Goal: achieve **complete coverage** of every federal court and every
+federal judge, and meaningful coverage of state courts. Because the
+agent has a ~30-minute time window per run and there are ~840 federal
+judges plus ~107 federal courts to check, coverage is built over
+multiple runs via a **persistent queue** at
+`data/discovery_queue.json`.
 
-A comprehensive result will have at least 40 federal entries (a mix of
-court-wide rules and individual-judge standing orders) and a growing
-number of state-court orders. If you finish with fewer than 40 federal
-entries, you have not swept thoroughly enough.
+The queue is a checklist of `(court, judge-or-null)` pairs to verify.
+Each run processes as many pending items as fits in the time window,
+marks them `completed`, and carries the rest over to the next run.
+The user can trigger the workflow multiple times a day if they want
+faster coverage — runs are idempotent.
 
-**Time management:** You have a limited execution window. Work in a
-tight search → verify → write → validate loop. After every batch of
-~10 entries, write them to `data/rules.json` and run
-`python scripts/validate.py` to lock in progress. Partial results
-saved are far better than exhaustive research with nothing written.
+**Priority order** (drain higher priorities before dropping to lower):
 
-### Phase 1: Build the federal court roster (completeness check)
+1. `error_prone` — judges/courts called out in
+   `error_prone_seeds`. These are the user's verified spot-checks and
+   must be re-verified every pass.
+2. `aggregator_flagged` — judges known from law-firm trackers to have
+   AI orders. Highest yield.
+3. `court_level` — court-wide local-rules sweep for all ~107 federal
+   courts (one local-rules PDF per court). A court-wide rule covers
+   every judge on that court, so it removes many downstream judge
+   checks.
+4. `roster` — remaining judges from the Wikipedia rosters, swept for
+   completeness.
 
-The agent works from a **canonical roster** to avoid missing courts. The
-two Wikipedia lists below are the authoritative source; they are kept
-current by the Wikipedia community and update when judges are confirmed,
-retire, or take senior status.
+**Time management:** Work in a tight search → verify → write →
+validate loop. After every batch of ~10 items, write updates to
+`data/rules.json` AND `data/discovery_queue.json`, then run
+`python scripts/validate.py`. Partial progress saved is far better
+than exhaustive research with nothing written.
 
-1. Fetch `https://en.wikipedia.org/wiki/List_of_current_United_States_district_judges`
-   and extract the full roster of active district judges, grouped by
-   court. This gives you all ~94 U.S. district courts and the judges
-   currently sitting on each.
-2. Fetch `https://en.wikipedia.org/wiki/List_of_current_United_States_circuit_judges`
-   and extract the full roster of active circuit judges for all 13
-   federal circuits (1st–11th, D.C. Circuit, Federal Circuit).
-3. Write the roster to memory (do NOT persist it to the repo). You will
-   use it as a completeness checklist in Phase 2 and Phase 3.
+### Phase 1: Initialize the queue (first run only)
 
-Also run a quick aggregator sweep to pre-populate a list of judges
-**already known** to have AI orders — prioritize these in Phase 3.
-Useful searches:
-- `judicial AI standing orders tracker`
-- `AI judicial standing orders tracker site:bakerhostetler.com`
-- `AI court orders tracker site:ropesgray.com`
-- `generative AI court rules site:huntonak.com`
-- `ABA AI court rules compilation`
+If `data/discovery_queue.json::pass_status == "not_started"`, build
+the full queue before processing any items:
 
-Do NOT take URLs, quotes, or categories from these aggregator pages —
-they are only pointers. Verify every entry at the court's own site.
+1. **Seed `error_prone` items** from `error_prone_seeds` in the queue
+   file. These are the user's verified spot-checks — always the first
+   items processed each pass.
+2. **Seed `aggregator_flagged` items** by running a light aggregator
+   sweep to identify judges known to have AI orders. Useful searches:
+   - `AI judicial standing orders tracker site:bakerhostetler.com`
+   - `AI court orders tracker site:ropesgray.com`
+   - `generative AI court rules site:huntonak.com`
+   - `ABA AI court rules compilation`
 
-### Phase 2: Court-first sweep (all ~107 federal courts)
+   **Aggregators are only pointers.** Do NOT copy URLs, quotes, or
+   categories from them. For every candidate, verify at the court's
+   own site using the zoom-out workflow. Record just the `(court,
+   judge)` pair in the queue.
+3. **Seed `court_level` items** — one per federal court. Fetch the
+   two Wikipedia rosters
+   (`https://en.wikipedia.org/wiki/List_of_current_United_States_district_judges`,
+   `https://en.wikipedia.org/wiki/List_of_current_United_States_circuit_judges`)
+   to extract the full list of ~94 district courts and 13 circuits.
+   Add one queue item per court with `judge: null` and
+   `priority: "court_level"`.
+4. **Seed `roster` items** — for every active and senior federal judge
+   on the Wikipedia rosters, add a queue item with `priority:
+   "roster"`. These may number 700+ and will be processed over many
+   runs.
+5. Set `pass_status: "in_progress"` and `pass_number: 1`. Write the
+   queue. Proceed to Phase 2.
 
-For each of the ~94 district courts and 13 circuit courts on the
-roster, check whether the court has a **court-wide AI rule**. This is
-much cheaper than checking every individual judge, and one court-wide
-rule covers every judge on that court.
+Initialization itself can take much of a run. If you run out of time
+during initialization, save whatever you have and exit — the next run
+will pick up seeding where you left off. The queue's `pass_status`
+stays `"not_started"` until all four priority buckets are seeded.
 
-For each court:
-1. Go to the court's "rules and orders" or "local rules" page.
-2. Fetch the civil local rules PDF (and criminal, if separate).
-3. Search for "artificial intelligence" / "generative AI" / "AI" in
-   the PDF text.
-4. If a court-wide rule exists → create **one** entry with
-   `judge: null`, `rule_type: "local_rule"` (or
-   `"proposed_local_rule"` if not yet adopted). That one entry
-   covers every judge in the court.
-5. If no court-wide rule exists → record the court on a "no court-wide
-   rule" list and move to Phase 3 for that court.
+### Phase 2: Process pending items in priority order
 
-Aim to finish Phase 2 before spending time on individual judges — a
-court-wide rule is higher-signal and removes the need to check each
-judge on that court.
+Read the queue. Iterate over items where `status == "pending"`, in
+the priority order defined by `priority_order`. For each item, apply
+the zoom-out workflow below. After each item:
 
-### Phase 3: Judge-level sweep (only for courts without court-wide rules)
+1. Update the item's `status` to `completed` (or `blocked` if you
+   couldn't verify).
+2. Set `result` to one of the `result_vocabulary` values.
+3. If you created or updated a rule entry, set `result.rule_id` to
+   the `rules.json` entry's `id`.
+4. Record the `last_checked` date.
 
-For each court that lacks a court-wide rule, check its individual
-judges. Prioritize in this order:
+Batch-write `data/rules.json` and `data/discovery_queue.json` every
+~10 items so work isn't lost if the run times out. Keep going until
+either (a) all items are `completed` or (b) you're approaching the
+time limit. Then save and exit.
 
-1. **Judges flagged by the Phase 1 aggregator sweep** — these are
-   known to have AI orders. Verify each at the court's own site using
-   the zoom-out workflow below.
-2. **Judges named in the "CRITICAL LESSONS" section below** — re-verify
-   these every run (they have been error-prone historically).
-3. **If time allows**, sample additional judges from the Wikipedia
-   roster for that court. You do NOT need to check every judge on every
-   court — only courts that lack a court-wide rule, and within those,
-   prioritize known AI-active judges.
+**Do NOT create a `no_explicit_rule` entry for every judge with no
+AI policy.** That slug is reserved for notable cases where it's worth
+explicitly recording that a high-profile court has declined to issue
+a rule. For the typical case of "no AI rule found," simply set the
+queue item's `result` to `"no_ai_policy"` and move on — no
+`rules.json` entry.
 
-Do **not** create a `no_explicit_rule` entry for every judge without
-an AI policy. That slug is for the rare case where it is worth noting
-that a specific high-profile court has declined to issue a rule.
+**Court-level items** are cheap and high-yield: fetch the court's
+local rules PDF, search for "artificial intelligence." If a
+court-wide rule exists → create one entry with `judge: null`. Every
+judge on that court is thereby covered; mark any existing `roster`
+queue items for that court as `completed` with `result:
+"court_covered_by_court_wide_rule"`.
 
 **The "zoom-out" workflow for each judge candidate:**
 
@@ -374,17 +401,20 @@ WRONG — the order does not prohibit AI. It requires verification
   Check whether judges are still on the bench. Follow cross-references
   to external policies.**
 
-### Phase 4: State courts
+### Phase 3: State courts
 
-The state-court universe is much larger and has no clean equivalent to
-the Wikipedia federal judge rosters. Prioritize by signal:
+The state-court universe has no clean equivalent to the Wikipedia
+federal judge rosters, so state items are added to the queue by signal
+rather than by enumeration:
 
-1. **State supreme courts (all 50)** — fetch each state supreme court's
-   rules or administrative orders page and search for AI policy.
+1. **State supreme courts (all 50)** — add a `court_level` queue item
+   for each. Fetch the court's rules or administrative orders page
+   and search for AI policy.
 2. **Large-state trial courts** — CA, NY, TX, FL, IL, PA, OH, GA, NC,
-   MI. Check for state-wide rules or notable local trial-court orders.
-3. **Aggregator-flagged state entries** — any state judges or courts
-   surfaced by the Phase 1 aggregator sweep.
+   MI. Add queue items for state-wide rules and notable local trial-
+   court orders.
+3. **Aggregator-flagged state entries** — state judges or courts
+   surfaced during the Phase 1 aggregator sweep.
 
 Useful searches:
 - `state supreme court "artificial intelligence" order OR rule`
@@ -392,16 +422,21 @@ Useful searches:
 - `state bar "artificial intelligence" ethics opinion` (for
   cross-references; do not log ethics opinions as rules)
 
-### Phase 5: Write and finalize
+### Phase 4: Write and finalize (every run)
 
 1. **Write entries in batches** and run `python scripts/validate.py`
    after each batch.
-2. After all updates (or when time is running short): set
-   `discovery_pass_completed: true` and update `last_updated`.
-3. Do the news sweep (see below).
-4. Write `transcripts/runs/<UTC-date>-discovery.md` summarizing: how
-   many entries you added, sources consulted, and any taxonomy
-   questions raised.
+2. Update `data/discovery_queue.json::last_updated` and save.
+3. When all queue items reach `completed`:
+   - Set `discovery_queue.json::pass_status: "pass_complete"`.
+   - Set `rules.json::discovery_pass_completed: true` (if not
+     already).
+   - On the *next* run, reset all items to `pending` and bump
+     `pass_number` to begin the next verification cycle.
+4. Do the news sweep (see below).
+5. Write `transcripts/runs/<UTC-date>-discovery.md` summarizing: how
+   many queue items processed, how many rules added/updated, any
+   taxonomy questions raised.
 
 **Quality bar:** Every entry must have (a) a `source_url` or
 `source_pdf` pointing to the court's own website, and (b) a `summary`

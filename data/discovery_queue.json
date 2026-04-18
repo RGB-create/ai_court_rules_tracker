@@ -1,0 +1,78 @@
+{
+  "last_updated": null,
+  "pass_number": 0,
+  "pass_status": "not_started",
+  "notes": "Persistent checklist for the discovery agent. Each weekly run processes as many 'pending' items as fits in its time window (in the order defined by priority_order) and writes the updated queue back. When every item is marked 'completed', the pass_number increments and all items are reset to 'pending' for the next verification cycle. Do NOT delete this file between runs.",
+  "priority_order": [
+    "error_prone",
+    "aggregator_flagged",
+    "court_level",
+    "roster"
+  ],
+  "status_vocabulary": {
+    "pending": "not yet checked in this pass",
+    "in_progress": "partially checked (e.g., fetched judge page but not PDFs)",
+    "completed": "finished; see result field",
+    "blocked": "couldn't complete (URL broken, PDF unreadable) — retry next pass"
+  },
+  "result_vocabulary": {
+    "rule_found": "an AI rule exists; a rule entry was created or updated (result.rule_id points to it)",
+    "court_covered_by_court_wide_rule": "no individual-judge rule; the court has a court-wide rule that covers this judge (result.rule_id points to the court-wide entry)",
+    "no_ai_policy": "no AI rule found; no entry created in rules.json",
+    "no_longer_on_bench": "judge has retired/elevated/left; any prior entry marked superseded_by=WITHDRAWN",
+    "url_unreachable": "court or judge page did not load; blocked, retry next pass"
+  },
+  "error_prone_seeds": [
+    {
+      "court_short": "C.D. Cal.",
+      "judge": "Anne Hwang",
+      "note": "Standing order requires disclosure & certification. Prior run linked to all-judges listing and miscategorized as 'permitted' — must use judge-specific page and read the actual standing order PDF."
+    },
+    {
+      "court_short": "N.D. Tex.",
+      "judge": null,
+      "note": "Court-wide AI local rule. Prior run misattributed to Judge Starr individually. Correct source is CIVRULES.pdf on the court's rules-and-orders page."
+    },
+    {
+      "court_short": "Fla. 6th Cir. Ct.",
+      "judge": "Burgess",
+      "note": "Requires verification 'through traditional methods' — category is disclosure_with_traditional_verification, NOT prohibited_except_assisted_research."
+    },
+    {
+      "court_short": "CIT",
+      "judge": "Stephen Vaden",
+      "note": "No longer listed on Court of International Trade judges page. Verify status each pass; likely WITHDRAWN."
+    },
+    {
+      "court_short": "N.D. Ill.",
+      "judge": "Gabriel Fuentes",
+      "note": "Standing order cross-references Illinois Supreme Court AI policy, which says disclosure of AI use 'should not be required.' Correct category is permitted_with_caution, not disclosure_required. Follow cross-references."
+    },
+    {
+      "court_short": "E.D. Pa.",
+      "judge": "Michael Baylson",
+      "note": "Now a senior judge, not an active judge. Prior run used active-judges URL and got a 404. Use senior-judges listing."
+    },
+    {
+      "court_short": "N.D. Ill.",
+      "judge": "Jeffrey Cole",
+      "note": "Verify current status on N.D. Ill. judges page (active and senior). Prior run used an incorrect URL."
+    },
+    {
+      "court_short": "C.D. Cal.",
+      "judge": "Araceli Martínez-Olguín",
+      "note": "She is a C.D. Cal. judge — a prior run incorrectly assigned her to N.D. Cal. Use her C.D. Cal. judge-specific page."
+    },
+    {
+      "court_short": "5th Cir.",
+      "judge": null,
+      "note": "Proposed circuit rule on AI. rule_type should be 'proposed_local_rule'. Prior run used generic 5th Cir. URL — find the specific proposed-rule page or PDF."
+    },
+    {
+      "court_short": "N.D. Ill.",
+      "judge": "Iain Johnston",
+      "note": "AI guidelines live directly on his judge-specific page in an 'Artificial Intelligence' dropdown section. source_url should be the judge page (no PDF needed)."
+    }
+  ],
+  "items": []
+}
