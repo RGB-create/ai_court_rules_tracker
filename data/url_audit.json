@@ -1,0 +1,105 @@
+{
+  "last_run": "2026-04-18T05:34:17Z",
+  "summary": {
+    "total_entries": 10,
+    "urls_passed": 0,
+    "urls_failed": 0,
+    "urls_blocked": 13
+  },
+  "results": {
+    "us-fed-ndtx-starr-2023-05": {
+      "source_url": {
+        "url": "https://www.txnd.uscourts.gov/judge/judge-brantley-starr",
+        "status": "blocked",
+        "verified_at": "2026-04-18T05:34:10Z",
+        "details": "HTTP 403: Forbidden"
+      }
+    },
+    "us-fed-ndil-fuentes-2023-05": {
+      "source_url": {
+        "url": "https://www.ilnd.uscourts.gov/judge_display.php?LastName=Fuentes",
+        "status": "blocked",
+        "verified_at": "2026-04-18T05:34:11Z",
+        "details": "HTTP 403: Forbidden"
+      },
+      "source_pdf": {
+        "url": "https://www.ilnd.uscourts.gov/_assets/_documents/_forms/_judges/Fuentes/Standing%20order%20for%20civil%20cases%20beofre%20Magistrate%20Judge%20Fuentes%20with%20appendix.pdf",
+        "status": "blocked",
+        "verified_at": "2026-04-18T05:34:11Z",
+        "details": "HTTP 403: Forbidden"
+      }
+    },
+    "us-fed-edpa-baylson-2023-06": {
+      "source_url": {
+        "url": "https://www.paed.uscourts.gov/judges-info/senior-judges/michael-m-baylson",
+        "status": "blocked",
+        "verified_at": "2026-04-18T05:34:12Z",
+        "details": "HTTP 403: Forbidden"
+      },
+      "source_pdf": {
+        "url": "https://www.paed.uscourts.gov/sites/paed/files/documents/procedures/Standing%20Order%20Re%20Artificial%20Intelligence%206.6.pdf",
+        "status": "blocked",
+        "verified_at": "2026-04-18T05:34:13Z",
+        "details": "HTTP 403: Forbidden"
+      }
+    },
+    "us-fed-ca5-proposed-2023-11": {
+      "source_url": {
+        "url": "https://www.ca5.uscourts.gov/docs/default-source/default-document-library/court-decision-on-proposed-rule.pdf?sfvrsn=5967c92d_2",
+        "status": "blocked",
+        "verified_at": "2026-04-18T05:34:13Z",
+        "details": "HTTP 403: Forbidden"
+      },
+      "source_pdf": {
+        "url": "https://www.ca5.uscourts.gov/docs/default-source/default-document-library/court-decision-on-proposed-rule.pdf?sfvrsn=5967c92d_2",
+        "status": "blocked",
+        "verified_at": "2026-04-18T05:34:14Z",
+        "details": "HTTP 403: Forbidden"
+      }
+    },
+    "us-fed-ndil-johnston-2023-07": {
+      "source_url": {
+        "url": "https://www.ilnd.uscourts.gov/judge_display.php?LastName=Johnston",
+        "status": "blocked",
+        "verified_at": "2026-04-18T05:34:14Z",
+        "details": "HTTP 403: Forbidden"
+      }
+    },
+    "us-fed-cdca-martinez-olguin-2025-10": {
+      "source_url": {
+        "url": "https://cand.uscourts.gov/judges/amo/martinez-olguin-araceli",
+        "status": "blocked",
+        "verified_at": "2026-04-18T05:34:15Z",
+        "details": "HTTP 403: Forbidden"
+      },
+      "source_pdf": {
+        "url": "https://cand.uscourts.gov/sites/default/files/standing-orders/AMO-CivilStandingOrder-10-20-2025.pdf",
+        "status": "blocked",
+        "verified_at": "2026-04-18T05:34:15Z",
+        "details": "HTTP 403: Forbidden"
+      }
+    },
+    "us-fed-ndca-kang-2023-09": {
+      "source_url": {
+        "url": "https://cand.uscourts.gov/judges/",
+        "status": "blocked",
+        "verified_at": "2026-04-18T05:34:16Z",
+        "details": "HTTP 403: Forbidden"
+      }
+    },
+    "us-fed-ndca-lin-2024-09": {
+      "source_url": {
+        "url": "https://cand.uscourts.gov/judges/",
+        "status": "blocked",
+        "verified_at": "2026-04-18T05:34:17Z",
+        "details": "HTTP 403: Forbidden"
+      },
+      "source_pdf": {
+        "url": "https://edrm.net/wp-content/uploads/2024/12/2024-09-18-Civil-Standing-Order-Judge-Rita-Lin.pdf",
+        "status": "blocked",
+        "verified_at": "2026-04-18T05:34:17Z",
+        "details": "HTTP 403: Forbidden"
+      }
+    }
+  }
+}

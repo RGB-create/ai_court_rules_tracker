@@ -7,8 +7,10 @@ from committing malformed data.
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
+from urllib.parse import urlparse
 
 REPO = Path(__file__).resolve().parent.parent
 RULES_PATH = REPO / "data" / "rules.json"
@@ -21,6 +23,37 @@ RULE_REQUIRED_FIELDS = [
 ]
 ALLOWED_JURISDICTIONS = {"federal", "state"}
 ALLOWED_CONFIDENCE = {"high", "medium", "low", "uncategorized"}
+
+# URL patterns that almost always indicate a generic court page rather
+# than the specific page containing the AI policy. These are the most
+# common failure modes from prior agent runs — reject them in CI so
+# they cannot ship.
+GENERIC_URL_PATTERNS = [
+    # All-judges listing pages without a specific judge identifier.
+    re.compile(r"/judges/?$", re.I),
+    re.compile(r"/judges-information/?$", re.I),
+    re.compile(r"/judges-info/?$", re.I),
+    re.compile(r"/judges-info/active-judges/?$", re.I),
+    re.compile(r"/judges-info/senior-judges/?$", re.I),
+    re.compile(r"/active-judges/?$", re.I),
+    re.compile(r"/senior-judges/?$", re.I),
+    re.compile(r"/judges-list/?$", re.I),
+    re.compile(r"/judges-schedules-procedures/?$", re.I),
+    re.compile(r"/judge-orders/?$", re.I),
+    re.compile(r"/judge_display\.php/?$", re.I),  # missing ?LastName= query
+    # Generic "rules and orders" listing — only allowed when it's a
+    # court-wide local_rule entry; checked separately below.
+]
+
+
+def is_bare_domain(url: str) -> bool:
+    """True if URL has no meaningful path beyond '/'."""
+    p = urlparse(url)
+    return p.path in ("", "/") and not p.query
+
+
+def is_generic_listing(url: str) -> bool:
+    return any(p.search(url) for p in GENERIC_URL_PATTERNS)
 
 NEWS_REQUIRED_FIELDS = [
     "id", "title", "publication", "url",
@@ -51,6 +84,39 @@ def validate_rules(errors: list[str]) -> int:
             errors.append(f"{loc}: category '{r['category']}' not defined in categories block")
         if r.get("category_confidence") and r["category_confidence"] not in ALLOWED_CONFIDENCE:
             errors.append(f"{loc}: category_confidence must be one of {ALLOWED_CONFIDENCE}")
+
+        # URL quality gates — catch generic court pages and all-judges
+        # listings, which were a recurring failure mode.
+        url = r.get("source_url")
+        if url:
+            if is_bare_domain(url):
+                errors.append(
+                    f"{loc}: source_url '{url}' is a bare domain (court "
+                    "homepage). Must point to the specific page that contains "
+                    "the AI policy or links to the AI rule PDF."
+                )
+            elif is_generic_listing(url):
+                errors.append(
+                    f"{loc}: source_url '{url}' is a generic all-judges or "
+                    "judges-information listing page. Must point to the "
+                    "specific judge's page or specific rules page."
+                )
+
+        # source_pdf, when set, must look like a PDF link.
+        pdf = r.get("source_pdf")
+        if pdf:
+            if is_bare_domain(pdf):
+                errors.append(
+                    f"{loc}: source_pdf '{pdf}' is a bare domain, not a "
+                    "direct PDF link."
+                )
+            # Most PDF URLs end in .pdf or contain /files/ paths; warn if neither.
+            elif ".pdf" not in pdf.lower() and "/files/" not in pdf.lower() and "/file/" not in pdf.lower():
+                errors.append(
+                    f"{loc}: source_pdf '{pdf}' does not look like a direct "
+                    "PDF link (no '.pdf' or '/files/' in URL). If the PDF is "
+                    "served from a different path, ignore this; otherwise fix."
+                )
     return len(rules)
 
 

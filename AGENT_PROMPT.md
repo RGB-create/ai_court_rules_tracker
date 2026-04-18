@@ -603,6 +603,61 @@ After the sweep, update `news.json::last_updated` and re-run
 
 ---
 
-When you're done (rules + news), do
+## URL quality gates (mandatory before commit)
+
+The dataset has two layers of URL quality enforcement:
+
+### Layer 1 — Pattern validator (hard CI gate)
+
+`python scripts/validate.py` rejects any entry whose `source_url` or
+`source_pdf` matches a known-bad pattern:
+
+- **Bare domain** — e.g., `https://www.txnd.uscourts.gov/`. URLs must
+  point to the specific page, not the court homepage.
+- **All-judges listing pages** — e.g., `https://cand.uscourts.gov/judges/`
+  or `https://www.paed.uscourts.gov/judges-info/`. URLs must point to
+  the specific judge's page.
+- **`source_pdf` that doesn't look like a PDF** — must contain `.pdf`,
+  `/files/`, or `/file/` in the URL.
+
+If validation fails, **the workflow will not commit your changes.**
+Fix the URL or null it out (with a `provenance` note explaining why).
+
+### Layer 2 — Content audit (run before commit)
+
+Run `python scripts/url_audit.py` to fetch each URL and verify the
+page actually contains AI policy keywords ("artificial intelligence,"
+"generative AI," "ChatGPT," etc.). A URL that loads fine but has no
+AI text is a generic page — wrong URL.
+
+The CI runs the audit in `--soft` mode (CI runners often can't reach
+court sites due to IP-based blocking; the agent's WebFetch tool can).
+**You should run the audit yourself** during your work and act on the
+results. The audit writes a report to `data/url_audit.json`:
+
+- `status: "ok"` — URL loads and contains AI keywords. Good.
+- `status: "fail"` — URL loads but is the wrong page. **Must fix.**
+- `status: "blocked"` — couldn't fetch (often a CI infra issue).
+  Use `WebFetch` to spot-check: if WebFetch also can't get AI text
+  from the page, the URL is wrong.
+
+### Workflow for fixing URL failures
+
+1. Read `data/url_audit.json::results` to see which entries failed.
+2. For each failed `source_url`: re-do the zoom-out workflow to find
+   the actual page that contains the AI policy. Update the entry.
+3. For each failed `source_pdf`: find the direct PDF link, or set
+   `source_pdf: null` if no PDF exists.
+4. **If you genuinely cannot find a court-hosted page that contains
+   the AI policy text, set both `source_url` and `source_pdf` to
+   `null`** and add a `provenance` note explaining why. The
+   dashboard will show "no source available" — better than a wrong
+   URL.
+5. Re-run `python scripts/validate.py` and `python scripts/url_audit.py`
+   until validation passes and the audit shows no `fail` entries.
+
+---
+
+When you're done (rules + news + URL audit passes), do
 `git add -A && git commit -m "<descriptive message>"`. The workflow
 handles the push.

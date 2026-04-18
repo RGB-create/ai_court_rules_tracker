@@ -79,6 +79,11 @@ jobs:
         if: steps.gate.outputs.skip == 'false'
         run: python scripts/validate.py
 
+      - name: Audit URLs (soft — CI runners often can't reach court sites)
+        if: steps.gate.outputs.skip == 'false'
+        run: python scripts/url_audit.py --soft
+        continue-on-error: true
+
       - name: Commit and push any changes
         if: steps.gate.outputs.skip == 'false'
         run: |
