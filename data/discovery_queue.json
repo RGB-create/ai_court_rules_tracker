@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-18T05:20:37Z",
+  "last_updated": "2026-04-18T12:30:00Z",
   "pass_number": 1,
   "pass_status": "in_progress",
   "notes": "Persistent checklist for the discovery agent. Each weekly run processes as many 'pending' items as fits in its time window (in the order defined by priority_order) and writes the updated queue back. When every item is marked 'completed', the pass_number increments and all items are reset to 'pending' for the next verification cycle. Do NOT delete this file between runs.",
@@ -113,91 +113,121 @@
       "priority": "error_prone",
       "court_short": "CIT",
       "judge": "Stephen Vaden",
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "No longer listed on Court of International Trade judges page. Verify status each pass; likely WITHDRAWN."
+      "status": "completed",
+      "result": "no_longer_on_bench",
+      "result_details": {
+        "rule_id": "us-fed-cit-vaden-2023-06"
+      },
+      "last_checked": "2026-04-18",
+      "note": "Vaden resigned from CIT on July 7, 2025, to become Deputy Secretary of Agriculture. Entry already marked as WITHDRAWN."
     },
     {
       "priority": "error_prone",
       "court_short": "N.D. Ill.",
       "judge": "Gabriel Fuentes",
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Standing order cross-references Illinois Supreme Court AI policy, which says disclosure of AI use 'should not be required.' Correct category is permitted_with_caution, not disclosure_required. Follow cross-references."
+      "status": "completed",
+      "result": "rule_found",
+      "result_details": {
+        "rule_id": "us-fed-ndil-fuentes-2023-05"
+      },
+      "last_checked": "2026-04-18",
+      "note": "Verified correctly categorized as permitted_with_caution. Standing order adopts Illinois Supreme Court AI policy (permits AI, disclosure should not be required)."
     },
     {
       "priority": "error_prone",
       "court_short": "E.D. Pa.",
       "judge": "Michael Baylson",
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Now a senior judge, not an active judge. Prior run used active-judges URL and got a 404. Use senior-judges listing."
+      "status": "completed",
+      "result": "rule_found",
+      "result_details": {
+        "rule_id": "us-fed-edpa-baylson-2023-06"
+      },
+      "last_checked": "2026-04-18",
+      "note": "Verified as senior judge. Standing order PDF confirmed at correct URL for senior judges."
     },
     {
       "priority": "error_prone",
       "court_short": "N.D. Ill.",
       "judge": "Jeffrey Cole",
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Verify current status on N.D. Ill. judges page (active and senior). Prior run used an incorrect URL."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": {
+        "rule_id": "us-fed-ndil-cole-2023-06"
+      },
+      "last_checked": "2026-04-18",
+      "note": "Cole IS active as magistrate judge, but no AI standing order found on his judge page. Prior entry appears to be spurious seed; marked as WITHDRAWN."
     },
     {
       "priority": "error_prone",
       "court_short": "C.D. Cal.",
       "judge": "Araceli Mart\u00ednez-Olgu\u00edn",
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "She is a C.D. Cal. judge \u2014 a prior run incorrectly assigned her to N.D. Cal. Use her C.D. Cal. judge-specific page."
+      "status": "completed",
+      "result": "rule_found",
+      "result_details": {
+        "rule_id": "us-fed-cdca-martinez-olguin-2025-10"
+      },
+      "last_checked": "2026-04-18",
+      "note": "Verified correctly as C.D. Cal. judge with disclosure_required standing order from October 2025."
     },
     {
       "priority": "error_prone",
       "court_short": "5th Cir.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Proposed circuit rule on AI. rule_type should be 'proposed_local_rule'. Prior run used generic 5th Cir. URL \u2014 find the specific proposed-rule page or PDF."
+      "status": "completed",
+      "result": "rule_found",
+      "result_details": {
+        "rule_id": "us-fed-ca5-proposed-2023-11"
+      },
+      "last_checked": "2026-04-18",
+      "note": "Proposed rule was NOT adopted per June 2024 decision. Entry correctly marked as WITHDRAWN with proper source_url to court decision PDF."
     },
     {
       "priority": "error_prone",
       "court_short": "N.D. Ill.",
       "judge": "Iain Johnston",
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "AI guidelines live directly on his judge-specific page in an 'Artificial Intelligence' dropdown section. source_url should be the judge page (no PDF needed)."
+      "status": "completed",
+      "result": "rule_found",
+      "result_details": {
+        "rule_id": "us-fed-ndil-johnston-2023-07"
+      },
+      "last_checked": "2026-04-18",
+      "note": "Verified permitted_with_caution standing order at judge-specific page with AI dropdown section."
     },
     {
       "priority": "aggregator_flagged",
       "court_short": "S.D. Ohio",
       "judge": "Michael Newman",
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Prohibits AI use with exception for AI in legal search engines."
+      "status": "completed",
+      "result": "rule_found",
+      "result_details": {
+        "rule_id": "us-fed-sdoh-newman-2023-08"
+      },
+      "last_checked": "2026-04-18",
+      "note": "Verified prohibited_except_assisted_research. Standing order prohibits AI except for legal/internet search engines."
     },
     {
       "priority": "aggregator_flagged",
       "court_short": "D.N.J.",
       "judge": "Evelyn Padin",
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Requires disclosure of AI use with certification."
+      "status": "completed",
+      "result": "rule_found",
+      "result_details": {
+        "rule_id": "us-fed-dnj-padin-2023-12"
+      },
+      "last_checked": "2026-04-18",
+      "note": "Verified disclosure_required. General Pretrial and Trial Procedures require mandatory disclosure/certification of GAI use."
     },
     {
       "priority": "aggregator_flagged",
       "court_short": "N.D. Cal.",
       "judge": "Rita Lin",
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Standing order issued May 2024 permitting AI with verification requirement."
+      "status": "completed",
+      "result": "rule_found",
+      "result_details": {
+        "rule_id": "us-fed-ndca-lin-2024-09"
+      },
+      "last_checked": "2026-04-18",
+      "note": "Verified permitted_with_caution. Standing order (September 2024) permits AI but emphasizes attorney responsibility for verification."
     },
     {
       "priority": "court_level",
