@@ -45,6 +45,17 @@ GENERIC_URL_PATTERNS = [
     # court-wide local_rule entry; checked separately below.
 ]
 
+# Phrases that indicate the summary was taken from an aggregator or
+# secondary source rather than the court's own order text.
+AGGREGATOR_RED_FLAGS = [
+    re.compile(r"\bdescribed as\b", re.I),
+    re.compile(r"\bconsidered (one of|among)\b", re.I),
+    re.compile(r"\baccording to\b", re.I),
+    re.compile(r"\bwidely regarded\b", re.I),
+    re.compile(r"\bnotable for\b", re.I),
+    re.compile(r"\bone of the (first|most|earliest)\b", re.I),
+]
+
 
 def is_bare_domain(url: str) -> bool:
     """True if URL has no meaningful path beyond '/'."""
@@ -84,6 +95,44 @@ def validate_rules(errors: list[str]) -> int:
             errors.append(f"{loc}: category '{r['category']}' not defined in categories block")
         if r.get("category_confidence") and r["category_confidence"] not in ALLOWED_CONFIDENCE:
             errors.append(f"{loc}: category_confidence must be one of {ALLOWED_CONFIDENCE}")
+
+        # --- HARD RULE 1: no entry without a source ---
+        # Every entry must have at least one of source_url or source_pdf.
+        # If the agent can't link to the actual policy, the entry doesn't ship.
+        url = r.get("source_url")
+        pdf = r.get("source_pdf")
+        if not url and not pdf:
+            errors.append(
+                f"{loc}: BOTH source_url and source_pdf are null. Every "
+                "entry must link to the actual AI policy. If you can't "
+                "find the policy at the court's website, do not create "
+                "the entry."
+            )
+
+        # --- HARD RULE 2: no withdrawn/superseded entries ---
+        # Entries marked superseded_by should be removed from the dataset,
+        # not left in with a dim state.
+        sup = r.get("superseded_by")
+        if sup:
+            errors.append(
+                f"{loc}: superseded_by is set to '{sup}'. Withdrawn or "
+                "superseded entries must be removed from rules.json, not "
+                "left in the dataset."
+            )
+
+        # --- HARD RULE 3: summary must come from primary source ---
+        # Flag summaries that contain language characteristic of
+        # aggregator/secondary sources rather than the order itself.
+        summary = r.get("summary", "")
+        for pat in AGGREGATOR_RED_FLAGS:
+            if pat.search(summary):
+                errors.append(
+                    f"{loc}: summary contains aggregator language "
+                    f"(matched: '{pat.pattern}'). Summaries must be "
+                    "direct quotes or paraphrases from the actual court "
+                    "order, not descriptions from law-firm trackers."
+                )
+                break
 
         # URL quality gates — catch generic court pages and all-judges
         # listings, which were a recurring failure mode.

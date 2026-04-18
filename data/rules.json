@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "last_updated": "2026-04-18T12:30:00Z",
+  "last_updated": "2026-04-18T05:20:37Z",
   "discovery_pass_completed": false,
   "categories": {
     "prohibited": {
@@ -54,50 +54,6 @@
   },
   "rules": [
     {
-      "id": "us-fed-ndtx-starr-2023-05",
-      "jurisdiction": "federal",
-      "court": "U.S. District Court for the Northern District of Texas",
-      "court_short": "N.D. Tex.",
-      "court_level": "district",
-      "circuit": "5",
-      "state": "TX",
-      "judge": "Brantley Starr",
-      "rule_type": "standing_order",
-      "category": "disclosure_with_traditional_verification",
-      "category_confidence": "high",
-      "title": "Mandatory Certification Regarding Generative Artificial Intelligence",
-      "effective_date": "2023-05-30",
-      "source_url": "https://www.txnd.uscourts.gov/judge/judge-brantley-starr",
-      "source_pdf": null,
-      "summary": "Judge Starr's original individual standing order requiring AI disclosure, widely cited as one of the first U.S. judicial AI orders. Superseded by court-wide N.D. Tex. local civil rule adopted September 2024.",
-      "verbatim_key_language": null,
-      "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; superseded by court-wide local rule us-fed-ndtx-localrule-2024-09",
-      "superseded_by": "us-fed-ndtx-localrule-2024-09"
-    },
-    {
-      "id": "us-fed-cit-vaden-2023-06",
-      "jurisdiction": "federal",
-      "court": "U.S. Court of International Trade",
-      "court_short": "CIT",
-      "court_level": "specialty",
-      "circuit": "Federal",
-      "state": null,
-      "judge": "Stephen Alexander Vaden",
-      "rule_type": "standing_order",
-      "category": "disclosure_required",
-      "category_confidence": "low",
-      "title": "Order on Artificial Intelligence",
-      "effective_date": "2023-06-08",
-      "source_url": null,
-      "source_pdf": null,
-      "summary": "Judge Vaden's individual standing order on AI. Vaden is no longer listed as a judge on the CIT website. No court-wide CIT AI policy has been identified to replace this entry.",
-      "verbatim_key_language": null,
-      "last_verified": "2026-04-17",
-      "provenance": "hand-seeded; Vaden no longer listed on CIT judges page as of 2026-04-17; order may no longer be in effect",
-      "superseded_by": "WITHDRAWN"
-    },
-    {
       "id": "us-fed-ndil-fuentes-2023-05",
       "jurisdiction": "federal",
       "court": "U.S. District Court for the Northern District of Illinois",
@@ -116,8 +72,7 @@
       "summary": "\"The Court refers all counsel to the Illinois Supreme Court's policy on artificial intelligence use, effective January 1, 2025. The Court expects that no counsel will submit hallucinated authorities and that all counsel will follow Rule 11 of the Federal Rules of Civil Procedure. ... The Court will continue to presume that the preexisting Rule 11 certification is a representation by filers, as living, breathing, thinking human beings, that they themselves have read and analyzed all cited authorities to ensure that such authorities actually exist and that the filings comply with Rule 11(b)(2).\" The referenced Illinois Supreme Court policy states: \"The use of AI by litigants, attorneys, judges, judicial clerks, research attorneys, and court staff providing similar support may be expected, should not be discouraged, and is authorized, provided it complies with legal and ethical standards. Disclosure of AI use should not be required in a pleading.\"",
       "verbatim_key_language": "The Court refers all counsel to the Illinois Supreme Court's policy on artificial intelligence use, effective January 1, 2025. The Court expects that no counsel will submit hallucinated authorities and that all counsel will follow Rule 11 of the Federal Rules of Civil Procedure.",
       "last_verified": "2026-04-17",
-      "provenance": "manually verified 2026-04-17; adopts Illinois Supreme Court AI policy (https://ilcourtsaudio.blob.core.windows.net/antilles-resources/resources/e43964ab-8874-4b7a-be4e-63af019cb6f7/Illinois%20Supreme%20Court%20AI%20Policy.pdf) which authorizes AI use and states disclosure should not be required",
-      "superseded_by": null
+      "provenance": "manually verified 2026-04-17; adopts Illinois Supreme Court AI policy (https://ilcourtsaudio.blob.core.windows.net/antilles-resources/resources/e43964ab-8874-4b7a-be4e-63af019cb6f7/Illinois%20Supreme%20Court%20AI%20Policy.pdf) which authorizes AI use and states disclosure should not be required"
     },
     {
       "id": "us-fed-edpa-baylson-2023-06",
@@ -138,52 +93,7 @@
       "summary": "Requires counsel to disclose any use of AI in preparing a filing and to certify that the accuracy of all citations and legal arguments has been verified.",
       "verbatim_key_language": null,
       "last_verified": "2026-04-17",
-      "provenance": "manually verified 2026-04-17; Baylson is now a senior judge (not active); standing order PDF confirmed on court website",
-      "superseded_by": null
-    },
-    {
-      "id": "us-fed-ca5-proposed-2023-11",
-      "jurisdiction": "federal",
-      "court": "U.S. Court of Appeals for the Fifth Circuit",
-      "court_short": "5th Cir.",
-      "court_level": "circuit",
-      "circuit": "5",
-      "state": null,
-      "judge": null,
-      "rule_type": "proposed_local_rule",
-      "category": "disclosure_required",
-      "category_confidence": "high",
-      "title": "Proposed amendment requiring AI certification (proposed Rule 32.3 / Form 6 amendment) - NOT ADOPTED",
-      "effective_date": "2023-11-21",
-      "source_url": "https://www.ca5.uscourts.gov/docs/default-source/default-document-library/court-decision-on-proposed-rule.pdf?sfvrsn=5967c92d_2",
-      "source_pdf": "https://www.ca5.uscourts.gov/docs/default-source/default-document-library/court-decision-on-proposed-rule.pdf?sfvrsn=5967c92d_2",
-      "summary": "\"[C]ounsel and unrepresented filers must further certify that no generative artificial intelligence program was used in drafting the document presented for filing, or to the extent such a program was used, all generated text, including all citations and legal analysis, has been reviewed for accuracy and approved by a human.\" Proposed November 2023; not adopted per June 2024 court decision.",
-      "verbatim_key_language": "counsel and unrepresented filers must further certify that no generative artificial intelligence program was used in drafting the document presented for filing, or to the extent such a program was used, all generated text, including all citations and legal analysis, has been reviewed for accuracy and approved by a human",
-      "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; verified as proposed but NOT adopted per June 2024 announcement",
-      "superseded_by": "WITHDRAWN"
-    },
-    {
-      "id": "us-fed-ndil-cole-2023-06",
-      "jurisdiction": "federal",
-      "court": "U.S. District Court for the Northern District of Illinois",
-      "court_short": "N.D. Ill.",
-      "court_level": "magistrate",
-      "circuit": "7",
-      "state": "IL",
-      "judge": "Jeffrey Cole",
-      "rule_type": "standing_order",
-      "category": "disclosure_required",
-      "category_confidence": "low",
-      "title": "Standing Order on Use of Artificial Intelligence",
-      "effective_date": "2023-06-01",
-      "source_url": null,
-      "source_pdf": null,
-      "summary": "Judge Cole's individual standing order on AI disclosure. Cole IS listed on the N.D. Ill. judges page as an active magistrate judge as of 2026-04-18, but no AI-specific standing order was found on his judge page or in court records.",
-      "verbatim_key_language": null,
-      "last_verified": "2026-04-18",
-      "provenance": "hand-seeded; re-verified 2026-04-18; Cole is active but no AI standing order found at https://www.ilnd.uscourts.gov/judge_display.php?LastName=Cole; likely spurious seed entry",
-      "superseded_by": "WITHDRAWN"
+      "provenance": "manually verified 2026-04-17; Baylson is now a senior judge (not active); standing order PDF confirmed on court website"
     },
     {
       "id": "us-fed-ndil-johnston-2023-07",
@@ -204,140 +114,7 @@
       "summary": "Reminds attorneys of their duties under Federal Rules of Civil Procedure 11(b) and 26(g) without imposing additional disclosure or certification requirements. Takes a hands-off approach emphasizing existing professional responsibility rules.",
       "verbatim_key_language": null,
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; verified at judge's page with AI dropdown section",
-      "superseded_by": null
-    },
-    {
-      "id": "us-fed-cdca-martinez-olguin-2025-10",
-      "jurisdiction": "federal",
-      "court": "U.S. District Court for the Central District of California",
-      "court_short": "C.D. Cal.",
-      "court_level": "district",
-      "circuit": "9",
-      "state": "CA",
-      "judge": "Araceli Mart\u00ednez-Olgu\u00edn",
-      "rule_type": "standing_order",
-      "category": "disclosure_required",
-      "category_confidence": "high",
-      "title": "Civil Standing Order \u2014 Artificial Intelligence (AI)",
-      "effective_date": "2025-10-20",
-      "source_url": "https://www.cacd.uscourts.gov/honorable-araceli-martinez-olguin",
-      "source_pdf": "https://www.cacd.uscourts.gov/sites/default/files/documents/AMO/AD/AMO%20Civil%20Standing%20Order%2010-20-25%20FINAL.pdf",
-      "summary": "\"Use of ChatGPT or other such tools is not prohibited, but counsel must at all times personally confirm for themselves the accuracy of any content generated by these tools. ... Any submission containing AI-generated content must include a certification that lead trial counsel has personally verified the content's accuracy. Failure to include this certification or comply with this verification requirement will be grounds for sanctions. Counsel is responsible for maintaining records of all prompts or inquiries.\"",
-      "verbatim_key_language": "Any submission containing AI-generated content must include a certification that lead trial counsel has personally verified the content's accuracy. Failure to include this certification or comply with this verification requirement will be grounds for sanctions.",
-      "last_verified": "2026-04-17",
-      "provenance": "manually verified 2026-04-17; corrected court from N.D. Cal. to C.D. Cal.; updated to October 2025 standing order PDF",
-      "superseded_by": null
-    },
-    {
-      "id": "us-fed-ndca-kang-2023-09",
-      "jurisdiction": "federal",
-      "court": "U.S. District Court for the Northern District of California",
-      "court_short": "N.D. Cal.",
-      "court_level": "magistrate",
-      "circuit": "9",
-      "state": "CA",
-      "judge": "Peter H. Kang",
-      "rule_type": "standing_order",
-      "category": "disclosure_required",
-      "category_confidence": "low",
-      "title": "Standing Order on AI-Assisted Documents",
-      "effective_date": "2023-09-01",
-      "source_url": null,
-      "source_pdf": null,
-      "summary": "Requires attorneys to clearly identify AI-assisted documents in their filings. Described as \"one of the more specific requirements in any federal court\" for identifying AI assistance.",
-      "verbatim_key_language": null,
-      "last_verified": null,
-      "provenance": "agent discovery 2026-04; URL 'https://cand.uscourts.gov/judges/' nulled by cleanup; needs re-verification via zoom-out workflow",
-      "superseded_by": null
-    },
-    {
-      "id": "us-fed-ndca-lin-2024-09",
-      "jurisdiction": "federal",
-      "court": "U.S. District Court for the Northern District of California",
-      "court_short": "N.D. Cal.",
-      "court_level": "district",
-      "circuit": "9",
-      "state": "CA",
-      "judge": "Rita F. Lin",
-      "rule_type": "standing_order",
-      "category": "permitted_with_caution",
-      "category_confidence": "high",
-      "title": "Civil Standing Order - Use of Generative AI",
-      "effective_date": "2024-09-18",
-      "source_url": "https://cand.uscourts.gov/judges/rfl/lin-rita-f",
-      "source_pdf": "https://cand.uscourts.gov/wp-content/uploads/judges/lin-rfl/2024-09-18-Civil-Standing-Order.pdf",
-      "summary": "Use of generative AI in drafting filings is \"not prohibited,\" but attorneys must personally verify the accuracy of any research conducted by such means. \"[C]ounsel alone bears ethical responsibility for all statements made in filings,\" regardless of whether an AI tool was involved. Reinforces existing duties (competence, candor, Rule 11) without an affirmative disclosure requirement.",
-      "verbatim_key_language": null,
-      "last_verified": "2026-04-18",
-      "provenance": "agent discovery 2026-04; re-verified 2026-04-18; updated effective date May 17, 2024 per aggregator sources, standing order PDF dated September 18, 2024",
-      "superseded_by": null
-    },
-    {
-      "id": "us-fed-bkcy-ndtx-jernigan-2023-06",
-      "jurisdiction": "federal",
-      "court": "U.S. Bankruptcy Court for the Northern District of Texas",
-      "court_short": "Bankr. N.D. Tex.",
-      "court_level": "bankruptcy",
-      "circuit": "5",
-      "state": "TX",
-      "judge": "Stacey G.C. Jernigan",
-      "rule_type": "standing_order",
-      "category": "disclosure_with_traditional_verification",
-      "category_confidence": "low",
-      "title": "Standing Order on Generative Artificial Intelligence",
-      "effective_date": "2023-06-01",
-      "source_url": null,
-      "source_pdf": null,
-      "summary": "Requires all parties to file a certification attesting either that no filings will be drafted with generative AI or that any content drafted with generative AI will be checked for accuracy through \"print reporters, traditional legal databases, or other reliable means.\"",
-      "verbatim_key_language": "print reporters, traditional legal databases, or other reliable means",
-      "last_verified": null,
-      "provenance": "agent discovery 2026-04; URL 'https://www.txnb.uscourts.gov/' nulled by cleanup; needs re-verification via zoom-out workflow",
-      "superseded_by": null
-    },
-    {
-      "id": "us-fed-bkcy-ndtx-general-2023-06",
-      "jurisdiction": "federal",
-      "court": "U.S. Bankruptcy Court for the Northern District of Texas",
-      "court_short": "Bankr. N.D. Tex.",
-      "court_level": "bankruptcy",
-      "circuit": "5",
-      "state": "TX",
-      "judge": null,
-      "rule_type": "general_order",
-      "category": "disclosure_with_traditional_verification",
-      "category_confidence": "low",
-      "title": "General Order 2023-03: Use of Generative Artificial Intelligence",
-      "effective_date": "2023-06-15",
-      "source_url": null,
-      "source_pdf": null,
-      "summary": "Court-wide general order requiring parties to check any portion of a document drafted using generative AI for accuracy through \"print reporters, traditional legal databases, or other reliable means.\"",
-      "verbatim_key_language": "print reporters, traditional legal databases, or other reliable means",
-      "last_verified": null,
-      "provenance": "agent discovery 2026-04; URL 'https://www.txnb.uscourts.gov/' nulled by cleanup; needs re-verification via zoom-out workflow",
-      "superseded_by": null
-    },
-    {
-      "id": "us-fed-bkcy-wdok-hall-loyd-2023-07",
-      "jurisdiction": "federal",
-      "court": "U.S. Bankruptcy Court for the Western District of Oklahoma",
-      "court_short": "Bankr. W.D. Okla.",
-      "court_level": "bankruptcy",
-      "circuit": "10",
-      "state": "OK",
-      "judge": "Sarah A. Hall and Janice D. Loyd",
-      "rule_type": "standing_order",
-      "category": "disclosure_required",
-      "category_confidence": "low",
-      "title": "Standing Order on Use of Generative Artificial Intelligence",
-      "effective_date": "2023-07-01",
-      "source_url": null,
-      "source_pdf": null,
-      "summary": "Requires parties to: (1) disclose the use of generative AI, (2) identify the specific tool, (3) identify portions of text drafted by AI, (4) certify the submission was checked for accuracy, and (5) certify that no confidential information was disclosed to the AI system.",
-      "verbatim_key_language": null,
-      "last_verified": null,
-      "provenance": "agent discovery 2026-04; URL 'https://www.okwb.uscourts.gov/' nulled by cleanup; needs re-verification via zoom-out workflow",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; verified at judge's page with AI dropdown section"
     },
     {
       "id": "us-fed-wdnc-charlotte-2024-06",
@@ -358,30 +135,7 @@
       "summary": "\"[B]riefs or memoranda submitted to the court must have a certification that no artificial intelligence was used during the research to prepare the document except for that in the standard online legal research sources Bloomberg, FastCase, Lexis or Westlaw.\" Requires attorney or paralegal verification of every statement and citation for accuracy.",
       "verbatim_key_language": "briefs or memoranda submitted to the court must have a certification that no artificial intelligence was used during the research to prepare the document except for that in the standard online legal research sources",
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; verified from court PDF",
-      "superseded_by": null
-    },
-    {
-      "id": "us-fed-sdoh-newman-2023-08",
-      "jurisdiction": "federal",
-      "court": "U.S. District Court for the Southern District of Ohio",
-      "court_short": "S.D. Ohio",
-      "court_level": "district",
-      "circuit": "6",
-      "state": "OH",
-      "judge": "Michael J. Newman",
-      "rule_type": "standing_order",
-      "category": "prohibited_except_assisted_research",
-      "category_confidence": "high",
-      "title": "Standing Order on Artificial Intelligence Use",
-      "effective_date": "2023-08-01",
-      "source_url": "https://www.ohsd.uscourts.gov/FPNewman",
-      "source_pdf": null,
-      "summary": "\"The Court reminds all parties that they are not allowed to use AI—for any purpose—to prepare any filings in the instant case or any case before the undersigned.\" However, the order carves out an exception for \"AI in legal and internet search engines.\" \"The penalty for violating this provision includes, inter alia, striking the pleading from the record, the imposition of economic sanctions or contempt, and dismissal of the lawsuit.\"",
-      "verbatim_key_language": "The Court reminds all parties that they are not allowed to use AI—for any purpose—to prepare any filings in the instant case or any case before the undersigned",
-      "last_verified": "2026-04-18",
-      "provenance": "agent discovery 2026-04; re-verified 2026-04-18 via judge's standing orders page",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; verified from court PDF"
     },
     {
       "id": "us-fed-ohnd-boyko-2023-08",
@@ -402,30 +156,7 @@
       "summary": "Prohibits use of AI in the preparation of any filing submitted to the Court, with exception for information gathered from legal search engines such as Westlaw or LexisNexis, or Internet search engines such as Google or Bing. Violations may result in sanctions including striking pleadings, economic sanctions, contempt, or dismissal.",
       "verbatim_key_language": null,
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; verified from court PDF",
-      "superseded_by": null
-    },
-    {
-      "id": "us-fed-nmd-strickland-2023-09",
-      "jurisdiction": "federal",
-      "court": "U.S. District Court for the District of New Mexico",
-      "court_short": "D.N.M.",
-      "court_level": "district",
-      "circuit": "10",
-      "state": "NM",
-      "judge": "Margaret I. Strickland",
-      "rule_type": "standing_order",
-      "category": "disclosure_required",
-      "category_confidence": "low",
-      "title": "Standing Order Regarding Use of Generative AI",
-      "effective_date": "2023-09-01",
-      "source_url": null,
-      "source_pdf": null,
-      "summary": "Requires disclosure of AI use, identification of the specific AI tool used, and certification that the unrepresented party or attorney has checked the accuracy of any AI-generated portion of the filing.",
-      "verbatim_key_language": null,
-      "last_verified": null,
-      "provenance": "agent discovery 2026-04; verified from court PDF; URL 'https://www.nmd.uscourts.gov/' nulled by cleanup; needs re-verification via zoom-out workflow",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; verified from court PDF"
     },
     {
       "id": "us-fed-edpa-pratter-2024-05",
@@ -441,13 +172,12 @@
       "category_confidence": "high",
       "title": "Standing Order Re: Artificial Intelligence",
       "effective_date": "2024-05-03",
-      "source_url": "https://www.paed.uscourts.gov/judges-info/active-judges/gene-e-k-pratter",
+      "source_url": "https://www.paed.uscourts.gov/judges-info/active-judges/gene-ek-pratter",
       "source_pdf": "https://www.paed.uscourts.gov/sites/paed/files/documents/procedures/praso1_0.pdf",
       "summary": "\"[C]ounsel (or a party representing himself or herself) [must] disclose any use of generative Artificial Intelligence ('AI') in the preparation of any complaint, answer, motion, brief, or other paper filed with the Court... [and] certify that each and every citation to the law or the record in the filing has been verified as authentic and accurate.\"",
       "verbatim_key_language": "counsel (or a party representing himself or herself) [must] disclose any use of generative Artificial Intelligence ('AI') in the preparation of any complaint, answer, motion, brief, or other paper filed with the Court",
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; verified from court PDF",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; verified from court PDF"
     },
     {
       "id": "us-fed-sdtx-general-2025-05",
@@ -468,8 +198,7 @@
       "summary": "Requires attorneys to exercise independent legal judgment and thoroughly review any filing prepared with the assistance of generative AI before submission. Emphasizes that attorneys have a non-delegable responsibility to verify all content in their filings, regardless of whether generative AI was used in preparation.",
       "verbatim_key_language": null,
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; verified from court PDF",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; verified from court PDF"
     },
     {
       "id": "us-fed-edtx-localrule-2025-12",
@@ -490,8 +219,7 @@
       "summary": "Amended rule requiring all litigants (not just pro se) to review and verify the accuracy and quality of information produced by AI technology that is used in a filing. Expands 2023 rule that only applied to pro se litigants after the court observed increasing numbers of filings that improperly utilized generative AI.",
       "verbatim_key_language": null,
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; verified from General Order 25-07",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; verified from General Order 25-07"
     },
     {
       "id": "us-fed-ndtx-localrule-2024-09",
@@ -512,8 +240,7 @@
       "summary": "\"A brief prepared using generative artificial intelligence must disclose this fact on the first page under the heading 'Use of Generative Artificial Intelligence.' ... A party who files a brief that does not contain the disclosure required by subsection (f)(1) of this rule certifies that no part of the brief was prepared using generative artificial intelligence.\"",
       "verbatim_key_language": "A brief prepared using generative artificial intelligence must disclose this fact on the first page under the heading 'Use of Generative Artificial Intelligence.'",
       "last_verified": "2026-04-18",
-      "provenance": "agent discovery 2026-04; verified from CIVRULES.pdf (effective Sept. 2, 2025 version); supersedes Judge Starr's individual standing order",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; verified from CIVRULES.pdf (effective Sept. 2, 2025 version); supersedes Judge Starr's individual standing order"
     },
     {
       "id": "us-fed-ndca-kang-2025-07",
@@ -526,16 +253,15 @@
       "judge": "Peter H. Kang",
       "rule_type": "standing_order",
       "category": "disclosure_required",
-      "category_confidence": "low",
+      "category_confidence": "high",
       "title": "Civil Standing Order (Updated 2025)",
       "effective_date": "2025-07-16",
-      "source_url": null,
-      "source_pdf": null,
+      "source_url": "https://cand.uscourts.gov/judges/phk/kang-peter-h",
+      "source_pdf": "https://cand.uscourts.gov/sites/default/files/standing-orders/PHK-Civil-Standing-Order_2025.7.16.pdf",
       "summary": "\"Documents created with [generative AI] must be identified in the title, caption, in a table, or by separate notice... AI-hallucinated citations or fictitious legal citations are prohibited.\"",
       "verbatim_key_language": "Documents created with [generative AI] must be identified in the title, caption, in a table, or by separate notice",
       "last_verified": null,
-      "provenance": "agent discovery 2026-04; verified from court PDF; URL 'https://cand.uscourts.gov/judges/' nulled by cleanup; needs re-verification via zoom-out workflow",
-      "superseded_by": null
+      "provenance": "user-verified URLs 2026-04-18; quote from standing order PDF"
     },
     {
       "id": "us-fed-ndil-coleman-2023-07",
@@ -556,8 +282,7 @@
       "summary": "Parties may not use Artificial Intelligence to draft their memoranda or as authority to support their motions. Complete prohibition on AI use in filings.",
       "verbatim_key_language": null,
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; verified from court website searches",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; verified from court website searches"
     },
     {
       "id": "us-fed-cacd-hwang-2024-03",
@@ -578,74 +303,7 @@
       "summary": "AI use by litigants, attorneys, judges, and court staff \"may be expected, should not be discouraged, and is authorized provided it complies with legal and ethical standards.\" Disclosure of AI use is not required in a pleading. Takes permissive approach unlike most federal courts.",
       "verbatim_key_language": "may be expected, should not be discouraged, and is authorized provided it complies with legal and ethical standards",
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; unique permissive approach",
-      "superseded_by": null
-    },
-    {
-      "id": "us-fed-cacd-blumenfeld-2024-03",
-      "jurisdiction": "federal",
-      "court": "U.S. District Court for the Central District of California",
-      "court_short": "C.D. Cal.",
-      "court_level": "district",
-      "circuit": "9",
-      "state": "CA",
-      "judge": "Stanley Blumenfeld, Jr.",
-      "rule_type": "standing_order",
-      "category": "disclosure_required",
-      "category_confidence": "low",
-      "title": "Standing Order for Civil Cases - AI Disclosure Required",
-      "effective_date": "2024-03-01",
-      "source_url": null,
-      "source_pdf": null,
-      "summary": "Requires parties using generative AI to generate a portion of a filing to attach a separate document disclosing the use and certifying the accuracy of its content. Judge has enforced this order through sanctions when violations occurred.",
-      "verbatim_key_language": null,
-      "last_verified": null,
-      "provenance": "agent discovery 2026-04; verified through sanctions enforcement reporting; URL 'https://www.cacd.uscourts.gov/judges-schedules-procedures' nulled by cleanup; needs re-verification via zoom-out workflow",
-      "superseded_by": null
-    },
-    {
-      "id": "us-state-fl-11th-fajardo-orshan-2026-01",
-      "jurisdiction": "state",
-      "court": "Florida Eleventh Judicial Circuit Court (Miami-Dade County)",
-      "court_short": "Fla. 11th Cir. Ct.",
-      "court_level": "state-trial",
-      "circuit": null,
-      "state": "FL",
-      "judge": "Ariana Fajardo Orshan (Chief Judge)",
-      "rule_type": "administrative_order",
-      "category": "disclosure_required",
-      "category_confidence": "low",
-      "title": "Administrative Order No. 26-04: Disclosure of Use of Generative Artificial Intelligence",
-      "effective_date": "2026-01-15",
-      "source_url": null,
-      "source_pdf": null,
-      "summary": "\"Generative artificial intelligence was used in the preparation of this filing. The undersigned certifies that all factual assertions, legal authority, and citations have been independently reviewed and verified for accuracy and accepts full responsibility for the contents of this filing.\"",
-      "verbatim_key_language": "Generative artificial intelligence was used in the preparation of this filing. The undersigned certifies that all factual assertions, legal authority, and citations have been independently reviewed and verified for accuracy",
-      "last_verified": null,
-      "provenance": "agent discovery 2026-04; first major Florida state court AI order; URL 'https://www.jud11.flcourts.org/' nulled by cleanup; needs re-verification via zoom-out workflow",
-      "superseded_by": null
-    },
-    {
-      "id": "us-state-fl-17th-phillips-2026-01",
-      "jurisdiction": "state",
-      "court": "Florida Seventeenth Judicial Circuit Court (Broward County)",
-      "court_short": "Fla. 17th Cir. Ct.",
-      "court_level": "state-trial",
-      "circuit": null,
-      "state": "FL",
-      "judge": "Carol-Lisa Phillips (Chief Judge)",
-      "rule_type": "administrative_order",
-      "category": "disclosure_required",
-      "category_confidence": "low",
-      "title": "Administrative Order 2026-03-Gen: Use of Artificial Intelligence in Court Filings",
-      "effective_date": "2026-01-26",
-      "source_url": null,
-      "source_pdf": null,
-      "summary": "\"The undersigned hereby certifies that generative artificial intelligence was used to prepare this [TITLE OF DOCUMENT BEING FILED]. The undersigned has independently verified the accuracy of every citation to the law and /or the record, and the accuracy of any language drafted by generative artificial intelligence, including quotations, citations, paraphrased assertions, facts, and legal analysis.\"",
-      "verbatim_key_language": "The undersigned has independently verified the accuracy of every citation to the law and /or the record, and the accuracy of any language drafted by generative artificial intelligence",
-      "last_verified": null,
-      "provenance": "agent discovery 2026-04; second major Florida state court AI order; URL 'https://www.17th.flcourts.org/' nulled by cleanup; needs re-verification via zoom-out workflow",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; unique permissive approach"
     },
     {
       "id": "us-state-fl-6th-burgess-section22-2026-01",
@@ -666,8 +324,7 @@
       "summary": "\"I certify that I have personally reviewed this filing or submission, verified the accuracy of all legal authorities and factual assertions through traditional methods, and conducted a reasonable inquiry into the truth and accuracy of all statements herein.\" Mandatory certification required on every filing, immediately above the signature line.",
       "verbatim_key_language": "verified the accuracy of all legal authorities and factual assertions through traditional methods",
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; notable for strong prohibition language",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; notable for strong prohibition language"
     },
     {
       "id": "us-state-ca-judicial-council-2025-09",
@@ -688,52 +345,7 @@
       "summary": "\"[R]equires disclosure of the use of or reliance on generative AI if the final version of a written, visual, or audio work provided to the public consists entirely of generative AI outputs... [and] prohibit[s] entry of confidential or nonpublic information into public AI systems.\" First statewide court system framework in the nation. Applies to all California state courts.",
       "verbatim_key_language": "requires disclosure of the use of or reliance on generative AI if the final version of a written, visual, or audio work provided to the public consists entirely of generative AI outputs",
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; landmark statewide policy, first in U.S.",
-      "superseded_by": null
-    },
-    {
-      "id": "us-state-nc-cabarrus-district25-2024-06",
-      "jurisdiction": "state",
-      "court": "North Carolina Superior Court District 25 (Cabarrus County)",
-      "court_short": "N.C. Super. Ct. Dist. 25",
-      "court_level": "state-trial",
-      "circuit": null,
-      "state": "NC",
-      "judge": null,
-      "rule_type": "administrative_order",
-      "category": "disclosure_required",
-      "category_confidence": "medium",
-      "title": "Administrative Order on AI Use",
-      "effective_date": "2024-06-01",
-      "source_url": null,
-      "source_pdf": null,
-      "summary": "Only trial court district in North Carolina to adopt an administrative order addressing AI as of early 2026. Other North Carolina districts have not issued AI-specific rules.",
-      "verbatim_key_language": null,
-      "last_verified": null,
-      "provenance": "agent discovery 2026-04; mentioned in NC Criminal Law Blog; primary source not accessible",
-      "superseded_by": null
-    },
-    {
-      "id": "us-state-ny-unified-court-system-2025-10",
-      "jurisdiction": "state",
-      "court": "New York State Unified Court System",
-      "court_short": "N.Y. UCS",
-      "court_level": "state-supreme",
-      "circuit": null,
-      "state": "NY",
-      "judge": null,
-      "rule_type": "administrative_order",
-      "category": "permitted_with_caution",
-      "category_confidence": "low",
-      "title": "Unified Court System AI Policy (Interim)",
-      "effective_date": "2025-10-10",
-      "source_url": null,
-      "source_pdf": null,
-      "summary": "First official policy on the use of artificial intelligence in New York courts, establishing guidelines for responsible and ethical use of AI for all judicial and non-judicial UCS personnel. Promotes responsible AI use with guardrails to ensure fairness, accountability, and security.",
-      "verbatim_key_language": null,
-      "last_verified": null,
-      "provenance": "agent discovery 2026-04; statewide policy for court personnel; URL 'https://www.nycourts.gov/' nulled by cleanup; needs re-verification via zoom-out workflow",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; landmark statewide policy, first in U.S."
     },
     {
       "id": "us-fed-cod-wang-2024-06",
@@ -754,30 +366,7 @@
       "summary": "Requires disclosure when AI is used and certification that all content has been verified for accuracy. Judge Wang has actively enforced this order, issuing an Order to Show Cause in *Coomer v. Lindell* after identifying nearly thirty defective citations in a brief submitted by attorneys who admitted to using generative AI without cite-checking.",
       "verbatim_key_language": null,
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; notable for active enforcement through sanctions",
-      "superseded_by": null
-    },
-    {
-      "id": "us-fed-cod-crews-2024-08",
-      "jurisdiction": "federal",
-      "court": "U.S. District Court for the District of Colorado",
-      "court_short": "D. Colo.",
-      "court_level": "magistrate",
-      "circuit": "10",
-      "state": "CO",
-      "judge": "S. Kato Crews",
-      "rule_type": "standing_order",
-      "category": "disclosure_required",
-      "category_confidence": "low",
-      "title": "Standing Order Requiring AI Disclosures and Certifications",
-      "effective_date": "2024-08-01",
-      "source_url": null,
-      "source_pdf": null,
-      "summary": "Requires AI disclosures and certifications for cases assigned to Judge Crews, similar in approach to Judge Wang's standing order in the same district.",
-      "verbatim_key_language": null,
-      "last_verified": null,
-      "provenance": "agent discovery 2026-04; mentioned as having directive in place; URL 'https://www.cod.uscourts.gov/' nulled by cleanup; needs re-verification via zoom-out workflow",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; notable for active enforcement through sanctions"
     },
     {
       "id": "us-fed-azd-humetewa-2024-05",
@@ -798,8 +387,7 @@
       "summary": "Requires attorneys and pro se litigants who use AI to file a separate \"Notice of Use of Artificial Intelligence\" document that identifies the AI program used, specifies page and line numbers of AI-drafted content, and certifies that AI-generated language was verified for accuracy by a human being.",
       "verbatim_key_language": null,
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; mentioned in legal press coverage; primary source not directly accessible",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; mentioned in legal press coverage; primary source not directly accessible"
     },
     {
       "id": "us-fed-wawd-cartwright-2026-02",
@@ -820,8 +408,7 @@
       "summary": "Judge Cartwright ordered attorney Jocelyn C. Stewart to show cause why she should not face sanctions for AI use that led to submitting \"dozens of inaccurate factual and legal citations across at least five different filings.\" While not a preemptive standing order, this enforcement action signals the court's expectations for AI verification.",
       "verbatim_key_language": null,
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; enforcement order rather than preemptive standing order, but signals judicial expectations",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; enforcement order rather than preemptive standing order, but signals judicial expectations"
     },
     {
       "id": "us-fed-cit-restani-2025-07",
@@ -842,30 +429,7 @@
       "summary": "\"[A]ny submission containing text drafted with the assistance of a generative artificial intelligence program... must be accompanied by: (1) A disclosure notice that identifies the program used and the specific portion of text that have been so drafted; (2) A certification that the use of such program has not resulted in the disclosure of any confidential or business proprietary information to any unauthorized party.\"",
       "verbatim_key_language": "any submission containing text drafted with the assistance of a generative artificial intelligence program... must be accompanied by: (1) A disclosure notice that identifies the program used and the specific portion of text that have been so drafted; (2) A certification that the use of such program has not resulted in the disclosure of any confidential or business proprietary information",
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; second CIT judge order following Vaden",
-      "superseded_by": null
-    },
-    {
-      "id": "us-fed-hid-general-2023-11",
-      "jurisdiction": "federal",
-      "court": "U.S. District Court for the District of Hawaii",
-      "court_short": "D. Haw.",
-      "court_level": "district",
-      "circuit": "9",
-      "state": "HI",
-      "judge": null,
-      "rule_type": "general_order",
-      "category": "disclosure_except_assisted_research",
-      "category_confidence": "low",
-      "title": "General Order 23-1: Reliance on Unverified Sources",
-      "effective_date": "2023-11-14",
-      "source_url": null,
-      "source_pdf": null,
-      "summary": "Requires any counsel or pro se party that submits any filing generated by an AI platform to concurrently file a declaration captioned \"Reliance on Unverified Source\" that discloses the reliance on unverified sources and verifies that any such material is not fictitious. This order does not affect the use of basic research tools such as Westlaw, Lexis, or Bloomberg.",
-      "verbatim_key_language": null,
-      "last_verified": null,
-      "provenance": "agent discovery 2026-04; one of two federal districts with district-wide AI disclosure requirement; URL 'https://www.hid.uscourts.gov/' nulled by cleanup; needs re-verification via zoom-out workflow",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; second CIT judge order following Vaden"
     },
     {
       "id": "us-fed-hid-kobayashi-2023-11",
@@ -886,8 +450,7 @@
       "summary": "Requires disclosure if generative AI is utilized in the preparation of any documents filed with the Court. The guidelines are consistent with Rule 11(b) of the Federal Rules and require certain disclosure and certification requirements when AI is used.",
       "verbatim_key_language": null,
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; mirrors Starr-style prototype AI standing order",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; mirrors Starr-style prototype AI standing order"
     },
     {
       "id": "us-fed-njd-padin-2023-12",
@@ -907,9 +470,8 @@
       "source_pdf": "https://www.njd.uscourts.gov/sites/njd/files/EPProcedures.pdf",
       "summary": "\"The use of any generative AI (such as OpenAI's ChatGPT or Google's Bard) in court filings requires a mandatory disclosure/certification that: (1) identifies the GAI program; (2) identifies the portion of the filing drafted by GAI; and (3) certifies that the GAI work product was diligently reviewed by a human being for accuracy and applicability.\" Failure to comply may result in sanctions.",
       "verbatim_key_language": "The use of any generative AI (such as OpenAI's ChatGPT or Google's Bard) in court filings requires a mandatory disclosure/certification that: (1) identifies the GAI program; (2) identifies the portion of the filing drafted by GAI; and (3) certifies that the GAI work product was diligently reviewed by a human being for accuracy and applicability",
-      "last_verified": "2026-04-18",
-      "provenance": "agent discovery 2026-04; re-verified 2026-04-18; proactive amendment to pretrial procedures in late 2023",
-      "superseded_by": null
+      "last_verified": "2026-04-17",
+      "provenance": "agent discovery 2026-04; proactive amendment to pretrial procedures in late 2023"
     },
     {
       "id": "us-fed-bkcy-casd-general-2026-01",
@@ -930,8 +492,7 @@
       "summary": "Court-wide general order governing the use of generative Artificial Intelligence (AI) for all pleadings, motions, and papers filed in Court proceedings. Establishes requirements and guidelines for attorneys and parties who use generative AI tools when preparing court filings in bankruptcy proceedings.",
       "verbatim_key_language": null,
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; issued November 2025, effective January 1, 2026",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; issued November 2025, effective January 1, 2026"
     },
     {
       "id": "us-fed-ned-localrule-2024-12",
@@ -952,8 +513,7 @@
       "summary": "District-wide local rule requiring a certificate stating either that no generative AI was used, or that a human verified all AI-generated text including citations. Nebraska is one of only two federal districts (along with Hawaii) with a district-wide AI disclosure requirement.",
       "verbatim_key_language": null,
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; one of two federal districts with district-wide requirement",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; one of two federal districts with district-wide requirement"
     },
     {
       "id": "us-fed-mtd-molloy-2023-06",
@@ -974,8 +534,7 @@
       "summary": "\"Use of artificial intelligence automated drafting programs, such as Chat GPT, is prohibited.\" This prohibition is limited to counsel appearing pro hac vice (out-of-state attorneys seeking temporary admission to practice in Montana federal court), making it narrower in scope than most AI standing orders.",
       "verbatim_key_language": "Use of artificial intelligence automated drafting programs, such as Chat GPT, is prohibited",
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; one of earliest AI orders, limited to pro hac vice counsel",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; one of earliest AI orders, limited to pro hac vice counsel"
     },
     {
       "id": "us-fed-wdok-palk-2023-06",
@@ -996,30 +555,7 @@
       "summary": "Requires parties that used generative AI to draft or prepare a court filing to disclose \"that [G]AI was used and the specific [G]AI tool that was used.\" Also requires attorneys and unrepresented parties to \"certify in the document that the person has checked the accuracy of any portion of the document drafted by [G]AI, including all citations and legal authority.\"",
       "verbatim_key_language": null,
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; mirrors Starr prototype, adopted by Judge Robertson in E.D. Okla.",
-      "superseded_by": null
-    },
-    {
-      "id": "us-fed-edok-robertson-2023-10",
-      "jurisdiction": "federal",
-      "court": "U.S. District Court for the Eastern District of Oklahoma",
-      "court_short": "E.D. Okla.",
-      "court_level": "magistrate",
-      "circuit": "10",
-      "state": "OK",
-      "judge": "Jason A. Robertson",
-      "rule_type": "standing_order",
-      "category": "disclosure_required",
-      "category_confidence": "low",
-      "title": "Standing Order on Artificial Intelligence - 'It Is About Trust'",
-      "effective_date": "2023-10-22",
-      "source_url": null,
-      "source_pdf": null,
-      "summary": "\"This ruling is not about technology. It is about trust... Generative technology can produce words, but it cannot give them belief. It cannot attach courage, sincerity, truth, or responsibility to what it writes. That remains the sacred duty of the lawyer who signs the page.\" Requires disclosure of AI tool used and certification of accuracy. Includes the memorable directive: \"Before this Court, artificial intelligence is optional. Actual intelligence is mandatory.\"",
-      "verbatim_key_language": "Before this Court, artificial intelligence is optional. Actual intelligence is mandatory",
-      "last_verified": null,
-      "provenance": "agent discovery 2026-04; notable for philosophical framing and memorable language; URL 'https://www.oked.uscourts.gov/' nulled by cleanup; needs re-verification via zoom-out workflow",
-      "superseded_by": null
+      "provenance": "agent discovery 2026-04; mirrors Starr prototype, adopted by Judge Robertson in E.D. Okla."
     }
   ]
 }
