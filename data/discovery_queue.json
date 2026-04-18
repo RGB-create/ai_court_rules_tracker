@@ -1,7 +1,7 @@
 {
-  "last_updated": null,
-  "pass_number": 0,
-  "pass_status": "not_started",
+  "last_updated": "2026-04-18T05:20:37Z",
+  "pass_number": 1,
+  "pass_status": "in_progress",
   "notes": "Persistent checklist for the discovery agent. Each weekly run processes as many 'pending' items as fits in its time window (in the order defined by priority_order) and writes the updated queue back. When every item is marked 'completed', the pass_number increments and all items are reset to 'pending' for the next verification cycle. Do NOT delete this file between runs.",
   "priority_order": [
     "error_prone",
@@ -74,5 +74,162 @@
       "note": "AI guidelines live directly on his judge-specific page in an 'Artificial Intelligence' dropdown section. source_url should be the judge page (no PDF needed)."
     }
   ],
-  "items": []
+  "items": [
+    {
+      "priority": "error_prone",
+      "court_short": "C.D. Cal.",
+      "judge": "Anne Hwang",
+      "status": "blocked",
+      "result": "url_unreachable",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "PDF inaccessible; conflicting information about order content. Needs retry with better PDF access or direct court confirmation."
+    },
+    {
+      "priority": "error_prone",
+      "court_short": "N.D. Tex.",
+      "judge": null,
+      "status": "completed",
+      "result": "rule_found",
+      "result_details": { "rule_id": "us-fed-ndtx-localrule-2024-09" },
+      "last_checked": "2026-04-18",
+      "note": "Verified court-wide Local Civil Rule 7.2(f). Entry updated with latest info."
+    },
+    {
+      "priority": "error_prone",
+      "court_short": "Fla. 6th Cir. Ct.",
+      "judge": "Burgess",
+      "status": "completed",
+      "result": "rule_found",
+      "result_details": { "rule_id": "us-state-fl-6th-burgess-2026-01" },
+      "last_checked": "2026-04-18",
+      "note": "Verified correctly categorized as disclosure_with_traditional_verification."
+    },
+    {
+      "priority": "error_prone",
+      "court_short": "CIT",
+      "judge": "Stephen Vaden",
+      "status": "pending",
+      "result": null,
+      "last_checked": null,
+      "note": "No longer listed on Court of International Trade judges page. Verify status each pass; likely WITHDRAWN."
+    },
+    {
+      "priority": "error_prone",
+      "court_short": "N.D. Ill.",
+      "judge": "Gabriel Fuentes",
+      "status": "pending",
+      "result": null,
+      "last_checked": null,
+      "note": "Standing order cross-references Illinois Supreme Court AI policy, which says disclosure of AI use 'should not be required.' Correct category is permitted_with_caution, not disclosure_required. Follow cross-references."
+    },
+    {
+      "priority": "error_prone",
+      "court_short": "E.D. Pa.",
+      "judge": "Michael Baylson",
+      "status": "pending",
+      "result": null,
+      "last_checked": null,
+      "note": "Now a senior judge, not an active judge. Prior run used active-judges URL and got a 404. Use senior-judges listing."
+    },
+    {
+      "priority": "error_prone",
+      "court_short": "N.D. Ill.",
+      "judge": "Jeffrey Cole",
+      "status": "pending",
+      "result": null,
+      "last_checked": null,
+      "note": "Verify current status on N.D. Ill. judges page (active and senior). Prior run used an incorrect URL."
+    },
+    {
+      "priority": "error_prone",
+      "court_short": "C.D. Cal.",
+      "judge": "Araceli Martínez-Olguín",
+      "status": "pending",
+      "result": null,
+      "last_checked": null,
+      "note": "She is a C.D. Cal. judge — a prior run incorrectly assigned her to N.D. Cal. Use her C.D. Cal. judge-specific page."
+    },
+    {
+      "priority": "error_prone",
+      "court_short": "5th Cir.",
+      "judge": null,
+      "status": "pending",
+      "result": null,
+      "last_checked": null,
+      "note": "Proposed circuit rule on AI. rule_type should be 'proposed_local_rule'. Prior run used generic 5th Cir. URL — find the specific proposed-rule page or PDF."
+    },
+    {
+      "priority": "error_prone",
+      "court_short": "N.D. Ill.",
+      "judge": "Iain Johnston",
+      "status": "pending",
+      "result": null,
+      "last_checked": null,
+      "note": "AI guidelines live directly on his judge-specific page in an 'Artificial Intelligence' dropdown section. source_url should be the judge page (no PDF needed)."
+    },
+    {
+      "priority": "aggregator_flagged",
+      "court_short": "S.D. Ohio",
+      "judge": "Michael Newman",
+      "status": "pending",
+      "result": null,
+      "last_checked": null,
+      "note": "Prohibits AI use with exception for AI in legal search engines."
+    },
+    {
+      "priority": "aggregator_flagged",
+      "court_short": "D.N.J.",
+      "judge": "Evelyn Padin",
+      "status": "pending",
+      "result": null,
+      "last_checked": null,
+      "note": "Requires disclosure of AI use with certification."
+    },
+    {
+      "priority": "aggregator_flagged",
+      "court_short": "N.D. Cal.",
+      "judge": "Rita Lin",
+      "status": "pending",
+      "result": null,
+      "last_checked": null,
+      "note": "Standing order issued May 2024 permitting AI with verification requirement."
+    },
+    {
+      "priority": "court_level",
+      "court_short": "W.D.N.C.",
+      "judge": null,
+      "status": "pending",
+      "result": null,
+      "last_checked": null,
+      "note": "Court-wide standing order June 2024 - Charlotte division."
+    },
+    {
+      "priority": "court_level",
+      "court_short": "N.D. Ill.",
+      "judge": null,
+      "status": "pending",
+      "result": null,
+      "last_checked": null,
+      "note": "Check for court-wide local rule (multiple judges have individual orders)."
+    },
+    {
+      "priority": "court_level",
+      "court_short": "C.D. Cal.",
+      "judge": null,
+      "status": "pending",
+      "result": null,
+      "last_checked": null,
+      "note": "Check for court-wide local rule (multiple judges have individual orders)."
+    },
+    {
+      "priority": "court_level",
+      "court_short": "E.D. Pa.",
+      "judge": null,
+      "status": "pending",
+      "result": null,
+      "last_checked": null,
+      "note": "Check for court-wide local rule."
+    }
+  ]
 }

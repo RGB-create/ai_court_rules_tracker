@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "last_updated": "2026-04-17T19:09:10Z",
+  "last_updated": "2026-04-18T05:20:37Z",
   "discovery_pass_completed": false,
   "categories": {
     "prohibited": {
@@ -505,14 +505,14 @@
       "rule_type": "local_rule",
       "category": "disclosure_required",
       "category_confidence": "high",
-      "title": "Local Civil Rules: Disclosure of Use of Generative Artificial Intelligence",
-      "effective_date": "2024-09-03",
+      "title": "Local Civil Rule 7.2(f): Disclosure of Use of Generative Artificial Intelligence",
+      "effective_date": "2024-09-02",
       "source_url": "https://www.txnd.uscourts.gov/rules-and-orders",
       "source_pdf": "https://www.txnd.uscourts.gov/sites/default/files/documents/CIVRULES.pdf",
-      "summary": "\"A brief prepared using generative artificial intelligence must disclose this fact on the first page under the heading 'Use of Generative Artificial Intelligence.' If the presiding judge so directs, the party filing the brief must disclose the specific parts prepared using generative artificial intelligence. ... A party who files a brief that does not contain the disclosure required by subsection (f)(1) of this rule certifies that no part of the brief was prepared using generative artificial intelligence.\"",
+      "summary": "\"A brief prepared using generative artificial intelligence must disclose this fact on the first page under the heading 'Use of Generative Artificial Intelligence.' ... A party who files a brief that does not contain the disclosure required by subsection (f)(1) of this rule certifies that no part of the brief was prepared using generative artificial intelligence.\"",
       "verbatim_key_language": "A brief prepared using generative artificial intelligence must disclose this fact on the first page under the heading 'Use of Generative Artificial Intelligence.'",
-      "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; verified from CIVRULES.pdf; supersedes Judge Starr's individual standing order",
+      "last_verified": "2026-04-18",
+      "provenance": "agent discovery 2026-04; verified from CIVRULES.pdf (effective Sept. 2, 2025 version); supersedes Judge Starr's individual standing order",
       "superseded_by": null
     },
     {
