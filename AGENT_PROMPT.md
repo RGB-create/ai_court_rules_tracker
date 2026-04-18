@@ -173,26 +173,60 @@ skip it. The workflow for each entry is:
 
 Start narrow and zoom out until you find the actual AI policy:
 
-1. **Check the judge's individual page.** Search for "artificial
-   intelligence" in any on-page text, dropdown sections, or linked
-   documents. If you find an AI policy here, great — use this URL.
-2. **If nothing on the judge's page:** check if the judge links to
-   PDF standing orders (civil or criminal). Fetch the PDF and search
-   for "artificial intelligence" within it.
-3. **If no judge-specific policy exists:** zoom out to the **court
+1. **First, confirm the judge is still on the bench.** Check the
+   court's judges page. Look under both active judges AND senior
+   judges. If the judge is not listed at all, the order is likely no
+   longer in effect — mark it `superseded_by: "WITHDRAWN"` and move
+   on. If the judge moved to senior status, use the senior judge page.
+2. **Check the judge's individual page.** Search for "artificial
+   intelligence" in any on-page text, dropdown sections, tabs
+   (e.g., "Case Procedures," "Instructions," "Standing Orders,"
+   "Orders and Additional Documents"), or linked documents. Some
+   judges have an "Artificial Intelligence" dropdown section directly
+   on their page.
+3. **Check the judge's linked PDF standing orders.** Most judges link
+   to civil and/or criminal standing order PDFs from their page.
+   Fetch each PDF and search for "artificial intelligence" within it.
+   The AI policy is often one section within a longer standing order.
+4. **If no judge-specific policy exists:** zoom out to the **court
    level**. Go to the court's "rules and orders" or "local rules"
    page. Find the local rules PDF (civil and/or criminal). Search
    for "artificial intelligence" in the PDF.
-4. **Whichever level you find the policy at**, that is the entry you
+5. **Follow cross-references.** If an order says "the Court refers
+   counsel to [some other policy]" (e.g., a state supreme court AI
+   policy, a bar association policy), fetch that referenced policy
+   too. The category should reflect the combined effect of both.
+6. **Whichever level you find the policy at**, that is the entry you
    create. If it's a court-wide local rule, set `judge: null` and
    `rule_type: "local_rule"`. If it's a judge-specific order, set the
    judge name and `rule_type: "standing_order"`.
-5. **Set `source_url`** to the court page where the document lives
-   (the rules-and-orders page or the judge's page), and `source_pdf`
-   to the direct PDF link.
-6. **Read the actual policy text** and quote from it in `summary`.
-7. **Categorize based on what the order actually says** — not what a
-   law-firm summary says it says. Read the text carefully.
+7. **Set `source_url`** to the judge's specific page (NOT an
+   all-judges listing page) or the court's specific rules page, and
+   `source_pdf` to the direct PDF link.
+8. **Read the actual policy text** and quote from it in `summary`.
+9. **Categorize based on what the order actually says** — not what a
+   law-firm summary says it says. Use the decision tree in the
+   Categories section above.
+10. **Verify that `source_url` actually loads** — click it mentally.
+    If the URL goes to a generic court home page or an all-judges
+    listing or returns a 404, it is WRONG. Find the correct URL.
+
+**Common pitfalls to avoid:**
+- Using a court's home page or a generic all-judges listing URL
+  instead of the specific judge's page or the specific rules page.
+- Using the wrong court — double-check the court name against the
+  judge's actual page (e.g., a prior run assigned a C.D. Cal. judge
+  to N.D. Cal.).
+- Fabricating quotes — if you cannot read the PDF (e.g., it's not
+  OCR'd), write a plain summary without quotation marks and set
+  `category_confidence: "medium"`.
+- Assuming a category from a law-firm summary instead of reading the
+  order (e.g., a prior run categorized a "permit with verification
+  via traditional methods" order as "prohibit except Westlaw/Lexis").
+- Missing that an order references an external policy (e.g., the
+  Illinois Supreme Court AI policy) that changes the categorization.
+- Not checking whether a judge has retired or moved to senior status,
+  resulting in a broken URL. Read the text carefully.
 
 ### Worked examples
 
