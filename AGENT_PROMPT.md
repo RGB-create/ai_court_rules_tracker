@@ -134,10 +134,15 @@ proposed new category, and pause for human review.
 
 ## Discovery Pass
 
-Goal: build a **comprehensive** and **accurate** dataset. There are
-at least 50+ known federal orders and a growing number of state-court
-orders. If you finish with fewer than 40 federal entries, you have not
-searched thoroughly enough.
+Goal: build a **comprehensive** and **accurate** dataset. The approach
+is **court-first**: sweep every federal court (~94 district + 13
+circuit = ~107 courts) for court-wide local rules before drilling into
+individual judges. This guarantees no federal court is silently missed.
+
+A comprehensive result will have at least 40 federal entries (a mix of
+court-wide rules and individual-judge standing orders) and a growing
+number of state-court orders. If you finish with fewer than 40 federal
+entries, you have not swept thoroughly enough.
 
 **Time management:** You have a limited execution window. Work in a
 tight search → verify → write → validate loop. After every batch of
@@ -145,31 +150,78 @@ tight search → verify → write → validate loop. After every batch of
 `python scripts/validate.py` to lock in progress. Partial results
 saved are far better than exhaustive research with nothing written.
 
-### Phase 1: Build a candidate list from aggregator pages
+### Phase 1: Build the federal court roster (completeness check)
 
-Use law-firm trackers and legal-press compilations to build a list of
-judge names, courts, and orders to verify. These are your highest-yield
-sources — but they are **only a starting point for the candidate list**.
-Do NOT take URLs, quotes, or categories from these pages. You will
-verify each candidate individually in Phase 2.
+The agent works from a **canonical roster** to avoid missing courts. The
+two Wikipedia lists below are the authoritative source; they are kept
+current by the Wikipedia community and update when judges are confirmed,
+retire, or take senior status.
 
+1. Fetch `https://en.wikipedia.org/wiki/List_of_current_United_States_district_judges`
+   and extract the full roster of active district judges, grouped by
+   court. This gives you all ~94 U.S. district courts and the judges
+   currently sitting on each.
+2. Fetch `https://en.wikipedia.org/wiki/List_of_current_United_States_circuit_judges`
+   and extract the full roster of active circuit judges for all 13
+   federal circuits (1st–11th, D.C. Circuit, Federal Circuit).
+3. Write the roster to memory (do NOT persist it to the repo). You will
+   use it as a completeness checklist in Phase 2 and Phase 3.
+
+Also run a quick aggregator sweep to pre-populate a list of judges
+**already known** to have AI orders — prioritize these in Phase 3.
 Useful searches:
 - `judicial AI standing orders tracker`
-- `generative AI court rules tracker comprehensive list`
 - `AI judicial standing orders tracker site:bakerhostetler.com`
 - `AI court orders tracker site:ropesgray.com`
 - `generative AI court rules site:huntonak.com`
 - `ABA AI court rules compilation`
-- `state court "generative AI" standing order OR local rule`
-- `state supreme court "artificial intelligence" order`
 
-### Phase 2: Verify each candidate at the court's own website
+Do NOT take URLs, quotes, or categories from these aggregator pages —
+they are only pointers. Verify every entry at the court's own site.
 
-**For every single entry**, you must go to the court's own website and
-find the actual order text. This is the most important step. Do NOT
-skip it. The workflow for each entry is:
+### Phase 2: Court-first sweep (all ~107 federal courts)
 
-**The "zoom-out" workflow for each entry:**
+For each of the ~94 district courts and 13 circuit courts on the
+roster, check whether the court has a **court-wide AI rule**. This is
+much cheaper than checking every individual judge, and one court-wide
+rule covers every judge on that court.
+
+For each court:
+1. Go to the court's "rules and orders" or "local rules" page.
+2. Fetch the civil local rules PDF (and criminal, if separate).
+3. Search for "artificial intelligence" / "generative AI" / "AI" in
+   the PDF text.
+4. If a court-wide rule exists → create **one** entry with
+   `judge: null`, `rule_type: "local_rule"` (or
+   `"proposed_local_rule"` if not yet adopted). That one entry
+   covers every judge in the court.
+5. If no court-wide rule exists → record the court on a "no court-wide
+   rule" list and move to Phase 3 for that court.
+
+Aim to finish Phase 2 before spending time on individual judges — a
+court-wide rule is higher-signal and removes the need to check each
+judge on that court.
+
+### Phase 3: Judge-level sweep (only for courts without court-wide rules)
+
+For each court that lacks a court-wide rule, check its individual
+judges. Prioritize in this order:
+
+1. **Judges flagged by the Phase 1 aggregator sweep** — these are
+   known to have AI orders. Verify each at the court's own site using
+   the zoom-out workflow below.
+2. **Judges named in the "CRITICAL LESSONS" section below** — re-verify
+   these every run (they have been error-prone historically).
+3. **If time allows**, sample additional judges from the Wikipedia
+   roster for that court. You do NOT need to check every judge on every
+   court — only courts that lack a court-wide rule, and within those,
+   prioritize known AI-active judges.
+
+Do **not** create a `no_explicit_rule` entry for every judge without
+an AI policy. That slug is for the rare case where it is worth noting
+that a specific high-profile court has declined to issue a rule.
+
+**The "zoom-out" workflow for each judge candidate:**
 
 Start narrow and zoom out until you find the actual AI policy:
 
@@ -322,19 +374,25 @@ WRONG — the order does not prohibit AI. It requires verification
   Check whether judges are still on the bench. Follow cross-references
   to external policies.**
 
-### Phase 3: Search for entries not on aggregator lists
+### Phase 4: State courts
 
-After verifying all candidates from aggregators, search for courts and
-judges that may have been missed:
-- `"standing order" "generative AI" site:uscourts.gov`
-- For each federal circuit not yet covered: `"[circuit] circuit"
-  "artificial intelligence" standing order`
-- **State courts:** `Texas state court AI rule`, `California state
-  court AI order`, `New York state court AI`, `Florida court AI`,
-  and other large states
-- `state court "artificial intelligence" disclosure certification`
+The state-court universe is much larger and has no clean equivalent to
+the Wikipedia federal judge rosters. Prioritize by signal:
 
-### Phase 4: Write and finalize
+1. **State supreme courts (all 50)** — fetch each state supreme court's
+   rules or administrative orders page and search for AI policy.
+2. **Large-state trial courts** — CA, NY, TX, FL, IL, PA, OH, GA, NC,
+   MI. Check for state-wide rules or notable local trial-court orders.
+3. **Aggregator-flagged state entries** — any state judges or courts
+   surfaced by the Phase 1 aggregator sweep.
+
+Useful searches:
+- `state supreme court "artificial intelligence" order OR rule`
+- `[state] court "generative AI" standing order OR local rule`
+- `state bar "artificial intelligence" ethics opinion` (for
+  cross-references; do not log ethics opinions as rules)
+
+### Phase 5: Write and finalize
 
 1. **Write entries in batches** and run `python scripts/validate.py`
    after each batch.
@@ -356,25 +414,34 @@ cannot verify an entry at the court's website, include it with
 
 ## Incremental Update
 
-Goal: find what's new or changed since the last run.
+Goal: find what's new or changed since the last run, and verify the
+existing dataset still reflects reality.
 
 Steps:
 
 1. Read `data/rules.json::last_updated` to find the timestamp of the
    previous run. Your "since" window is from that timestamp through today.
-2. Search for orders issued, amended, or withdrawn in that window. Useful
-   queries: same as discovery pass but scoped to recent dates.
-3. For each candidate, fetch the primary source and either:
+2. **Roster check against Wikipedia.** Fetch the two Wikipedia lists
+   (district judges, circuit judges) and compare against the judges
+   named in `rules.json`. For any tracked judge who is no longer on the
+   list (retired, deceased, elevated), verify at the court's own site
+   and mark the entry `superseded_by: "WITHDRAWN"` if the standing
+   order is no longer in effect. For any judge newly appointed to a
+   court without a court-wide AI rule, add them to the Phase 3
+   candidate pool for this run.
+3. Search for orders issued, amended, or withdrawn in the "since" window.
+   Useful queries: same as discovery pass but scoped to recent dates.
+4. For each candidate, fetch the primary source and either:
    - **Add** a new entry (if it's a new order),
    - **Update** an existing entry (if the order was modified — bump
      `last_verified` and adjust fields), or
    - **Mark superseded** if an order was withdrawn or replaced.
-4. Re-verify a sampled subset (10–20%) of existing entries with
+5. Re-verify a sampled subset (10–20%) of existing entries with
    `last_verified` older than 90 days. Update `last_verified` if the URL
    still resolves and the order is unchanged.
-5. Update `last_updated` to today's date.
-6. Run validation (`python scripts/validate.py`).
-7. Write `transcripts/runs/<UTC-date>-incremental.md` summarizing changes
+6. Update `last_updated` to today's date.
+7. Run validation (`python scripts/validate.py`).
+8. Write `transcripts/runs/<UTC-date>-incremental.md` summarizing changes
    in 5–10 lines.
 
 ---
