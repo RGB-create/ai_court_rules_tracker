@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "last_updated": "2026-04-19T15:00:00Z",
+  "last_updated": "2026-04-19T23:55:00Z",
   "discovery_pass_completed": false,
   "categories": {
     "prohibited": {
@@ -766,6 +766,48 @@
       "verbatim_key_language": null,
       "last_verified": "2026-04-19",
       "provenance": "agent discovery 2026-04-19; user correction 2026-04-19 — judge attribution confirmed as Jeffery P. Hopkins"
+    },
+    {
+      "id": "us-fed-ndga-johnson-2025-10",
+      "jurisdiction": "federal",
+      "court": "U.S. District Court for the Northern District of Georgia",
+      "court_short": "N.D. Ga.",
+      "court_level": "district",
+      "circuit": "11",
+      "state": "GA",
+      "judge": "Tiffany R. Johnson",
+      "rule_type": "standing_order",
+      "category": "disclosure_required",
+      "category_confidence": "high",
+      "title": "Civil Standing Order — AI Disclosure Requirement",
+      "effective_date": "2025-10-15",
+      "source_url": "https://www.gand.uscourts.gov/content/honorable-tiffany-r-johnson-united-states-district-judge",
+      "source_pdf": "https://www.gand.uscourts.gov/sites/gand/files/TRJ_CVStandingOrder.pdf",
+      "summary": "\"All counsel and pro se parties must disclose the use of artificial intelligence (AI) in any capacity to prepare documents submitted to the Court.\" Additionally, \"Arguments in briefs to the Court which are supported by AI-generated caselaw (i.e., cases that do not actually exist) are not acceptable.\" Counsel and pro se parties shall not input, upload, or otherwise expose any information subject to a protective order into any AI program. Failure to comply may result in sanctions including dismissal or entry of default.",
+      "verbatim_key_language": "All counsel and pro se parties must disclose the use of artificial intelligence (AI) in any capacity to prepare documents submitted to the Court.",
+      "last_verified": "2026-04-19",
+      "provenance": "agent discovery 2026-04-19; confirmed from TRJ_CVStandingOrder.pdf; Judge Johnson confirmed by U.S. Senate 2024"
+    },
+    {
+      "id": "us-fed-ndga-scjones-2025-10",
+      "jurisdiction": "federal",
+      "court": "U.S. District Court for the Northern District of Georgia",
+      "court_short": "N.D. Ga.",
+      "court_level": "district",
+      "circuit": "11",
+      "state": "GA",
+      "judge": "Steve C. Jones",
+      "rule_type": "standing_order",
+      "category": "permitted_with_caution",
+      "category_confidence": "high",
+      "title": "Standing Case Instructions — AI Protected Information Restriction",
+      "effective_date": "2025-10-15",
+      "source_url": "https://www.gand.uscourts.gov/DJdir/SCJ",
+      "source_pdf": "https://www.gand.uscourts.gov/sites/gand/files/SCJ_Standing_Case_Instructions.pdf",
+      "summary": "\"Counsel and pro se parties shall not input, upload, or otherwise expose any information subject to a protective order into any artificial intelligence program, tool or application. Failure to comply with this rule may result in appropriate sanctions, up to and including dismissal or entry of default.\" Does not require affirmative disclosure of AI use; focuses on protecting confidential information.",
+      "verbatim_key_language": "Counsel and pro se parties shall not input, upload, or otherwise expose any information subject to a protective order into any artificial intelligence program, tool or application.",
+      "last_verified": "2026-04-19",
+      "provenance": "agent discovery 2026-04-19; confirmed from SCJ_Standing_Case_Instructions.pdf dated October 15, 2025"
     }
   ]
 }

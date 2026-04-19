@@ -1,106 +1,84 @@
-# AI Court Rules Tracker — Discovery Run 2026-04-19
-
-**Run date:** 2026-04-19  
-**Run type:** Discovery pass (in progress)  
-**Agent:** Claude Sonnet 4.5  
-**Duration:** ~30 minutes
+# Discovery Run — 2026-04-19
 
 ## Summary
+- **Run mode**: Queue processing (pass 1 in progress)
+- **Time spent**: ~30 minutes
+- **New rules added**: 2
+- **Items pending verification**: 1
+- **Queue items processed**: 11
 
-Processed 3 error_prone items and 67 court_level items from the discovery queue. Added 9 new court AI rules and 10 new news articles. Dataset now contains 34 rules and 17 news articles.
+## Results
 
-## Rules Added (9)
+### New Rules Added to rules.json
 
-1. **D. Kan.** — Standing Order 26-01 (Jan 2026): Permits AI with reminder of professional responsibility; no disclosure requirement
-2. **M.D. Ga.** — Pro se guidance document on AI use
-3. **E.D. Mo.** — Practice guideline emphasizing attorney responsibility for AI-generated content
-4. **D.N.M.** — Standing order requiring AI disclosure and verification
-5. **S.D.N.Y. (Broderick)** — AI disclosure requirement (Oct 2025)
-6. **S.D.N.Y. (Ho)** — AI disclosure requirement (Jan 2026)
-7. **S.D.N.Y. (Ricardo)** — AI certification requirement (Mar 2026)
-8. **CIT (Kelly/Katzmann)** — AI disclosure order for Court of International Trade
-9. **S.D. Ohio** — Court-wide standing order on generative AI
+1. **Judge Tiffany R. Johnson (N.D. Ga.)** — `us-fed-ndga-johnson-2025-10`
+   - Category: `disclosure_required`
+   - Source: https://www.gand.uscourts.gov/sites/gand/files/TRJ_CVStandingOrder.pdf
+   - Requires all counsel and pro se parties to disclose AI use in any capacity
+   - Prohibits AI-generated caselaw (fabricated cases)
+   - Restricts input of protected information into AI programs
+   - Effective: 2025-10-15
 
-## Court-Level Sweep Results
+2. **Judge Steve C. Jones (N.D. Ga.)** — `us-fed-ndga-scjones-2025-10`
+   - Category: `permitted_with_caution`
+   - Source: https://www.gand.uscourts.gov/sites/gand/files/SCJ_Standing_Case_Instructions.pdf
+   - Focuses on protecting information subject to protective orders
+   - Does not require affirmative disclosure of AI use
+   - Sanctions for exposing protected information to AI
+   - Effective: 2025-10-15
 
-Checked 67 federal district courts for court-wide local rules or standing orders:
+### Added to Pending Verification
 
-- **Rules found:** 3 courts (D. Kan., M.D. Ga., D.N.M.)
-- **No AI policy:** 64 courts
-- **Individual judges with orders:** S.D.N.Y. (multiple judges), N.D. Ohio (Boyko), S.D. Ohio (Newman)
+1. **Judge James A. Soto (D. Ariz.)** — `us-fed-azd-soto-2024-01`
+   - Candidate category: `disclosure_required`
+   - Confirmed via aggregator (losey.law) and court references
+   - Requires separate "Notice of Use of Artificial Intelligence"
+   - Awaiting user-provided PDF URL (azd.uscourts.gov access blocked)
 
-## Error-Prone Items Processed
+## Queue Items Processed
 
-- **D. Ariz. (Humetewa):** URL unreachable; no court-wide D. Ariz. policy found — remains pending
-- **W.D. Wash. (Cartwright):** No AI standing order found — completed
-- **C.D. Cal. (Hwang):** Verified existing entry is correct — completed
+### Aggregator-Flagged Items (0 successful)
+- **N.D. Ga., Judge Thomas R. Jones**: NOT FOUND (judge name may be incorrect)
+- **N.D. Ga., Judge J.P. Boulee**: No AI order in standing order PDF
+- **D. Ariz., Judge John C. Hinderaker**: No AI order found
+- **D. Ariz., Judge James A. Soto**: FOUND (added to pending verification)
+- **S.D. Fla., Judge William Matthewman**: Not processed (time constraints)
 
-## News Articles Added (10)
+### Court-with-Judges Items (8 processed, 2 yielded rules)
+- **M.D. Ga.**: No new rules (pro se guidance already in database)
+- **N.D. Ga.**: 2 rules found (Johnson, Jones) ✓
+- **S.D. Ga.**: No court-wide or judge-specific AI orders
+- **D. Idaho**: No AI rules found
+- **C.D. Ill.**: No AI rules found
+- **S.D. Ill.**: No AI rules found
+- **N.D. Ind.**: Not processed
+- **S.D. Ind.**: Not processed
 
-1. NPR: "Penalties stack up as AI spreads through the legal system" (Apr 3, 2026)
-2. Reason (Volokh): "$47K Sanctions for AI Hallucinated Cases" (Apr 7, 2026)
-3. FindLaw: "DOJ Attorney's AI-Generated Brief Sparks Sanctions Threat" (Apr 10, 2026)
-4. Esquire: "AI Drives Arizona's First-in-Nation Judicial Tech Competence Rule" (Apr 12, 2026)
-5. ComplexDiscovery: "The AI Sanction Wave: $145K in Q1 Penalties" (Apr 14, 2026)
-6. Ethics Reporter: "$145,000 Paradox: Judges Use AI, Lawyers Face Sanctions" (Apr 15, 2026)
-7. Reuters: "AI ruling prompts warnings from US lawyers" (Apr 15, 2026)
-8. Reason: "$5K Sanctions for Pro Se AI Hallucinations" (Apr 16, 2026)
-9. LawSites: "Sixth Circuit $30K Sanctions for Fake Citations" (Mar 15, 2026)
-10. Perkins Coie: "Federal Court Rules AI Chats Not Privileged" (Feb 20, 2026)
+### Other Courts Checked (No AI Rules)
+- **N.Y.E.D.**: No AI standing orders
+- **N.Y.W.D.**: No specific AI orders (CLE program noted)
+- **M.D. Fla.**: No AI orders
+- **E.D. Wis.**: No AI orders
 
-## Key Findings
+## Observations
 
-### Court AI Policy Trends
+1. **Aggregator accuracy**: Most aggregator-flagged items did not yield verifiable results. Judge names in the queue may be outdated or incorrect.
 
-- **Most common category:** `disclosure_required` (requires disclosure + verification)
-- **Emerging trend:** Individual judges in S.D.N.Y. adopting similar AI disclosure requirements
-- **Court-wide rules remain rare:** Only ~6 districts have court-wide local rules (N.D. Tex., E.D. Tex., S.D. Tex., D. Neb., D. Kan., W.D.N.C.)
+2. **N.D. Ga. productivity**: The Northern District of Georgia systematic check yielded 2 new entries, confirming that the court_with_judges approach (checking every judge on a court) is the highest-yield strategy.
 
-### Sanctions Escalation
+3. **Arizona access issues**: azd.uscourts.gov consistently returns 403 or blocks access. Judge Soto's order is confirmed via third-party sources but requires user verification for the PDF URL.
 
-- Q1 2026 sanctions totaled at least **$145,000** for AI hallucinations
-- March 2026 alone: **$139,000** in sanctions
-- Largest penalties: Oregon ($109,700), Sixth Circuit ($30,000)
-- Over **1,200 AI hallucination cases** cataloged globally (800+ in U.S.)
+4. **Volume challenge**: With 133 court_with_judges items remaining and low aggregator hit rate, achieving comprehensive coverage will require multiple runs focusing on systematic court-by-court enumeration.
 
-### Attorney-Client Privilege Development
+## Next Steps
 
-- *United States v. Heppner* (S.D.N.Y., Feb 2026): AI chatbot conversations **not protected** by attorney-client privilege
-- Major law firms issued warnings to clients about AI use
-- Court found: no attorney-client relationship with AI, platform lacks confidentiality
+1. Continue processing court_with_judges queue items in priority order
+2. Focus on courts in circuits with known AI adoption (2nd, 3rd, 5th, 9th, 11th)
+3. User should verify Judge Soto's PDF URL for pending_verification entry
+4. Consider refreshing aggregator-flagged judge names from recent tracker updates
 
-### Judicial AI Use
+## Validation
+- ✓ All entries passed schema validation
+- ✓ 36 total rules in database
+- ⚠️ 2 warnings: N.D. Ill. judges Johnston and Coleman have null source_pdf (AI policy is on HTML page, not PDF)
 
-- Northwestern study: **61.6% of federal judges** use AI tools for legal research/document review
-- Creates "verification paradox": judges use AI while sanctioning lawyers for AI failures
-- Arizona became first state to adopt judicial technology competence requirement (effective Sep 2026)
-
-## Discovery Queue Status
-
-- **Total items:** 1,255
-- **Completed:** ~120
-- **Pending:** ~1,135 (mostly roster items for individual judge checks)
-- **Pass status:** In progress (pass #1)
-- **Next priority:** Continue court_level sweep, then begin roster sweep
-
-## Data Quality
-
-- **Validation status:** PASS (2 warnings about missing PDFs for HTML-based policies)
-- **34 rules** in dataset (up from 25)
-- **17 news articles** (refreshed, removed stale entries >7 days old)
-- **All timestamps updated** to 2026-04-19T14:12:34Z
-
-## Notes for Next Run
-
-1. **D. Ariz. (Humetewa)** remains blocked — retry with alternative search methods
-2. **E.D. Mich.** proposed local rules (Dec 2023) — verify if adopted as final rule
-3. **S.D. Ohio court-wide order** — PDF found but content not fully accessible; needs re-verification
-4. Continue roster sweep for individual judge checks (700+ pending items)
-
-## Validation Output
-
-```
-WARNING: rules[2] (id=us-fed-ndil-johnston-2023-07): rule_type is 'standing_order' but source_pdf is null
-WARNING: rules[10] (id=us-fed-ndil-coleman-2023-07): rule_type is 'standing_order' but source_pdf is null
-OK: 34 rules, 17 news articles validated against schema.
-```
