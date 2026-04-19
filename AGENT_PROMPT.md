@@ -107,6 +107,10 @@ site's "last updated" indicator in the viewer's local timezone.
 
 ## Run mode
 
+**PRIORITY: rules discovery is your primary job. Spend at least 90%
+of your time processing the discovery queue to find new rules and
+orders. News is secondary — cap it at 5 minutes per run.**
+
 Read `data/rules.json::discovery_pass_completed` and
 `data/discovery_queue.json::pass_status`. There are three possible modes:
 
@@ -117,6 +121,9 @@ Read `data/rules.json::discovery_pass_completed` and
   items remain) → **Continue processing the queue** in priority order.
   Process as many items as fits your time window, then save progress.
   You may be invoked many times until the queue is drained.
+  **Alternate between federal and state items** — process a batch of
+  federal queue items, then a batch of state items, so both databases
+  grow in parallel.
 - **Queue drained** (`pass_status == "pass_complete"` or all items
   marked `completed`) → **Incremental Update** mode: do the roster
   check against Wikipedia, handle genuinely-new orders from the news
@@ -677,9 +684,18 @@ Steps:
 
 ---
 
-## News Sweep (every run)
+## News Sweep (weekly only — max 5 minutes)
 
-In addition to the rules work, each run should refresh `data/news.json`
+**NEWS IS SECONDARY. Do not spend significant time on news.** The
+primary job of every run is discovering and verifying rules and orders
+via the discovery queue. Only do the news sweep if:
+- It has been 7+ days since `news.json::last_updated`, AND
+- You have already processed a substantial batch of queue items this run.
+
+Cap news work at 5 minutes. 10 articles max from the past 7 days.
+If you run out of time, skip news entirely — rules are more important.
+
+In addition to the rules work, refresh `data/news.json`
 with reputable reporting on the topic area. This feeds the "In the news"
 tab of the dashboard.
 
