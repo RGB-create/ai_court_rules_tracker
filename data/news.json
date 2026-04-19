@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "last_updated": "2026-04-18T16:30:00Z",
+  "last_updated": "2026-04-19T14:12:34Z",
   "tag_vocabulary": {
     "new_standing_order": {
       "label": "New standing order",
@@ -41,18 +41,6 @@
   },
   "articles": [
     {
-      "id": "reuters-ai-privilege-warning-2026-04-15",
-      "title": "AI ruling prompts warnings from US lawyers: Your chats could be used against you",
-      "publication": "Reuters",
-      "author": null,
-      "url": "https://www.investing.com/news/economic-indicators/ai-ruling-prompts-warnings-from-us-lawyers-your-chats-could-be-used-against-you-4614595",
-      "published_date": "2026-04-15",
-      "date_added": "2026-04-17",
-      "summary": "Federal judge in New York ruled that a former CEO of a bankrupt financial services company could not shield his AI chats from prosecutors pursuing securities fraud charges. Attorneys are now warning that conversations with chatbots like Claude and ChatGPT could be demanded by prosecutors in criminal cases or by litigation adversaries in civil cases.",
-      "topic_tags": ["federal_court", "scholarship"],
-      "related_rule_ids": []
-    },
-    {
       "id": "globenewswire-litigators-ai-platform-2026-04-16",
       "title": "BCC Research Launches Litigators AI, a Platform to Transform Legal Research and Citation Accuracy for Trial Attorneys",
       "publication": "Globe Newswire",
@@ -61,7 +49,9 @@
       "published_date": "2026-04-16",
       "date_added": "2026-04-17",
       "summary": "New AI platform launched specifically to address citation accuracy concerns for trial attorneys, responding to the growing crisis of AI hallucinations in legal filings and the escalating sanctions imposed by courts.",
-      "topic_tags": ["policy_debate"],
+      "topic_tags": [
+        "policy_debate"
+      ],
       "related_rule_ids": []
     },
     {
@@ -73,7 +63,26 @@
       "published_date": "2026-04-16",
       "date_added": "2026-04-17",
       "summary": "Federal judge in Illinois sanctioned a self-represented litigant $5,000 for egregious, repeated, and ongoing AI hallucinations in court filings, striking the plaintiff's motion for violating local rules.",
-      "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
+      "topic_tags": [
+        "sanctions",
+        "federal_court",
+        "hallucinated_citations"
+      ],
+      "related_rule_ids": []
+    },
+    {
+      "id": "reuters-ai-privilege-warning-2026-04-15",
+      "title": "AI ruling prompts warnings from US lawyers: Your chats could be used against you",
+      "publication": "Reuters",
+      "author": null,
+      "url": "https://www.investing.com/news/economic-indicators/ai-ruling-prompts-warnings-from-us-lawyers-your-chats-could-be-used-against-you-4614595",
+      "published_date": "2026-04-15",
+      "date_added": "2026-04-17",
+      "summary": "Federal judge in New York ruled that a former CEO of a bankrupt financial services company could not shield his AI chats from prosecutors pursuing securities fraud charges. Attorneys are now warning that conversations with chatbots like Claude and ChatGPT could be demanded by prosecutors in criminal cases or by litigation adversaries in civil cases.",
+      "topic_tags": [
+        "federal_court",
+        "scholarship"
+      ],
       "related_rule_ids": []
     },
     {
@@ -85,43 +94,11 @@
       "published_date": "2026-04-15",
       "date_added": "2026-04-17",
       "summary": "U.S. courts escalate enforcement against AI-generated errors, with Q1 2026 sanctions totaling at least $145,000. Courts are moving from treating hallucinated citations as embarrassment to treating them as sanctionable misconduct requiring monetary penalties and professional discipline.",
-      "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
-      "related_rule_ids": []
-    },
-    {
-      "id": "hoodline-california-bar-charges-2026-04-14",
-      "title": "State Bar Charges Lawyers Over AI-Generated Fake Citations",
-      "publication": "Hoodline",
-      "author": null,
-      "url": "https://hoodline.com/2026/04/ai-hallucinations-put-three-california-lawyers-in-state-bar-crosshairs/",
-      "published_date": "2026-04-14",
-      "date_added": "2026-04-17",
-      "summary": "California State Bar filed charges against two attorneys for AI-generated fake citations and approved probation for a third. Omid Emile Khalifeh faces six counts of misconduct for an April 2025 trademark filing with fabricated citations, while Steven Thomas Romeyn is accused of filing an October 2025 brief with several made-up citations.",
-      "topic_tags": ["sanctions", "bar_guidance", "hallucinated_citations"],
-      "related_rule_ids": []
-    },
-    {
-      "id": "reason-volokh-tiger-king-sanctions-2026-04-12",
-      "title": "Tiger King Attorney Sanctioned for Filing Complaint with AI Hallucinations",
-      "publication": "Reason",
-      "author": null,
-      "url": "https://reason.com/volokh/2026/04/12/tiger-king-attorney-sanctioned-for-filing-complaint-with-ai-hallucinations/",
-      "published_date": "2026-04-12",
-      "date_added": "2026-04-17",
-      "summary": "Attorney sanctioned despite uncertainty about whether errors were from generative AI or counsel's own sloppiness. Court stated the resulting errors and legal misrepresentations are glaring and warranting sanctions, illustrating courts' intolerance for citation errors regardless of origin.",
-      "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
-      "related_rule_ids": []
-    },
-    {
-      "id": "ethics-reporter-judge-ai-paradox-2026-04-14",
-      "title": "The $145,000 Paradox: Courts Punish Lawyers for Using AI While 61% of Federal Judges Use It Themselves",
-      "publication": "The Ethics Reporter",
-      "author": null,
-      "url": "https://www.theethicsreporter.com/article/judges-use-ai-lawyers-face-record-sanctions-double-standard-2026",
-      "published_date": "2026-04-14",
-      "date_added": "2026-04-17",
-      "summary": "Analysis reveals that 61.6% of responding federal judges report using AI tools in their judicial work, primarily for legal research and document review, creating questions about enforcement standards while judges themselves use the technology. Examines the paradox of judicial AI use versus attorney sanctions.",
-      "topic_tags": ["policy_debate", "federal_court", "scholarship"],
+      "topic_tags": [
+        "sanctions",
+        "federal_court",
+        "hallucinated_citations"
+      ],
       "related_rule_ids": []
     },
     {
@@ -133,19 +110,10 @@
       "published_date": "2026-04-15",
       "date_added": "2026-04-17",
       "summary": "Analysis argues that many cases attributed to AI hallucinations are actually human editing failures, where attorneys or paralegals fail to properly review and correct AI-generated content before filing, shifting the discourse from technological failure to professional responsibility.",
-      "topic_tags": ["policy_debate", "scholarship"],
-      "related_rule_ids": []
-    },
-    {
-      "id": "sixth-circuit-blog-sanctions-2026-04-11",
-      "title": "Sixth Circuit Sanctions Attorneys for Fake Citations – What Does This Mean for Use of AI?",
-      "publication": "Sixth Circuit Appellate Blog",
-      "author": null,
-      "url": "https://www.sixthcircuitappellateblog.com/recent-cases/sixth-circuit-sanctions-attorneys-for-fake-citations-what-does-this-mean-for-use-of-ai/",
-      "published_date": "2026-04-11",
-      "date_added": "2026-04-17",
-      "summary": "Sixth Circuit imposed $30,000 sanctions against attorneys for submitting fabricated citations. The decision reinforces that attorneys bear full responsibility for citations regardless of the research method used, including AI-assisted research, and signals appellate courts' willingness to impose substantial penalties for citation fraud.",
-      "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
+      "topic_tags": [
+        "policy_debate",
+        "scholarship"
+      ],
       "related_rule_ids": []
     },
     {
@@ -157,7 +125,11 @@
       "published_date": "2026-04-15",
       "date_added": "2026-04-18",
       "summary": "In the first quarter of 2026, U.S. courts imposed at least $145,000 in sanctions for fabricated AI citations. Researcher Damien Charlotin's database tracking AI hallucination cases worldwide crossed 1,300 cases by April 2026, up from just over 700 at the start of 2026, with ten separate courts flagging AI-fabricated filings on a single day.",
-      "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
+      "topic_tags": [
+        "sanctions",
+        "federal_court",
+        "hallucinated_citations"
+      ],
       "related_rule_ids": []
     },
     {
@@ -169,7 +141,11 @@
       "published_date": "2026-04-15",
       "date_added": "2026-04-18",
       "summary": "An assistant U.S. attorney in the Eastern District of North Carolina came under fire after a federal judge found that a court filing contained fabricated quotes, misstated case law, and even fake regulatory language. At the show‑cause hearing, the attorney told Judge Numbers that after accidentally overwriting a prior draft, he felt panicked and had AI rewrite the brief, calling the decision the worst of his career.",
-      "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
+      "topic_tags": [
+        "sanctions",
+        "federal_court",
+        "hallucinated_citations"
+      ],
       "related_rule_ids": []
     },
     {
@@ -181,7 +157,58 @@
       "published_date": "2026-04-15",
       "date_added": "2026-04-18",
       "summary": "Analysis of North Carolina's 4th Judicial District order by Senior Resident Superior Court Judge Martin McGee, which takes a unique approach by distinguishing between AI use for advocacy versus evidence. The order does not require disclosure of AI use for drafting pleadings and advocacy documents, but does require disclosure when AI is used to generate or alter evidence.",
-      "topic_tags": ["new_standing_order", "state_court", "policy_debate"],
+      "topic_tags": [
+        "new_standing_order",
+        "state_court",
+        "policy_debate"
+      ],
+      "related_rule_ids": []
+    },
+    {
+      "id": "reuters-ai-privilege-ruling-2026-04-15",
+      "title": "AI ruling prompts warnings from US lawyers: Your chats could be used against you",
+      "publication": "Reuters",
+      "author": null,
+      "url": "https://thedailyrecord.com/2026/04/15/us-judge-ai-chatbot-chats-used-securities-fraud/",
+      "published_date": "2026-04-15",
+      "date_added": "2026-04-19",
+      "summary": "Following Southern District of New York ruling in United States v. Heppner that AI chatbot conversations are not protected by attorney-client privilege, more than a dozen major U.S. law firms warned clients their AI exchanges could be used against them in court.",
+      "topic_tags": [
+        "federal_court",
+        "policy_debate"
+      ],
+      "related_rule_ids": []
+    },
+    {
+      "id": "hoodline-california-bar-charges-2026-04-14",
+      "title": "State Bar Charges Lawyers Over AI-Generated Fake Citations",
+      "publication": "Hoodline",
+      "author": null,
+      "url": "https://hoodline.com/2026/04/ai-hallucinations-put-three-california-lawyers-in-state-bar-crosshairs/",
+      "published_date": "2026-04-14",
+      "date_added": "2026-04-17",
+      "summary": "California State Bar filed charges against two attorneys for AI-generated fake citations and approved probation for a third. Omid Emile Khalifeh faces six counts of misconduct for an April 2025 trademark filing with fabricated citations, while Steven Thomas Romeyn is accused of filing an October 2025 brief with several made-up citations.",
+      "topic_tags": [
+        "sanctions",
+        "bar_guidance",
+        "hallucinated_citations"
+      ],
+      "related_rule_ids": []
+    },
+    {
+      "id": "ethics-reporter-judge-ai-paradox-2026-04-14",
+      "title": "The $145,000 Paradox: Courts Punish Lawyers for Using AI While 61% of Federal Judges Use It Themselves",
+      "publication": "The Ethics Reporter",
+      "author": null,
+      "url": "https://www.theethicsreporter.com/article/judges-use-ai-lawyers-face-record-sanctions-double-standard-2026",
+      "published_date": "2026-04-14",
+      "date_added": "2026-04-17",
+      "summary": "Analysis reveals that 61.6% of responding federal judges report using AI tools in their judicial work, primarily for legal research and document review, creating questions about enforcement standards while judges themselves use the technology. Examines the paradox of judicial AI use versus attorney sanctions.",
+      "topic_tags": [
+        "policy_debate",
+        "federal_court",
+        "scholarship"
+      ],
       "related_rule_ids": []
     },
     {
@@ -193,7 +220,91 @@
       "published_date": "2026-04-14",
       "date_added": "2026-04-18",
       "summary": "Analysis of recent decisions in Morgan v. V2X, Inc. and Jeffries v. Harcros Chemicals, Inc., showing that disagreements about how protective orders should address AI use in discovery are now being informed by court guidance. Examines emerging disputes about whether confidential discovery materials can be shared with AI tools.",
-      "topic_tags": ["federal_court", "scholarship", "policy_debate"],
+      "topic_tags": [
+        "federal_court",
+        "scholarship",
+        "policy_debate"
+      ],
+      "related_rule_ids": []
+    },
+    {
+      "id": "esquire-arizona-tech-competence-2026",
+      "title": "AI Drives Arizona's First-in-Nation Judicial Tech Competence Rule",
+      "publication": "Esquire Deposition Solutions",
+      "author": null,
+      "url": "https://www.esquiresolutions.com/ai-drives-arizonas-first-in-nation-judicial-tech-competence-rule/",
+      "published_date": "2026-04-12",
+      "date_added": "2026-04-19",
+      "summary": "Arizona Supreme Court explicitly adopted a judicial duty of technology competence on August 27, 2025, effective September 1, 2026. Arizona becomes the first state to add the ethical obligation of technology competence to its judicial ethics code.",
+      "topic_tags": [
+        "state_court",
+        "bar_guidance",
+        "policy_debate"
+      ],
+      "related_rule_ids": []
+    },
+    {
+      "id": "reason-volokh-sanctions-2026-04-07",
+      "title": "AI \"Hallucinated Cases\" Lead to $47K Sanctions",
+      "publication": "Reason (Volokh Conspiracy)",
+      "author": null,
+      "url": "https://reason.com/volokh/2026/04/07/ai-hallucinated-cases-lead-to-47k-sanctions/",
+      "published_date": "2026-04-07",
+      "date_added": "2026-04-19",
+      "summary": "Reports on significant sanctions imposed for AI-hallucinated legal citations, part of the escalating judicial response to fabricated case law in court filings.",
+      "topic_tags": [
+        "sanctions",
+        "hallucinated_citations",
+        "federal_court"
+      ],
+      "related_rule_ids": []
+    },
+    {
+      "id": "npr-ai-sanctions-2026-04-03",
+      "title": "Penalties stack up as AI spreads through the legal system",
+      "publication": "NPR",
+      "author": null,
+      "url": "https://www.npr.org/2026/04/03/nx-s1-5761454/penalties-stack-up-ai-spreads-through-legal-system",
+      "published_date": "2026-04-03",
+      "date_added": "2026-04-19",
+      "summary": "U.S. courts imposed at least $145,000 in sanctions for AI-generated fake citations during Q1 2026, with March seeing a dramatic surge to over $139,000 in penalties. Researcher Damien Charlotin has cataloged over 1,200 AI hallucination cases globally, with about 800 from U.S. courts.",
+      "topic_tags": [
+        "sanctions",
+        "hallucinated_citations",
+        "federal_court"
+      ],
+      "related_rule_ids": []
+    },
+    {
+      "id": "lawnext-sixth-circuit-sanctions-2026-03",
+      "title": "Sixth Circuit Slaps Steep Sanctions on Two Lawyers for Fake Citations and Misrepresentations in Appellate Briefs",
+      "publication": "LawSites",
+      "author": null,
+      "url": "https://www.lawnext.com/2026/03/sixth-circuit-slaps-steep-sanctions-on-two-lawyers-for-fake-citations-and-misrepresentations-in-appellate-briefs.html",
+      "published_date": "2026-03-15",
+      "date_added": "2026-04-19",
+      "summary": "U.S. Court of Appeals for the Sixth Circuit imposed $30,000 in sanctions ($15,000 each) on attorneys Van R. Irion and Russ Egli for fabricated citations, marking the largest federal appellate sanction linked to AI-fabricated citations. Court additionally ordered opposing counsel's fees and double costs.",
+      "topic_tags": [
+        "sanctions",
+        "hallucinated_citations",
+        "federal_court"
+      ],
+      "related_rule_ids": []
+    },
+    {
+      "id": "perkins-coie-heppner-privilege-2026",
+      "title": "Federal Court Rules Client's Use of Generative AI Is Not Privileged",
+      "publication": "Perkins Coie",
+      "author": null,
+      "url": "https://perkinscoie.com/insights/update/federal-court-rules-clients-use-generative-ai-not-privileged",
+      "published_date": "2026-02-20",
+      "date_added": "2026-04-19",
+      "summary": "Analysis of United States v. Heppner (S.D.N.Y. Feb. 17, 2026) holding that criminal defendant's exchanges with Anthropic's Claude AI platform are not protected by attorney-client privilege or work product doctrine. Court found no attorney-client relationship exists with AI, platform lacks confidentiality, and terms disclaim providing legal advice.",
+      "topic_tags": [
+        "federal_court",
+        "policy_debate",
+        "scholarship"
+      ],
       "related_rule_ids": []
     }
   ]

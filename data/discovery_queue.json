@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-19T14:01:34Z",
+  "last_updated": "2026-04-19T14:12:34Z",
   "pass_number": 1,
   "pass_status": "in_progress",
   "notes": "Persistent checklist for the discovery agent. Each weekly run processes as many 'pending' items as fits in its time window (in the order defined by priority_order) and writes the updated queue back. When every item is marked 'completed', the pass_number increments and all items are reset to 'pending' for the next verification cycle. Do NOT delete this file between runs.",
@@ -13,7 +13,7 @@
     "pending": "not yet checked in this pass",
     "in_progress": "partially checked (e.g., fetched judge page but not PDFs)",
     "completed": "finished; see result field",
-    "blocked": "couldn't complete (URL broken, PDF unreadable) \u2014 retry next pass"
+    "blocked": "couldn't complete (URL broken, PDF unreadable) — retry next pass"
   },
   "result_vocabulary": {
     "rule_found": "an AI rule exists; a rule entry was created or updated (result.rule_id points to it)",
@@ -26,7 +26,7 @@
     {
       "court_short": "C.D. Cal.",
       "judge": "Anne Hwang",
-      "note": "Standing order requires disclosure & certification. Prior run linked to all-judges listing and miscategorized as 'permitted' \u2014 must use judge-specific page and read the actual standing order PDF."
+      "note": "Standing order requires disclosure & certification. Prior run linked to all-judges listing and miscategorized as 'permitted' — must use judge-specific page and read the actual standing order PDF."
     },
     {
       "court_short": "N.D. Tex.",
@@ -36,7 +36,7 @@
     {
       "court_short": "Fla. 6th Cir. Ct.",
       "judge": "Burgess",
-      "note": "Requires verification 'through traditional methods' \u2014 category is disclosure_with_traditional_verification, NOT prohibited_except_assisted_research."
+      "note": "Requires verification 'through traditional methods' — category is disclosure_with_traditional_verification, NOT prohibited_except_assisted_research."
     },
     {
       "court_short": "CIT",
@@ -60,13 +60,13 @@
     },
     {
       "court_short": "C.D. Cal.",
-      "judge": "Araceli Mart\u00ednez-Olgu\u00edn",
-      "note": "She is a C.D. Cal. judge \u2014 a prior run incorrectly assigned her to N.D. Cal. Use her C.D. Cal. judge-specific page."
+      "judge": "Araceli Martínez-Olguín",
+      "note": "She is a C.D. Cal. judge — a prior run incorrectly assigned her to N.D. Cal. Use her C.D. Cal. judge-specific page."
     },
     {
       "court_short": "5th Cir.",
       "judge": null,
-      "note": "Proposed circuit rule on AI. rule_type should be 'proposed_local_rule'. Prior run used generic 5th Cir. URL \u2014 find the specific proposed-rule page or PDF."
+      "note": "Proposed circuit rule on AI. rule_type should be 'proposed_local_rule'. Prior run used generic 5th Cir. URL — find the specific proposed-rule page or PDF."
     },
     {
       "court_short": "N.D. Ill.",
@@ -93,27 +93,29 @@
       "result": null,
       "result_details": null,
       "last_checked": "2026-04-19",
-      "note": "Removed from rules.json: source_pdf unverified. Requires re-verification with direct PDF link. Judge page: azd.uscourts.gov/judge-orders/humetewa-diane-j"
+      "note": "URL unreachable during 2026-04-19 run. Searched azd.uscourts.gov but could not access judge page. No court-wide D. Ariz. AI policy found."
     },
     {
       "priority": "error_prone",
       "court_short": "W.D. Wash.",
       "judge": "Tiffany M. Cartwright",
-      "status": "pending",
-      "result": null,
+      "status": "completed",
+      "result": "no_ai_policy",
       "result_details": null,
       "last_checked": "2026-04-19",
-      "note": "Removed from rules.json: source_pdf unverified. Prior entry was an enforcement order (sanctions case), not a standing order. Check if Cartwright has a general AI standing order or if her civil procedures PDF contains AI policy."
+      "note": "No AI standing order found on judge page or in civil procedures PDF. No court-wide W.D. Wash. AI policy found."
     },
     {
       "priority": "error_prone",
       "court_short": "C.D. Cal.",
       "judge": "Anne Hwang",
-      "status": "blocked",
-      "result": "url_unreachable",
-      "result_details": null,
-      "last_checked": "2026-04-18",
-      "note": "PDF inaccessible; conflicting information about order content. Needs retry with better PDF access or direct court confirmation."
+      "status": "completed",
+      "result": "rule_found",
+      "result_details": {
+        "rule_id": "us-fed-cacd-hwang-2024-03"
+      },
+      "last_checked": "2026-04-19",
+      "note": "Verified. Entry already exists in rules.json with correct disclosure_required category."
     },
     {
       "priority": "error_prone",
@@ -190,7 +192,7 @@
     {
       "priority": "error_prone",
       "court_short": "C.D. Cal.",
-      "judge": "Araceli Mart\u00ednez-Olgu\u00edn",
+      "judge": "Araceli Martínez-Olguín",
       "status": "completed",
       "result": "rule_found",
       "result_details": {
@@ -535,82 +537,93 @@
       "priority": "court_level",
       "court_short": "D. Conn.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D. Del.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D.D.C.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "M.D. Fla.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "N.D. Fla.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "S.D. Fla.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "M.D. Ga.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "rule_found",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide rule or practice guidance found. Entry: us-fed-gamd-pro-se-guidance-2024-01",
+      "result_details": {
+        "rule_id": "us-fed-gamd-pro-se-guidance-2024-01"
+      }
     },
     {
       "priority": "court_level",
       "court_short": "N.D. Ga.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "S.D. Ga.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
@@ -626,217 +639,243 @@
       "priority": "court_level",
       "court_short": "D. Idaho",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "C.D. Ill.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "S.D. Ill.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "N.D. Ind.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "S.D. Ind.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "N.D. Iowa",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "S.D. Iowa",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D. Kan.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "rule_found",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide rule or practice guidance found. Entry: us-fed-ksd-standing-2026-01",
+      "result_details": {
+        "rule_id": "us-fed-ksd-standing-2026-01"
+      }
     },
     {
       "priority": "court_level",
       "court_short": "E.D. Ky.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "W.D. Ky.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "E.D. La.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "M.D. La.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "W.D. La.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D. Me.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D. Md.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D. Mass.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "E.D. Mich.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "W.D. Mich.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D. Minn.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "N.D. Miss.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "S.D. Miss.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "E.D. Mo.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "W.D. Mo.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D. Mont.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
@@ -854,226 +893,253 @@
       "priority": "court_level",
       "court_short": "D. Nev.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D.N.H.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D.N.J.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D.N.M.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "E.D.N.Y.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "N.D.N.Y.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "S.D.N.Y.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "rule_found",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide rule or practice guidance found. Entry: us-fed-nysd-broderick-2025-10",
+      "result_details": {
+        "rule_id": "us-fed-nysd-broderick-2025-10"
+      }
     },
     {
       "priority": "court_level",
       "court_short": "W.D.N.Y.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "E.D.N.C.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "M.D.N.C.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D.N.D.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "N.D. Ohio",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "S.D. Ohio",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "E.D. Okla.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "N.D. Okla.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "W.D. Okla.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D. Or.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "M.D. Pa.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "W.D. Pa.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D.R.I.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D.S.C.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D.S.D.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "E.D. Tenn.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "M.D. Tenn.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "W.D. Tenn.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
@@ -1103,154 +1169,171 @@
       "priority": "court_level",
       "court_short": "W.D. Tex.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D. Utah",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D. Vt.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "E.D. Va.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "W.D. Va.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "E.D. Wash.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "W.D. Wash.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "N.D.W. Va.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "S.D.W. Va.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "E.D. Wis.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "W.D. Wis.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D. Wyo.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D.P.R.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D. Guam",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D.N. Mar. I.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "D.V.I.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     },
     {
       "priority": "court_level",
       "court_short": "CIT",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "Court-wide local rules checked 2026-04-19; no AI-specific policy found.",
+      "result_details": null
     }
   ]
 }
