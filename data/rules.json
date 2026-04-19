@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "last_updated": "2026-04-18T16:30:00Z",
+  "last_updated": "2026-04-19T13:50:01Z",
   "discovery_pass_completed": false,
   "categories": {
     "prohibited": {
@@ -550,12 +550,12 @@
       "category_confidence": "high",
       "title": "Disclosure and Certification Requirements - Generative Artificial Intelligence",
       "effective_date": "2023-06-15",
-      "source_url": "https://www.okwd.uscourts.gov/judge-scott-l-palk",
-      "source_pdf": null,
+      "source_url": "https://www.okwd.uscourts.gov/chambers-rules",
+      "source_pdf": "https://www.okwd.uscourts.gov/sites/okwd/files/AI_Guidelines_JudgePalk.pdf",
       "summary": "Requires parties that used generative AI to draft or prepare a court filing to disclose \"that [G]AI was used and the specific [G]AI tool that was used.\" Also requires attorneys and unrepresented parties to \"certify in the document that the person has checked the accuracy of any portion of the document drafted by [G]AI, including all citations and legal authority.\"",
       "verbatim_key_language": null,
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; mirrors Starr prototype, adopted by Judge Robertson in E.D. Okla."
+      "provenance": "agent discovery 2026-04; mirrors Starr prototype, adopted by Judge Robertson in E.D. Okla.; user-verified PDF URL 2026-04-19"
     },
     {
       "id": "us-fed-cdca-martinez-olguin-2025-10",
