@@ -160,9 +160,16 @@ site's "last updated" indicator in the viewer's local timezone.
 
 ## Run mode
 
-**PRIORITY: rules discovery is your primary job. Spend at least 90%
-of your time processing the discovery queue to find new rules and
-orders. News is secondary — cap it at 5 minutes per run.**
+**VOLUME IS THE #1 GOAL. Your job is to find and ship as many new
+rules as possible each run. The user wants comprehensive coverage.**
+
+**Minimum performance target: find 20 new rules OR work for 30
+minutes, whichever comes LAST.** Do not stop after 7 or 10 minutes.
+Do not stop because you finished a batch of 10 items. Keep going
+until you've either hit 20 new rules or exhausted 30 minutes of
+real work. If you find 20 rules in 15 minutes, keep going — more is
+better. News is secondary — cap it at 5 minutes AFTER you've done
+your rules work.
 
 Read `data/rules.json::discovery_pass_completed` and
 `data/discovery_queue.json::pass_status`. There are three possible modes:
@@ -187,6 +194,13 @@ Read `data/rules.json::discovery_pass_completed` and
 Set `discovery_pass_completed: true` in `rules.json` the first time
 the queue reaches `pass_complete`. On every run, always do the news
 sweep regardless of mode.
+
+**CRITICAL: If a `court_with_judges` item turns up "no court-wide
+rule," you are NOT done with that item.** You must ALSO enumerate
+the individual judges on that court and check each one for a
+standing order. A court item that finds 0 court-wide rules but
+doesn't check individual judges is incomplete. Most AI rules are
+individual judge standing orders, not court-wide local rules.
 
 ---
 
@@ -293,7 +307,7 @@ proposed new category, and pause for human review.
 
 Goal: achieve **complete coverage** of every federal court and every
 federal judge, and meaningful coverage of state courts. Because the
-agent has a ~30-minute time window per run and there are ~840 federal
+agent has a ~45-minute time window per run and there are ~840 federal
 judges plus ~107 federal courts to check, coverage is built over
 multiple runs via a **persistent queue** at
 `data/discovery_queue.json`.
@@ -310,19 +324,36 @@ faster coverage — runs are idempotent.
    `error_prone_seeds`. These are the user's verified spot-checks and
    must be re-verified every pass.
 2. `aggregator_flagged` — judges known from law-firm trackers to have
-   AI orders. Highest yield.
-3. `court_level` — court-wide local-rules sweep for all ~107 federal
-   courts (one local-rules PDF per court). A court-wide rule covers
-   every judge on that court, so it removes many downstream judge
-   checks.
+   AI orders. **Highest yield — these are known to have rules, so
+   they should almost always produce a new entry.**
+3. `court_with_judges` — **full sweep** of each federal court: first
+   check for a court-wide local rule, then **enumerate every active
+   and senior judge** on that court's website and check each one for
+   an AI standing order. This is where the volume comes from — most
+   AI rules are individual judge standing orders, not court-wide
+   rules. A `court_with_judges` item is NOT complete after only
+   checking the court-wide local rules. You must also check
+   individual judges.
 4. `roster` — remaining judges from the Wikipedia rosters, swept for
    completeness.
 
-**Time management:** Work in a tight search → verify → write →
-validate loop. After every batch of ~10 items, write updates to
-`data/rules.json` AND `data/discovery_queue.json`, then run
-`python scripts/validate.py`. Partial progress saved is far better
-than exhaustive research with nothing written.
+**Time management — USE YOUR FULL TIME BUDGET:**
+- **Minimum: 30 minutes of active work OR 20 new rules, whichever
+  comes LAST.** Do not quit early.
+- Work in a tight search → verify → write → validate loop.
+- After every batch of ~10 items, write updates to
+  `data/rules.json` AND `data/discovery_queue.json`, then run
+  `python scripts/validate.py`. Partial progress saved is far better
+  than exhaustive research with nothing written.
+- **If you process a batch and found 0 new rules, do NOT stop.**
+  Move to the next batch. Many courts won't have rules — that's
+  expected. Keep going until you hit courts that do.
+- If `aggregator_flagged` items are available, process those FIRST —
+  they are confirmed to have rules and will pad your count fast.
+- When processing `court_with_judges` items, spend no more than
+  5 minutes per court (including individual judge checks). If a
+  court's website is too slow or 403s everything, mark it `blocked`
+  and move on — don't burn time on one court.
 
 ### Phase 1: Initialize the queue (first run only)
 
@@ -343,13 +374,14 @@ the full queue before processing any items:
    categories from them. For every candidate, verify at the court's
    own site using the zoom-out workflow. Record just the `(court,
    judge)` pair in the queue.
-3. **Seed `court_level` items** — one per federal court. Fetch the
-   two Wikipedia rosters
+3. **Seed `court_with_judges` items** — one per federal court. Fetch
+   the two Wikipedia rosters
    (`https://en.wikipedia.org/wiki/List_of_current_United_States_district_judges`,
    `https://en.wikipedia.org/wiki/List_of_current_United_States_circuit_judges`)
    to extract the full list of ~94 district courts and 13 circuits.
    Add one queue item per court with `judge: null` and
-   `priority: "court_level"`.
+   `priority: "court_with_judges"`. Each item requires BOTH a
+   court-wide local-rules check AND individual-judge enumeration.
 4. **Seed `roster` items** — for every active and senior federal judge
    on the Wikipedia rosters, add a queue item with `priority:
    "roster"`. These may number 700+ and will be processed over many
@@ -361,6 +393,21 @@ Initialization itself can take much of a run. If you run out of time
 during initialization, save whatever you have and exit — the next run
 will pick up seeding where you left off. The queue's `pass_status`
 stays `"not_started"` until all four priority buckets are seeded.
+
+### Phase 1.5: Aggregator refresh (every run, 5 minutes max)
+
+Before processing the queue, spend up to 5 minutes searching for
+judges NOT already in the queue who are known to have AI orders:
+
+- `"generative AI" "standing order" judge site:uscourts.gov 2025..2026`
+- `AI judicial standing orders tracker site:bakerhostetler.com`
+- `AI court orders tracker site:ropesgray.com`
+- `new AI court rules 2025 2026`
+
+For each new judge found, add an `aggregator_flagged` item to the
+queue with `status: "pending"`. These get processed immediately in
+Phase 2 (they're high-priority) and almost always yield a new rule.
+This step ensures the queue grows with fresh targets each run.
 
 ### Phase 2: Process pending items in priority order
 
@@ -387,12 +434,31 @@ a rule. For the typical case of "no AI rule found," simply set the
 queue item's `result` to `"no_ai_policy"` and move on — no
 `rules.json` entry.
 
-**Court-level items** are cheap and high-yield: fetch the court's
-local rules PDF, search for "artificial intelligence." If a
-court-wide rule exists → create one entry with `judge: null`. Every
-judge on that court is thereby covered; mark any existing `roster`
-queue items for that court as `completed` with `result:
-"court_covered_by_court_wide_rule"`.
+**`court_with_judges` items require a TWO-PART sweep:**
+
+Part 1 — Court-wide check: fetch the court's local rules PDF,
+search for "artificial intelligence." If a court-wide rule exists →
+create one entry with `judge: null`.
+
+Part 2 — Individual-judge enumeration: go to the court's
+judges-info page. List every active and senior judge. For each
+judge, visit their individual page and check standing orders for AI
+provisions (the zoom-out workflow below). Create a separate
+`rules.json` entry for each judge who has an individual AI order.
+**This is where most new rules come from.** Do NOT skip part 2 just
+because part 1 found no court-wide rule — that's the normal case.
+
+When a court-wide rule exists, mark any `roster` queue items for
+judges on that court as `completed` with `result:
+"court_covered_by_court_wide_rule"`. Individual judges may ALSO
+have their own standing orders on top of the court-wide rule —
+check for those too if the court's judges page is accessible.
+
+**Speed tip for part 2:** You don't need to fetch every judge's
+full standing order PDF. Start with a web search like
+`site:courtdomain.uscourts.gov "artificial intelligence"` to
+quickly identify which judges on a court have AI orders. Then only
+drill into those judges' pages.
 
 **The "zoom-out" workflow for each judge candidate:**
 

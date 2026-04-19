@@ -1,19 +1,19 @@
 {
-  "last_updated": "2026-04-19T23:30:00Z",
+  "last_updated": "2026-04-19T23:45:00Z",
   "pass_number": 1,
   "pass_status": "in_progress",
   "notes": "Persistent checklist for the discovery agent. Each weekly run processes as many 'pending' items as fits in its time window (in the order defined by priority_order) and writes the updated queue back. When every item is marked 'completed', the pass_number increments and all items are reset to 'pending' for the next verification cycle. Do NOT delete this file between runs.",
   "priority_order": [
     "error_prone",
     "aggregator_flagged",
-    "court_level",
+    "court_with_judges",
     "roster"
   ],
   "status_vocabulary": {
     "pending": "not yet checked in this pass",
     "in_progress": "partially checked (e.g., fetched judge page but not PDFs)",
     "completed": "finished; see result field",
-    "blocked": "couldn't complete (URL broken, PDF unreadable) \u2014 retry next pass"
+    "blocked": "couldn't complete (URL broken, PDF unreadable) — retry next pass"
   },
   "result_vocabulary": {
     "rule_found": "an AI rule exists; a rule entry was created or updated (result.rule_id points to it)",
@@ -26,7 +26,7 @@
     {
       "court_short": "C.D. Cal.",
       "judge": "Anne Hwang",
-      "note": "Standing order requires disclosure & certification. Prior run linked to all-judges listing and miscategorized as 'permitted' \u2014 must use judge-specific page and read the actual standing order PDF."
+      "note": "Standing order requires disclosure & certification. Prior run linked to all-judges listing and miscategorized as 'permitted' — must use judge-specific page and read the actual standing order PDF."
     },
     {
       "court_short": "N.D. Tex.",
@@ -36,7 +36,7 @@
     {
       "court_short": "Fla. 6th Cir. Ct.",
       "judge": "Burgess",
-      "note": "Requires verification 'through traditional methods' \u2014 category is disclosure_with_traditional_verification, NOT prohibited_except_assisted_research."
+      "note": "Requires verification 'through traditional methods' — category is disclosure_with_traditional_verification, NOT prohibited_except_assisted_research."
     },
     {
       "court_short": "CIT",
@@ -60,13 +60,13 @@
     },
     {
       "court_short": "C.D. Cal.",
-      "judge": "Araceli Mart\u00ednez-Olgu\u00edn",
-      "note": "She is a C.D. Cal. judge \u2014 a prior run incorrectly assigned her to N.D. Cal. Use her C.D. Cal. judge-specific page."
+      "judge": "Araceli Martínez-Olguín",
+      "note": "She is a C.D. Cal. judge — a prior run incorrectly assigned her to N.D. Cal. Use her C.D. Cal. judge-specific page."
     },
     {
       "court_short": "5th Cir.",
       "judge": null,
-      "note": "Proposed circuit rule on AI. rule_type should be 'proposed_local_rule'. Prior run used generic 5th Cir. URL \u2014 find the specific proposed-rule page or PDF."
+      "note": "Proposed circuit rule on AI. rule_type should be 'proposed_local_rule'. Prior run used generic 5th Cir. URL — find the specific proposed-rule page or PDF."
     },
     {
       "court_short": "N.D. Ill.",
@@ -190,7 +190,7 @@
     {
       "priority": "error_prone",
       "court_short": "C.D. Cal.",
-      "judge": "Araceli Mart\u00ednez-Olgu\u00edn",
+      "judge": "Araceli Martínez-Olguín",
       "status": "completed",
       "result": "rule_found",
       "result_details": {
@@ -260,7 +260,7 @@
       "note": "Verified permitted_with_caution. Standing order (September 2024) permits AI but emphasizes attorney responsibility for verification."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "W.D.N.C.",
       "judge": null,
       "status": "completed",
@@ -272,7 +272,7 @@
       "note": "Court-wide standing order June 2024 - Charlotte division. Entry already exists and verified."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "N.D. Ill.",
       "judge": null,
       "status": "completed",
@@ -282,7 +282,7 @@
       "note": "No court-wide local rule. Individual judges (Johnston, Fuentes, Coleman) have standing orders."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "C.D. Cal.",
       "judge": null,
       "status": "completed",
@@ -292,7 +292,7 @@
       "note": "No court-wide local rule. Individual judges (Hwang, Martinez-Olguin) have standing orders."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "E.D. Pa.",
       "judge": null,
       "status": "completed",
@@ -302,7 +302,7 @@
       "note": "No court-wide local rule. Individual judges (Baylson, Pratter) have standing orders."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "1st Cir.",
       "judge": null,
       "status": "completed",
@@ -312,7 +312,7 @@
       "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "2d Cir.",
       "judge": null,
       "status": "completed",
@@ -322,7 +322,7 @@
       "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "3d Cir.",
       "judge": null,
       "status": "completed",
@@ -332,7 +332,7 @@
       "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "4th Cir.",
       "judge": null,
       "status": "completed",
@@ -342,7 +342,7 @@
       "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "6th Cir.",
       "judge": null,
       "status": "completed",
@@ -352,7 +352,7 @@
       "note": "No circuit-wide AI policy found. Sixth Circuit imposed $30K sanctions Feb 2026 for fabricated citations."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "7th Cir.",
       "judge": null,
       "status": "completed",
@@ -362,7 +362,7 @@
       "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "8th Cir.",
       "judge": null,
       "status": "completed",
@@ -372,7 +372,7 @@
       "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "9th Cir.",
       "judge": null,
       "status": "completed",
@@ -382,7 +382,7 @@
       "note": "No circuit-wide AI policy found. Ninth Circuit created study panel Jan 2024 but no rule adopted."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "10th Cir.",
       "judge": null,
       "status": "completed",
@@ -392,7 +392,7 @@
       "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "11th Cir.",
       "judge": null,
       "status": "completed",
@@ -402,7 +402,7 @@
       "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D.C. Cir.",
       "judge": null,
       "status": "completed",
@@ -412,7 +412,7 @@
       "note": "No circuit-wide AI policy found. March 2025 ruled AI cannot be copyright author; no filing rules."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "Fed. Cir.",
       "judge": null,
       "status": "completed",
@@ -422,7 +422,7 @@
       "note": "No circuit-wide AI policy found. Circuits have not adopted appellate-level AI rules."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "N.D. Ala.",
       "judge": null,
       "status": "completed",
@@ -432,7 +432,7 @@
       "note": "No court-wide local rule. Individual judges (Haikala, Axon) have standing orders."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "M.D. Ala.",
       "judge": null,
       "status": "completed",
@@ -442,7 +442,7 @@
       "note": "No court-wide local rule found."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "S.D. Ala.",
       "judge": null,
       "status": "completed",
@@ -452,7 +452,7 @@
       "note": "No court-wide local rule found."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Alaska",
       "judge": null,
       "status": "completed",
@@ -462,7 +462,7 @@
       "note": "No federal court-wide local rule found. Alaska state courts and legislature have AI activity."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Ariz.",
       "judge": null,
       "status": "completed",
@@ -472,7 +472,7 @@
       "note": "No court-wide local rule. Judge Soto has standing order requiring AI disclosure."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "E.D. Ark.",
       "judge": null,
       "status": "completed",
@@ -482,7 +482,7 @@
       "note": "No federal court-wide local rule found. Arkansas Supreme Court has Admin Order No. 25."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "W.D. Ark.",
       "judge": null,
       "status": "completed",
@@ -492,7 +492,7 @@
       "note": "No federal court-wide local rule found."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "E.D. Cal.",
       "judge": null,
       "status": "completed",
@@ -502,7 +502,7 @@
       "note": "No court-wide local rule found. C.D. Cal. judges (Blumenfeld, Oliver) have standing orders."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "N.D. Cal.",
       "judge": null,
       "status": "completed",
@@ -512,7 +512,7 @@
       "note": "No court-wide local rule. Individual judges (Lin, Kang, Mo) have standing orders."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "S.D. Cal.",
       "judge": null,
       "status": "completed",
@@ -522,7 +522,7 @@
       "note": "No district court-wide rule. Bankruptcy court has General Order 210 (effective Jan 1, 2026)."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Colo.",
       "judge": null,
       "status": "completed",
@@ -532,7 +532,7 @@
       "note": "No court-wide local rule. Individual judges (S. Kato Crews) have standing orders."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Conn.",
       "judge": null,
       "status": "completed",
@@ -541,7 +541,7 @@
       "note": "No court-wide local rule. Local Rules last updated Dec 2009; Jan 2026 updates did not include AI. Court issued advisory warning on AI hallucinations but no formal local rule."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Del.",
       "judge": null,
       "status": "completed",
@@ -550,7 +550,7 @@
       "note": "No court-wide local rule. Proposed rule revisions (Feb 2026) do not include AI provisions. Delaware Supreme Court (state) adopted AI policy Oct 2024, but federal district court has not."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D.D.C.",
       "judge": null,
       "status": "completed",
@@ -559,7 +559,7 @@
       "note": "No court-wide local rule. Local Rules updated Aug 2025 without AI provisions. FTC ALJ (Judge Ayoubi) issued AI order Sep 2024, but that's administrative court, not U.S. District Court."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "M.D. Fla.",
       "judge": null,
       "status": "completed",
@@ -568,7 +568,7 @@
       "note": "No court-wide local rule. Local Rules amended Nov 2025 without AI provisions. Individual judges may have AI orders. State circuits 11 & 17 issued AI orders Jan 2026."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "N.D. Fla.",
       "judge": null,
       "status": "completed",
@@ -577,7 +577,7 @@
       "note": "No court-wide local rule. Not listed in Ropes & Gray tracker or Bloomberg Law tracker. State courts in Florida have AI orders but not this federal district."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "S.D. Fla.",
       "judge": null,
       "status": "completed",
@@ -586,34 +586,34 @@
       "note": "No court-wide local rule. Magistrate Judge Matthewman imposed sanctions in AI hallucination case, but enforcement under existing rules, not new AI local rule."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "M.D. Ga.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of M.D. Ga.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "N.D. Ga.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of N.D. Ga.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "S.D. Ga.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of S.D. Ga.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Haw.",
       "judge": null,
       "status": "completed",
@@ -623,223 +623,223 @@
       "note": "No district-wide local rule found. Individual judge (Kobayashi) has standing order. Hawaii Supreme Court AI committee found existing Rule 11 sufficient."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Idaho",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D. Idaho: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "C.D. Ill.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of C.D. Ill.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "S.D. Ill.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of S.D. Ill.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "N.D. Ind.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of N.D. Ind.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "S.D. Ind.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of S.D. Ind.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "N.D. Iowa",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of N.D. Iowa: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "S.D. Iowa",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of S.D. Iowa: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Kan.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D. Kan.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "E.D. Ky.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of E.D. Ky.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "W.D. Ky.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of W.D. Ky.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "E.D. La.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of E.D. La.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "M.D. La.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of M.D. La.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "W.D. La.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of W.D. La.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Me.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D. Me.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Md.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D. Md.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Mass.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D. Mass.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "E.D. Mich.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of E.D. Mich.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "W.D. Mich.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of W.D. Mich.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Minn.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D. Minn.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "N.D. Miss.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of N.D. Miss.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "S.D. Miss.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of S.D. Miss.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "E.D. Mo.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of E.D. Mo.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "W.D. Mo.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of W.D. Mo.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Mont.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D. Mont.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Neb.",
       "judge": null,
       "status": "completed",
@@ -851,232 +851,232 @@
       "note": "Court-wide local rule NECivR 7.0.1 effective Dec 1, 2024. Entry already exists and verified."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Nev.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D. Nev.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D.N.H.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D.N.H.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D.N.J.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D.N.J.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D.N.M.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D.N.M.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "E.D.N.Y.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of E.D.N.Y.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "N.D.N.Y.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of N.D.N.Y.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "S.D.N.Y.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of S.D.N.Y.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "W.D.N.Y.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of W.D.N.Y.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "E.D.N.C.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of E.D.N.C.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "M.D.N.C.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of M.D.N.C.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D.N.D.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D.N.D.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "N.D. Ohio",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of N.D. Ohio: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "S.D. Ohio",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of S.D. Ohio: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "E.D. Okla.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of E.D. Okla.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "N.D. Okla.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of N.D. Okla.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "W.D. Okla.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of W.D. Okla.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Or.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D. Or.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "M.D. Pa.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of M.D. Pa.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "W.D. Pa.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of W.D. Pa.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D.R.I.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D.R.I.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D.S.C.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D.S.C.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D.S.D.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D.S.D.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "E.D. Tenn.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of E.D. Tenn.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "M.D. Tenn.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of M.D. Tenn.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "W.D. Tenn.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of W.D. Tenn.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "E.D. Tex.",
       "judge": null,
       "status": "completed",
@@ -1088,7 +1088,7 @@
       "note": "Court-wide Local Rule CV-11(g) amended Dec 1, 2025 per General Order 25-07. Entry already exists and verified."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "S.D. Tex.",
       "judge": null,
       "status": "completed",
@@ -1100,160 +1100,160 @@
       "note": "Court-wide General Order 2025-04 effective May 7, 2025. Entry already exists and verified."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "W.D. Tex.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of W.D. Tex.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Utah",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D. Utah: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Vt.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D. Vt.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "E.D. Va.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of E.D. Va.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "W.D. Va.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of W.D. Va.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "E.D. Wash.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of E.D. Wash.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "W.D. Wash.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of W.D. Wash.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "N.D.W. Va.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of N.D.W. Va.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "S.D.W. Va.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of S.D.W. Va.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "E.D. Wis.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of E.D. Wis.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "W.D. Wis.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of W.D. Wis.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Wyo.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D. Wyo.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D.P.R.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D.P.R.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D. Guam",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D. Guam: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D.N. Mar. I.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D.N. Mar. I.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "D.V.I.",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of D.V.I.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "CIT",
       "judge": null,
       "status": "pending",
       "result": null,
       "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "note": "Full sweep of CIT: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "AL Sup. Ct.",
       "court_name": "Alabama Supreme Court",
       "judge": null,
@@ -1262,10 +1262,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of AL Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "AK Sup. Ct.",
       "court_name": "Alaska Supreme Court",
       "judge": null,
@@ -1274,10 +1274,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of AK Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "AZ Sup. Ct.",
       "court_name": "Arizona Supreme Court",
       "judge": null,
@@ -1286,10 +1286,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of AZ Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "AR Sup. Ct.",
       "court_name": "Arkansas Supreme Court",
       "judge": null,
@@ -1298,10 +1298,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of AR Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "CA Sup. Ct.",
       "court_name": "California Supreme Court",
       "judge": null,
@@ -1310,10 +1310,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of CA Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "CO Sup. Ct.",
       "court_name": "Colorado Supreme Court",
       "judge": null,
@@ -1322,10 +1322,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of CO Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "CT Sup. Ct.",
       "court_name": "Connecticut Supreme Court",
       "judge": null,
@@ -1334,10 +1334,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of CT Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "DE Sup. Ct.",
       "court_name": "Delaware Supreme Court",
       "judge": null,
@@ -1346,10 +1346,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of DE Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "FL Sup. Ct.",
       "court_name": "Florida Supreme Court",
       "judge": null,
@@ -1358,10 +1358,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of FL Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "GA Sup. Ct.",
       "court_name": "Georgia Supreme Court",
       "judge": null,
@@ -1370,10 +1370,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of GA Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "HI Sup. Ct.",
       "court_name": "Hawaii Supreme Court",
       "judge": null,
@@ -1382,10 +1382,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of HI Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "ID Sup. Ct.",
       "court_name": "Idaho Supreme Court",
       "judge": null,
@@ -1394,10 +1394,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of ID Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "IL Sup. Ct.",
       "court_name": "Illinois Supreme Court",
       "judge": null,
@@ -1406,10 +1406,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of IL Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "IN Sup. Ct.",
       "court_name": "Indiana Supreme Court",
       "judge": null,
@@ -1418,10 +1418,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of IN Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "IA Sup. Ct.",
       "court_name": "Iowa Supreme Court",
       "judge": null,
@@ -1430,10 +1430,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of IA Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "KS Sup. Ct.",
       "court_name": "Kansas Supreme Court",
       "judge": null,
@@ -1442,10 +1442,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of KS Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "KY Sup. Ct.",
       "court_name": "Kentucky Supreme Court",
       "judge": null,
@@ -1454,10 +1454,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of KY Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "LA Sup. Ct.",
       "court_name": "Louisiana Supreme Court",
       "judge": null,
@@ -1466,10 +1466,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of LA Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "ME Sup. Ct.",
       "court_name": "Maine Supreme Judicial Court",
       "judge": null,
@@ -1478,10 +1478,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of ME Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "MD Sup. Ct.",
       "court_name": "Maryland Supreme Court",
       "judge": null,
@@ -1490,10 +1490,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of MD Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "MA Sup. Ct.",
       "court_name": "Massachusetts Supreme Judicial Court",
       "judge": null,
@@ -1502,10 +1502,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of MA Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "MI Sup. Ct.",
       "court_name": "Michigan Supreme Court",
       "judge": null,
@@ -1514,10 +1514,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of MI Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "MN Sup. Ct.",
       "court_name": "Minnesota Supreme Court",
       "judge": null,
@@ -1526,10 +1526,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of MN Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "MS Sup. Ct.",
       "court_name": "Mississippi Supreme Court",
       "judge": null,
@@ -1538,10 +1538,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of MS Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "MO Sup. Ct.",
       "court_name": "Missouri Supreme Court",
       "judge": null,
@@ -1550,10 +1550,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of MO Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "MT Sup. Ct.",
       "court_name": "Montana Supreme Court",
       "judge": null,
@@ -1562,10 +1562,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of MT Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "NE Sup. Ct.",
       "court_name": "Nebraska Supreme Court",
       "judge": null,
@@ -1574,10 +1574,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of NE Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "NV Sup. Ct.",
       "court_name": "Nevada Supreme Court",
       "judge": null,
@@ -1586,10 +1586,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of NV Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "NH Sup. Ct.",
       "court_name": "New Hampshire Supreme Court",
       "judge": null,
@@ -1598,10 +1598,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of NH Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "NJ Sup. Ct.",
       "court_name": "New Jersey Supreme Court",
       "judge": null,
@@ -1610,10 +1610,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of NJ Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "NM Sup. Ct.",
       "court_name": "New Mexico Supreme Court",
       "judge": null,
@@ -1622,10 +1622,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of NM Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "NY Sup. Ct.",
       "court_name": "New York Court of Appeals",
       "judge": null,
@@ -1634,10 +1634,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of NY Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "NC Sup. Ct.",
       "court_name": "North Carolina Supreme Court",
       "judge": null,
@@ -1646,10 +1646,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of NC Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "ND Sup. Ct.",
       "court_name": "North Dakota Supreme Court",
       "judge": null,
@@ -1658,10 +1658,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of ND Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "OH Sup. Ct.",
       "court_name": "Ohio Supreme Court",
       "judge": null,
@@ -1670,10 +1670,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of OH Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "OK Sup. Ct.",
       "court_name": "Oklahoma Supreme Court",
       "judge": null,
@@ -1682,10 +1682,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of OK Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "OR Sup. Ct.",
       "court_name": "Oregon Supreme Court",
       "judge": null,
@@ -1694,10 +1694,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of OR Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "PA Sup. Ct.",
       "court_name": "Pennsylvania Supreme Court",
       "judge": null,
@@ -1706,10 +1706,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of PA Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "RI Sup. Ct.",
       "court_name": "Rhode Island Supreme Court",
       "judge": null,
@@ -1718,10 +1718,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of RI Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "SC Sup. Ct.",
       "court_name": "South Carolina Supreme Court",
       "judge": null,
@@ -1730,10 +1730,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of SC Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "SD Sup. Ct.",
       "court_name": "South Dakota Supreme Court",
       "judge": null,
@@ -1742,10 +1742,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of SD Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "TN Sup. Ct.",
       "court_name": "Tennessee Supreme Court",
       "judge": null,
@@ -1754,10 +1754,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of TN Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "TX Sup. Ct.",
       "court_name": "Texas Supreme Court",
       "judge": null,
@@ -1766,10 +1766,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of TX Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "UT Sup. Ct.",
       "court_name": "Utah Supreme Court",
       "judge": null,
@@ -1778,10 +1778,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of UT Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "VT Sup. Ct.",
       "court_name": "Vermont Supreme Court",
       "judge": null,
@@ -1790,10 +1790,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of VT Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "VA Sup. Ct.",
       "court_name": "Virginia Supreme Court",
       "judge": null,
@@ -1802,10 +1802,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of VA Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "WA Sup. Ct.",
       "court_name": "Washington Supreme Court",
       "judge": null,
@@ -1814,10 +1814,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of WA Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "WV Sup. Ct.",
       "court_name": "West Virginia Supreme Court of Appeals",
       "judge": null,
@@ -1826,10 +1826,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of WV Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "WI Sup. Ct.",
       "court_name": "Wisconsin Supreme Court",
       "judge": null,
@@ -1838,10 +1838,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of WI Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "WY Sup. Ct.",
       "court_name": "Wyoming Supreme Court",
       "judge": null,
@@ -1850,10 +1850,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court AI policy check. Search court website for 'artificial intelligence' rules/orders/guidance."
+      "note": "Full sweep of WY Sup. Ct.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "Los Angeles County Superior Court",
       "judge": null,
       "jurisdiction": "state",
@@ -1861,10 +1861,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "Large-state trial court AI policy check (CA)."
+      "note": "Full sweep of Los Angeles County Superior Court: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "San Francisco County Superior Court",
       "judge": null,
       "jurisdiction": "state",
@@ -1872,10 +1872,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "Large-state trial court AI policy check (CA)."
+      "note": "Full sweep of San Francisco County Superior Court: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "New York Supreme Court (Manhattan)",
       "judge": null,
       "jurisdiction": "state",
@@ -1883,10 +1883,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "Large-state trial court AI policy check (NY)."
+      "note": "Full sweep of New York Supreme Court (Manhattan): (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "New York Supreme Court Commercial Division",
       "judge": null,
       "jurisdiction": "state",
@@ -1894,10 +1894,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "Large-state trial court AI policy check (NY)."
+      "note": "Full sweep of New York Supreme Court Commercial Division: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "Harris County District Courts",
       "judge": null,
       "jurisdiction": "state",
@@ -1905,10 +1905,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "Large-state trial court AI policy check (TX)."
+      "note": "Full sweep of Harris County District Courts: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "Dallas County District Courts",
       "judge": null,
       "jurisdiction": "state",
@@ -1916,10 +1916,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "Large-state trial court AI policy check (TX)."
+      "note": "Full sweep of Dallas County District Courts: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "Miami-Dade County Circuit Court",
       "judge": null,
       "jurisdiction": "state",
@@ -1927,10 +1927,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "Large-state trial court AI policy check (FL)."
+      "note": "Full sweep of Miami-Dade County Circuit Court: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "Broward County Circuit Court",
       "judge": null,
       "jurisdiction": "state",
@@ -1938,10 +1938,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "Large-state trial court AI policy check (FL)."
+      "note": "Full sweep of Broward County Circuit Court: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "Cook County Circuit Court",
       "judge": null,
       "jurisdiction": "state",
@@ -1949,10 +1949,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "Large-state trial court AI policy check (IL)."
+      "note": "Full sweep of Cook County Circuit Court: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "Philadelphia Court of Common Pleas",
       "judge": null,
       "jurisdiction": "state",
@@ -1960,10 +1960,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "Large-state trial court AI policy check (PA)."
+      "note": "Full sweep of Philadelphia Court of Common Pleas: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "Cuyahoga County Common Pleas",
       "judge": null,
       "jurisdiction": "state",
@@ -1971,10 +1971,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "Large-state trial court AI policy check (OH)."
+      "note": "Full sweep of Cuyahoga County Common Pleas: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "Fulton County Superior Court",
       "judge": null,
       "jurisdiction": "state",
@@ -1982,10 +1982,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "Large-state trial court AI policy check (GA)."
+      "note": "Full sweep of Fulton County Superior Court: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "Mecklenburg County Superior Court",
       "judge": null,
       "jurisdiction": "state",
@@ -1993,10 +1993,10 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "Large-state trial court AI policy check (NC)."
+      "note": "Full sweep of Mecklenburg County Superior Court: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
-      "priority": "court_level",
+      "priority": "court_with_judges",
       "court_short": "Wayne County Circuit Court",
       "judge": null,
       "jurisdiction": "state",
@@ -2004,7 +2004,57 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "Large-state trial court AI policy check (MI)."
+      "note": "Full sweep of Wayne County Circuit Court: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
+    },
+    {
+      "priority": "aggregator_flagged",
+      "court_short": "N.D. Ga.",
+      "judge": "Thomas R. Jones",
+      "status": "pending",
+      "result": null,
+      "result_details": null,
+      "last_checked": null,
+      "note": "Flagged by 2026-04-19 transcript as having AI disclosure standing order. Verify on N.D. Ga. judges-info page and create rules.json entry with correct judge attribution."
+    },
+    {
+      "priority": "aggregator_flagged",
+      "court_short": "N.D. Ga.",
+      "judge": "J.P. Boulee",
+      "status": "pending",
+      "result": null,
+      "result_details": null,
+      "last_checked": null,
+      "note": "Flagged by 2026-04-19 transcript as having AI disclosure standing order. Verify on N.D. Ga. judges-info page and create rules.json entry with correct judge attribution."
+    },
+    {
+      "priority": "aggregator_flagged",
+      "court_short": "D. Ariz.",
+      "judge": "John C. Hinderaker",
+      "status": "pending",
+      "result": null,
+      "result_details": null,
+      "last_checked": null,
+      "note": "Bloomberg Law tracker flagged a D. Ariz. judge named Soto with an AI order. Judge name may be \"Soto\" — verify on D. Ariz. judges-orders page. Placeholder: Hinderaker; re-check listings."
+    },
+    {
+      "priority": "aggregator_flagged",
+      "court_short": "D. Ariz.",
+      "judge": "James A. Soto",
+      "status": "pending",
+      "result": null,
+      "result_details": null,
+      "last_checked": null,
+      "note": "Flagged by 2026-04-19 transcript (via Bloomberg Law tracker) as having an AI order. Verify on azd.uscourts.gov judge-orders page and create rules.json entry."
+    },
+    {
+      "priority": "aggregator_flagged",
+      "court_short": "S.D. Fla.",
+      "judge": "William Matthewman",
+      "status": "pending",
+      "result": null,
+      "result_details": null,
+      "last_checked": null,
+      "note": "Magistrate Judge Matthewman imposed AI-hallucination sanctions in S.D. Fla. Check whether he has a general AI standing order in his magistrate procedures (distinct from the sanctions order)."
     }
   ]
 }

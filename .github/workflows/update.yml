@@ -66,14 +66,14 @@ jobs:
       - name: Run Claude Code agent
         if: steps.gate.outputs.skip == 'false'
         uses: anthropics/claude-code-base-action@beta
-        timeout-minutes: 35
+        timeout-minutes: 50
         with:
           prompt: ${{ steps.prompt.outputs.PROMPT }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           allowed_tools: "Bash,Read,Write,Edit,Glob,Grep,WebFetch,WebSearch"
           model: "claude-sonnet-4-5"
-          timeout_minutes: 30
+          timeout_minutes: 45
 
       - name: Validate dataset
         if: steps.gate.outputs.skip == 'false'
