@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-19T14:12:34Z",
+  "last_updated": "2026-04-19T14:40:03Z",
   "pass_number": 1,
   "pass_status": "in_progress",
   "notes": "Persistent checklist for the discovery agent. Each weekly run processes as many 'pending' items as fits in its time window (in the order defined by priority_order) and writes the updated queue back. When every item is marked 'completed', the pass_number increments and all items are reset to 'pending' for the next verification cycle. Do NOT delete this file between runs.",
