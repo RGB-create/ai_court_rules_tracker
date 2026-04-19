@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-19T22:11:23Z",
+  "last_updated": "2026-04-19T23:30:00Z",
   "pass_number": 1,
   "pass_status": "in_progress",
   "notes": "Persistent checklist for the discovery agent. Each weekly run processes as many 'pending' items as fits in its time window (in the order defined by priority_order) and writes the updated queue back. When every item is marked 'completed', the pass_number increments and all items are reset to 'pending' for the next verification cycle. Do NOT delete this file between runs.",
@@ -89,21 +89,21 @@
       "priority": "error_prone",
       "court_short": "D. Ariz.",
       "judge": "Diane J. Humetewa",
-      "status": "pending",
-      "result": null,
+      "status": "completed",
+      "result": "no_ai_policy",
       "result_details": null,
       "last_checked": "2026-04-19",
-      "note": "Removed from rules.json: source_pdf unverified. Requires re-verification with direct PDF link. Judge page: azd.uscourts.gov/judge-orders/humetewa-diane-j"
+      "note": "No AI standing order found. Web search and Bloomberg Law tracker show Judge Soto in D. Ariz. has an AI order, but not Judge Humetewa. Prior entry could not be verified."
     },
     {
       "priority": "error_prone",
       "court_short": "W.D. Wash.",
       "judge": "Tiffany M. Cartwright",
-      "status": "pending",
-      "result": null,
+      "status": "completed",
+      "result": "no_ai_policy",
       "result_details": null,
       "last_checked": "2026-04-19",
-      "note": "Removed from rules.json: source_pdf unverified. Prior entry was an enforcement order (sanctions case), not a standing order. Check if Cartwright has a general AI standing order or if her civil procedures PDF contains AI policy."
+      "note": "No AI standing order found. Feb 2026 sanctions case was enforcement action under existing rules, not a general AI policy. No AI policy on judge's chambers procedures page."
     },
     {
       "priority": "error_prone",
@@ -535,55 +535,55 @@
       "priority": "court_level",
       "court_short": "D. Conn.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "No court-wide local rule. Local Rules last updated Dec 2009; Jan 2026 updates did not include AI. Court issued advisory warning on AI hallucinations but no formal local rule."
     },
     {
       "priority": "court_level",
       "court_short": "D. Del.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "No court-wide local rule. Proposed rule revisions (Feb 2026) do not include AI provisions. Delaware Supreme Court (state) adopted AI policy Oct 2024, but federal district court has not."
     },
     {
       "priority": "court_level",
       "court_short": "D.D.C.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "No court-wide local rule. Local Rules updated Aug 2025 without AI provisions. FTC ALJ (Judge Ayoubi) issued AI order Sep 2024, but that's administrative court, not U.S. District Court."
     },
     {
       "priority": "court_level",
       "court_short": "M.D. Fla.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "No court-wide local rule. Local Rules amended Nov 2025 without AI provisions. Individual judges may have AI orders. State circuits 11 & 17 issued AI orders Jan 2026."
     },
     {
       "priority": "court_level",
       "court_short": "N.D. Fla.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "No court-wide local rule. Not listed in Ropes & Gray tracker or Bloomberg Law tracker. State courts in Florida have AI orders but not this federal district."
     },
     {
       "priority": "court_level",
       "court_short": "S.D. Fla.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-19",
+      "note": "No court-wide local rule. Magistrate Judge Matthewman imposed sanctions in AI hallucination case, but enforcement under existing rules, not new AI local rule."
     },
     {
       "priority": "court_level",
