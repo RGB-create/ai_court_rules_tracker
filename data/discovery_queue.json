@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-18T14:45:00Z",
+  "last_updated": "2026-04-18T16:30:00Z",
   "pass_number": 1,
   "pass_status": "in_progress",
   "notes": "Persistent checklist for the discovery agent. Each weekly run processes as many 'pending' items as fits in its time window (in the order defined by priority_order) and writes the updated queue back. When every item is marked 'completed', the pass_number increments and all items are reset to 'pending' for the next verification cycle. Do NOT delete this file between runs.",
@@ -395,100 +395,111 @@
       "priority": "court_level",
       "court_short": "N.D. Ala.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No court-wide local rule. Individual judges (Haikala, Axon) have standing orders."
     },
     {
       "priority": "court_level",
       "court_short": "M.D. Ala.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No court-wide local rule found."
     },
     {
       "priority": "court_level",
       "court_short": "S.D. Ala.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No court-wide local rule found."
     },
     {
       "priority": "court_level",
       "court_short": "D. Alaska",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No federal court-wide local rule found. Alaska state courts and legislature have AI activity."
     },
     {
       "priority": "court_level",
       "court_short": "D. Ariz.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No court-wide local rule. Judge Soto has standing order requiring AI disclosure."
     },
     {
       "priority": "court_level",
       "court_short": "E.D. Ark.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No federal court-wide local rule found. Arkansas Supreme Court has Admin Order No. 25."
     },
     {
       "priority": "court_level",
       "court_short": "W.D. Ark.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No federal court-wide local rule found."
     },
     {
       "priority": "court_level",
       "court_short": "E.D. Cal.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No court-wide local rule found. C.D. Cal. judges (Blumenfeld, Oliver) have standing orders."
     },
     {
       "priority": "court_level",
       "court_short": "N.D. Cal.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No court-wide local rule. Individual judges (Lin, Kang, Mo) have standing orders."
     },
     {
       "priority": "court_level",
       "court_short": "S.D. Cal.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No district court-wide rule. Bankruptcy court has General Order 210 (effective Jan 1, 2026)."
     },
     {
       "priority": "court_level",
       "court_short": "D. Colo.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Court-wide local-rules sweep: fetch the court's local rules PDF and search for AI policy."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": null,
+      "last_checked": "2026-04-18",
+      "note": "No court-wide local rule. Individual judges (S. Kato Crews) have standing orders."
     },
     {
       "priority": "court_level",

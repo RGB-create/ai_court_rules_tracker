@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "last_updated": "2026-04-18T14:45:00Z",
+  "last_updated": "2026-04-18T16:30:00Z",
   "tag_vocabulary": {
     "new_standing_order": {
       "label": "New standing order",
@@ -170,6 +170,30 @@
       "date_added": "2026-04-18",
       "summary": "An assistant U.S. attorney in the Eastern District of North Carolina came under fire after a federal judge found that a court filing contained fabricated quotes, misstated case law, and even fake regulatory language. At the show‑cause hearing, the attorney told Judge Numbers that after accidentally overwriting a prior draft, he felt panicked and had AI rewrite the brief, calling the decision the worst of his career.",
       "topic_tags": ["sanctions", "federal_court", "hallucinated_citations"],
+      "related_rule_ids": []
+    },
+    {
+      "id": "nccrimlaw-ai-local-orders-2026-04-15",
+      "title": "Artificial Intelligence, Local Orders, and the Courts",
+      "publication": "North Carolina Criminal Law Blog",
+      "author": null,
+      "url": "https://nccriminallaw.sog.unc.edu/2026/04/15/artificial-intelligence-local-orders-and-the-courts/",
+      "published_date": "2026-04-15",
+      "date_added": "2026-04-18",
+      "summary": "Analysis of North Carolina's 4th Judicial District order by Senior Resident Superior Court Judge Martin McGee, which takes a unique approach by distinguishing between AI use for advocacy versus evidence. The order does not require disclosure of AI use for drafting pleadings and advocacy documents, but does require disclosure when AI is used to generate or alter evidence.",
+      "topic_tags": ["new_standing_order", "state_court", "policy_debate"],
+      "related_rule_ids": []
+    },
+    {
+      "id": "sidley-genai-discovery-protective-orders-2026-04",
+      "title": "Generative AI in Discovery: Protective Orders as an Emerging Point of Dispute",
+      "publication": "Sidley Austin LLP",
+      "author": null,
+      "url": "https://www.sidley.com/en/insights/newsupdates/2026/04/generative-ai-in-discovery-protective-orders-as-an-emerging-point-of-dispute",
+      "published_date": "2026-04-14",
+      "date_added": "2026-04-18",
+      "summary": "Analysis of recent decisions in Morgan v. V2X, Inc. and Jeffries v. Harcros Chemicals, Inc., showing that disagreements about how protective orders should address AI use in discovery are now being informed by court guidance. Examines emerging disputes about whether confidential discovery materials can be shared with AI tools.",
+      "topic_tags": ["federal_court", "scholarship", "policy_debate"],
       "related_rule_ids": []
     }
   ]
