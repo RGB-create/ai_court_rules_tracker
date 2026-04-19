@@ -104,3 +104,31 @@ jobs:
           else
             echo "No changes to commit."
           fi
+
+      - name: Create issue if entries need verification
+        if: steps.gate.outputs.skip == 'false'
+        run: |
+          PENDING=$(python3 -c "
+          import json, sys
+          p = json.loads(open('data/pending_verification.json').read())
+          items = p.get('pending', [])
+          if not items:
+              sys.exit(0)
+          print(f'{len(items)} entries need your verification:')
+          print()
+          for item in items:
+              print(f\"- **{item.get('judge', 'Court-wide')}** ({item.get('court_short', '?')})\")
+              print(f\"  Landing page: {item.get('source_url_attempted', 'N/A')}\")
+              print(f\"  Blocked reason: {item.get('blocked_reason', 'N/A')}\")
+              print(f\"  Candidate category: {item.get('candidate_category', 'N/A')}\")
+              print()
+          print('**To approve:** Add the correct PDF URL to \`data/pending_verification.json::user_corrections\`.')
+          print('**To reject:** Add \`{\"id\": \"...\", \"action\": \"remove\"}\` to user_corrections.')
+          " 2>&1) || true
+          if [ -n "$PENDING" ]; then
+            echo "$PENDING"
+            echo "---"
+            echo "Pending entries written to data/pending_verification.json"
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}

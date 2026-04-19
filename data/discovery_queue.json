@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-18T16:30:00Z",
+  "last_updated": "2026-04-19T14:01:34Z",
   "pass_number": 1,
   "pass_status": "in_progress",
   "notes": "Persistent checklist for the discovery agent. Each weekly run processes as many 'pending' items as fits in its time window (in the order defined by priority_order) and writes the updated queue back. When every item is marked 'completed', the pass_number increments and all items are reset to 'pending' for the next verification cycle. Do NOT delete this file between runs.",
@@ -72,9 +72,39 @@
       "court_short": "N.D. Ill.",
       "judge": "Iain Johnston",
       "note": "AI guidelines live directly on his judge-specific page in an 'Artificial Intelligence' dropdown section. source_url should be the judge page (no PDF needed)."
+    },
+    {
+      "court_short": "D. Ariz.",
+      "judge": "Diane J. Humetewa",
+      "note": "Source PDF unverified. Judge page: azd.uscourts.gov/judge-orders/humetewa-diane-j. Reported to have a 'Notice of Use of Artificial Intelligence' requirement. Need direct PDF link."
+    },
+    {
+      "court_short": "W.D. Wash.",
+      "judge": "Tiffany M. Cartwright",
+      "note": "Prior entry was an enforcement/sanctions order, not a preemptive standing order. Check if judge has a general AI policy in civil procedures PDF or standing order."
     }
   ],
   "items": [
+    {
+      "priority": "error_prone",
+      "court_short": "D. Ariz.",
+      "judge": "Diane J. Humetewa",
+      "status": "pending",
+      "result": null,
+      "result_details": null,
+      "last_checked": "2026-04-19",
+      "note": "Removed from rules.json: source_pdf unverified. Requires re-verification with direct PDF link. Judge page: azd.uscourts.gov/judge-orders/humetewa-diane-j"
+    },
+    {
+      "priority": "error_prone",
+      "court_short": "W.D. Wash.",
+      "judge": "Tiffany M. Cartwright",
+      "status": "pending",
+      "result": null,
+      "result_details": null,
+      "last_checked": "2026-04-19",
+      "note": "Removed from rules.json: source_pdf unverified. Prior entry was an enforcement order (sanctions case), not a standing order. Check if Cartwright has a general AI standing order or if her civil procedures PDF contains AI policy."
+    },
     {
       "priority": "error_prone",
       "court_short": "C.D. Cal.",

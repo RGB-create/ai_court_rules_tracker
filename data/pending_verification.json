@@ -1,0 +1,7 @@
+{
+  "description": "Entries the agent found but could not fully verify due to 403 errors or missing PDF links. The user reviews this file and provides corrections, then the agent applies them.",
+  "last_updated": "2026-04-19T14:00:00Z",
+  "workflow": "1. Agent finds a candidate entry but gets 403 or can't find the PDF. 2. Agent adds it here instead of rules.json. 3. User reviews and provides the correct PDF URL (or says 'remove'). 4. Next agent run reads user corrections and applies them to rules.json.",
+  "pending": [],
+  "user_corrections": []
+}

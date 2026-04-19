@@ -557,10 +557,55 @@ Useful searches:
 
 **Quality bar:** Every entry must have (a) a `source_url` or
 `source_pdf` pointing to the court's own website, and (b) a `summary`
-that quotes or accurately paraphrases the actual order text. If you
-cannot verify an entry at the court's website, include it with
-`category_confidence: "low"`, `last_verified: null`, and a plain
-(non-quoted) summary.
+that quotes or accurately paraphrases the actual order text.
+
+**If you cannot access the court website (403 error):** do NOT add
+the entry to `rules.json`. Instead, add it to
+`data/pending_verification.json::pending` with all the fields you
+have plus a `"blocked_reason"` explaining what you couldn't verify.
+The user will review pending entries, provide the correct PDF URL,
+and add their correction to `pending_verification.json::user_corrections`.
+
+**At the start of every run**, check
+`data/pending_verification.json::user_corrections`. For each
+correction the user has provided:
+- If the user gave a PDF URL: create the entry in `rules.json`
+  with that URL, set `provenance` to include "user-verified".
+- If the user said "remove": skip it.
+- After processing, move the correction to a `"processed"` array
+  (don't delete it — keep the audit trail).
+
+This is the human-in-the-loop workflow for entries the agent can't
+fully verify. The agent does the research and populates all fields
+it can; the user provides or confirms the final PDF URL.
+
+### Pending verification schema
+
+Each item in `pending_verification.json::pending`:
+
+```json
+{
+  "id": "us-fed-azd-humetewa-2024-05",
+  "court_short": "D. Ariz.",
+  "judge": "Diane J. Humetewa",
+  "source_url_attempted": "https://www.azd.uscourts.gov/judge-orders/humetewa-diane-j",
+  "blocked_reason": "403 on all azd.uscourts.gov pages; could not find PDF link",
+  "candidate_category": "disclosure_required",
+  "candidate_summary": "Requires a separate 'Notice of Use of Artificial Intelligence'...",
+  "date_added": "2026-04-19"
+}
+```
+
+Each user correction in `user_corrections`:
+
+```json
+{
+  "id": "us-fed-azd-humetewa-2024-05",
+  "action": "approve",
+  "source_pdf": "https://www.azd.uscourts.gov/.../DJH_AI_Order.pdf",
+  "notes": "PDF found on judge's orders page under standing orders tab"
+}
+```
 
 ---
 

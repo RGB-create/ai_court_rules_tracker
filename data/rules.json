@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "last_updated": "2026-04-19T13:50:01Z",
+  "last_updated": "2026-04-19T14:01:34Z",
   "discovery_pass_completed": false,
   "categories": {
     "prohibited": {
@@ -111,7 +111,7 @@
       "effective_date": "2023-07-01",
       "source_url": "https://www.ilnd.uscourts.gov/judge_display.php?LastName=Johnston",
       "source_pdf": null,
-      "summary": "Reminds attorneys of their duties under Federal Rules of Civil Procedure 11(b) and 26(g) without imposing additional disclosure or certification requirements. Takes a hands-off approach emphasizing existing professional responsibility rules.",
+      "summary": "Reminds attorneys of their duties under Federal Rules of Civil Procedure 11(b) and 26(g) without imposing additional disclosure or certification requirements. Takes a hands-off approach emphasizing existing professional responsibility rules. See \"Artificial Intelligence (AI)\" under Case Procedures on the judge's page.",
       "verbatim_key_language": null,
       "last_verified": "2026-04-17",
       "provenance": "agent discovery 2026-04; verified at judge's page with AI dropdown section"
@@ -279,7 +279,7 @@
       "effective_date": "2023-07-01",
       "source_url": "https://www.ilnd.uscourts.gov/judge_display.php?LastName=Coleman",
       "source_pdf": null,
-      "summary": "Parties may not use Artificial Intelligence to draft their memoranda or as authority to support their motions. Complete prohibition on AI use in filings.",
+      "summary": "Parties may not use Artificial Intelligence to draft their memoranda or as authority to support their motions. Complete prohibition on AI use in filings. See \"Memorandum of Law Requirements\" under Case Procedures on the judge's page.",
       "verbatim_key_language": null,
       "last_verified": "2026-04-17",
       "provenance": "agent discovery 2026-04; verified from court website searches"
@@ -369,48 +369,6 @@
       "provenance": "agent discovery 2026-04; notable for active enforcement through sanctions"
     },
     {
-      "id": "us-fed-azd-humetewa-2024-05",
-      "jurisdiction": "federal",
-      "court": "U.S. District Court for the District of Arizona",
-      "court_short": "D. Ariz.",
-      "court_level": "district",
-      "circuit": "9",
-      "state": "AZ",
-      "judge": "Diane J. Humetewa",
-      "rule_type": "standing_order",
-      "category": "disclosure_required",
-      "category_confidence": "medium",
-      "title": "Standing Order on GenAI Use",
-      "effective_date": "2024-05-01",
-      "source_url": "https://www.azd.uscourts.gov/judge-orders/humetewa-diane-j",
-      "source_pdf": null,
-      "summary": "Requires attorneys and pro se litigants who use AI to file a separate \"Notice of Use of Artificial Intelligence\" document that identifies the AI program used, specifies page and line numbers of AI-drafted content, and certifies that AI-generated language was verified for accuracy by a human being.",
-      "verbatim_key_language": null,
-      "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; mentioned in legal press coverage; primary source not directly accessible"
-    },
-    {
-      "id": "us-fed-wawd-cartwright-2026-02",
-      "jurisdiction": "federal",
-      "court": "U.S. District Court for the Western District of Washington",
-      "court_short": "W.D. Wash.",
-      "court_level": "district",
-      "circuit": "9",
-      "state": "WA",
-      "judge": "Tiffany M. Cartwright",
-      "rule_type": "standing_order",
-      "category": "disclosure_required",
-      "category_confidence": "medium",
-      "title": "Order to Show Cause Re AI Misuse (Enforcement Order)",
-      "effective_date": "2026-02-01",
-      "source_url": "https://www.wawd.uscourts.gov/judges/cartwright-chambers",
-      "source_pdf": null,
-      "summary": "Judge Cartwright ordered attorney Jocelyn C. Stewart to show cause why she should not face sanctions for AI use that led to submitting \"dozens of inaccurate factual and legal citations across at least five different filings.\" While not a preemptive standing order, this enforcement action signals the court's expectations for AI verification.",
-      "verbatim_key_language": null,
-      "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; enforcement order rather than preemptive standing order, but signals judicial expectations"
-    },
-    {
       "id": "us-fed-cit-restani-2025-07",
       "jurisdiction": "federal",
       "court": "U.S. Court of International Trade",
@@ -488,11 +446,11 @@
       "title": "General Order 210: Filings Using Generative Artificial Intelligence",
       "effective_date": "2026-01-01",
       "source_url": "https://www.casb.uscourts.gov/news/general-order-210-filings-using-generative-artificial-intelligence",
-      "source_pdf": null,
+      "source_pdf": "https://www.casb.uscourts.gov/sites/casb/files/documents/general-orders/General%20Order%20210_2025-11-18.pdf",
       "summary": "Court-wide general order governing the use of generative Artificial Intelligence (AI) for all pleadings, motions, and papers filed in Court proceedings. Establishes requirements and guidelines for attorneys and parties who use generative AI tools when preparing court filings in bankruptcy proceedings.",
       "verbatim_key_language": null,
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; issued November 2025, effective January 1, 2026"
+      "provenance": "user-verified PDF URL 2026-04-19; General Order 210"
     },
     {
       "id": "us-fed-ned-localrule-2024-12",
@@ -527,14 +485,14 @@
       "rule_type": "standing_order",
       "category": "prohibited",
       "category_confidence": "high",
-      "title": "Pro Hac Vice Admission Order - AI Prohibition",
+      "title": "Pro Hac Vice Admission Order \u2014 AI Prohibition",
       "effective_date": "2023-06-29",
       "source_url": "https://www.mtd.uscourts.gov/hon-donald-w-molloy-chambers",
-      "source_pdf": null,
+      "source_pdf": "https://storage.courtlistener.com/recap/gov.uscourts.mtd.73612/gov.uscourts.mtd.73612.8.0.pdf",
       "summary": "\"Use of artificial intelligence automated drafting programs, such as Chat GPT, is prohibited.\" This prohibition is limited to counsel appearing pro hac vice (out-of-state attorneys seeking temporary admission to practice in Montana federal court), making it narrower in scope than most AI standing orders.",
       "verbatim_key_language": "Use of artificial intelligence automated drafting programs, such as Chat GPT, is prohibited",
       "last_verified": "2026-04-17",
-      "provenance": "agent discovery 2026-04; one of earliest AI orders, limited to pro hac vice counsel"
+      "provenance": "user-verified PDF URL 2026-04-19 via CourtListener; note: pro hac vice admission order (not a general standing order); PDF requires OCR"
     },
     {
       "id": "us-fed-wdok-palk-2023-06",
