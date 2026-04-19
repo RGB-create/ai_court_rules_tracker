@@ -181,7 +181,88 @@ def validate_rules(errors: list[str]) -> int:
                     "PDF link (no '.pdf' or '/files/' in URL). If the PDF is "
                     "served from a different path, ignore this; otherwise fix."
                 )
+
+        # --- HARD RULE 5: judge attribution must match PDF filename ---
+        # If the PDF filename encodes a judge identifier (e.g., "Judge_Kelly"
+        # or initials like "MJN" or "JAR"), the `judge` field must match.
+        # This catches the attribution errors seen in April 2026 where the
+        # agent located a correct PDF but populated the wrong or null judge.
+        if pdf and r.get("judge"):
+            check_err = _check_filename_judge_match(pdf, r["judge"])
+            if check_err:
+                errors.append(f"{loc}: {check_err}")
+        elif pdf and r.get("judge") is None:
+            # A PDF filename that clearly names a specific judge cannot have
+            # a null judge field. Court-wide orders use generic titles.
+            hint = _filename_names_a_judge(pdf)
+            if hint:
+                errors.append(
+                    f"{loc}: source_pdf filename contains a judge "
+                    f"identifier ('{hint}') but judge field is null. "
+                    "If the PDF is a specific judge's order, populate "
+                    "the judge field. If it is court-wide, the filename "
+                    "should not name a judge."
+                )
     return len(rules)
+
+
+# --- Judge/filename matching helpers ---
+# These catch the April 2026 attribution errors (Kelly/Katzmann swap,
+# Strickland/null, Hopkins/null) where the agent shipped a correct PDF
+# URL with the wrong judge name.
+
+_JUDGE_FILENAME_PATTERNS = [
+    # "Judge_Lastname" or "JudgeLastname"
+    re.compile(r"[Jj]udge[_\-\s%20]*([A-Z][a-z]+)", re.I),
+    # "AI_Guidelines_JudgeLastname.pdf"
+    re.compile(r"_Judge([A-Z][a-z]+)", re.I),
+]
+
+
+def _filename_names_a_judge(pdf_url: str) -> str | None:
+    """Return the judge identifier found in a PDF filename, or None."""
+    # Just the filename, not the full path.
+    name = pdf_url.rsplit("/", 1)[-1]
+    # Skip obvious court-wide filenames (nothing between court name and .pdf
+    # that identifies a specific person).
+    for pat in _JUDGE_FILENAME_PATTERNS:
+        m = pat.search(name)
+        if m:
+            return m.group(0)
+    return None
+
+
+def _check_filename_judge_match(pdf_url: str, judge: str) -> str | None:
+    """Return an error message if the PDF filename names a judge and it
+    doesn't match the `judge` field; else None."""
+    name = pdf_url.rsplit("/", 1)[-1]
+    # Extract the judge's last name from the judge string (last word,
+    # stripping common suffixes).
+    parts = [p for p in re.split(r"\s+", judge.strip()) if p]
+    if not parts:
+        return None
+    # Strip suffixes like "Jr." "III" "II" "Sr."
+    suffixes = {"Jr.", "Jr", "Sr.", "Sr", "II", "III", "IV"}
+    while parts and parts[-1] in suffixes:
+        parts.pop()
+    if not parts:
+        return None
+    last_name = parts[-1].rstrip(",.")
+
+    # Pattern: "Judge_Kelly" or "JudgeKelly" or "Judge Kelly" (URL-encoded
+    # as %20).
+    judge_pat = re.compile(r"[Jj]udge[_\-%20\s]*([A-Z][a-z]+)")
+    m = judge_pat.search(name)
+    if m:
+        found = m.group(1)
+        if found.lower() != last_name.lower():
+            return (
+                f"PDF filename '{name}' names 'Judge {found}' but judge "
+                f"field is '{judge}'. Attribution mismatch — either the "
+                "judge field is wrong, or the PDF is the wrong order."
+            )
+
+    return None
 
 
 def validate_news(errors: list[str]) -> int:

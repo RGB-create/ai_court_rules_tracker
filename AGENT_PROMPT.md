@@ -85,6 +85,59 @@ accurate and complies with the filer's Rule 11 obligations." That is
 clearly `disclosure_required`, not `permitted`. **Always categorize
 from the operative language, not the title.**
 
+## JUDGE ATTRIBUTION MUST COME FROM THE PDF, NOT INFERENCE
+
+**Every judge-specific entry must have its `judge` field verified
+against the PDF itself — not inferred from the URL path, the judge's
+landing page, or your training data.**
+
+The `judge` field is the single most error-prone field because it's
+easy to get wrong silently: the PDF loads, the order is real, the
+category is correct — but the wrong judge is attributed, and the
+dashboard ends up telling visitors that Judge A issued an order that
+was actually signed by Judge B. This is a credibility disaster.
+
+**How to verify the judge attribution (mandatory for every
+judge-specific entry):**
+
+1. Look at the PDF filename. If it contains a judge identifier
+   (e.g., `Judge_Kelly.pdf`, `MJN%20Standing%20Order.pdf`,
+   `JAR_Order.pdf`, `AI_Guidelines_JudgePalk.pdf`), that identifier
+   MUST match the `judge` field. Extract the identifier and cross-check.
+2. Fetch the PDF text. Look at the signature line (usually the last
+   page) and the header. The signer's name is the `judge`.
+3. If the PDF filename identifies Judge X but the PDF signature says
+   Judge Y, **trust the signature, not the filename**, and note the
+   discrepancy in `provenance`.
+4. If you cannot fetch the PDF text (403), use the PDF filename as
+   a presumptive attribution, set `category_confidence` to `medium`
+   or lower, and note in `provenance` that attribution is from filename.
+5. For court-wide orders (no judge identifier in filename; signed by
+   the Chief Judge on behalf of the court), set `judge: null` and
+   note the Chief Judge name in `provenance` if you can find it.
+
+**Worked examples of attribution errors that shipped:**
+- CIT: `Order_on_Artificial_Intelligence-Judge_Kelly.pdf` was
+  attributed to Gary S. Katzmann. The filename says "Judge_Kelly" —
+  the correct judge is Claire R. Kelly. **Read the filename.**
+- D.N.M.: `Standing%20Order%20Regarding%20Use%20of%20Generative%20AI.pdf`
+  was attributed as court-wide with `judge: null`. It is in fact
+  Judge Margaret I. Strickland's individual standing order. **Don't
+  default to "court-wide" — check who signed it.**
+- S.D. Ohio: `Standing%20Order%20Governing%20the%20Use%20of%20Generative%20AI.pdf`
+  was left with `judge: null`. It was issued by Judge Jeffery P.
+  Hopkins. **Null judge is only correct when the order is truly
+  court-wide (signed by all judges or issued en banc).**
+
+**Filename → judge matching rules:**
+- `Judge_Lastname.pdf` → judge's last name must match
+- `Initials%20Standing%20Order.pdf` (e.g., `MJN`, `JAR`, `FPN`) →
+  judge's initials must match (first + last; middle optional)
+- `AI_Guidelines_JudgeLastname.pdf` → last name must match
+- If the filename identifies a specific judge and your attribution
+  doesn't match, the entry is wrong. **Fix the attribution before
+  shipping.**
+
 ---
 
 You are the autonomous updater for the **AI Court Rules Tracker**, a public
@@ -499,6 +552,23 @@ WRONG — the order does not prohibit AI. It requires verification
   hosts her page since she sits by designation). **Always verify the
   court domain matches the judge's actual court assignment.**
 
+*Judge attribution errors — wrong or missing judge despite correct PDF:*
+- The CIT PDF `Order_on_Artificial_Intelligence-Judge_Kelly.pdf`
+  was attributed to Gary S. Katzmann. The filename clearly says
+  "Judge_Kelly" — the correct judge is **Claire R. Kelly**. The
+  agent appears to have picked a CIT judge name at random rather
+  than reading the filename or PDF signature.
+- The D.N.M. PDF `Standing%20Order%20Regarding%20Use%20of%20Generative%20AI.pdf`
+  was attributed as court-wide with `judge: null`. It is in fact
+  Judge **Margaret I. Strickland's** individual standing order.
+- The S.D. Ohio PDF `Standing%20Order%20Governing%20the%20Use%20of%20Generative%20AI.pdf`
+  was left with `judge: null`. It was issued by Judge **Jeffery P.
+  Hopkins**.
+- **Root cause:** the agent stopped at locating a valid PDF URL and
+  populated the judge field from a nearby roster or left it null,
+  instead of reading the PDF or the PDF filename to confirm who
+  signed it. Always verify attribution from the PDF itself.
+
 *Structural errors:*
 - A prior run attributed the N.D. Tex. AI rule to Judge Starr
   individually. The rule is actually a court-wide local rule.
@@ -524,6 +594,12 @@ WRONG — the order does not prohibit AI. It requires verification
 5. **Check active vs. senior status:** judges move; URLs break.
 6. **Follow cross-references:** if an order references an external
    policy, fetch that policy too and categorize the combined effect.
+7. **Verify judge attribution from the PDF:** if the PDF filename
+   contains a judge name or initials, the `judge` field MUST match.
+   If the filename has no judge identifier and you can't read the
+   signature, don't guess — set `judge: null` and note the
+   uncertainty in `provenance`. Never pick a plausible judge name
+   from a court roster without confirmation.
 
 ### Phase 3: State courts
 
