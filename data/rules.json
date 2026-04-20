@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "last_updated": "2026-04-20T01:30:00Z",
+  "last_updated": "2026-04-20T14:30:00Z",
   "discovery_pass_completed": false,
   "categories": {
     "prohibited": {
@@ -997,6 +997,48 @@
       "verbatim_key_language": "if any attorney for a party, or a pro se party, has used generative Artificial Intelligence ('AI')—including but not limited to ChatGPT, Gemini, Claude, or any other program that uses machine learning to create new content—in a citation of any legal authority filed with the Court, and assigned to Judge Kai N. Scott, then they MUST, in a clear and plain factual statement, disclose that generative AI has been used",
       "last_verified": "2026-04-20",
       "provenance": "agent discovery 2026-04-20; standing order issued March 3, 2025; Judge Scott confirmed to E.D. Pa. in 2022; has also ordered sanctions against attorneys for citing hallucinated cases"
+    },
+    {
+      "id": "us-fed-pamd-caraballo-2024-01",
+      "jurisdiction": "federal",
+      "court": "U.S. District Court for the Middle District of Pennsylvania",
+      "court_short": "M.D. Pa.",
+      "court_level": "magistrate",
+      "circuit": "3",
+      "state": "PA",
+      "judge": "Phillip Caraballo",
+      "rule_type": "standing_order",
+      "category": "disclosure_required",
+      "category_confidence": "high",
+      "title": "Certificate of Use of Generative AI Requirement",
+      "effective_date": "2024-01-01",
+      "source_url": "https://www.pamd.uscourts.gov/content/magistrate-judge-phillip-caraballo",
+      "source_pdf": null,
+      "summary": "Any party using generative AI tools (including ChatGPT or Google's Bard) in preparing documents must include a Certificate of Use of Generative AI disclosing the use and certifying that a person has checked the accuracy of any AI-generated portions of the document, including all citations and legal authority. Addresses risks of legally or factually incorrect information, nonexistent legal citations, or disclosure of confidential information.",
+      "verbatim_key_language": null,
+      "last_verified": "2026-04-20",
+      "provenance": "agent discovery 2026-04-20; Magistrate Judge Caraballo's individual judicial preferences require Certificate of Use of Generative AI"
+    },
+    {
+      "id": "us-fed-cit-courtwide-2025-03",
+      "jurisdiction": "federal",
+      "court": "U.S. Court of International Trade",
+      "court_short": "CIT",
+      "court_level": "specialty",
+      "circuit": "Federal",
+      "state": null,
+      "judge": null,
+      "rule_type": "practice_guideline",
+      "category": "permitted_with_caution",
+      "category_confidence": "high",
+      "title": "Use of Artificial Intelligence in the Practice Before the Court",
+      "effective_date": "2025-03-21",
+      "source_url": "https://www.cit.uscourts.gov/news/use-artificial-intelligence-practice-court",
+      "source_pdf": null,
+      "summary": "Court-wide guidance stating that attorneys using generative artificial intelligence should be mindful of individual chambers procedures regarding confidential or business proprietary information and Rule 11 obligations regarding attorneys' representations to the Court. Does not require affirmative disclosure; emphasizes existing professional responsibility obligations.",
+      "verbatim_key_language": null,
+      "last_verified": "2026-04-20",
+      "provenance": "agent discovery 2026-04-20; court-wide guidance published March 21, 2025; supplements individual judge standing orders from Restani and Kelly"
     }
   ]
 }
