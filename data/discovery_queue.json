@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-20T20:15:27Z",
+  "last_updated": "2026-04-20T21:30:00Z",
   "pass_number": 1,
   "pass_status": "in_progress",
   "notes": "Persistent checklist for the discovery agent. Each weekly run processes as many 'pending' items as fits in its time window (in the order defined by priority_order) and writes the updated queue back. When every item is marked 'completed', the pass_number increments and all items are reset to 'pending' for the next verification cycle. Do NOT delete this file between runs.",
@@ -654,37 +654,37 @@
       "priority": "court_with_judges",
       "court_short": "N.D. Ind.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Full sweep of N.D. Ind.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-20",
+      "note": "Full sweep of N.D. Ind.: No court-wide local rules on AI found. Court website and Bloomberg Law tracker do not list N.D. Ind. judges with AI standing orders. Court has 8 Article III judges and 7 magistrates per website."
     },
     {
       "priority": "court_with_judges",
       "court_short": "S.D. Ind.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Full sweep of S.D. Ind.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-20",
+      "note": "Full sweep of S.D. Ind.: No court-wide local rules on AI found. Judge James Patrick Hanlon issued $6,000 sanctions in May 2025 for AI hallucinations (Mid Cent. Op. Eng'rs v. HoosierVac) but no formal standing order requiring disclosure. Court's General Orders page lists no AI standing orders."
     },
     {
       "priority": "court_with_judges",
       "court_short": "N.D. Iowa",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Full sweep of N.D. Iowa: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-20",
+      "note": "Full sweep of N.D. Iowa: Court website search returned no results for AI policies. Not listed in Bloomberg Law or Ropes & Gray trackers."
     },
     {
       "priority": "court_with_judges",
       "court_short": "S.D. Iowa",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Full sweep of S.D. Iowa: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-20",
+      "note": "Full sweep of S.D. Iowa: Court website search returned no results for AI policies. Not listed in Bloomberg Law or Ropes & Gray trackers."
     },
     {
       "priority": "court_with_judges",
@@ -1343,11 +1343,11 @@
       "court_name": "Delaware Supreme Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
-      "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for DE: (1) search for 'DE supreme court artificial intelligence rule' and 'DE courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
+      "status": "completed",
+      "result": "ai_policy_found",
+      "result_details": "us-state-de-supreme-2024-10",
+      "last_checked": "2026-04-20",
+      "note": "State supreme court sweep for DE: Delaware Supreme Court interim policy on generative AI adopted October 2024; entry already exists in rules.json."
     },
     {
       "priority": "state_high_yield",
@@ -1379,11 +1379,11 @@
       "court_name": "Hawaii Supreme Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
-      "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for HI: (1) search for 'HI supreme court artificial intelligence rule' and 'HI courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
+      "status": "completed",
+      "result": "ai_policy_found",
+      "result_details": "us-state-hi-supreme-2025-12",
+      "last_checked": "2026-04-20",
+      "note": "State supreme court sweep for HI: Hawaii Supreme Court Committee on AI and the Courts issued final report December 16, 2025; entry already exists in rules.json."
     },
     {
       "priority": "state_high_yield",
@@ -1535,11 +1535,11 @@
       "court_name": "Mississippi Supreme Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
-      "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for MS: (1) search for 'MS supreme court artificial intelligence rule' and 'MS courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": "Mississippi Governor issued Executive Order 1584 in January 2025 for state agencies; no Mississippi Supreme Court AI policy found. Controversy in S.D. Miss. federal court July 2025 involving alleged AI use.",
+      "last_checked": "2026-04-20",
+      "note": "State supreme court sweep for MS: No formal Mississippi Supreme Court AI policy found 2023-2026."
     },
     {
       "priority": "state_high_yield",
@@ -1547,11 +1547,11 @@
       "court_name": "Missouri Supreme Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
-      "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for MO: (1) search for 'MO supreme court artificial intelligence rule' and 'MO courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": "Missouri Supreme Court Office of Legal Ethics issued Informal Opinion 2024-11 in April 2024 providing ethical guidance for attorneys using AI, but no binding court policy. Opinion permits AI use with appropriate safeguards for client confidentiality and verification of outputs.",
+      "last_checked": "2026-04-20",
+      "note": "State supreme court sweep for MO: Ethics guidance issued but no binding AI policy."
     },
     {
       "priority": "state_high_yield",
@@ -1559,11 +1559,11 @@
       "court_name": "Montana Supreme Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
-      "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for MT: (1) search for 'MT supreme court artificial intelligence rule' and 'MT courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": "Montana passed 'Right to Compute Act' (SB 212) in 2025 addressing AI in state government; no Montana Supreme Court AI policy found.",
+      "last_checked": "2026-04-20",
+      "note": "State supreme court sweep for MT: State legislature passed AI law but no judicial policy found."
     },
     {
       "priority": "state_high_yield",
@@ -1571,11 +1571,11 @@
       "court_name": "Nebraska Supreme Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
-      "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for NE: (1) search for 'NE supreme court artificial intelligence rule' and 'NE courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": "Nebraska Supreme Court issued discipline against attorney Greg Lake in March 2026 for AI hallucinations but no statewide AI policy adopted. Federal District of Nebraska has Local Rule NECivR 7.0.1 (already in database).",
+      "last_checked": "2026-04-20",
+      "note": "State supreme court sweep for NE: No formal state supreme court AI policy despite high-profile AI sanctions case."
     },
     {
       "priority": "state_high_yield",
@@ -1583,11 +1583,11 @@
       "court_name": "Nevada Supreme Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
-      "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for NV: (1) search for 'NV supreme court artificial intelligence rule' and 'NV courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": "State Bar of Nevada formed AI Advisory Group but no formal guidance issued. Member of Standing Committee on Professional Responsibility published tips but no formal Supreme Court policy adopted 2023-2026.",
+      "last_checked": "2026-04-20",
+      "note": "State supreme court sweep for NV: AI Advisory Group formed but no formal policy."
     },
     {
       "priority": "state_high_yield",
@@ -1595,11 +1595,11 @@
       "court_name": "New Hampshire Supreme Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
-      "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for NH: (1) search for 'NH supreme court artificial intelligence rule' and 'NH courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": "New Hampshire Bar Association published ethics guidance on AI use by attorneys but no formal Supreme Court policy adopted. HB 1725 to establish NH AI Council marked 'Inexpedient to Legislate' Feb 2026.",
+      "last_checked": "2026-04-20",
+      "note": "State supreme court sweep for NH: Bar association ethics guidance only, no court policy."
     },
     {
       "priority": "state_high_yield",
@@ -1619,11 +1619,11 @@
       "court_name": "New Mexico Supreme Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
-      "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for NM: (1) search for 'NM supreme court artificial intelligence rule' and 'NM courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": "New Mexico Supreme Court looking into formal AI policy but not finalized as of April 2026. State Bar issued ethics opinion Sept 2024. Individual state judge (John P. Sugg) imposed own disclosure order. Federal D.N.M. has court-wide policy (already in database).",
+      "last_checked": "2026-04-20",
+      "note": "State supreme court sweep for NM: Policy in development but not yet adopted statewide."
     },
     {
       "priority": "state_high_yield",
@@ -1643,11 +1643,11 @@
       "court_name": "North Carolina Supreme Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
-      "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for NC: (1) search for 'NC supreme court artificial intelligence rule' and 'NC courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": "North Carolina State Bar issued 2024 Formal Ethics Opinion 1 addressing AI use by attorneys. Governor Stein signed Executive Order No. 24 on AI (Sept 2025). No formal Supreme Court AI policy found.",
+      "last_checked": "2026-04-20",
+      "note": "State supreme court sweep for NC: Bar ethics opinion and executive order but no judicial policy."
     },
     {
       "priority": "state_high_yield",

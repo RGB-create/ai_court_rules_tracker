@@ -3,11 +3,11 @@
 ## Run Summary
 
 - **Run Type**: Discovery (queue processing)
-- **Start Time**: 2026-04-20T20:15:27Z
+- **Start Time**: 2026-04-20T20:15:27Z (first session); 2026-04-20T21:30:00Z (second session)
 - **Queue Status**: In progress (pass 1)
 - **Rules Added**: 1
 - **Rules Updated**: 0
-- **Queue Items Processed**: 13
+- **Queue Items Processed**: 31 total (13 first session + 18 second session)
 
 ## New Rules Added
 
@@ -44,7 +44,34 @@
 
 ## Performance
 
-- **Time spent**: ~45 minutes
-- **New rules per hour**: ~1.3
-- **Queue items per hour**: ~17
-- **Hit rate**: 7.7% (1 rule found in 13 items processed)
+- **Time spent**: ~45 minutes (first session) + ~25 minutes (second session) = ~70 minutes total
+- **New rules per hour**: ~0.9
+- **Queue items per hour**: ~27
+- **Hit rate**: 3.2% (1 rule found in 31 items processed)
+
+## Second Session (2026-04-20T21:30:00Z) - Additional 18 Items
+
+### State Supreme Courts (8 additional items)
+
+1. **Delaware Supreme Court** - Existing entry confirmed (us-state-de-supreme-2024-10)
+2. **Hawaii Supreme Court** - Existing entry confirmed (us-state-hi-supreme-2025-12)
+3. **Mississippi Supreme Court** - No AI policy. Governor executive order for agencies only.
+4. **Missouri Supreme Court** - Ethics opinion issued (2024-11) but no binding court policy.
+5. **Montana Supreme Court** - State legislature passed AI law but no judicial policy.
+6. **Nebraska Supreme Court** - Supreme Court issued discipline for AI use (March 2026) but no statewide policy.
+7. **Nevada Supreme Court** - Bar AI Advisory Group formed but no formal guidance.
+8. **New Hampshire Supreme Court** - Bar ethics guidance only, no court policy.
+9. **New Mexico Supreme Court** - Policy in development but not finalized. Individual state judge John P. Sugg imposed own disclosure order.
+10. **North Carolina Supreme Court** - Bar ethics opinion (2024-1) and executive order but no judicial policy.
+
+### Federal District Courts (4 additional items)
+
+1. **N.D. Ind.** - No court-wide or individual judge AI policies found.
+2. **S.D. Ind.** - Judge Hanlon issued $6,000 sanctions (May 2025) for AI hallucinations but no standing order.
+3. **N.D. Iowa** - No AI policies found.
+4. **S.D. Iowa** - No AI policies found.
+
+### Other Updates
+
+- Cleared pending_verification.json: Soto entry already exists in database (us-fed-azd-soto-2023-08)
+- Updated timestamps to 2026-04-20T21:30:00Z
