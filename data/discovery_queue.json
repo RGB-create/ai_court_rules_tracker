@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-19T23:55:00Z",
+  "last_updated": "2026-04-19T23:57:48Z",
   "pass_number": 1,
   "pass_status": "in_progress",
   "notes": "Persistent checklist for the discovery agent. Each weekly run processes as many 'pending' items as fits in its time window (in the order defined by priority_order) and writes the updated queue back. When every item is marked 'completed', the pass_number increments and all items are reset to 'pending' for the next verification cycle. Do NOT delete this file between runs.",
@@ -13,7 +13,7 @@
     "pending": "not yet checked in this pass",
     "in_progress": "partially checked (e.g., fetched judge page but not PDFs)",
     "completed": "finished; see result field",
-    "blocked": "couldn't complete (URL broken, PDF unreadable) \u2014 retry next pass"
+    "blocked": "couldn't complete (URL broken, PDF unreadable) — retry next pass"
   },
   "result_vocabulary": {
     "rule_found": "an AI rule exists; a rule entry was created or updated (result.rule_id points to it)",
@@ -26,7 +26,7 @@
     {
       "court_short": "C.D. Cal.",
       "judge": "Anne Hwang",
-      "note": "Standing order requires disclosure & certification. Prior run linked to all-judges listing and miscategorized as 'permitted' \u2014 must use judge-specific page and read the actual standing order PDF."
+      "note": "Standing order requires disclosure & certification. Prior run linked to all-judges listing and miscategorized as 'permitted' — must use judge-specific page and read the actual standing order PDF."
     },
     {
       "court_short": "N.D. Tex.",
@@ -36,7 +36,7 @@
     {
       "court_short": "Fla. 6th Cir. Ct.",
       "judge": "Burgess",
-      "note": "Requires verification 'through traditional methods' \u2014 category is disclosure_with_traditional_verification, NOT prohibited_except_assisted_research."
+      "note": "Requires verification 'through traditional methods' — category is disclosure_with_traditional_verification, NOT prohibited_except_assisted_research."
     },
     {
       "court_short": "CIT",
@@ -60,13 +60,13 @@
     },
     {
       "court_short": "C.D. Cal.",
-      "judge": "Araceli Mart\u00ednez-Olgu\u00edn",
-      "note": "She is a C.D. Cal. judge \u2014 a prior run incorrectly assigned her to N.D. Cal. Use her C.D. Cal. judge-specific page."
+      "judge": "Araceli Martínez-Olguín",
+      "note": "She is a C.D. Cal. judge — a prior run incorrectly assigned her to N.D. Cal. Use her C.D. Cal. judge-specific page."
     },
     {
       "court_short": "5th Cir.",
       "judge": null,
-      "note": "Proposed circuit rule on AI. rule_type should be 'proposed_local_rule'. Prior run used generic 5th Cir. URL \u2014 find the specific proposed-rule page or PDF."
+      "note": "Proposed circuit rule on AI. rule_type should be 'proposed_local_rule'. Prior run used generic 5th Cir. URL — find the specific proposed-rule page or PDF."
     },
     {
       "court_short": "N.D. Ill.",
@@ -190,7 +190,7 @@
     {
       "priority": "error_prone",
       "court_short": "C.D. Cal.",
-      "judge": "Araceli Mart\u00ednez-Olgu\u00edn",
+      "judge": "Araceli Martínez-Olguín",
       "status": "completed",
       "result": "rule_found",
       "result_details": {
@@ -2040,7 +2040,7 @@
       "result": "no_ai_policy",
       "result_details": "Judge exists but no AI standing order found",
       "last_checked": "2026-04-19",
-      "note": "Bloomberg Law tracker flagged a D. Ariz. judge named Soto with an AI order. Judge name may be \"Soto\" \u2014 verify on D. Ariz. judges-orders page. Placeholder: Hinderaker; re-check listings."
+      "note": "Bloomberg Law tracker flagged a D. Ariz. judge named Soto with an AI order. Judge name may be \"Soto\" — verify on D. Ariz. judges-orders page. Placeholder: Hinderaker; re-check listings."
     },
     {
       "priority": "aggregator_flagged",
@@ -2056,11 +2056,11 @@
       "priority": "aggregator_flagged",
       "court_short": "S.D. Fla.",
       "judge": "William Matthewman",
-      "status": "pending",
-      "result": null,
+      "status": "completed",
+      "result": "no_ai_policy",
       "result_details": null,
       "last_checked": "2026-04-19",
-      "note": "Magistrate Judge Matthewman imposed AI-hallucination sanctions in S.D. Fla. Check whether he has a general AI standing order in his magistrate procedures (distinct from the sanctions order)."
+      "note": "No AI standing order found despite aggregator reference. Judge has addressed AI in case-specific orders but no published standing order."
     }
   ]
 }

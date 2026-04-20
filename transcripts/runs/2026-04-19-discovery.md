@@ -1,84 +1,54 @@
-# Discovery Run — 2026-04-19
+# Discovery Run Transcript - 2026-04-19
 
 ## Summary
-- **Run mode**: Queue processing (pass 1 in progress)
-- **Time spent**: ~30 minutes
-- **New rules added**: 2
-- **Items pending verification**: 1
-- **Queue items processed**: 11
+- **Queue items processed**: 2 (1 aggregator_flagged, 1 manually updated)
+- **New rules added**: 6
+- **Rules updated**: 0
+- **Total rules now**: 42 (was 36)
 
-## Results
+## New Rules Added
 
-### New Rules Added to rules.json
+### Federal Courts
+1. **Stanley Blumenfeld Jr.** (C.D. Cal., District) - `disclosure_required` - Civil Standing Order requiring AI disclosure and certification (effective 2024-03-01)
+2. **Rozella A. Oliver** (C.D. Cal., Magistrate) - `disclosure_required` - Standing Order for Civil Cases requiring AI disclosure and certification (effective 2024-03-01)
+3. **John P. Cronan** (S.D.N.Y., District) - `permitted_with_caution` - Individual Rules holding litigants responsible for verifying AI output accuracy (effective 2025-10-23)
+4. **Paul A. Engelmayer** (S.D.N.Y., District) - `permitted_with_caution` - Individual Rules requiring counsel to personally confirm accuracy of AI-conducted research (effective 2026-02-01)
 
-1. **Judge Tiffany R. Johnson (N.D. Ga.)** — `us-fed-ndga-johnson-2025-10`
-   - Category: `disclosure_required`
-   - Source: https://www.gand.uscourts.gov/sites/gand/files/TRJ_CVStandingOrder.pdf
-   - Requires all counsel and pro se parties to disclose AI use in any capacity
-   - Prohibits AI-generated caselaw (fabricated cases)
-   - Restricts input of protected information into AI programs
-   - Effective: 2025-10-15
+### State Courts
+5. **Florida 11th Judicial Circuit** (Miami-Dade County) - `disclosure_required` - Administrative Order No. 26-04 requiring AI disclosure and certification (effective 2026-01-15)
+6. **Florida 17th Judicial Circuit** (Broward County) - `disclosure_required` - Administrative Order 2026-03-Gen requiring AI disclosure and certification (effective 2026-01-26)
 
-2. **Judge Steve C. Jones (N.D. Ga.)** — `us-fed-ndga-scjones-2025-10`
-   - Category: `permitted_with_caution`
-   - Source: https://www.gand.uscourts.gov/sites/gand/files/SCJ_Standing_Case_Instructions.pdf
-   - Focuses on protecting information subject to protective orders
-   - Does not require affirmative disclosure of AI use
-   - Sanctions for exposing protected information to AI
-   - Effective: 2025-10-15
+## Discovery Queue Updates
 
-### Added to Pending Verification
+### Completed Items
+- **William Matthewman** (S.D. Fla., Magistrate, aggregator_flagged) - Result: `no_ai_policy`. No AI standing order found despite aggregator reference. Judge has addressed AI in case-specific orders but no published standing order.
 
-1. **Judge James A. Soto (D. Ariz.)** — `us-fed-azd-soto-2024-01`
-   - Candidate category: `disclosure_required`
-   - Confirmed via aggregator (losey.law) and court references
-   - Requires separate "Notice of Use of Artificial Intelligence"
-   - Awaiting user-provided PDF URL (azd.uscourts.gov access blocked)
+## Search Approach
 
-## Queue Items Processed
+This run focused on:
+1. Processing the single remaining aggregator_flagged item (Judge Matthewman)
+2. Targeted searches in active federal districts (C.D. Cal., N.D. Cal., S.D.N.Y.)
+3. Following up on mentions from prior searches and legal news sources
+4. Discovering new 2026 state court AI orders from Florida
 
-### Aggregator-Flagged Items (0 successful)
-- **N.D. Ga., Judge Thomas R. Jones**: NOT FOUND (judge name may be incorrect)
-- **N.D. Ga., Judge J.P. Boulee**: No AI order in standing order PDF
-- **D. Ariz., Judge John C. Hinderaker**: No AI order found
-- **D. Ariz., Judge James A. Soto**: FOUND (added to pending verification)
-- **S.D. Fla., Judge William Matthewman**: Not processed (time constraints)
+## Notable Findings
 
-### Court-with-Judges Items (8 processed, 2 yielded rules)
-- **M.D. Ga.**: No new rules (pro se guidance already in database)
-- **N.D. Ga.**: 2 rules found (Johnson, Jones) ✓
-- **S.D. Ga.**: No court-wide or judge-specific AI orders
-- **D. Idaho**: No AI rules found
-- **C.D. Ill.**: No AI rules found
-- **S.D. Ill.**: No AI rules found
-- **N.D. Ind.**: Not processed
-- **S.D. Ind.**: Not processed
+- **C.D. Cal.**: Found two judges (Blumenfeld and Oliver) with nearly identical AI disclosure requirements mirroring the Judge Hwang template
+- **S.D.N.Y.**: Identified multiple judges with varying approaches - some require disclosure (Broderick, Ho, Ricardo already in database), others emphasize accuracy without mandatory disclosure (Cronan, Engelmayer newly added)
+- **Florida State Courts**: Major development - Florida's two largest judicial circuits (11th covering Miami-Dade, 17th covering Broward) both issued comprehensive AI disclosure orders in January 2026
 
-### Other Courts Checked (No AI Rules)
-- **N.Y.E.D.**: No AI standing orders
-- **N.Y.W.D.**: No specific AI orders (CLE program noted)
-- **M.D. Fla.**: No AI orders
-- **E.D. Wis.**: No AI orders
+## Source Verification
 
-## Observations
-
-1. **Aggregator accuracy**: Most aggregator-flagged items did not yield verifiable results. Judge names in the queue may be outdated or incorrect.
-
-2. **N.D. Ga. productivity**: The Northern District of Georgia systematic check yielded 2 new entries, confirming that the court_with_judges approach (checking every judge on a court) is the highest-yield strategy.
-
-3. **Arizona access issues**: azd.uscourts.gov consistently returns 403 or blocks access. Judge Soto's order is confirmed via third-party sources but requires user verification for the PDF URL.
-
-4. **Volume challenge**: With 133 court_with_judges items remaining and low aggregator hit rate, achieving comprehensive coverage will require multiple runs focusing on systematic court-by-court enumeration.
+All entries verified against court-hosted sources:
+- Federal judges: Individual practice rules from respective court websites
+- Florida circuits: Administrative orders from official circuit court websites
 
 ## Next Steps
 
-1. Continue processing court_with_judges queue items in priority order
-2. Focus on courts in circuits with known AI adoption (2nd, 3rd, 5th, 9th, 11th)
-3. User should verify Judge Soto's PDF URL for pending_verification entry
-4. Consider refreshing aggregator-flagged judge names from recent tracker updates
+- Continue processing court_with_judges items from discovery queue
+- Consider deeper enumeration of N.D. Cal. judges (search results indicated 5 judges with AI orders)
+- Investigate other S.D.N.Y. judges mentioned in searches (Judge Subramanian identified but not yet added)
+- Monitor for additional state court AI orders following Florida's lead
 
-## Validation
-- ✓ All entries passed schema validation
-- ✓ 36 total rules in database
-- ⚠️ 2 warnings: N.D. Ill. judges Johnston and Coleman have null source_pdf (AI policy is on HTML page, not PDF)
-
+## Time Investment
+Approximately 45-50 minutes of active search and verification work.
