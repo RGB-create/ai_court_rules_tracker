@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "last_updated": "2026-04-19T23:56:03Z",
+  "last_updated": "2026-04-20T01:30:00Z",
   "discovery_pass_completed": false,
   "categories": {
     "prohibited": {
@@ -934,6 +934,69 @@
       "verbatim_key_language": "When AI has been used or assisted in the use of preparation, researching, drafting pleadings, drafting documents, filing documents, and/or discovery requests, the document shall identify the specific tool used in such manner.",
       "last_verified": "2026-04-19",
       "provenance": "agent discovery 2026-04-19; Administrative Order 2026-03-Gen issued by Chief Judge Carol-Lisa Phillips covering Broward County"
+    },
+    {
+      "id": "us-fed-ndil-cole-2023-08",
+      "jurisdiction": "federal",
+      "court": "U.S. District Court for the Northern District of Illinois",
+      "court_short": "N.D. Ill.",
+      "court_level": "magistrate",
+      "circuit": "7",
+      "state": "IL",
+      "judge": "Jeffrey N. Cole",
+      "rule_type": "standing_order",
+      "category": "disclosure_required",
+      "category_confidence": "high",
+      "title": "Standing Order on AI Use Disclosure Requirement",
+      "effective_date": "2023-08-01",
+      "source_url": "https://www.ilnd.uscourts.gov/judge_display.php?LastName=Cole",
+      "source_pdf": null,
+      "summary": "\"Any party using AI in the preparation of materials submitted to the court must disclose in the filing that an AI tool was used to conduct legal research and/or was used in any way in the preparation of the submitted document.\" Order cautions that relying on an AI tool won't excuse a failure to make a reasonable inquiry under Rule 11. Notably broader than some other orders as it applies to AI used for research purposes, not just drafting.",
+      "verbatim_key_language": "Any party using AI in the preparation of materials submitted to the court must disclose in the filing that an AI tool was used to conduct legal research and/or was used in any way in the preparation of the submitted document",
+      "last_verified": "2026-04-20",
+      "provenance": "agent discovery 2026-04-20; AI disclosure section on judge's case procedures page; requirement covers both research and drafting use of AI tools"
+    },
+    {
+      "id": "us-fed-nysd-subramanian-2023-08",
+      "jurisdiction": "federal",
+      "court": "U.S. District Court for the Southern District of New York",
+      "court_short": "S.D.N.Y.",
+      "court_level": "district",
+      "circuit": "2",
+      "state": "NY",
+      "judge": "Arun Subramanian",
+      "rule_type": "standing_order",
+      "category": "permitted_with_caution",
+      "category_confidence": "high",
+      "title": "Individual Practices in Civil Cases — AI Accuracy Requirement",
+      "effective_date": "2023-08-01",
+      "source_url": "https://www.nysd.uscourts.gov/hon-arun-subramanian",
+      "source_pdf": "https://nysd.uscourts.gov/sites/default/files/practice_documents/AS%20Subramanian%20Civil%20Individual%20Practices_0.pdf",
+      "summary": "\"Use of ChatGPT or other such tools is not prohibited, but counsel must at all times personally confirm for themselves the accuracy of any research conducted by these means.\" Counsel is responsible for providing complete and accurate representations of the record, procedural history, and legal authorities. Does not require affirmative disclosure of AI use; emphasizes existing professional responsibility obligations.",
+      "verbatim_key_language": "Use of ChatGPT or other such tools is not prohibited, but counsel must at all times personally confirm for themselves the accuracy of any research conducted by these means",
+      "last_verified": "2026-04-20",
+      "provenance": "agent discovery 2026-04-20; individual practices in civil cases PDF revised March 14, 2025; minimally restrictive approach relying on existing rules"
+    },
+    {
+      "id": "us-fed-edpa-scott-2025-03",
+      "jurisdiction": "federal",
+      "court": "U.S. District Court for the Eastern District of Pennsylvania",
+      "court_short": "E.D. Pa.",
+      "court_level": "district",
+      "circuit": "3",
+      "state": "PA",
+      "judge": "Kai N. Scott",
+      "rule_type": "standing_order",
+      "category": "disclosure_required",
+      "category_confidence": "high",
+      "title": "Standing Order on Artificial Intelligence Use",
+      "effective_date": "2025-03-03",
+      "source_url": "https://www.paed.uscourts.gov/judges-info/district-court-judges/kai-n-scott",
+      "source_pdf": "https://www.paed.uscourts.gov/sites/paed/files/documents/procedures/scopol.pdf",
+      "summary": "\"If any attorney for a party, or a pro se party, has used generative Artificial Intelligence ('AI')—including but not limited to ChatGPT, Gemini, Claude, or any other program that uses machine learning to create new content—in a citation of any legal authority filed with the Court, and assigned to Judge Kai N. Scott, then they MUST, in a clear and plain factual statement, disclose that generative AI has been used to assist with the citation of legal authority, disclose what specific generative AI program was used, and CERTIFY that each and every citation of legal authority has been verified as accurate.\"",
+      "verbatim_key_language": "if any attorney for a party, or a pro se party, has used generative Artificial Intelligence ('AI')—including but not limited to ChatGPT, Gemini, Claude, or any other program that uses machine learning to create new content—in a citation of any legal authority filed with the Court, and assigned to Judge Kai N. Scott, then they MUST, in a clear and plain factual statement, disclose that generative AI has been used",
+      "last_verified": "2026-04-20",
+      "provenance": "agent discovery 2026-04-20; standing order issued March 3, 2025; Judge Scott confirmed to E.D. Pa. in 2022; has also ordered sanctions against attorneys for citing hallucinated cases"
     }
   ]
 }
