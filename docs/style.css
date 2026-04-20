@@ -39,6 +39,13 @@ main { max-width: 1280px; margin: 0 auto; padding: 1rem; }
 #us-map .state.selected { stroke: #0f172a; stroke-width: 2; }
 #us-map .state.no-data { fill: #f1f5f9; }
 
+.section-divider { margin: 0 0 0.5rem 0; font-size: 1.3rem; color: #4a1d6a; }
+#courts-guidance-panel > .muted { margin-top: 0; margin-bottom: 1rem; }
+#courts-map-container { margin-bottom: 1rem; }
+#us-map-courts .state { stroke: #fff; stroke-width: 0.5; cursor: pointer; transition: opacity 0.15s; }
+#us-map-courts .state:hover { opacity: 0.8; }
+#us-map-courts .state.no-data { fill: #f1f5f9; }
+
 .detail-panel { background: #f8fafc; border-radius: 6px; padding: 1rem; max-height: 480px; overflow-y: auto; }
 .detail-panel h2 { margin: 0 0 0.75rem 0; font-size: 1.1rem; }
 .detail-rule { background: white; border: 1px solid #e5e7eb; border-radius: 6px; padding: 0.75rem; margin-bottom: 0.5rem; border-left: 4px solid #94a3b8; }
