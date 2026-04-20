@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-20T00:00:00Z",
+  "last_updated": "2026-04-20T20:15:27Z",
   "pass_number": 1,
   "pass_status": "in_progress",
   "notes": "Persistent checklist for the discovery agent. Each weekly run processes as many 'pending' items as fits in its time window (in the order defined by priority_order) and writes the updated queue back. When every item is marked 'completed', the pass_number increments and all items are reset to 'pending' for the next verification cycle. Do NOT delete this file between runs.",
@@ -14,7 +14,7 @@
     "pending": "not yet checked in this pass",
     "in_progress": "partially checked (e.g., fetched judge page but not PDFs)",
     "completed": "finished; see result field",
-    "blocked": "couldn't complete (URL broken, PDF unreadable) \u2014 retry next pass"
+    "blocked": "couldn't complete (URL broken, PDF unreadable) — retry next pass"
   },
   "result_vocabulary": {
     "rule_found": "an AI rule exists; a rule entry was created or updated (result.rule_id points to it)",
@@ -27,7 +27,7 @@
     {
       "court_short": "C.D. Cal.",
       "judge": "Anne Hwang",
-      "note": "Standing order requires disclosure & certification. Prior run linked to all-judges listing and miscategorized as 'permitted' \u2014 must use judge-specific page and read the actual standing order PDF."
+      "note": "Standing order requires disclosure & certification. Prior run linked to all-judges listing and miscategorized as 'permitted' — must use judge-specific page and read the actual standing order PDF."
     },
     {
       "court_short": "N.D. Tex.",
@@ -37,7 +37,7 @@
     {
       "court_short": "Fla. 6th Cir. Ct.",
       "judge": "Burgess",
-      "note": "Requires verification 'through traditional methods' \u2014 category is disclosure_with_traditional_verification, NOT prohibited_except_assisted_research."
+      "note": "Requires verification 'through traditional methods' — category is disclosure_with_traditional_verification, NOT prohibited_except_assisted_research."
     },
     {
       "court_short": "CIT",
@@ -61,13 +61,13 @@
     },
     {
       "court_short": "C.D. Cal.",
-      "judge": "Araceli Mart\u00ednez-Olgu\u00edn",
-      "note": "She is a C.D. Cal. judge \u2014 a prior run incorrectly assigned her to N.D. Cal. Use her C.D. Cal. judge-specific page."
+      "judge": "Araceli Martínez-Olguín",
+      "note": "She is a C.D. Cal. judge — a prior run incorrectly assigned her to N.D. Cal. Use her C.D. Cal. judge-specific page."
     },
     {
       "court_short": "5th Cir.",
       "judge": null,
-      "note": "Proposed circuit rule on AI. rule_type should be 'proposed_local_rule'. Prior run used generic 5th Cir. URL \u2014 find the specific proposed-rule page or PDF."
+      "note": "Proposed circuit rule on AI. rule_type should be 'proposed_local_rule'. Prior run used generic 5th Cir. URL — find the specific proposed-rule page or PDF."
     },
     {
       "court_short": "N.D. Ill.",
@@ -191,7 +191,7 @@
     {
       "priority": "error_prone",
       "court_short": "C.D. Cal.",
-      "judge": "Araceli Mart\u00ednez-Olgu\u00edn",
+      "judge": "Araceli Martínez-Olguín",
       "status": "completed",
       "result": "rule_found",
       "result_details": {
@@ -590,27 +590,27 @@
       "priority": "court_with_judges",
       "court_short": "M.D. Ga.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-20",
       "note": "Full sweep of M.D. Ga.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
       "priority": "court_with_judges",
       "court_short": "N.D. Ga.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-20",
       "note": "Full sweep of N.D. Ga.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
       "priority": "court_with_judges",
       "court_short": "S.D. Ga.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-20",
       "note": "Full sweep of S.D. Ga.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
@@ -627,27 +627,27 @@
       "priority": "court_with_judges",
       "court_short": "D. Idaho",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-20",
       "note": "Full sweep of D. Idaho: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
       "priority": "court_with_judges",
       "court_short": "C.D. Ill.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-20",
       "note": "Full sweep of C.D. Ill.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
       "priority": "court_with_judges",
       "court_short": "S.D. Ill.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
+      "status": "completed",
+      "result": "no_ai_policy",
+      "last_checked": "2026-04-20",
       "note": "Full sweep of S.D. Ill.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
     },
     {
@@ -1263,7 +1263,7 @@
       "result": "no_ai_policy",
       "result_details": "Searched for Alabama Supreme Court AI policies; no court-wide AI rule found. State has AI task force but no judicial policy.",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for AL: (1) search for 'AL supreme court artificial intelligence rule' and 'AL courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for AL: (1) search for 'AL supreme court artificial intelligence rule' and 'AL courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1275,7 +1275,7 @@
       "result": "no_ai_policy",
       "result_details": "Searched courts.alaska.gov; no Alaska Supreme Court AI administrative order found.",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for AK: (1) search for 'AK supreme court artificial intelligence rule' and 'AK courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for AK: (1) search for 'AK supreme court artificial intelligence rule' and 'AK courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1287,7 +1287,7 @@
       "result": "ai_policy_found",
       "result_details": "us-state-az-supreme-2024-11",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for AZ: (1) search for 'AZ supreme court artificial intelligence rule' and 'AZ courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for AZ: (1) search for 'AZ supreme court artificial intelligence rule' and 'AZ courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1299,7 +1299,7 @@
       "result": "ai_policy_found",
       "result_details": "us-state-ar-supreme-2025-06",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for AR: (1) search for 'AR supreme court artificial intelligence rule' and 'AR courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for AR: (1) search for 'AR supreme court artificial intelligence rule' and 'AR courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1311,7 +1311,7 @@
       "result": "ai_policy_found",
       "result_details": "California Judicial Council Rule 10.430 (already in database as us-state-ca-judicial-council-2025-09)",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for CA: (1) search for 'CA supreme court artificial intelligence rule' and 'CA courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for CA: (1) search for 'CA supreme court artificial intelligence rule' and 'CA courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1323,7 +1323,7 @@
       "result": "proposed_rule",
       "result_details": "Colorado Supreme Court has proposed amendments to professional conduct rules (public hearing Dec 2025); not yet adopted",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for CO: (1) search for 'CO supreme court artificial intelligence rule' and 'CO courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for CO: (1) search for 'CO supreme court artificial intelligence rule' and 'CO courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1335,7 +1335,7 @@
       "result": "ai_policy_found",
       "result_details": "us-state-ct-judicial-branch-2024-02",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for CT: (1) search for 'CT supreme court artificial intelligence rule' and 'CT courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for CT: (1) search for 'CT supreme court artificial intelligence rule' and 'CT courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1347,7 +1347,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for DE: (1) search for 'DE supreme court artificial intelligence rule' and 'DE courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for DE: (1) search for 'DE supreme court artificial intelligence rule' and 'DE courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1359,7 +1359,7 @@
       "result": "ai_policy_found",
       "result_details": "us-state-fl-bar-supreme-2024-01",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for FL: (1) search for 'FL supreme court artificial intelligence rule' and 'FL courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for FL: (1) search for 'FL supreme court artificial intelligence rule' and 'FL courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1371,7 +1371,7 @@
       "result": "ai_policy_found",
       "result_details": "us-state-ga-judicial-council-2025-07",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for GA: (1) search for 'GA supreme court artificial intelligence rule' and 'GA courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for GA: (1) search for 'GA supreme court artificial intelligence rule' and 'GA courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1383,7 +1383,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for HI: (1) search for 'HI supreme court artificial intelligence rule' and 'HI courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for HI: (1) search for 'HI supreme court artificial intelligence rule' and 'HI courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1395,7 +1395,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for ID: (1) search for 'ID supreme court artificial intelligence rule' and 'ID courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for ID: (1) search for 'ID supreme court artificial intelligence rule' and 'ID courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1407,7 +1407,7 @@
       "result": "ai_policy_found",
       "result_details": "us-state-il-supreme-2025-01",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for IL: (1) search for 'IL supreme court artificial intelligence rule' and 'IL courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for IL: (1) search for 'IL supreme court artificial intelligence rule' and 'IL courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1419,7 +1419,7 @@
       "result": "ai_policy_found",
       "result_details": "us-state-in-supreme-2026-02",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for IN: (1) search for 'IN supreme court artificial intelligence rule' and 'IN courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield. FOUND: AI Governance Committee Model Policies for Trial Courts (Feb 2026)."
+      "note": "State supreme court sweep for IN: (1) search for 'IN supreme court artificial intelligence rule' and 'IN courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield. FOUND: AI Governance Committee Model Policies for Trial Courts (Feb 2026)."
     },
     {
       "priority": "state_high_yield",
@@ -1427,11 +1427,11 @@
       "court_name": "Iowa Supreme Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
-      "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for IA: (1) search for 'IA supreme court artificial intelligence rule' and 'IA courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": "Iowa has State of Iowa Generative AI Policy for state agencies but no Iowa Supreme Court AI policy for judiciary or litigants.",
+      "last_checked": "2026-04-20",
+      "note": "State supreme court sweep for IA: (1) search for 'IA supreme court artificial intelligence rule' and 'IA courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1439,11 +1439,11 @@
       "court_name": "Kansas Supreme Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
-      "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for KS: (1) search for 'KS supreme court artificial intelligence rule' and 'KS courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": "Kansas Supreme Court formed Ad Hoc AI Committee via Admin Order 2025-CM-017 in Feb 2025 but no statewide court AI policy adopted yet. Shawnee County has local rule 3.125.",
+      "last_checked": "2026-04-20",
+      "note": "State supreme court sweep for KS: (1) search for 'KS supreme court artificial intelligence rule' and 'KS courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1451,11 +1451,11 @@
       "court_name": "Kentucky Supreme Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
-      "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for KY: (1) search for 'KY supreme court artificial intelligence rule' and 'KY courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": "Kentucky enacted SB 4 (AI Governance Act) March 24, 2025 for state agencies. Kentucky Bar Association Rules of Ethics apply but no AI-specific court policy.",
+      "last_checked": "2026-04-20",
+      "note": "State supreme court sweep for KY: (1) search for 'KY supreme court artificial intelligence rule' and 'KY courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1467,7 +1467,7 @@
       "result": "ai_policy_found",
       "result_details": "us-state-la-tech-commission-2025-10",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for LA: (1) search for 'LA supreme court artificial intelligence rule' and 'LA courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield. FOUND: Louisiana Supreme Court Technology Commission Generative AI Guidelines for Judges (Oct 2025)."
+      "note": "State supreme court sweep for LA: (1) search for 'LA supreme court artificial intelligence rule' and 'LA courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield. FOUND: Louisiana Supreme Court Technology Commission Generative AI Guidelines for Judges (Oct 2025)."
     },
     {
       "priority": "state_high_yield",
@@ -1475,11 +1475,11 @@
       "court_name": "Maine Supreme Judicial Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
-      "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for ME: (1) search for 'ME supreme court artificial intelligence rule' and 'ME courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": "Maine enacted consumer protection law (signed June 12, 2025) but no Maine Supreme Judicial Court AI policy for legal practice.",
+      "last_checked": "2026-04-20",
+      "note": "State supreme court sweep for ME: (1) search for 'ME supreme court artificial intelligence rule' and 'ME courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1487,11 +1487,11 @@
       "court_name": "Maryland Supreme Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
-      "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for MD: (1) search for 'MD supreme court artificial intelligence rule' and 'MD courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": "Maryland passed AI Governance Act of 2024 for state agencies. AI Evidence Clinic pilot program proposed but no formal Maryland Supreme Court AI filing policy.",
+      "last_checked": "2026-04-20",
+      "note": "State supreme court sweep for MD: (1) search for 'MD supreme court artificial intelligence rule' and 'MD courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1503,7 +1503,7 @@
       "result": "ai_policy_found",
       "result_details": "us-state-ma-sjc-2025-12",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for MA: (1) search for 'MA supreme court artificial intelligence rule' and 'MA courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for MA: (1) search for 'MA supreme court artificial intelligence rule' and 'MA courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1515,7 +1515,7 @@
       "result": "ai_policy_found",
       "result_details": "us-state-mi-judicial-council-2024",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for MI: (1) search for 'MI supreme court artificial intelligence rule' and 'MI courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for MI: (1) search for 'MI supreme court artificial intelligence rule' and 'MI courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1523,11 +1523,11 @@
       "court_name": "Minnesota Supreme Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
-      "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for MN: (1) search for 'MN supreme court artificial intelligence rule' and 'MN courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "status": "completed",
+      "result": "no_ai_policy",
+      "result_details": "MSBA appointed AI Working Group in 2023. ABA Formal Opinion 512 applies but no Minnesota Supreme Court statewide policy found.",
+      "last_checked": "2026-04-20",
+      "note": "State supreme court sweep for MN: (1) search for 'MN supreme court artificial intelligence rule' and 'MN courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1539,7 +1539,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for MS: (1) search for 'MS supreme court artificial intelligence rule' and 'MS courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for MS: (1) search for 'MS supreme court artificial intelligence rule' and 'MS courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1551,7 +1551,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for MO: (1) search for 'MO supreme court artificial intelligence rule' and 'MO courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for MO: (1) search for 'MO supreme court artificial intelligence rule' and 'MO courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1563,7 +1563,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for MT: (1) search for 'MT supreme court artificial intelligence rule' and 'MT courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for MT: (1) search for 'MT supreme court artificial intelligence rule' and 'MT courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1575,7 +1575,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for NE: (1) search for 'NE supreme court artificial intelligence rule' and 'NE courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for NE: (1) search for 'NE supreme court artificial intelligence rule' and 'NE courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1587,7 +1587,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for NV: (1) search for 'NV supreme court artificial intelligence rule' and 'NV courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for NV: (1) search for 'NV supreme court artificial intelligence rule' and 'NV courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1599,7 +1599,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for NH: (1) search for 'NH supreme court artificial intelligence rule' and 'NH courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for NH: (1) search for 'NH supreme court artificial intelligence rule' and 'NH courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1611,7 +1611,7 @@
       "result": "ai_policy_found",
       "result_details": "us-state-nj-supreme-2024-01",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for NJ: (1) search for 'NJ supreme court artificial intelligence rule' and 'NJ courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield. FOUND: Preliminary Guidelines on Use of AI by Judiciary (Jan 2024)."
+      "note": "State supreme court sweep for NJ: (1) search for 'NJ supreme court artificial intelligence rule' and 'NJ courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield. FOUND: Preliminary Guidelines on Use of AI by Judiciary (Jan 2024)."
     },
     {
       "priority": "state_high_yield",
@@ -1623,7 +1623,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for NM: (1) search for 'NM supreme court artificial intelligence rule' and 'NM courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for NM: (1) search for 'NM supreme court artificial intelligence rule' and 'NM courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1635,7 +1635,7 @@
       "result": "ai_policy_found",
       "result_details": "us-state-ny-unified-2025-10",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for NY: (1) search for 'NY supreme court artificial intelligence rule' and 'NY courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield. FOUND: NY UCS Interim Policy on Use of Generative AI (Oct 2025)."
+      "note": "State supreme court sweep for NY: (1) search for 'NY supreme court artificial intelligence rule' and 'NY courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield. FOUND: NY UCS Interim Policy on Use of Generative AI (Oct 2025)."
     },
     {
       "priority": "state_high_yield",
@@ -1647,7 +1647,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for NC: (1) search for 'NC supreme court artificial intelligence rule' and 'NC courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for NC: (1) search for 'NC supreme court artificial intelligence rule' and 'NC courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1659,7 +1659,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for ND: (1) search for 'ND supreme court artificial intelligence rule' and 'ND courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for ND: (1) search for 'ND supreme court artificial intelligence rule' and 'ND courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1671,7 +1671,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for OH: (1) search for 'OH supreme court artificial intelligence rule' and 'OH courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for OH: (1) search for 'OH supreme court artificial intelligence rule' and 'OH courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1683,7 +1683,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for OK: (1) search for 'OK supreme court artificial intelligence rule' and 'OK courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for OK: (1) search for 'OK supreme court artificial intelligence rule' and 'OK courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1695,7 +1695,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for OR: (1) search for 'OR supreme court artificial intelligence rule' and 'OR courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for OR: (1) search for 'OR supreme court artificial intelligence rule' and 'OR courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1707,7 +1707,7 @@
       "result": "ai_policy_found",
       "result_details": "us-state-pa-supreme-2025-12",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for PA: (1) search for 'PA supreme court artificial intelligence rule' and 'PA courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield. FOUND: PA Supreme Court Interim Policy on Generative AI (Dec 2025)."
+      "note": "State supreme court sweep for PA: (1) search for 'PA supreme court artificial intelligence rule' and 'PA courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield. FOUND: PA Supreme Court Interim Policy on Generative AI (Dec 2025)."
     },
     {
       "priority": "state_high_yield",
@@ -1719,7 +1719,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for RI: (1) search for 'RI supreme court artificial intelligence rule' and 'RI courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for RI: (1) search for 'RI supreme court artificial intelligence rule' and 'RI courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1731,7 +1731,7 @@
       "result": "ai_policy_found",
       "result_details": "us-state-sc-supreme-2025-03",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for SC: (1) search for 'SC supreme court artificial intelligence rule' and 'SC courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield. FOUND: Chief Justice Kittredge Interim Policy on Use of Generative AI (Mar 25, 2025)."
+      "note": "State supreme court sweep for SC: (1) search for 'SC supreme court artificial intelligence rule' and 'SC courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield. FOUND: Chief Justice Kittredge Interim Policy on Use of Generative AI (Mar 25, 2025)."
     },
     {
       "priority": "state_high_yield",
@@ -1743,7 +1743,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for SD: (1) search for 'SD supreme court artificial intelligence rule' and 'SD courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for SD: (1) search for 'SD supreme court artificial intelligence rule' and 'SD courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1755,7 +1755,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for TN: (1) search for 'TN supreme court artificial intelligence rule' and 'TN courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for TN: (1) search for 'TN supreme court artificial intelligence rule' and 'TN courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1767,7 +1767,7 @@
       "result": "ai_policy_found",
       "result_details": "us-state-tx-bar-2024-opinion-705",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for TX: (1) search for 'TX supreme court artificial intelligence rule' and 'TX courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield. FOUND: Texas State Bar Ethics Opinion 705 on AI (2024)."
+      "note": "State supreme court sweep for TX: (1) search for 'TX supreme court artificial intelligence rule' and 'TX courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield. FOUND: Texas State Bar Ethics Opinion 705 on AI (2024)."
     },
     {
       "priority": "state_high_yield",
@@ -1779,7 +1779,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for UT: (1) search for 'UT supreme court artificial intelligence rule' and 'UT courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for UT: (1) search for 'UT supreme court artificial intelligence rule' and 'UT courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1791,7 +1791,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for VT: (1) search for 'VT supreme court artificial intelligence rule' and 'VT courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for VT: (1) search for 'VT supreme court artificial intelligence rule' and 'VT courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1803,7 +1803,7 @@
       "result": "ai_policy_found",
       "result_details": "us-state-va-supreme-2024-06",
       "last_checked": "2026-04-20",
-      "note": "State supreme court sweep for VA: (1) search for 'VA supreme court artificial intelligence rule' and 'VA courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield. FOUND: Supreme Court of Virginia Rules for Generative AI Use (effective June 6, 2024, amended May 7, 2025)."
+      "note": "State supreme court sweep for VA: (1) search for 'VA supreme court artificial intelligence rule' and 'VA courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield. FOUND: Supreme Court of Virginia Rules for Generative AI Use (effective June 6, 2024, amended May 7, 2025)."
     },
     {
       "priority": "state_high_yield",
@@ -1815,7 +1815,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for WA: (1) search for 'WA supreme court artificial intelligence rule' and 'WA courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for WA: (1) search for 'WA supreme court artificial intelligence rule' and 'WA courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1827,7 +1827,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for WV: (1) search for 'WV supreme court artificial intelligence rule' and 'WV courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for WV: (1) search for 'WV supreme court artificial intelligence rule' and 'WV courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1839,7 +1839,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for WI: (1) search for 'WI supreme court artificial intelligence rule' and 'WI courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for WI: (1) search for 'WI supreme court artificial intelligence rule' and 'WI courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1851,7 +1851,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for WY: (1) search for 'WY supreme court artificial intelligence rule' and 'WY courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for WY: (1) search for 'WY supreme court artificial intelligence rule' and 'WY courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "court_with_judges",
@@ -1884,7 +1884,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for New York Supreme Court (Manhattan): (1) search for 'New York Supreme Court (Manhattan) supreme court artificial intelligence rule' and 'New York Supreme Court (Manhattan) courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for New York Supreme Court (Manhattan): (1) search for 'New York Supreme Court (Manhattan) supreme court artificial intelligence rule' and 'New York Supreme Court (Manhattan) courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -1895,7 +1895,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for New York Supreme Court Commercial Division: (1) search for 'New York Supreme Court Commercial Division supreme court artificial intelligence rule' and 'New York Supreme Court Commercial Division courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for New York Supreme Court Commercial Division: (1) search for 'New York Supreme Court Commercial Division supreme court artificial intelligence rule' and 'New York Supreme Court Commercial Division courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "court_with_judges",
@@ -2035,17 +2035,19 @@
       "result": "no_ai_policy",
       "result_details": "Checked judge orders page at azd.uscourts.gov; reviewed Courtroom Protocol and attempted to access Trial Conduct documents; no AI policy found. Aggregator flag appears incorrect.",
       "last_checked": "2026-04-20",
-      "note": "Bloomberg Law tracker flagged a D. Ariz. judge named Soto with an AI order. Judge name may be \"Soto\" \u2014 verify on D. Ariz. judges-orders page. Placeholder: Hinderaker; re-check listings."
+      "note": "Bloomberg Law tracker flagged a D. Ariz. judge named Soto with an AI order. Judge name may be \"Soto\" — verify on D. Ariz. judges-orders page. Placeholder: Hinderaker; re-check listings."
     },
     {
       "priority": "aggregator_flagged",
       "court_short": "D. Ariz.",
       "judge": "James A. Soto",
-      "status": "pending",
-      "result": null,
-      "result_details": null,
-      "last_checked": null,
-      "note": "Flagged by 2026-04-19 transcript (via Bloomberg Law tracker) as having an AI order. Verify on azd.uscourts.gov judge-orders page and create rules.json entry."
+      "status": "completed",
+      "result": "rule_found",
+      "result_details": {
+        "rule_id": "us-fed-azd-soto-2023-08"
+      },
+      "last_checked": "2026-04-20",
+      "note": "Standing order entered August 4, 2023 in CV 23-348-TUC-JAS requiring separate Notice of Use of AI with verification via traditional methods. Entry created."
     },
     {
       "priority": "aggregator_flagged",
@@ -2065,7 +2067,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for Tex.: (1) search for 'Tex. supreme court artificial intelligence rule' and 'Tex. courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for Tex.: (1) search for 'Tex. supreme court artificial intelligence rule' and 'Tex. courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -2075,7 +2077,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for N.J.: (1) search for 'N.J. supreme court artificial intelligence rule' and 'N.J. courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for N.J.: (1) search for 'N.J. supreme court artificial intelligence rule' and 'N.J. courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     },
     {
       "priority": "state_high_yield",
@@ -2085,7 +2087,7 @@
       "result": null,
       "result_details": null,
       "last_checked": null,
-      "note": "State supreme court sweep for Cal.: (1) search for 'Cal. supreme court artificial intelligence rule' and 'Cal. courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state \u2014 high yield."
+      "note": "State supreme court sweep for Cal.: (1) search for 'Cal. supreme court artificial intelligence rule' and 'Cal. courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
     }
   ]
 }

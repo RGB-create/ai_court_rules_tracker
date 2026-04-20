@@ -1,117 +1,50 @@
-# AI Court Rules Tracker - Discovery Run Transcript
-## 2026-04-20
+# Discovery Run Transcript: 2026-04-20
 
-### Run Summary
+## Run Summary
 
-**Mode:** Discovery Pass (queue processing)  
-**Duration:** ~40 minutes  
-**Queue Status:** In progress (107 pending items remaining)
+- **Run Type**: Discovery (queue processing)
+- **Start Time**: 2026-04-20T20:15:27Z
+- **Queue Status**: In progress (pass 1)
+- **Rules Added**: 1
+- **Rules Updated**: 0
+- **Queue Items Processed**: 13
 
-### Results
+## New Rules Added
 
-**New Rules Added:** 2  
-**Queue Items Processed:** 20  
-**Total Rules in Database:** 47 (up from 45)
+### 1. Judge James A. Soto (D. Ariz.) - Standing Order on Use of Generative AI
 
-### New Entries Created
+- **ID**: `us-fed-azd-soto-2023-08`
+- **Effective Date**: 2023-08-04
+- **Category**: `disclosure_with_traditional_verification`
+- **Summary**: Requires filing a separate Notice of Use of Artificial Intelligence disclosing all language originally produced by generative AI. Attorneys and pro se litigants must verify that any AI-generated language was checked for accuracy using print reporters, traditional legal databases, or other reliable means by a human being.
+- **Source**: Standing order entered in REL v. ASSET LIVING, LLC, No. CV 23-348-TUC-JAS on August 4, 2023
+- **Source URL**: https://www.azd.uscourts.gov/judge-orders/soto-james
+- **Notes**: Confirmed via Losey Law blog and web search. Aggregator-flagged item. Judge assumed senior status July 1, 2024.
 
-1. **us-fed-pamd-caraballo-2024-01**  
-   - Court: U.S. District Court for the Middle District of Pennsylvania
-   - Judge: Magistrate Judge Phillip Caraballo
-   - Category: `disclosure_required`
-   - Requires "Certificate of Use of Generative AI" disclosing AI use and certifying accuracy verification
-   - Source: https://www.pamd.uscourts.gov/content/magistrate-judge-phillip-caraballo
+## Queue Items Processed
 
-2. **us-fed-cit-courtwide-2025-03**  
-   - Court: U.S. Court of International Trade (court-wide policy)
-   - Category: `permitted_with_caution`
-   - Published: March 21, 2025
-   - Guidance reminding attorneys to be mindful of confidential information and Rule 11 obligations when using AI
-   - Supplements individual judge orders from Restani and Kelly
-   - Source: https://www.cit.uscourts.gov/news/use-artificial-intelligence-practice-court
+### State Supreme Courts (6 items)
 
-### Queue Items Processed
+1. **Iowa Supreme Court** - No AI policy found. State has AI policy for agencies but no judicial AI policy.
+2. **Kansas Supreme Court** - No AI policy. Ad Hoc AI Committee formed Feb 2025 but no statewide rule adopted yet.
+3. **Kentucky Supreme Court** - No AI policy. State enacted SB 4 (AI Governance Act) for agencies, but no court policy.
+4. **Maine Supreme Judicial Court** - No AI policy. Consumer protection law enacted but no judicial AI policy.
+5. **Maryland Supreme Court** - No AI policy. AI Governance Act of 2024 addresses state agencies; AI Evidence Clinic pilot proposed but no court-wide filing policy.
+6. **Minnesota Supreme Court** - No AI policy. MSBA AI Working Group active, ABA Opinion 512 applies, but no statewide court policy.
 
-**Court-wide searches completed (no AI policies found):**
+### Federal District Courts (7 items)
 
-- N.D. Ind. - Searched court website and judges, no AI policies
-- S.D. Ind. - No AI policies found
-- N.D. Iowa - No AI policies found
-- S.D. Iowa - No AI policies found
-- E.D. Ky. - No AI policies found
-- W.D. Ky. - No AI policies found
-- E.D. La. - No AI policies found
-- M.D. La. - No AI policies found
-- W.D. La. - No AI policies found
-- D. Me. - No AI policies found
-- D. Md. - No AI policies found
-- D. Mass. - No AI policies found
-- E.D. Mich. - No AI policies found (only internal court admin AI chatbot)
-- W.D. Mich. - No AI policies found
-- D. Minn. - No AI policies found
-- N.D. Miss. - No AI policies found
-- S.D. Miss. - No AI policies found
-- W.D. Mo. - No AI policies found
+1. **M.D. Ga.** - No court-wide local rule. Pro se guidance document exists (already in database).
+2. **N.D. Ga.** - No court-wide local rule. Individual judges (Johnson, Jones) have orders already in database.
+3. **S.D. Ga.** - No court-wide local rule. No individual judge orders identified.
+4. **D. Idaho** - No court-wide local rule. Idaho Office of Administrative Hearings (state) issued AI guidelines Sept 2025, but federal district court has not.
+5. **C.D. Ill.** - No court-wide local rule. Illinois Supreme Court AI policy effective Jan 2025 applies statewide but no federal C.D. Ill. rule.
+6. **S.D. Ill.** - No court-wide local rule found.
+7. **D. Ariz. (Judge Soto)** - **Rule found** (see above).
 
-**Courts with new entries:**
-- M.D. Pa. - Magistrate Judge Caraballo's requirement found
-- CIT - Court-wide guidance found
+## Performance
 
-### Research Notes
-
-**Aggregator refresh findings:**
-- Bloomberg Law and Law360 maintain AI tracker pages but most are paywalled
-- Ropes & Gray tracker (403 error when fetching)
-- Found references to several magistrate judges with AI orders:
-  - Judge Phillip Caraballo (M.D. Pa.) - **ADDED**
-  - Judge Susan van Keulen (N.D. Cal.) - could not locate specific order on court website
-  - Judge Anthony Patti (E.D. Mich.) - February 2026 work-product privilege ruling (not a standing order)
-
-**Courts with multiple existing entries:**
-- S.D.N.Y.: 6 judges (Broderick, Ho, Ricardo, Cronan, Engelmayer, Subramanian)
-- C.D. Cal.: 4 judges (Hwang, Blumenfeld, Oliver, Martínez-Olguín)
-- N.D. Ill.: 4 judges (Fuentes, Johnston, Coleman, Cole)
-- CIT: Now 3 entries (Restani, Kelly, plus new court-wide guidance)
-
-### Validation Status
-
-✅ All entries passed validation  
-✅ `python scripts/validate.py` - OK: 47 rules, 17 news articles  
-⚠️ 4 warnings about missing `source_pdf` for standing orders with HTML-only policies (expected)
-
-### Discovery Queue Status
-
-- **Total items:** 190
-- **Completed:** 82 (up from 62)
-- **Pending:** 107 (down from 127)
-- **Pass status:** `in_progress`
-- **Pass number:** 1
-
-### Next Steps for Future Runs
-
-1. **High-priority targets remaining:**
-   - Continue processing `court_with_judges` items
-   - Many federal districts still need individual judge enumeration
-   - State court supreme courts (50 states)
-
-2. **Promising leads to investigate:**
-   - Judge Susan van Keulen (N.D. Cal.) - mentioned in legal commentary but order URL not found
-   - Additional S.D.N.Y. judges - very active district
-   - Additional C.D. Cal. judges - high volume of AI orders
-
-3. **Courts with confirmed individual judges but not yet checked:**
-   - Most Midwest and Southern district courts
-   - Western district courts (except those already covered)
-
-### Time Allocation
-
-- Aggregator refresh: ~5 minutes
-- Court searches: ~25 minutes (18 courts searched)
-- New entry research and creation: ~8 minutes
-- Queue updates and validation: ~2 minutes
-
-### Notes
-
-- Many courts do not have AI policies yet - this is expected
-- Most AI rules continue to be individual judge standing orders rather than court-wide local rules
-- Focus for next run should be on high-yield districts (S.D.N.Y., C.D. Cal., N.D. Cal., etc.) where individual judge enumeration will likely produce multiple new entries
+- **Time spent**: ~45 minutes
+- **New rules per hour**: ~1.3
+- **Queue items per hour**: ~17
+- **Hit rate**: 7.7% (1 rule found in 13 items processed)

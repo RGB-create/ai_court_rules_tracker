@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "last_updated": "2026-04-20T14:30:00Z",
+  "last_updated": "2026-04-20T20:15:27Z",
   "discovery_pass_completed": false,
   "categories": {
     "prohibited": {
@@ -1459,6 +1459,27 @@
       "verbatim_key_language": null,
       "last_verified": "2026-04-20",
       "provenance": "agent discovery 2026-04-20; Hawaii Supreme Court Committee on AI and Courts Final Report issued December 16, 2025"
+    },
+    {
+      "id": "us-fed-azd-soto-2023-08",
+      "jurisdiction": "federal",
+      "court": "U.S. District Court for the District of Arizona",
+      "court_short": "D. Ariz.",
+      "court_level": "district",
+      "circuit": "9",
+      "state": "AZ",
+      "judge": "James A. Soto",
+      "rule_type": "standing_order",
+      "category": "disclosure_with_traditional_verification",
+      "category_confidence": "high",
+      "title": "Standing Order on Use of Generative AI",
+      "effective_date": "2023-08-04",
+      "source_url": "https://www.azd.uscourts.gov/judge-orders/soto-james",
+      "source_pdf": null,
+      "summary": "Requires filing a separate Notice of Use of Artificial Intelligence disclosing all language originally produced by generative AI. If any portion of a pleading has been drafted using generative AI (including ChatGPT, Harvey.AI, or Google Bard), attorneys and pro se litigants must verify that any AI-generated language was checked for accuracy using print reporters, traditional legal databases, or other reliable means by a human being. Entered in REL v. ASSET LIVING, LLC, No. CV 23-348-TUC-JAS on August 4, 2023.",
+      "verbatim_key_language": null,
+      "last_verified": "2026-04-20",
+      "provenance": "agent discovery 2026-04-20; standing order confirmed via Losey Law blog and aggregator sources; requires verification via traditional methods, distinguishing it from disclosure-only orders"
     }
   ]
 }
