@@ -1,23 +1,23 @@
 {
-  "last_run": "2026-04-20T20:09:06Z",
+  "last_run": "2026-04-20T20:22:42Z",
   "summary": {
-    "total_entries": 67,
-    "urls_passed": 70,
-    "urls_failed": 27,
-    "urls_blocked": 19
+    "total_entries": 68,
+    "urls_passed": 71,
+    "urls_failed": 28,
+    "urls_blocked": 18
   },
   "results": {
     "us-fed-ndil-fuentes-2023-05": {
       "source_url": {
         "url": "https://www.ilnd.uscourts.gov/judge_display.php?LastName=Fuentes",
         "status": "fail",
-        "verified_at": "2026-04-20T20:07:06Z",
+        "verified_at": "2026-04-20T20:20:46Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://www.ilnd.uscourts.gov/_assets/_documents/_forms/_judges/Fuentes/Standing%20order%20for%20civil%20cases%20beofre%20Magistrate%20Judge%20Fuentes%20with%20appendix.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:10Z",
+        "verified_at": "2026-04-20T20:20:47Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -25,13 +25,13 @@
       "source_url": {
         "url": "https://www.paed.uscourts.gov/judges-info/senior-judges/michael-m-baylson",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:10Z",
+        "verified_at": "2026-04-20T20:20:48Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       },
       "source_pdf": {
         "url": "https://www.paed.uscourts.gov/sites/paed/files/documents/procedures/Standing%20Order%20Re%20Artificial%20Intelligence%206.6.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:11Z",
+        "verified_at": "2026-04-20T20:20:49Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -39,7 +39,7 @@
       "source_url": {
         "url": "https://www.ilnd.uscourts.gov/judge_display.php?LastName=Johnston",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:12Z",
+        "verified_at": "2026-04-20T20:20:50Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       }
     },
@@ -47,13 +47,13 @@
       "source_url": {
         "url": "https://www.ncwd.uscourts.gov/news/standing-order-re-use-artificial-intelligence",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:13Z",
+        "verified_at": "2026-04-20T20:20:51Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       },
       "source_pdf": {
         "url": "https://www.ncwd.uscourts.gov/sites/default/files/Standing%20Order%20In%20Re-%20Use%20of%20Artificial%20Intelligence2.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:13Z",
+        "verified_at": "2026-04-20T20:20:53Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -61,13 +61,13 @@
       "source_url": {
         "url": "https://www.ohnd.uscourts.gov/content/judge-christopher-boyko",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:14Z",
+        "verified_at": "2026-04-20T20:20:54Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       },
       "source_pdf": {
         "url": "https://www.ohnd.uscourts.gov/sites/ohnd/files/Boyko.StandingOrder.GenerativeAI.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:15Z",
+        "verified_at": "2026-04-20T20:20:55Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -75,13 +75,13 @@
       "source_url": {
         "url": "https://www.paed.uscourts.gov/judges-info/active-judges/gene-ek-pratter",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:07:15Z",
+        "verified_at": "2026-04-20T20:20:56Z",
         "details": "HTTP 404: Not Found"
       },
       "source_pdf": {
         "url": "https://www.paed.uscourts.gov/sites/paed/files/documents/procedures/praso1_0.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:16Z",
+        "verified_at": "2026-04-20T20:20:57Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -89,13 +89,13 @@
       "source_url": {
         "url": "https://www.txs.uscourts.gov/district/genord",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:16Z",
+        "verified_at": "2026-04-20T20:20:58Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       },
       "source_pdf": {
         "url": "https://www.txs.uscourts.gov/sites/txs/files/general-orders/General_Order_2025-04_Use_of_Generative_AI_in_Court_Filings.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:17Z",
+        "verified_at": "2026-04-20T20:21:00Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -103,13 +103,13 @@
       "source_url": {
         "url": "https://www.txed.uscourts.gov/?q=local-rule-cv-11-signing-pleadings-motions-and-other-documents",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:18Z",
+        "verified_at": "2026-04-20T20:21:01Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       },
       "source_pdf": {
         "url": "https://txed.uscourts.gov/sites/default/files/goFiles/GO%2025-07%20Amending%20Local%20Rules.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:18Z",
+        "verified_at": "2026-04-20T20:21:02Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -117,13 +117,13 @@
       "source_url": {
         "url": "https://www.txnd.uscourts.gov/rules-and-orders",
         "status": "fail",
-        "verified_at": "2026-04-20T20:07:19Z",
+        "verified_at": "2026-04-20T20:21:03Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://www.txnd.uscourts.gov/sites/default/files/documents/CIVRULES.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:20Z",
+        "verified_at": "2026-04-20T20:21:03Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -131,13 +131,13 @@
       "source_url": {
         "url": "https://cand.uscourts.gov/judges/phk/kang-peter-h",
         "status": "fail",
-        "verified_at": "2026-04-20T20:07:22Z",
+        "verified_at": "2026-04-20T20:21:04Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://cand.uscourts.gov/sites/default/files/standing-orders/PHK-Civil-Standing-Order_2025.7.16.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:23Z",
+        "verified_at": "2026-04-20T20:21:05Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -145,7 +145,7 @@
       "source_url": {
         "url": "https://www.ilnd.uscourts.gov/judge_display.php?LastName=Coleman",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:24Z",
+        "verified_at": "2026-04-20T20:21:06Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       }
     },
@@ -153,13 +153,13 @@
       "source_url": {
         "url": "https://www.cacd.uscourts.gov/honorable-anne-hwang",
         "status": "fail",
-        "verified_at": "2026-04-20T20:07:25Z",
+        "verified_at": "2026-04-20T20:21:07Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://apps.cacd.uscourts.gov/JpsApi/file/958295e9-9590-493e-90bc-9e1f395df6bd",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:25Z",
+        "verified_at": "2026-04-20T20:21:08Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -167,13 +167,13 @@
       "source_url": {
         "url": "https://www.jud6.org/LegalCommunity/PracticeRequirements/Circuit/Burgess/",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:07:26Z",
+        "verified_at": "2026-04-20T20:21:09Z",
         "details": "HTTP 403: Forbidden"
       },
       "source_pdf": {
         "url": "https://www.jud6.org/LegalCommunity/PracticeRequirements/Circuit/Burgess/Section2220260119%20AI%20Standing%20Orderi.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:27Z",
+        "verified_at": "2026-04-20T20:21:10Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -181,7 +181,7 @@
       "source_url": {
         "url": "https://courts.ca.gov/cms/rules/index/ten/rule10_430",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:28Z",
+        "verified_at": "2026-04-20T20:21:10Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       }
     },
@@ -189,13 +189,13 @@
       "source_url": {
         "url": "https://www.cod.uscourts.gov/Portals/0/Documents/Judges/NYW/NYW_Standing_Order_Regarding_AI_Certification.pdf",
         "status": "fail",
-        "verified_at": "2026-04-20T20:07:30Z",
+        "verified_at": "2026-04-20T20:21:11Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://www.cod.uscourts.gov/Portals/0/Documents/Judges/NYW/NYW_Standing_Order_Regarding_AI_Certification.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:31Z",
+        "verified_at": "2026-04-20T20:21:12Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -203,13 +203,13 @@
       "source_url": {
         "url": "https://www.cit.uscourts.gov/judges-united-states-court-international-trade",
         "status": "fail",
-        "verified_at": "2026-04-20T20:07:31Z",
+        "verified_at": "2026-04-20T20:21:13Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://www.cit.uscourts.gov/sites/cit/files/JAR_Order_on_Artificial_Intelligence.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:32Z",
+        "verified_at": "2026-04-20T20:21:14Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -217,13 +217,13 @@
       "source_url": {
         "url": "https://www.hid.uscourts.gov/dsp_bio.cfm?jid=3&pid=5&mid=21",
         "status": "fail",
-        "verified_at": "2026-04-20T20:07:32Z",
+        "verified_at": "2026-04-20T20:21:15Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://www.hid.uscourts.gov/cms/assets/95f11dcf-7411-42d2-9ac2-92b2424519f6/AI%20Guidelines%20LEK.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:33Z",
+        "verified_at": "2026-04-20T20:21:16Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -231,13 +231,13 @@
       "source_url": {
         "url": "https://www.njd.uscourts.gov/content/evelyn-padin",
         "status": "fail",
-        "verified_at": "2026-04-20T20:07:34Z",
+        "verified_at": "2026-04-20T20:21:17Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://www.njd.uscourts.gov/sites/njd/files/EPProcedures.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:34Z",
+        "verified_at": "2026-04-20T20:21:18Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -245,13 +245,13 @@
       "source_url": {
         "url": "https://www.casb.uscourts.gov/news/general-order-210-filings-using-generative-artificial-intelligence",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:35Z",
+        "verified_at": "2026-04-20T20:21:19Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       },
       "source_pdf": {
         "url": "https://www.casb.uscourts.gov/sites/casb/files/documents/general-orders/General%20Order%20210_2025-11-18.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:35Z",
+        "verified_at": "2026-04-20T20:21:21Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -259,13 +259,13 @@
       "source_url": {
         "url": "https://www.ned.uscourts.gov/attorney/general-orders",
         "status": "fail",
-        "verified_at": "2026-04-20T20:07:37Z",
+        "verified_at": "2026-04-20T20:21:22Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://www.ned.uscourts.gov/internetDocs/localrules/NECivR.2024.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:38Z",
+        "verified_at": "2026-04-20T20:21:23Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -273,13 +273,13 @@
       "source_url": {
         "url": "https://www.mtd.uscourts.gov/hon-donald-w-molloy-chambers",
         "status": "fail",
-        "verified_at": "2026-04-20T20:07:39Z",
+        "verified_at": "2026-04-20T20:21:24Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://storage.courtlistener.com/recap/gov.uscourts.mtd.73612/gov.uscourts.mtd.73612.8.0.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:39Z",
+        "verified_at": "2026-04-20T20:21:24Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -287,13 +287,13 @@
       "source_url": {
         "url": "https://www.okwd.uscourts.gov/chambers-rules",
         "status": "fail",
-        "verified_at": "2026-04-20T20:07:40Z",
+        "verified_at": "2026-04-20T20:21:25Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://www.okwd.uscourts.gov/sites/okwd/files/AI_Guidelines_JudgePalk.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:41Z",
+        "verified_at": "2026-04-20T20:21:26Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -301,13 +301,13 @@
       "source_url": {
         "url": "https://cand.uscourts.gov/judges/amo/martinez-olguin-araceli",
         "status": "fail",
-        "verified_at": "2026-04-20T20:07:44Z",
+        "verified_at": "2026-04-20T20:21:28Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://cand.uscourts.gov/sites/default/files/standing-orders/AMO-CivilStandingOrder-10-20-2025.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:45Z",
+        "verified_at": "2026-04-20T20:21:28Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -315,13 +315,13 @@
       "source_url": {
         "url": "https://cand.uscourts.gov/judges/rfl/lin-rita-f",
         "status": "fail",
-        "verified_at": "2026-04-20T20:07:46Z",
+        "verified_at": "2026-04-20T20:21:29Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://cand.uscourts.gov/sites/default/files/standing-orders/RFL-CivilStandingOrder_3-16-2026_0.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:48Z",
+        "verified_at": "2026-04-20T20:21:30Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -329,13 +329,13 @@
       "source_url": {
         "url": "https://www.ohsd.uscourts.gov/FPNewman",
         "status": "fail",
-        "verified_at": "2026-04-20T20:07:49Z",
+        "verified_at": "2026-04-20T20:21:31Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://www.ohsd.uscourts.gov/sites/ohsd/files//MJN%20Standing%20Civil%20Order%208.27.25.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:49Z",
+        "verified_at": "2026-04-20T20:21:32Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -343,13 +343,13 @@
       "source_url": {
         "url": "https://www.ksd.uscourts.gov/standing-orders",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:50Z",
+        "verified_at": "2026-04-20T20:21:33Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       },
       "source_pdf": {
         "url": "https://ksd.uscourts.gov/sites/ksd/files/Standing%20Order%2026-01%20Use%20of%20AI.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:50Z",
+        "verified_at": "2026-04-20T20:21:34Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -357,13 +357,13 @@
       "source_url": {
         "url": "https://www.gamd.uscourts.gov/representing-yourself",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:07:51Z",
+        "verified_at": "2026-04-20T20:21:35Z",
         "details": "HTTP 404: Not Found"
       },
       "source_pdf": {
         "url": "https://www.gamd.uscourts.gov/sites/gamd/files/Use_of_AI_by_Pro_Se_Litigants.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:52Z",
+        "verified_at": "2026-04-20T20:21:36Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -371,7 +371,7 @@
       "source_url": {
         "url": "https://www.moed.uscourts.gov/attorneys/artificial-intelligence",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:52Z",
+        "verified_at": "2026-04-20T20:21:37Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       }
     },
@@ -379,13 +379,13 @@
       "source_url": {
         "url": "https://www.nmd.uscourts.gov/standing-orders",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:07:53Z",
+        "verified_at": "2026-04-20T20:21:38Z",
         "details": "HTTP 404: Not Found"
       },
       "source_pdf": {
         "url": "https://www.nmd.uscourts.gov/sites/nmd/files/Standing%20Order%20Regarding%20Use%20of%20Generative%20AI.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:53Z",
+        "verified_at": "2026-04-20T20:21:39Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -393,13 +393,13 @@
       "source_url": {
         "url": "https://www.nysd.uscourts.gov/judges/broderick-vernon-s",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:07:54Z",
+        "verified_at": "2026-04-20T20:21:40Z",
         "details": "HTTP 404: Not Found"
       },
       "source_pdf": {
         "url": "https://www.nysd.uscourts.gov/sites/default/files/practice_documents/VSB%20Broderick%20Civil%20Rules%20-%20rev%202025.10.29.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:55Z",
+        "verified_at": "2026-04-20T20:21:41Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -407,13 +407,13 @@
       "source_url": {
         "url": "https://www.nysd.uscourts.gov/judges/ho-dale-e",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:07:55Z",
+        "verified_at": "2026-04-20T20:21:42Z",
         "details": "HTTP 404: Not Found"
       },
       "source_pdf": {
         "url": "https://www.nysd.uscourts.gov/sites/default/files/practice_documents/DEH%20Ho%20Individual%20Rules%20and%20Practices%20in%20Civil%20Cases%20-%202026.01.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:56Z",
+        "verified_at": "2026-04-20T20:21:43Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -421,13 +421,13 @@
       "source_url": {
         "url": "https://www.nysd.uscourts.gov/judges/ricardo-hector-j",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:07:57Z",
+        "verified_at": "2026-04-20T20:21:44Z",
         "details": "HTTP 404: Not Found"
       },
       "source_pdf": {
         "url": "https://www.nysd.uscourts.gov/sites/default/files/practice_documents/HJR%20Ricardo%20Individual%20Rules%20and%20Practices%20for%20Civil%20Cases%203%2023%202026.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:57Z",
+        "verified_at": "2026-04-20T20:21:45Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -435,13 +435,13 @@
       "source_url": {
         "url": "https://www.cit.uscourts.gov/judges-united-states-court-international-trade",
         "status": "fail",
-        "verified_at": "2026-04-20T20:07:58Z",
+        "verified_at": "2026-04-20T20:21:46Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://www.cit.uscourts.gov/sites/cit/files/Order_on_Artificial_Intelligence-Judge_Kelly.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:07:58Z",
+        "verified_at": "2026-04-20T20:21:47Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -449,13 +449,13 @@
       "source_url": {
         "url": "https://www.ohsd.uscourts.gov/standing-orders",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:07:59Z",
+        "verified_at": "2026-04-20T20:21:48Z",
         "details": "HTTP 404: Not Found"
       },
       "source_pdf": {
         "url": "https://www.ohsd.uscourts.gov/sites/ohsd/files//Standing%20Order%20Governing%20the%20Use%20of%20Generative%20AI.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:00Z",
+        "verified_at": "2026-04-20T20:21:49Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -463,13 +463,13 @@
       "source_url": {
         "url": "https://www.gand.uscourts.gov/content/honorable-tiffany-r-johnson-united-states-district-judge",
         "status": "fail",
-        "verified_at": "2026-04-20T20:08:00Z",
+        "verified_at": "2026-04-20T20:21:50Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://www.gand.uscourts.gov/sites/gand/files/TRJ_CVStandingOrder.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:01Z",
+        "verified_at": "2026-04-20T20:21:51Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -477,13 +477,13 @@
       "source_url": {
         "url": "https://www.gand.uscourts.gov/DJdir/SCJ",
         "status": "fail",
-        "verified_at": "2026-04-20T20:08:01Z",
+        "verified_at": "2026-04-20T20:21:52Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://www.gand.uscourts.gov/sites/gand/files/SCJ_Standing_Case_Instructions.pdf",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:08:02Z",
+        "verified_at": "2026-04-20T20:21:53Z",
         "details": "HTTP 404: Not Found"
       }
     },
@@ -491,13 +491,13 @@
       "source_url": {
         "url": "https://apps.cacd.uscourts.gov/Jps/honorable-stanley-blumenfeld-jr",
         "status": "fail",
-        "verified_at": "2026-04-20T20:08:02Z",
+        "verified_at": "2026-04-20T20:21:54Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://www.cacd.uscourts.gov/sites/default/files/documents/SB/AD/1.%20Civil%20Standing%20Order%20(3.1.24)%20%5BFinal%5D.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:03Z",
+        "verified_at": "2026-04-20T20:21:55Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -505,13 +505,13 @@
       "source_url": {
         "url": "https://apps.cacd.uscourts.gov/Jps/honorable-rozella-a-oliver",
         "status": "fail",
-        "verified_at": "2026-04-20T20:08:04Z",
+        "verified_at": "2026-04-20T20:21:56Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://apps.cacd.uscourts.gov/JpsApi/file/b87c8399-2795-43a4-cfca-08ddfd519e1d",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:04Z",
+        "verified_at": "2026-04-20T20:21:57Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -519,13 +519,13 @@
       "source_url": {
         "url": "https://www.nysd.uscourts.gov/hon-john-p-cronan",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:05Z",
+        "verified_at": "2026-04-20T20:21:58Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       },
       "source_pdf": {
         "url": "https://www.nysd.uscourts.gov/sites/default/files/practice_documents/JPC%20Cronan%20Individual%20Civil%20Rules%20-%20Updated%202025.10.23.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:05Z",
+        "verified_at": "2026-04-20T20:21:59Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -533,13 +533,13 @@
       "source_url": {
         "url": "https://nysd.uscourts.gov/hon-paul-engelmayer",
         "status": "fail",
-        "verified_at": "2026-04-20T20:08:06Z",
+        "verified_at": "2026-04-20T20:22:00Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://www.nysd.uscourts.gov/sites/default/files/practice_documents/PAE%20Engelmayer%20Updated%20Individual%20Rules%20of%20Practice%20in%20Civil%20Cases%20(2026%20February).pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:07Z",
+        "verified_at": "2026-04-20T20:22:01Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -547,13 +547,13 @@
       "source_url": {
         "url": "https://www.jud11.flcourts.org/AO",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:08:08Z",
+        "verified_at": "2026-04-20T20:22:02Z",
         "details": "HTTP 404: Not Found"
       },
       "source_pdf": {
         "url": "https://www.jud11.flcourts.org/judges_forms/7342461068-1-26-04%20%20Disclosure%20of%20use%20of%20Generative%20AI-CONFORMED.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:09Z",
+        "verified_at": "2026-04-20T20:22:03Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -561,7 +561,7 @@
       "source_url": {
         "url": "https://www.17th.flcourts.org/civil-administrative-orders/",
         "status": "fail",
-        "verified_at": "2026-04-20T20:08:12Z",
+        "verified_at": "2026-04-20T20:22:05Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       }
     },
@@ -569,7 +569,7 @@
       "source_url": {
         "url": "https://www.ilnd.uscourts.gov/judge_display.php?LastName=Cole",
         "status": "fail",
-        "verified_at": "2026-04-20T20:08:13Z",
+        "verified_at": "2026-04-20T20:22:06Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       }
     },
@@ -577,13 +577,13 @@
       "source_url": {
         "url": "https://www.nysd.uscourts.gov/hon-arun-subramanian",
         "status": "fail",
-        "verified_at": "2026-04-20T20:08:13Z",
+        "verified_at": "2026-04-20T20:22:07Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://nysd.uscourts.gov/sites/default/files/practice_documents/AS%20Subramanian%20Civil%20Individual%20Practices_0.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:14Z",
+        "verified_at": "2026-04-20T20:22:08Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -591,13 +591,13 @@
       "source_url": {
         "url": "https://www.paed.uscourts.gov/judges-info/district-court-judges/kai-n-scott",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:15Z",
+        "verified_at": "2026-04-20T20:22:09Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       },
       "source_pdf": {
         "url": "https://www.paed.uscourts.gov/sites/paed/files/documents/procedures/scopol.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:15Z",
+        "verified_at": "2026-04-20T20:22:10Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -605,7 +605,7 @@
       "source_url": {
         "url": "https://www.pamd.uscourts.gov/content/magistrate-judge-phillip-caraballo",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:16Z",
+        "verified_at": "2026-04-20T20:22:11Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       }
     },
@@ -613,7 +613,7 @@
       "source_url": {
         "url": "https://www.cit.uscourts.gov/news/use-artificial-intelligence-practice-court",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:16Z",
+        "verified_at": "2026-04-20T20:22:12Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       }
     },
@@ -621,13 +621,13 @@
       "source_url": {
         "url": "https://www.gand.uscourts.gov/content/honorable-tiffany-r-johnson-united-states-district-judge",
         "status": "fail",
-        "verified_at": "2026-04-20T20:08:17Z",
+        "verified_at": "2026-04-20T20:22:13Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://www.gand.uscourts.gov/sites/gand/files/TRJ_CVStandingOrder.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:18Z",
+        "verified_at": "2026-04-20T20:22:14Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -635,13 +635,13 @@
       "source_url": {
         "url": "https://www.azcourts.gov/cscommittees/Arizona-Steering-Committee-on-Artificial-Intelligence-and-the-Courts",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:19Z",
+        "verified_at": "2026-04-20T20:22:16Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       },
       "source_pdf": {
         "url": "https://www.azcourts.gov/Portals/0/74/AISC%20Ethical%20Best%20Practices%20Guidance_For%20Publication.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:19Z",
+        "verified_at": "2026-04-20T20:22:17Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -649,7 +649,7 @@
       "source_url": {
         "url": "https://law.justia.com/cases/arkansas/supreme-court/2025/2025-ark-117.html",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:20Z",
+        "verified_at": "2026-04-20T20:22:17Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       }
     },
@@ -657,13 +657,13 @@
       "source_url": {
         "url": "https://www.jud.ct.gov/faq/CTJBResponsibleAIPolicyFramework2.1.24.pdf",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:08:20Z",
+        "verified_at": "2026-04-20T20:22:18Z",
         "details": "URLError: [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1016)"
       },
       "source_pdf": {
         "url": "https://www.jud.ct.gov/faq/CTJBResponsibleAIPolicyFramework2.1.24.pdf",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:08:21Z",
+        "verified_at": "2026-04-20T20:22:19Z",
         "details": "URLError: [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1016)"
       }
     },
@@ -671,7 +671,7 @@
       "source_url": {
         "url": "https://www.floridabar.org/etopinions/opinion-24-1/",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:23Z",
+        "verified_at": "2026-04-20T20:22:20Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       }
     },
@@ -679,13 +679,13 @@
       "source_url": {
         "url": "https://www.illinoiscourts.gov/News/1485/Illinois-Supreme-Court-Announces-Policy-on-Artificial-Intelligence/news-detail/",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:24Z",
+        "verified_at": "2026-04-20T20:22:22Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       },
       "source_pdf": {
         "url": "https://ilcourtsaudio.blob.core.windows.net/antilles-resources/resources/e43964ab-8874-4b7a-be4e-63af019cb6f7/Illinois%20Supreme%20Court%20AI%20Policy.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:25Z",
+        "verified_at": "2026-04-20T20:22:22Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -693,7 +693,7 @@
       "source_url": {
         "url": "https://www.gasupreme.us/07-03-2025-judicial-council-ai-committee-submits-report/",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:28Z",
+        "verified_at": "2026-04-20T20:22:24Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       }
     },
@@ -701,7 +701,7 @@
       "source_url": {
         "url": "https://www.mass.gov/orgs/supreme-judicial-court",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:08:29Z",
+        "verified_at": "2026-04-20T20:22:25Z",
         "details": "HTTP 403: Forbidden"
       }
     },
@@ -709,13 +709,13 @@
       "source_url": {
         "url": "https://www.courts.michigan.gov/4aec3b/siteassets/committees,-boards-special-initiatves/michigan-judicial-council/2024-genai-wg-report.pdf",
         "status": "fail",
-        "verified_at": "2026-04-20T20:08:30Z",
+        "verified_at": "2026-04-20T20:22:26Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       },
       "source_pdf": {
         "url": "https://www.courts.michigan.gov/4aec3b/siteassets/committees,-boards-special-initiatves/michigan-judicial-council/2024-genai-wg-report.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:30Z",
+        "verified_at": "2026-04-20T20:22:26Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -723,13 +723,13 @@
       "source_url": {
         "url": "https://www.njcourts.gov/sites/default/files/courts/supreme/finalguidelinesai.pdf",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:08:33Z",
+        "verified_at": "2026-04-20T20:22:27Z",
         "details": "HTTP 404: Not Found"
       },
       "source_pdf": {
         "url": "https://www.njcourts.gov/sites/default/files/courts/supreme/finalguidelinesai.pdf",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:08:33Z",
+        "verified_at": "2026-04-20T20:22:28Z",
         "details": "HTTP 404: Not Found"
       }
     },
@@ -737,13 +737,13 @@
       "source_url": {
         "url": "https://ww2.nycourts.gov/sites/default/files/document/files/2025-10/UCS-AI-Interim-Policy.pdf",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:08:34Z",
+        "verified_at": "2026-04-20T20:22:29Z",
         "details": "HTTP 404: Not Found"
       },
       "source_pdf": {
         "url": "https://ww2.nycourts.gov/sites/default/files/document/files/2025-10/UCS-AI-Interim-Policy.pdf",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:08:35Z",
+        "verified_at": "2026-04-20T20:22:30Z",
         "details": "HTTP 404: Not Found"
       }
     },
@@ -751,7 +751,7 @@
       "source_url": {
         "url": "https://www.pacourts.us/news-and-statistics/news/news-detail/2025/12/16/supreme-court-adopts-interim-policy-on-generative-artificial-intelligence",
         "status": "blocked",
-        "verified_at": "2026-04-20T20:08:36Z",
+        "verified_at": "2026-04-20T20:22:31Z",
         "details": "HTTP 500: Internal Server Error"
       }
     },
@@ -759,7 +759,7 @@
       "source_url": {
         "url": "https://www.texasbar.com/AM/Template.cfm?Section=Ethics_Opinions&Template=/CM/ContentDisplay.cfm&ContentID=52596",
         "status": "fail",
-        "verified_at": "2026-04-20T20:08:37Z",
+        "verified_at": "2026-04-20T20:22:32Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       }
     },
@@ -767,7 +767,7 @@
       "source_url": {
         "url": "https://times.courts.in.gov/2026/02/17/ai-toolkit/",
         "status": "fail",
-        "verified_at": "2026-04-20T20:08:38Z",
+        "verified_at": "2026-04-20T20:22:33Z",
         "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       }
     },
@@ -775,13 +775,13 @@
       "source_url": {
         "url": "https://www.courts.state.va.us/programs/ai/home",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:38Z",
+        "verified_at": "2026-04-20T20:22:34Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       },
       "source_pdf": {
         "url": "https://www.courts.state.va.us/static/programs/ai/resources/scv_rules_generative_ai_use.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:39Z",
+        "verified_at": "2026-04-20T20:22:35Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -789,13 +789,13 @@
       "source_url": {
         "url": "https://www.sccourts.org/about/court-news/2025-08-15/interim-policy-on-the-use-of-generative-artificial-intelligence/",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:40Z",
+        "verified_at": "2026-04-20T20:22:36Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       },
       "source_pdf": {
         "url": "https://www.sccourts.org/media/courtOrders/PDFs/2025-03-25-01.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:40Z",
+        "verified_at": "2026-04-20T20:22:36Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
       }
     },
@@ -803,23 +803,23 @@
       "source_url": {
         "url": "https://lalegalethics.org/judges-using-genai-louisiana-supreme-court-technology-commission-issues-ai-guidelines-for-judges/",
         "status": "ok",
-        "verified_at": "2026-04-20T20:08:41Z",
+        "verified_at": "2026-04-20T20:22:37Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       }
     },
     "us-state-de-supreme-2024-10": {
       "source_url": {
         "url": "https://courts.delaware.gov/forms/download.aspx?id=266868",
-        "status": "blocked",
-        "verified_at": "2026-04-20T20:09:02Z",
-        "details": "URLError: timed out"
+        "status": "ok",
+        "verified_at": "2026-04-20T20:22:38Z",
+        "details": "HTTP 200; AI policy keywords present in page body"
       }
     },
     "us-state-ut-judicial-council-2023-10": {
       "source_url": {
         "url": "https://sites.google.com/utcourts.gov/courts-hr/policy/ai-information",
         "status": "ok",
-        "verified_at": "2026-04-20T20:09:03Z",
+        "verified_at": "2026-04-20T20:22:39Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       }
     },
@@ -827,14 +827,22 @@
       "source_url": {
         "url": "https://www.courts.state.hi.us/wp-content/uploads/2025/12/121625_SCMF-24-305_CommitteeOnArtificialIntelligenceAndTheCourts_FinalReport.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:09:04Z",
+        "verified_at": "2026-04-20T20:22:40Z",
         "details": "HTTP 200; AI policy keywords present in page body"
       },
       "source_pdf": {
         "url": "https://www.courts.state.hi.us/wp-content/uploads/2025/12/121625_SCMF-24-305_CommitteeOnArtificialIntelligenceAndTheCourts_FinalReport.pdf",
         "status": "ok",
-        "verified_at": "2026-04-20T20:09:06Z",
+        "verified_at": "2026-04-20T20:22:41Z",
         "details": "HTTP 200; Content-Type='application/pdf'; PDF confirmed"
+      }
+    },
+    "us-fed-azd-soto-2023-08": {
+      "source_url": {
+        "url": "https://www.azd.uscourts.gov/judge-orders/soto-james",
+        "status": "fail",
+        "verified_at": "2026-04-20T20:22:42Z",
+        "details": "HTTP 200 but page body does NOT contain AI keywords (artificial intelligence, generative AI, ChatGPT, etc.). URL is likely a generic court page, all-judges listing, or wrong page entirely."
       }
     }
   }
