@@ -326,7 +326,13 @@ faster coverage — runs are idempotent.
 2. `aggregator_flagged` — judges known from law-firm trackers to have
    AI orders. **Highest yield — these are known to have rules, so
    they should almost always produce a new entry.**
-3. `court_with_judges` — **full sweep** of each federal court: first
+3. `state_high_yield` — **state supreme courts and state-level
+   administrative orders.** These are extremely high-yield because
+   one state supreme court AI policy covers ALL courts in that state.
+   Process these early — many states (TX, FL, NJ, CA, etc.) have
+   already issued AI rules. Search for administrative orders, rules
+   amendments, and judicial guidance documents.
+4. `court_with_judges` — **full sweep** of each federal court: first
    check for a court-wide local rule, then **enumerate every active
    and senior judge** on that court's website and check each one for
    an AI standing order. This is where the volume comes from — most
@@ -334,7 +340,7 @@ faster coverage — runs are idempotent.
    rules. A `court_with_judges` item is NOT complete after only
    checking the court-wide local rules. You must also check
    individual judges.
-4. `roster` — remaining judges from the Wikipedia rosters, swept for
+5. `roster` — remaining judges from the Wikipedia rosters, swept for
    completeness.
 
 **Time management — USE YOUR FULL TIME BUDGET:**
@@ -667,26 +673,42 @@ WRONG — the order does not prohibit AI. It requires verification
    uncertainty in `provenance`. Never pick a plausible judge name
    from a court roster without confirmation.
 
-### Phase 3: State courts
+### Phase 3: State courts — HIGH PRIORITY
 
-The state-court universe has no clean equivalent to the Wikipedia
-federal judge rosters, so state items are added to the queue by signal
-rather than by enumeration:
+State courts are high-yield targets. One state supreme court AI
+policy covers ALL courts in that state. The queue has 50+ state
+supreme court items at `state_high_yield` priority — process them
+BEFORE federal court_with_judges items.
 
-1. **State supreme courts (all 50)** — add a `court_level` queue item
-   for each. Fetch the court's rules or administrative orders page
-   and search for AI policy.
-2. **Large-state trial courts** — CA, NY, TX, FL, IL, PA, OH, GA, NC,
-   MI. Add queue items for state-wide rules and notable local trial-
-   court orders.
-3. **Aggregator-flagged state entries** — state judges or courts
-   surfaced during the Phase 1 aggregator sweep.
+**How to sweep a state:**
 
-Useful searches:
-- `state supreme court "artificial intelligence" order OR rule`
-- `[state] court "generative AI" standing order OR local rule`
-- `state bar "artificial intelligence" ethics opinion` (for
-  cross-references; do not log ethics opinions as rules)
+1. **Search for the state supreme court AI rule/order:**
+   - `"[state] supreme court" "artificial intelligence" order OR rule 2023..2026`
+   - `"[state] judicial branch" AI policy`
+   - `"[state] courts" "generative AI" administrative order`
+   - Check the state court admin website's "rules" or "orders" page
+2. **Check if the state bar issued AI guidance adopted by the court.**
+   Some states (e.g., FL, NJ) have bar ethics opinions on AI that
+   were formally adopted into court rules. Only log these if the
+   court incorporated them into a formal order or rule amendment.
+3. **Check large trial courts in that state** — especially in CA, NY,
+   TX, FL, IL, PA. Individual trial-court judges in state systems may
+   have their own AI standing orders, just like federal judges.
+
+**Known high-yield states** (from prior research, as of mid-2025):
+- Texas: Supreme Court mandatory AI disclosure rule (Apr 2024)
+- Florida: State circuits 11, 13, 17 have AI orders; Supreme Court
+  may have statewide guidance
+- New Jersey: Administrative directive on AI in court filings
+- California: Judicial Council guidance + individual superior courts
+- Georgia: Supreme Court AI report (Jul 2025)
+- Illinois: Supreme Court AI policy (Jan 2025)
+- Colorado: Judicial Department AI guidelines
+
+**Do NOT log ethics opinions as rules.** Only court-issued orders,
+rules amendments, or administrative directives that bind litigants
+or attorneys. A bar association "best practices" document is not a
+court rule unless formally adopted by the court.
 
 ### Phase 4: Write and finalize (every run)
 
