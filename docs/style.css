@@ -39,7 +39,7 @@ main { max-width: 1280px; margin: 0 auto; padding: 1rem; }
 #us-map .state.selected { stroke: #0f172a; stroke-width: 2; }
 #us-map .state.no-data { fill: #f1f5f9; }
 
-.about-panel { background: white; border-radius: 8px; border: 1px solid #e5e7eb; padding: 2rem; margin-bottom: 1rem; max-width: 800px; }
+.about-panel { background: white; border-radius: 8px; border: 1px solid #e5e7eb; padding: 2rem; margin-bottom: 1rem; }
 .about-content h2 { margin: 0 0 1.25rem 0; font-size: 1.4rem; }
 .about-content h3 { margin: 1.5rem 0 0.5rem 0; font-size: 1.1rem; color: #0f172a; }
 .about-content p { font-size: 0.95rem; line-height: 1.65; color: #334155; margin: 0.5rem 0; }

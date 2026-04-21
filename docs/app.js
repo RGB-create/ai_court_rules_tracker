@@ -274,6 +274,10 @@ function renderMap() {
       const cat = strictestCategoryForState(postal);
       const name = POSTAL_TO_NAME[postal] || "";
       const count = activeRules().filter(r => r.state === postal).length;
+      if (state.activeTab === "courts_guidance") {
+        if (!cat) return `${name}: no guidance tracked`;
+        return `${name}: ${count} ${count === 1 ? "policy" : "policies"}`;
+      }
       if (!cat) return `${name}: no tracked rules`;
       return `${name}\nStrictest: ${cat.label}\nRules: ${count}`;
     });
@@ -294,7 +298,9 @@ function renderDetail() {
   }
   const stateName = POSTAL_TO_NAME[state.selectedState] || state.selectedState;
   const rs = activeRules().filter(r => r.state === state.selectedState);
-  titleEl.textContent = `${stateName} — ${rs.length} rule${rs.length === 1 ? "" : "s"}`;
+  const unit = state.activeTab === "courts_guidance" ? "polic" : "rule";
+  const unitLabel = rs.length === 1 ? (unit === "polic" ? "policy" : "rule") : (unit === "polic" ? "policies" : "rules");
+  titleEl.textContent = `${stateName} — ${rs.length} ${unitLabel}`;
   if (rs.length === 0) {
     const emptyHints = {
       federal: "No tracked federal-court AI rules for this jurisdiction.",
@@ -429,9 +435,9 @@ function renderTrend() {
     data: { labels, datasets },
     options: {
       responsive: true,
-      plugins: { legend: { position: "bottom", labels: { boxWidth: 12, font: { size: 10 } } } },
+      plugins: { legend: { display: state.activeTab !== "courts_guidance", position: "bottom", labels: { boxWidth: 12, font: { size: 10 } } } },
       scales: {
-        y: { stacked: true, beginAtZero: true, title: { display: true, text: "Cumulative rules in force" } },
+        y: { stacked: true, beginAtZero: true, title: { display: true, text: state.activeTab === "courts_guidance" ? "Cumulative policies" : "Cumulative rules in force" } },
         x: { ticks: { maxTicksLimit: 12, autoSkip: true } },
       },
       elements: { line: { tension: 0.2 }, point: { radius: 0 } },
