@@ -1,3 +1,0 @@
-# No runtime dependencies required: scripts/ uses only the Python stdlib.
-# This file is intentionally minimal; if future helper scripts need
-# packages, add them here.

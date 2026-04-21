@@ -107,6 +107,8 @@ function renderAll() {
   applyTabVisibility();
   if (state.activeTab === "news") {
     renderNews();
+  } else if (state.activeTab === "about") {
+    // static content, nothing to render
   } else {
     renderMap();
     renderDetail();
@@ -117,12 +119,18 @@ function renderAll() {
 
 function applyTabVisibility() {
   const isNews = state.activeTab === "news";
-  document.getElementById("map-panel").hidden = isNews;
-  document.getElementById("trend-panel").hidden = isNews;
-  document.getElementById("table-panel").hidden = isNews;
+  const isAbout = state.activeTab === "about";
+  const isGuidance = state.activeTab === "courts_guidance";
+  const showRules = !isNews && !isAbout;
+  document.getElementById("map-panel").hidden = !showRules;
+  document.getElementById("trend-panel").hidden = !showRules;
+  document.getElementById("table-panel").hidden = !showRules;
   document.getElementById("news-panel").hidden = !isNews;
-  document.getElementById("legend").hidden = isNews;
+  document.getElementById("about-panel").hidden = !isAbout;
+  document.getElementById("legend").hidden = !showRules || isGuidance;
   document.getElementById("tag-legend").hidden = !isNews;
+  document.querySelector("#trend-panel h2").textContent = isGuidance ? "Guidance over time" : "Cumulative rules over time";
+  document.querySelector(".controls").hidden = isAbout;
   const searchEl = document.getElementById("search");
   searchEl.placeholder = isNews
     ? "Search news (headline, publication, summary, tag)\u2026"

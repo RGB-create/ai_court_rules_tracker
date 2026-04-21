@@ -14,13 +14,12 @@
 <header class="site-header">
   <div class="header-inner">
     <h1>AI Court Rules Tracker</h1>
-    <p class="tagline">Where U.S. courts stand on generative AI in court filings.</p>
+    <p class="tagline">Where U.S. courts stand on generative AI.</p>
     <p class="meta">
       Last updated: <span id="last-updated" title="&mdash;">&mdash;</span>
       <span id="last-updated-relative" class="muted"></span>
       &middot; Total rules tracked: <span id="total-rules">&mdash;</span>
       &middot; News items: <span id="total-news">&mdash;</span>
-      &middot; <a href="https://github.com/rgb-create/final_project" target="_blank" rel="noopener">Source &amp; methodology</a>
     </p>
   </div>
 </header>
@@ -30,6 +29,7 @@
   <button class="tab" data-tab="state" role="tab" aria-selected="false">State courts</button>
   <button class="tab" data-tab="courts_guidance" role="tab" aria-selected="false">Guidance for courts &amp; judiciary</button>
   <button class="tab" data-tab="news" role="tab" aria-selected="false">In the news</button>
+  <button class="tab" data-tab="about" role="tab" aria-selected="false">About</button>
 </nav>
 
 <main>
@@ -64,6 +64,90 @@
       here as it is tracked.
     </p>
     <div id="news-list"></div>
+  </section>
+
+  <section class="about-panel" id="about-panel" hidden>
+    <div class="about-content">
+      <h2>About this dashboard</h2>
+
+      <h3>What this dashboard tracks</h3>
+      <p>
+        The AI Court Rules Tracker is a continuously-updating index of U.S. judicial standing
+        orders, general orders, administrative orders, and local rules that address generative
+        AI. It covers three areas:
+      </p>
+      <ul>
+        <li><strong>Federal courts</strong> &mdash; orders and rules from federal district courts,
+          circuit courts, and specialty courts directed at litigants and attorneys.</li>
+        <li><strong>State courts</strong> &mdash; orders and rules from state trial, appellate, and
+          supreme courts directed at litigants and attorneys.</li>
+        <li><strong>Guidance for courts &amp; judiciary</strong> &mdash; AI policies directed at
+          judges, court staff, and judicial operations rather than at litigants.</li>
+      </ul>
+      <p>
+        Each tracked rule is classified along a spectrum &mdash; from outright prohibition
+        through disclosure-and-verification regimes to affirmative permission &mdash; and
+        visualized as an interactive U.S. map with search, category filters, and a
+        cumulative-rules-over-time chart. A companion &ldquo;In the news&rdquo; tab surfaces
+        reputable reporting on new orders, hallucinated-citation incidents, sanctions, and
+        bar ethics guidance.
+      </p>
+      <p>
+        Judicial approaches to generative AI are still new and rapidly evolving. By
+        categorizing rules by type and tracking them over time, this dashboard aims to
+        illuminate which kinds of rules &mdash; and which levels of strictness or openness
+        toward AI &mdash; are proving popular, spreading across jurisdictions, and may one day
+        become dominant. It provides a continuously-updated empirical picture of how the
+        judiciary is navigating a technology that has no settled precedent.
+      </p>
+
+      <h3>How this dashboard works</h3>
+      <p>
+        This project was built with <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">Claude Code</a>,
+        Anthropic&rsquo;s agentic coding tool. An autonomous agent, powered by Claude and
+        running as a
+        <a href="https://github.com/anthropics/claude-code-base-action" target="_blank" rel="noopener">GitHub Action</a>,
+        updates the dataset on a weekly schedule. Each run, the agent:
+      </p>
+      <ul>
+        <li>Searches the web for new or updated judicial orders addressing AI.</li>
+        <li>Reads publicly-available court websites and PDF documents to extract rule details.</li>
+        <li>Classifies each rule along the dashboard&rsquo;s category taxonomy.</li>
+        <li>Writes structured updates to the dataset, which are validated against a strict
+          schema before being committed.</li>
+      </ul>
+      <p>
+        The goal with source URLs is to bring users of this site directly to the primary
+        source of each rule or order through publicly accessible court websites and PDF
+        documents.
+      </p>
+      <p>
+        Because some court websites block automated access (HTTP 403 errors), and because
+        automated data gathering is inherently imperfect, there is a human in the loop who
+        performs regular data verification, maintenance, and spot-checks to the best of her
+        ability.
+      </p>
+
+      <div class="about-disclaimer">
+        <h3>Disclaimer</h3>
+        <p>
+          <strong>This dashboard is informational only and is not legal advice.</strong>
+          The information presented here may not be entirely accurate, complete, or current.
+          Entries flagged as &ldquo;unverified&rdquo; have not yet been reconciled against
+          the primary source. Always consult the order itself and current court guidance
+          before relying on any entry. This is an ongoing project that is continuously
+          being updated and improved.
+        </p>
+        <p>
+          Questions, corrections, and suggestions are welcome at
+          <a href="mailto:eguo@jd27.law.harvard.edu">eguo@jd27.law.harvard.edu</a>.
+        </p>
+      </div>
+
+      <p class="about-github">
+        <a href="https://github.com/rgb-create/final_project" target="_blank" rel="noopener">View source on GitHub &rarr;</a>
+      </p>
+    </div>
   </section>
 
   <section class="table-panel" id="table-panel">
