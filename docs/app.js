@@ -12,7 +12,7 @@ const state = {
   rules: [],
   categories: {},
   news: { articles: [], tag_vocabulary: {} },
-  activeTab: "federal",          // "federal" | "state" | "news"
+  activeTab: "federal",          // "federal" | "state" | "courts_guidance" | "news"
   activeCategories: new Set(),   // empty = show all
   activeTags: new Set(),         // for News tab
   searchTerm: "",
@@ -82,12 +82,13 @@ function relativeTime(d) {
 }
 
 // --------- rendering ---------
-function activeRules(opts = {}) {
-  const excludeCourtsGuidance = opts.excludeCourtsGuidance || false;
-  const onlyCourtsGuidance = opts.onlyCourtsGuidance || false;
-  let rs = state.rules.filter(r => r.jurisdiction === state.activeTab);
-  if (excludeCourtsGuidance) rs = rs.filter(r => r.category !== "guidance_for_courts");
-  if (onlyCourtsGuidance) rs = rs.filter(r => r.category === "guidance_for_courts");
+function activeRules() {
+  let rs;
+  if (state.activeTab === "courts_guidance") {
+    rs = state.rules.filter(r => r.category === "guidance_for_courts");
+  } else {
+    rs = state.rules.filter(r => r.jurisdiction === state.activeTab && r.category !== "guidance_for_courts");
+  }
   if (state.activeCategories.size > 0) {
     rs = rs.filter(r => state.activeCategories.has(r.category));
   }
@@ -111,37 +112,17 @@ function renderAll() {
     renderDetail();
     renderTable();
     renderTrend();
-    if (state.activeTab === "state") {
-      renderCourtsGuidanceMap();
-      renderCourtsGuidanceDetail();
-    }
   }
 }
 
 function applyTabVisibility() {
   const isNews = state.activeTab === "news";
-  const isState = state.activeTab === "state";
   document.getElementById("map-panel").hidden = isNews;
   document.getElementById("trend-panel").hidden = isNews;
   document.getElementById("table-panel").hidden = isNews;
   document.getElementById("news-panel").hidden = !isNews;
   document.getElementById("legend").hidden = isNews;
   document.getElementById("tag-legend").hidden = !isNews;
-  document.getElementById("courts-guidance-panel").hidden = !isState;
-  // Show "Rules for litigants" heading on state tab
-  let litigantHeading = document.getElementById("litigant-heading");
-  if (isState && !isNews) {
-    if (!litigantHeading) {
-      litigantHeading = document.createElement("h2");
-      litigantHeading.id = "litigant-heading";
-      litigantHeading.className = "section-divider";
-      litigantHeading.textContent = "Rules for litigants";
-      document.getElementById("map-panel").before(litigantHeading);
-    }
-    litigantHeading.hidden = false;
-  } else if (litigantHeading) {
-    litigantHeading.hidden = true;
-  }
   const searchEl = document.getElementById("search");
   searchEl.placeholder = isNews
     ? "Search news (headline, publication, summary, tag)\u2026"
@@ -213,8 +194,8 @@ function bindSearch() {
 }
 
 // strictest = lowest .order
-function strictestCategoryForState(stateCode, opts = {}) {
-  const rs = activeRules(opts).filter(r => r.state === stateCode);
+function strictestCategoryForState(stateCode) {
+  const rs = activeRules().filter(r => r.state === stateCode);
   if (rs.length === 0) return null;
   let strictest = null;
   for (const r of rs) {
@@ -249,15 +230,14 @@ function renderMap() {
   svg.selectAll("*").remove();
   if (!state.topology) return;
 
-  const mapOpts = state.activeTab === "state" ? { excludeCourtsGuidance: true } : {};
-  const states = topojson.feature(state.topology, state.topology.objects.states);
-  const projection = d3.geoAlbersUsa().fitSize([960, 600], states);
+  const statesGeo = topojson.feature(state.topology, state.topology.objects.states);
+  const projection = d3.geoAlbersUsa().fitSize([960, 600], statesGeo);
   const path = d3.geoPath(projection);
 
   const g = svg.append("g");
 
   g.selectAll("path.state")
-    .data(states.features)
+    .data(statesGeo.features)
     .enter()
     .append("path")
     .attr("class", "state")
@@ -265,13 +245,13 @@ function renderMap() {
     .attr("fill", d => {
       const fips = String(d.id).padStart(2, "0");
       const postal = FIPS_TO_POSTAL[fips];
-      const cat = strictestCategoryForState(postal, mapOpts);
+      const cat = strictestCategoryForState(postal);
       return cat ? cat.color : "#f1f5f9";
     })
     .attr("data-postal", d => FIPS_TO_POSTAL[String(d.id).padStart(2, "0")] || "")
     .classed("no-data", d => {
       const postal = FIPS_TO_POSTAL[String(d.id).padStart(2, "0")];
-      return !strictestCategoryForState(postal, mapOpts);
+      return !strictestCategoryForState(postal);
     })
     .classed("selected", d => state.selectedState === FIPS_TO_POSTAL[String(d.id).padStart(2, "0")])
     .on("click", (event, d) => {
@@ -279,36 +259,41 @@ function renderMap() {
       state.selectedState = state.selectedState === postal ? null : postal;
       renderMap();
       renderDetail();
-      if (state.activeTab === "state") {
-        renderCourtsGuidanceMap();
-        renderCourtsGuidanceDetail();
-      }
     })
     .append("title")
     .text(d => {
       const postal = FIPS_TO_POSTAL[String(d.id).padStart(2, "0")];
-      const cat = strictestCategoryForState(postal, mapOpts);
+      const cat = strictestCategoryForState(postal);
       const name = POSTAL_TO_NAME[postal] || "";
-      const count = activeRules(mapOpts).filter(r => r.state === postal).length;
+      const count = activeRules().filter(r => r.state === postal).length;
       if (!cat) return `${name}: no tracked rules`;
-      return `${name}\nStrictest rule in force: ${cat.label}\nRules in this state: ${count}`;
+      return `${name}\nStrictest: ${cat.label}\nRules: ${count}`;
     });
 }
 
 function renderDetail() {
   const titleEl = document.getElementById("detail-title");
   const bodyEl = document.getElementById("detail-body");
-  const detailOpts = state.activeTab === "state" ? { excludeCourtsGuidance: true } : {};
   if (!state.selectedState) {
-    titleEl.textContent = state.activeTab === "federal" ? "Click a state to see federal-court rules in force there" : "Click a state to see state-court rules for litigants";
-    bodyEl.innerHTML = `<p class="muted">Hover over a state to preview the strictest rule currently in force; click to see the full list of orders for that jurisdiction.</p>`;
+    const hints = {
+      federal: "Click a state to see federal-court rules in force there",
+      state: "Click a state to see state-court rules for litigants",
+      courts_guidance: "Click a state to see court-facing AI guidance",
+    };
+    titleEl.textContent = hints[state.activeTab] || "Click a state to see rules";
+    bodyEl.innerHTML = `<p class="muted">Hover over a state to preview; click to see the full list for that jurisdiction.</p>`;
     return;
   }
   const stateName = POSTAL_TO_NAME[state.selectedState] || state.selectedState;
-  const rs = activeRules(detailOpts).filter(r => r.state === state.selectedState);
+  const rs = activeRules().filter(r => r.state === state.selectedState);
   titleEl.textContent = `${stateName} — ${rs.length} rule${rs.length === 1 ? "" : "s"}`;
   if (rs.length === 0) {
-    bodyEl.innerHTML = `<p class="muted">No tracked ${state.activeTab}-court rules addressing AI for this jurisdiction.</p>`;
+    const emptyHints = {
+      federal: "No tracked federal-court AI rules for this jurisdiction.",
+      state: "No tracked state-court AI rules for litigants in this jurisdiction.",
+      courts_guidance: "No tracked court-facing AI guidance for this state.",
+    };
+    bodyEl.innerHTML = `<p class="muted">${emptyHints[state.activeTab] || "No rules found."}</p>`;
     return;
   }
   bodyEl.innerHTML = rs.map(r => ruleCardHtml(r)).join("");
@@ -345,8 +330,7 @@ function isQuotedExcerpt(s) {
 }
 
 function renderTable() {
-  const tableOpts = state.activeTab === "state" ? { excludeCourtsGuidance: true } : {};
-  const rs = activeRules(tableOpts);
+  const rs = activeRules();
   document.getElementById("visible-count").textContent = `(${rs.length} shown)`;
   const tbody = document.querySelector("#rules-table tbody");
   if (rs.length === 0) {
@@ -377,13 +361,12 @@ function renderTrend() {
   const ctx = document.getElementById("trend-chart");
   if (!ctx) return;
 
-  // Consider only the currently-visible jurisdiction, and exclude superseded entries
-  // so the stacked counts reflect what is actually in force.
-  const inForce = state.rules.filter(r =>
-    r.jurisdiction === state.activeTab &&
-    !r.superseded_by &&
-    r.effective_date
-  );
+  let inForce;
+  if (state.activeTab === "courts_guidance") {
+    inForce = state.rules.filter(r => r.category === "guidance_for_courts" && !r.superseded_by && r.effective_date);
+  } else {
+    inForce = state.rules.filter(r => r.jurisdiction === state.activeTab && r.category !== "guidance_for_courts" && !r.superseded_by && r.effective_date);
+  }
 
   if (inForce.length === 0) {
     if (state.trendChart) { state.trendChart.destroy(); state.trendChart = null; }
@@ -519,74 +502,6 @@ function formatDisplayDate(isoDate) {
   const d = new Date(isoDate);
   if (isNaN(d.getTime())) return isoDate;
   return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
-}
-
-// --- Courts Guidance section (state tab only) ---
-
-function renderCourtsGuidanceMap() {
-  const svg = d3.select("#us-map-courts");
-  svg.selectAll("*").remove();
-  if (!state.topology) return;
-
-  const guidanceOpts = { onlyCourtsGuidance: true };
-  const statesGeo = topojson.feature(state.topology, state.topology.objects.states);
-  const projection = d3.geoAlbersUsa().fitSize([960, 600], statesGeo);
-  const path = d3.geoPath(projection);
-  const g = svg.append("g");
-
-  g.selectAll("path.state")
-    .data(statesGeo.features)
-    .enter()
-    .append("path")
-    .attr("class", "state")
-    .attr("d", path)
-    .attr("fill", d => {
-      const fips = String(d.id).padStart(2, "0");
-      const postal = FIPS_TO_POSTAL[fips];
-      const hasGuidance = activeRules(guidanceOpts).some(r => r.state === postal);
-      return hasGuidance ? "#8e44ad" : "#f1f5f9";
-    })
-    .attr("data-postal", d => FIPS_TO_POSTAL[String(d.id).padStart(2, "0")] || "")
-    .classed("no-data", d => {
-      const postal = FIPS_TO_POSTAL[String(d.id).padStart(2, "0")];
-      return !activeRules(guidanceOpts).some(r => r.state === postal);
-    })
-    .classed("selected", d => state.selectedState === FIPS_TO_POSTAL[String(d.id).padStart(2, "0")])
-    .on("click", (event, d) => {
-      const postal = FIPS_TO_POSTAL[String(d.id).padStart(2, "0")];
-      state.selectedState = state.selectedState === postal ? null : postal;
-      renderMap();
-      renderDetail();
-      renderCourtsGuidanceMap();
-      renderCourtsGuidanceDetail();
-    })
-    .append("title")
-    .text(d => {
-      const postal = FIPS_TO_POSTAL[String(d.id).padStart(2, "0")];
-      const name = POSTAL_TO_NAME[postal] || "";
-      const count = activeRules(guidanceOpts).filter(r => r.state === postal).length;
-      if (count === 0) return `${name}: no court guidance tracked`;
-      return `${name}: ${count} court guidance document${count === 1 ? "" : "s"}`;
-    });
-}
-
-function renderCourtsGuidanceDetail() {
-  const titleEl = document.getElementById("courts-detail-title");
-  const bodyEl = document.getElementById("courts-detail-body");
-  const guidanceOpts = { onlyCourtsGuidance: true };
-  if (!state.selectedState) {
-    titleEl.textContent = "Click a state to see court guidance";
-    bodyEl.innerHTML = `<p class="muted">Click a state to see AI guidance directed at judges and court staff in that jurisdiction.</p>`;
-    return;
-  }
-  const stateName = POSTAL_TO_NAME[state.selectedState] || state.selectedState;
-  const rs = activeRules(guidanceOpts).filter(r => r.state === state.selectedState);
-  titleEl.textContent = `${stateName} — ${rs.length} court guidance document${rs.length === 1 ? "" : "s"}`;
-  if (rs.length === 0) {
-    bodyEl.innerHTML = `<p class="muted">No tracked court-facing AI guidance for this state.</p>`;
-    return;
-  }
-  bodyEl.innerHTML = rs.map(r => ruleCardHtml(r)).join("");
 }
 
 function escapeHtml(s) {
