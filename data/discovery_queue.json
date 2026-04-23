@@ -2088,6 +2088,26 @@
       "result_details": null,
       "last_checked": null,
       "note": "State supreme court sweep for Cal.: (1) search for 'Cal. supreme court artificial intelligence rule' and 'Cal. courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
+    },
+    {
+      "priority": "error_prone",
+      "court_short": "N.D. Ga.",
+      "judge": "J. P. Boulee",
+      "status": "pending",
+      "result": null,
+      "result_details": null,
+      "last_checked": null,
+      "note": "Removed by user spot-check 2026-04-23: could not verify standing order. Re-queue for agent to find verified source."
+    },
+    {
+      "priority": "error_prone",
+      "court_short": "N.D. Tex.",
+      "judge": "Brantley Starr",
+      "status": "pending",
+      "result": null,
+      "result_details": null,
+      "last_checked": null,
+      "note": "Removed by user spot-check 2026-04-23: could not verify standing order. Re-queue for agent to find verified source."
     }
   ]
 }
