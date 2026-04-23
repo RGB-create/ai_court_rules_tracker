@@ -141,8 +141,14 @@ function applyTabVisibility() {
 function renderLegend() {
   const el = document.getElementById("legend");
   el.innerHTML = "";
-  const hideGuidance = state.activeTab === "federal" || state.activeTab === "state";
-  const sorted = Object.entries(state.categories).sort((a, b) => a[1].order - b[1].order).filter(([slug]) => !(hideGuidance && slug === "guidance_for_courts"));
+  let tabRules;
+  if (state.activeTab === "courts_guidance") {
+    tabRules = state.rules.filter(r => r.category === "guidance_for_courts");
+  } else {
+    tabRules = state.rules.filter(r => r.jurisdiction === state.activeTab && r.category !== "guidance_for_courts");
+  }
+  const usedCategories = new Set(tabRules.map(r => r.category));
+  const sorted = Object.entries(state.categories).sort((a, b) => a[1].order - b[1].order).filter(([slug]) => usedCategories.has(slug));
   for (const [slug, cat] of sorted) {
     const btn = document.createElement("button");
     btn.className = "legend-item" + (state.activeCategories.has(slug) ? " active" : "");
@@ -415,8 +421,8 @@ function renderTrend() {
     labels.push(`${y}-${String(mo).padStart(2, "0")}`);
   }
 
-  const skipGuidance = state.activeTab === "federal" || state.activeTab === "state";
-  const cats = Object.entries(state.categories).sort((a, b) => a[1].order - b[1].order).filter(([slug]) => !(skipGuidance && slug === "guidance_for_courts"));
+  const usedCats = new Set(inForce.map(r => r.category));
+  const cats = Object.entries(state.categories).sort((a, b) => a[1].order - b[1].order).filter(([slug]) => usedCats.has(slug));
   const datasets = cats.map(([slug, cat]) => {
     const rulesInCat = inForce.filter(r => r.category === slug);
     const data = labels.map(label => {

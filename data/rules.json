@@ -56,6 +56,18 @@
       "color": "#8e44ad",
       "order": 9,
       "description": "AI guidance, policies, or reports directed at judges, judicial staff, and court operations — NOT at litigants or attorneys filing documents."
+    },
+    "confidentiality": {
+      "label": "Confidentiality",
+      "color": "#5b6abf",
+      "order": 10,
+      "description": "The order/rule focuses on confidentiality risks of using AI, such as entering sealed or confidential information into generative AI tools."
+    },
+    "attorneys_fees": {
+      "label": "Attorney's fees",
+      "color": "#1a8a7d",
+      "order": 11,
+      "description": "The order/rule addresses AI primarily in the context of attorney's fees, billing, or fee petitions."
     }
   },
   "rules": [
@@ -642,10 +654,10 @@
       "effective_date": "2024-01-01",
       "source_url": "https://www.moed.uscourts.gov/attorneys/artificial-intelligence",
       "source_pdf": null,
-      "summary": "Attorneys and self-represented parties acknowledge they will be held responsible for document contents, including any portion generated with artificial intelligence. Emphasizes existing professional responsibility obligations without requiring explicit disclosure.",
-      "verbatim_key_language": null,
-      "last_verified": "2026-04-19",
-      "provenance": "agent discovery 2026-04-19; guidance page on court website"
+      "summary": "“By presenting to the Court any pleading, written motion, or other paper — whether by signing, filing, submitting, or later advocating it — self-represented parties and attorneys acknowledge they will be held responsible for its contents, including any portion generated with artificial intelligence. See Fed. R. Civ. P. 11(b).”",
+      "verbatim_key_language": "By presenting to the Court any pleading, written motion, or other paper — whether by signing, filing, submitting, or later advocating it — self-represented parties and attorneys acknowledge they will be held responsible for its contents, including any portion generated with artificial intelligence. See Fed. R. Civ. P. 11(b).",
+      "last_verified": "2026-04-23",
+      "provenance": "agent discovery 2026-04-19; user-verified quote 2026-04-23"
     },
     {
       "id": "us-fed-nmd-standing-2024-01",
@@ -1089,6 +1101,27 @@
       "provenance": "agent discovery 2026-04-20; Arizona Supreme Court Steering Committee on AI published November 14, 2024; ethical guidance document for state"
     },
     {
+      "id": "us-state-az-supreme-2024-11-courts",
+      "jurisdiction": "state",
+      "court": "Arizona Supreme Court",
+      "court_short": "AZ Sup. Ct.",
+      "court_level": "supreme",
+      "circuit": null,
+      "state": "AZ",
+      "judge": null,
+      "rule_type": "ethics_guidance",
+      "category": "guidance_for_courts",
+      "category_confidence": "high",
+      "title": "Generative AI: Ethical Best Practices for Lawyers and Judges",
+      "effective_date": "2024-11-14",
+      "source_url": "https://www.azcourts.gov/cscommittees/Arizona-Steering-Committee-on-Artificial-Intelligence-and-the-Courts",
+      "source_pdf": "https://www.azcourts.gov/Portals/0/74/AISC%20Ethical%20Best%20Practices%20Guidance_For%20Publication.pdf",
+      "summary": "The Arizona Steering Committee on Artificial Intelligence and the Courts issued ethical best practices guidance for lawyers and judges using generative AI. The guidance emphasizes that all ethical obligations still apply when using AI, covering: competence and diligence, confidentiality, client communication, billing, court candor, bias/discrimination, and supervision. Does not require affirmative disclosure to courts, but reminds legal professionals they must verify all AI-generated content, not enter confidential information into tools without proper safeguards, and cannot bill for time saved by AI.",
+      "verbatim_key_language": "Although the ethical rules do not currently require disclosure to the court that an attorney has used AI in connection with the litigation, certain courts' general, standing, and case-specific orders require it. ... Legal professionals must also check the work product to ensure that any factual or legal information is accurate, relevant, and otherwise appropriate. Because generative AI can err – and indeed it cannot even think – legal professionals must not defer to its judgment.",
+      "last_verified": "2026-04-23",
+      "provenance": "duplicate of us-state-az-supreme-2024-11 for guidance_for_courts tab; title explicitly addresses both 'Lawyers and Judges'; user-directed 2026-04-23"
+    },
+    {
       "id": "us-state-ar-supreme-2025-06",
       "jurisdiction": "state",
       "court": "Arkansas Supreme Court",
@@ -1098,8 +1131,8 @@
       "state": "AR",
       "judge": null,
       "rule_type": "administrative_order",
-      "category": "permitted_with_caution",
-      "category_confidence": "medium",
+      "category": "confidentiality",
+      "category_confidence": "high",
       "title": "Administrative Order No. 25: Artificial Intelligence",
       "effective_date": "2025-06",
       "source_url": "https://law.justia.com/cases/arkansas/supreme-court/2025/2025-ark-117.html",
@@ -1203,7 +1236,7 @@
       "state": "MA",
       "judge": null,
       "rule_type": "interim_guidelines",
-      "category": "permitted_with_caution",
+      "category": "guidance_for_courts",
       "category_confidence": "high",
       "title": "Interim Guidelines for Generative AI Use by Judges and Court Personnel",
       "effective_date": "2025-12",
@@ -1266,7 +1299,7 @@
       "state": "NY",
       "judge": null,
       "rule_type": "court_policy",
-      "category": "permitted_with_caution",
+      "category": "guidance_for_courts",
       "category_confidence": "high",
       "title": "Interim Policy on Use of Generative Artificial Intelligence in the New York State Unified Court System",
       "effective_date": "2025-10",
@@ -1308,7 +1341,7 @@
       "state": "VA",
       "judge": null,
       "rule_type": "ethics_opinion",
-      "category": "permitted_with_caution",
+      "category": "attorneys_fees",
       "category_confidence": "high",
       "title": "Legal Ethics Opinion 1901 — Use of Generative AI",
       "effective_date": "2024-06-06",
@@ -1329,7 +1362,7 @@
       "state": "SC",
       "judge": null,
       "rule_type": "court_policy",
-      "category": "permitted_with_caution",
+      "category": "guidance_for_courts",
       "category_confidence": "high",
       "title": "Interim Policy on the Use of Generative Artificial Intelligence",
       "effective_date": "2025-03-25",
