@@ -1584,27 +1584,6 @@
       "provenance": "agent discovery 2026-04, pass 1"
     },
     {
-      "id": "us-fed-moe-prose-ai",
-      "jurisdiction": "federal",
-      "court": "U.S. District Court for the Eastern District of Missouri",
-      "court_short": "E.D. Mo.",
-      "court_level": "district",
-      "circuit": "8",
-      "state": "MO",
-      "judge": null,
-      "rule_type": "practice_guideline",
-      "category": "prohibited",
-      "category_confidence": "high",
-      "title": "Self-Represented Litigants Guidance on Artificial Intelligence",
-      "effective_date": "2024-01-01",
-      "source_url": "https://www.moed.uscourts.gov/self-represented-litigants-srl",
-      "source_pdf": null,
-      "summary": "The Eastern District of Missouri provides guidance stating that by presenting to the Court any pleading, written motion, or other paper, self-represented parties acknowledge they will be held responsible for its contents, including any portion generated with artificial intelligence. The district-wide prohibition on generative AI usage applies only to pro se litigants, referencing Federal Rule of Civil Procedure 11(b).",
-      "verbatim_key_language": null,
-      "last_verified": "2026-04-23",
-      "provenance": "agent discovery 2026-04, pass 1"
-    },
-    {
       "id": "us-fed-gand-johnson-2025-10",
       "jurisdiction": "federal",
       "court": "U.S. District Court for the Northern District of Georgia",
