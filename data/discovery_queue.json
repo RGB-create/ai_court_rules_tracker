@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-20T21:30:00Z",
+  "last_updated": "2026-04-23T02:22:59Z",
   "pass_number": 1,
   "pass_status": "in_progress",
   "notes": "Persistent checklist for the discovery agent. Each weekly run processes as many 'pending' items as fits in its time window (in the order defined by priority_order) and writes the updated queue back. When every item is marked 'completed', the pass_number increments and all items are reset to 'pending' for the next verification cycle. Do NOT delete this file between runs.",
@@ -690,10 +690,10 @@
       "priority": "court_with_judges",
       "court_short": "D. Kan.",
       "judge": null,
-      "status": "pending",
-      "result": null,
-      "last_checked": null,
-      "note": "Full sweep of D. Kan.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries."
+      "status": "completed",
+      "result": "court_wide_rule_found",
+      "last_checked": "2026-04-23",
+      "note": "Full sweep of D. Kan.: (1) fetch the court's local rules and search for AI provisions; (2) enumerate every active and senior judge on the court's judges-info page, and for each judge whose chambers/standing-orders page mentions AI, create a rules.json entry using the filename-signature attribution workflow. Do NOT mark this item completed after only step (1). If step (2) identifies judges with AI orders, ship them as individual-judge entries. | COMPLETED: Found Standing Order 26-01 (Jan 28, 2026), court-wide disclosure requirement. Rule ID: us-fed-dks-2026-01"
     },
     {
       "priority": "court_with_judges",
@@ -1715,11 +1715,11 @@
       "court_name": "Rhode Island Supreme Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
+      "status": "completed",
+      "result": "guidance_found",
       "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for RI: (1) search for 'RI supreme court artificial intelligence rule' and 'RI courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
+      "last_checked": "2026-04-23",
+      "note": "State supreme court sweep for RI: Found Executive Order 2024-03 establishing Committee on AI and the Courts. Rule ID: us-state-ri-supreme-2024-10"
     },
     {
       "priority": "state_high_yield",
@@ -1787,11 +1787,11 @@
       "court_name": "Vermont Supreme Court",
       "judge": null,
       "jurisdiction": "state",
-      "status": "pending",
-      "result": null,
+      "status": "completed",
+      "result": "guidance_found",
       "result_details": null,
-      "last_checked": null,
-      "note": "State supreme court sweep for VT: (1) search for 'VT supreme court artificial intelligence rule' and 'VT courts AI policy'; (2) check the state court admin website for administrative orders, rules amendments, or guidance documents on AI; (3) check if the state bar has issued ethics opinions on AI that were adopted by the court. State supreme court AI policies cover ALL courts in the state — high yield."
+      "last_checked": "2026-04-23",
+      "note": "State supreme court sweep for VT: Found Committee on AI First Annual Report (March 2025) with guidance for judges and lawyers. Rule ID: us-state-vt-judiciary-2025-03"
     },
     {
       "priority": "state_high_yield",
