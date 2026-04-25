@@ -425,8 +425,18 @@ function renderTrend() {
     labels.push(`${y}-${String(mo).padStart(2, "0")}`);
   }
 
-  const usedCats = new Set(inForce.map(r => r.category));
-  const cats = Object.entries(state.categories).sort((a, b) => a[1].order - b[1].order).filter(([slug]) => usedCats.has(slug));
+  const fedStateCats = [
+    "prohibited", "prohibited_except_assisted_research",
+    "disclosure_with_traditional_verification", "disclosure_required",
+    "disclosure_except_assisted_research", "permitted_with_caution",
+    "no_explicit_rule", "permitted"
+  ];
+  const stCats = fedStateCats.concat(["confidentiality", "attorneys_fees"]);
+  let chartSlugs;
+  if (state.activeTab === "federal") chartSlugs = new Set(fedStateCats);
+  else if (state.activeTab === "state") chartSlugs = new Set(stCats);
+  else chartSlugs = new Set(["guidance_for_courts"]);
+  const cats = Object.entries(state.categories).sort((a, b) => a[1].order - b[1].order).filter(([slug]) => chartSlugs.has(slug));
   const datasets = cats.map(([slug, cat]) => {
     const rulesInCat = inForce.filter(r => r.category === slug);
     const data = labels.map(label => {
@@ -448,7 +458,7 @@ function renderTrend() {
     data: { labels, datasets },
     options: {
       responsive: true,
-      plugins: { legend: { display: state.activeTab !== "courts_guidance", position: "bottom", labels: { boxWidth: 12, font: { size: 10 } } } },
+      plugins: { legend: { position: "bottom", labels: { boxWidth: 12, font: { size: 10 } } } },
       scales: {
         y: { stacked: true, beginAtZero: true, title: { display: true, text: state.activeTab === "courts_guidance" ? "Cumulative policies" : "Cumulative rules in force" } },
         x: { ticks: { maxTicksLimit: 12, autoSkip: true } },
