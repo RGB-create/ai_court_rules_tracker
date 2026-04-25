@@ -141,14 +141,18 @@ function applyTabVisibility() {
 function renderLegend() {
   const el = document.getElementById("legend");
   el.innerHTML = "";
-  let tabRules;
-  if (state.activeTab === "courts_guidance") {
-    tabRules = state.rules.filter(r => r.category === "guidance_for_courts");
-  } else {
-    tabRules = state.rules.filter(r => r.jurisdiction === state.activeTab && r.category !== "guidance_for_courts");
-  }
-  const usedCategories = new Set(tabRules.map(r => r.category));
-  const sorted = Object.entries(state.categories).sort((a, b) => a[1].order - b[1].order).filter(([slug]) => usedCategories.has(slug));
+  const federalStateCats = [
+    "prohibited", "prohibited_except_assisted_research",
+    "disclosure_with_traditional_verification", "disclosure_required",
+    "disclosure_except_assisted_research", "permitted_with_caution",
+    "no_explicit_rule", "permitted"
+  ];
+  const stateCats = federalStateCats.concat(["confidentiality", "attorneys_fees"]);
+  let allowedSlugs;
+  if (state.activeTab === "federal") allowedSlugs = new Set(federalStateCats);
+  else if (state.activeTab === "state") allowedSlugs = new Set(stateCats);
+  else allowedSlugs = new Set(["guidance_for_courts"]);
+  const sorted = Object.entries(state.categories).sort((a, b) => a[1].order - b[1].order).filter(([slug]) => allowedSlugs.has(slug));
   for (const [slug, cat] of sorted) {
     const btn = document.createElement("button");
     btn.className = "legend-item" + (state.activeCategories.has(slug) ? " active" : "");
