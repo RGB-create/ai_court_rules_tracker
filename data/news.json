@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "last_updated": "2026-04-19T14:40:03Z",
+  "last_updated": "2026-04-26T12:00:00Z",
   "tag_vocabulary": {
     "new_standing_order": {
       "label": "New standing order",
@@ -40,6 +40,66 @@
     }
   },
   "articles": [
+    {
+      "id": "abovethelaw-sullivan-cromwell-ai-hallucinations-2026-04-21",
+      "title": "Sullivan & Cromwell Files Emergency Letter Apologizing for AI Hallucinations in Court Motion",
+      "publication": "Above the Law",
+      "author": null,
+      "url": "https://abovethelaw.com/2026/04/sullivan-cromwell-files-emergency-please-dont-sanction-us-for-all-these-ai-hallucinations-letter/",
+      "published_date": "2026-04-21",
+      "date_added": "2026-04-26",
+      "summary": "Sullivan & Cromwell apologized to a bankruptcy judge after an emergency motion in the Prince Global Holdings case contained more than 40 errors including misquoted statutes, misdescribed authorities, and a nonexistent case — all attributed to AI hallucinations. The firm admitted its internal AI safeguards were not followed. The errors were caught by opposing counsel at Boies Schiller Flexner.",
+      "topic_tags": [
+        "hallucinated_citations",
+        "federal_court"
+      ],
+      "related_rule_ids": []
+    },
+    {
+      "id": "cnn-sullivan-cromwell-ai-hallucination-2026-04-23",
+      "title": "Another 'hallucinated' court filing highlights the difference between Silicon Valley and the rest of the world",
+      "publication": "CNN Business",
+      "author": null,
+      "url": "https://www.cnn.com/2026/04/23/business/ai-hallucination-sullivan-cromwell-nightcap",
+      "published_date": "2026-04-23",
+      "date_added": "2026-04-26",
+      "summary": "CNN reports on the irony of Sullivan & Cromwell — the law firm that advises OpenAI on safe AI deployment — filing a court motion riddled with AI-generated hallucinations. The incident highlights the gap between AI industry optimism and the real-world risks of deploying generative AI in high-stakes legal settings.",
+      "topic_tags": [
+        "hallucinated_citations",
+        "federal_court"
+      ],
+      "related_rule_ids": []
+    },
+    {
+      "id": "natlawreview-hyperlink-rule-ai-citations-2026-04",
+      "title": "Preventing Fabricated AI Legal Authorities: The Case for a Mandatory \"Hyperlink Rule\"",
+      "publication": "National Law Review",
+      "author": null,
+      "url": "https://natlawreview.com/article/preventing-fabricated-ai-legal-authorities-case-mandatory-hyperlink-rule",
+      "published_date": "2026-04-18",
+      "date_added": "2026-04-26",
+      "summary": "Proposes a mandatory rule requiring every cited judicial opinion, statute, or regulation in court filings to include a hyperlink to a verified legal database (Westlaw, Lexis, Bloomberg Law, or official court sites). The logic: a fabricated case has no URL to link to, so the requirement would catch hallucinated citations at the drafting stage rather than after filing.",
+      "topic_tags": [
+        "policy_debate",
+        "hallucinated_citations"
+      ],
+      "related_rule_ids": []
+    },
+    {
+      "id": "reason-volokh-sullivan-cromwell-ai-2026-04-21",
+      "title": "AI Hallucinations in Filing by a Top Law Firm",
+      "publication": "Reason (Volokh Conspiracy)",
+      "author": "Eugene Volokh",
+      "url": "https://reason.com/volokh/2026/04/21/ai-hallucinations-in-filing-by-a-top-law-firm/",
+      "published_date": "2026-04-21",
+      "date_added": "2026-04-26",
+      "summary": "Professor Volokh analyzes the Sullivan & Cromwell incident and its implications for AI use by elite law firms. Notes that if a top-tier firm with dedicated AI policies can submit 40+ hallucinated citations, the risk extends across the profession regardless of firm size or sophistication.",
+      "topic_tags": [
+        "hallucinated_citations",
+        "scholarship"
+      ],
+      "related_rule_ids": []
+    },
     {
       "id": "globenewswire-litigators-ai-platform-2026-04-16",
       "title": "BCC Research Launches Litigators AI, a Platform to Transform Legal Research and Citation Accuracy for Trial Attorneys",
