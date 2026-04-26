@@ -83,13 +83,32 @@ Claude built the complete project:
 
 ### Data corrections (spot-checks)
 
-The user performed manual verification and provided corrections:
+The user performed manual verification and provided corrections across
+multiple sessions:
+
 - **Federal**: Fixed judge names (Henry J. Ricardo, not Hector), updated
   source URLs for Judges Jones, Cole, and Soto with verified PDFs and
-  CourtListener links.
+  CourtListener links. Updated E.D. Mo. summary with verbatim quote.
+  Removed unverifiable entries (Judge Boulee, Judge Starr) and re-queued
+  them for the agent to find verified sources. Removed an agent-generated
+  duplicate E.D. Mo. entry that was incorrectly categorized as "prohibited"
+  (the actual text is a Rule 11(b) reminder, not a ban).
 - **State**: Updated URLs for Florida 17th Circuit, Massachusetts SJC,
   New Jersey Courts, New York UCS; replaced Virginia entry with LEO 1901;
-  removed a Texas bar opinion that didn't address AI.
+  removed a Texas bar opinion that didn't address AI. Moved SC Sup. Ct.,
+  NY UCS, and MA SJC to guidance_for_courts (all apply to judges/staff,
+  not litigants). Recategorized AR as "confidentiality" and VA as
+  "attorney's fees" (new categories). Duplicated AZ entry to appear in
+  both State and Guidance tabs (explicitly addresses both lawyers and
+  judges).
+
+### New categories added
+
+Based on user review of the actual rule text:
+- **Confidentiality** — for rules focused on confidentiality risks of
+  entering information into AI tools (e.g., Arkansas)
+- **Attorney's fees** — for rules addressing AI in the context of billing
+  and fee petitions (e.g., Virginia LEO 1901)
 
 ### "Guidance for courts" category
 
@@ -102,18 +121,46 @@ re-categorized as `guidance_for_courts` and given their own tab.
 
 The user requested the dashboard be reorganized from two map sections on
 the state tab into fully separate tabs:
-1. **Federal courts** — federal rules for litigants (map + trend + table)
-2. **State courts** — state rules for litigants (map + trend + table)
-3. **Guidance for courts & judiciary** — court-facing policies (map + trend + table)
-4. **In the news** — curated reporting
-5. **About** — methodology, disclaimers, contact
+1. **About** (landing page) — project description, methodology, disclaimer
+2. **Federal courts** — federal rules for litigants (map + trend + table)
+3. **State courts** — state rules for litigants (map + trend + table)
+4. **Guidance for courts & judiciary** — court-facing policies (map + trend + table)
+5. **In the news** — curated reporting
+
+Each non-news tab displays the full category legend (the taxonomy of rule
+types), a choropleth map colored by strictest rule, a cumulative trend
+chart, and a searchable table. The Guidance tab uses "policies" instead
+of "rules" throughout its UI.
+
+### About page design
+
+The About page serves as the landing page and was designed with:
+- Dark hero banner with project description
+- 2x2 card grid (all light blue) with question-style headings
+- Prominent disclaimer (yellow box, not legal advice)
+- Contact: Elizabeth Guo, eguo@jd27.law.harvard.edu
+- GitHub source link
+
+Key messaging includes: the Lexis/Westlaw differential treatment and its
+implications for less well-resourced litigants; the evolving and unsettled
+nature of judicial AI policy; the human-in-the-loop verification process.
 
 ### News tab
 
-A companion news-tracking system was added to surface reputable reporting
-on judicial AI activity: new orders, hallucinated-citation incidents,
-sanctions, and bar guidance. The agent indexes articles during its weekly
-runs.
+A companion news-tracking system surfaces reputable reporting on judicial
+AI activity: new orders, hallucinated-citation incidents, sanctions, and
+bar guidance. The agent indexes articles during its weekly runs. As of
+April 2026, the tracker has 21 indexed articles including coverage of the
+Sullivan & Cromwell AI hallucination incident and proposals for mandatory
+hyperlink rules.
+
+### Repository cleanup
+
+Removed one-time scaffolding scripts (`cleanup_unverified.py`,
+`null_bad_urls.py`, `seed_court_queue.py`), empty `requirements.txt`,
+and agent run log (`output.txt`). Rewrote README for public-facing
+audience. Removed "Source & methodology" header link (replaced by
+About tab).
 
 ---
 
