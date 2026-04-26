@@ -40,26 +40,26 @@ main { max-width: 1280px; margin: 0 auto; padding: 1rem; }
 #us-map .state.no-data { fill: #f1f5f9; }
 
 .about-panel { margin-bottom: 1rem; }
-.about-content p { font-size: 0.95rem; line-height: 1.7; color: #334155; margin: 0.5rem 0; }
-.about-content ul { font-size: 0.95rem; line-height: 1.7; color: #334155; padding-left: 1.5rem; margin: 0.5rem 0; }
-.about-content li { margin-bottom: 0.4rem; }
+.about-content p { font-size: 0.88rem; line-height: 1.55; color: #334155; margin: 0.3rem 0; }
+.about-content ul { font-size: 0.88rem; line-height: 1.55; color: #334155; padding-left: 1.25rem; margin: 0.25rem 0; }
+.about-content li { margin-bottom: 0.15rem; }
 
-.about-hero { background: #0f172a; color: #f8fafc; border-radius: 8px; padding: 2rem 2.5rem; margin-bottom: 1.25rem; }
-.about-hero h2 { margin: 0 0 0.75rem 0; font-size: 1.6rem; color: #f8fafc; letter-spacing: -0.01em; }
-.about-hero p { color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; margin: 0; }
+.about-hero { background: #0f172a; color: #f8fafc; border-radius: 8px; padding: 1.25rem 2rem; margin-bottom: 0.75rem; }
+.about-hero h2 { margin: 0 0 0.4rem 0; font-size: 1.4rem; color: #f8fafc; letter-spacing: -0.01em; }
+.about-hero p { color: #cbd5e1; font-size: 0.95rem; line-height: 1.5; margin: 0; }
 .about-hero strong { color: #f8fafc; }
 
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
 @media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; } }
 
-.about-card { background: #f0f4ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 1.5rem 1.75rem; }
-.about-card h3 { margin: 0 0 0.65rem 0; font-size: 1.1rem; color: #0f172a; }
+.about-card { background: #f0f4ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 1rem 1.25rem; }
+.about-card h3 { margin: 0 0 0.35rem 0; font-size: 1rem; color: #0f172a; }
 
-.about-disclaimer { padding: 1.25rem 1.5rem; background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; margin-bottom: 1.25rem; }
-.about-disclaimer h3 { margin: 0 0 0.5rem 0; color: #92400e; font-size: 1.1rem; }
+.about-disclaimer { padding: 0.85rem 1.25rem; background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; margin-bottom: 0.75rem; }
+.about-disclaimer h3 { margin: 0 0 0.3rem 0; color: #92400e; font-size: 1rem; }
 .about-disclaimer p { color: #451a03; }
 
-.about-github { margin: 0; font-size: 1rem; text-align: center; }
+.about-github { margin: 0; font-size: 0.95rem; text-align: center; }
 .about-github a { font-weight: 600; }
 
 .detail-panel { background: #f8fafc; border-radius: 6px; padding: 1rem; max-height: 480px; overflow-y: auto; }
