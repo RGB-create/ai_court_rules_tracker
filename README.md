@@ -7,7 +7,7 @@ general orders, administrative orders, and local rules that address
 generative AI. The dashboard covers federal courts, state courts, and
 guidance directed at courts and the judiciary themselves.
 
-**Live dashboard:** https://rgb-create.github.io/final_project/
+**Live dashboard:** https://rgb-create.github.io/ai_court_rules_tracker/
 
 ---
 
@@ -63,7 +63,7 @@ performs regular data verification, maintenance, and spot-checks.
 ## Repository layout
 
 ```
-final_project/
+ai_court_rules_tracker/
 ├── data/
 │   ├── rules.json              # Canonical dataset; one entry per order/rule
 │   └── news.json               # Curated news articles + tag vocabulary
