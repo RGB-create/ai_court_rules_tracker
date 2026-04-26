@@ -12,7 +12,7 @@ const state = {
   rules: [],
   categories: {},
   news: { articles: [], tag_vocabulary: {} },
-  activeTab: "federal",          // "federal" | "state" | "courts_guidance" | "news"
+  activeTab: "about",             // "about" | "federal" | "state" | "courts_guidance" | "news"
   activeCategories: new Set(),   // empty = show all
   activeTags: new Set(),         // for News tab
   searchTerm: "",

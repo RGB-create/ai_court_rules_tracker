@@ -39,17 +39,29 @@ main { max-width: 1280px; margin: 0 auto; padding: 1rem; }
 #us-map .state.selected { stroke: #0f172a; stroke-width: 2; }
 #us-map .state.no-data { fill: #f1f5f9; }
 
-.about-panel { background: white; border-radius: 8px; border: 1px solid #e5e7eb; padding: 2rem; margin-bottom: 1rem; }
-.about-content h2 { margin: 0 0 1.25rem 0; font-size: 1.4rem; }
-.about-content h3 { margin: 1.5rem 0 0.5rem 0; font-size: 1.1rem; color: #0f172a; }
-.about-content p { font-size: 0.95rem; line-height: 1.65; color: #334155; margin: 0.5rem 0; }
-.about-content ul { font-size: 0.95rem; line-height: 1.65; color: #334155; padding-left: 1.5rem; margin: 0.5rem 0; }
+.about-panel { margin-bottom: 1rem; }
+.about-content p { font-size: 0.95rem; line-height: 1.7; color: #334155; margin: 0.5rem 0; }
+.about-content ul { font-size: 0.95rem; line-height: 1.7; color: #334155; padding-left: 1.5rem; margin: 0.5rem 0; }
 .about-content li { margin-bottom: 0.4rem; }
-.about-disclaimer { margin-top: 1.5rem; padding: 1rem 1.25rem; background: #fef3c7; border: 1px solid #f59e0b; border-radius: 6px; }
-.about-disclaimer h3 { margin-top: 0; color: #92400e; }
+
+.about-hero { background: #0f172a; color: #f8fafc; border-radius: 8px; padding: 2rem 2.5rem; margin-bottom: 1.25rem; }
+.about-hero h2 { margin: 0 0 0.75rem 0; font-size: 1.6rem; color: #f8fafc; letter-spacing: -0.01em; }
+.about-hero p { color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; margin: 0; }
+.about-hero strong { color: #f8fafc; }
+
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+@media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; } }
+
+.about-card { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1.5rem 1.75rem; }
+.about-card h3 { margin: 0 0 0.65rem 0; font-size: 1.1rem; color: #0f172a; }
+.about-card.highlight { background: #f0f4ff; border-color: #bfdbfe; }
+
+.about-disclaimer { padding: 1.25rem 1.5rem; background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; margin-bottom: 1.25rem; }
+.about-disclaimer h3 { margin: 0 0 0.5rem 0; color: #92400e; font-size: 1.1rem; }
 .about-disclaimer p { color: #451a03; }
-.about-github { margin-top: 1.5rem; font-size: 1rem; }
-.about-github a { font-weight: 500; }
+
+.about-github { margin: 0; font-size: 1rem; text-align: center; }
+.about-github a { font-weight: 600; }
 
 .detail-panel { background: #f8fafc; border-radius: 6px; padding: 1rem; max-height: 480px; overflow-y: auto; }
 .detail-panel h2 { margin: 0 0 0.75rem 0; font-size: 1.1rem; }
