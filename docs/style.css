@@ -52,9 +52,8 @@ main { max-width: 1280px; margin: 0 auto; padding: 1rem; }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
 @media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; } }
 
-.about-card { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1.5rem 1.75rem; }
+.about-card { background: #f0f4ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 1.5rem 1.75rem; }
 .about-card h3 { margin: 0 0 0.65rem 0; font-size: 1.1rem; color: #0f172a; }
-.about-card.highlight { background: #f0f4ff; border-color: #bfdbfe; }
 
 .about-disclaimer { padding: 1.25rem 1.5rem; background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; margin-bottom: 1.25rem; }
 .about-disclaimer h3 { margin: 0 0 0.5rem 0; color: #92400e; font-size: 1.1rem; }

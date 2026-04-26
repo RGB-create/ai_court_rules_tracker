@@ -79,83 +79,56 @@
       </div>
 
       <div class="about-grid">
-        <div class="about-card">
+        <div class="about-card highlight">
           <h3>What does this dashboard track?</h3>
           <p>
             Courts across the country are issuing rules about how lawyers and judges may
             use tools like ChatGPT, Claude, and other generative AI. This dashboard
-            collects those rules in one place, organized into three views:
+            collects those rules in one place, organized into three types:
           </p>
           <ul>
-            <li><strong>Federal courts</strong> &mdash; orders and rules from district courts,
-              circuit courts, and specialty courts directed at <strong>litigants and attorneys</strong>.</li>
-            <li><strong>State courts</strong> &mdash; orders and rules from trial, appellate, and
-              supreme courts directed at <strong>litigants and attorneys</strong>.</li>
-            <li><strong>Guidance for courts &amp; judiciary</strong> &mdash; AI policies directed at
+            <li><strong>Federal courts</strong> &mdash; orders and rules directed at <strong>litigants and attorneys</strong>.</li>
+            <li><strong>State courts</strong> &mdash; orders and rules directed at <strong>litigants and attorneys</strong>.</li>
+            <li><strong>Guidance for courts &amp; judiciary</strong> &mdash; policies directed at
               <strong>judges, court staff, and judicial operations</strong>.</li>
           </ul>
-          <p>
-            Each tracked federal or state rule for litigants is <strong>classified along a
-            spectrum</strong> &mdash; from outright prohibition through disclosure-and-verification
-            regimes to affirmative permission &mdash; and visualized as an interactive U.S.
-            map with search, category filters, and a cumulative-rules-over-time chart.
-            A companion <strong>&ldquo;In the news&rdquo;</strong> tab surfaces reputable
-            reporting on new orders, hallucinated-citation incidents, sanctions, and bar
-            ethics guidance.
-          </p>
         </div>
 
         <div class="about-card highlight">
           <h3>Why does this matter?</h3>
           <p>
             Judicial approaches to generative AI are <strong>still new and rapidly
-            evolving</strong>. There is no settled precedent. Different courts are
-            reaching very different conclusions &mdash; from outright bans to open
-            permission &mdash; and those positions are shifting as judges gain experience
-            with the technology.
-          </p>
-          <p>
-            By categorizing rules by type and <strong>tracking them over time</strong>,
-            this dashboard provides a continuously-updated empirical picture of how the
-            judiciary is navigating AI. Which kinds of rules are proving popular? Which
-            levels of strictness or openness are spreading across jurisdictions? What
-            may one day become the dominant approach? These are the questions this
-            project aims to help answer.
+            evolving</strong>. Different courts are reaching very different conclusions
+            &mdash; from outright bans to open permission &mdash; and those positions
+            are shifting as judges gain experience with the technology.
+            By categorizing rules and <strong>tracking them over time</strong>,
+            this dashboard aims to show which approaches are spreading and which may
+            one day become dominant.
           </p>
         </div>
 
-        <div class="about-card">
+        <div class="about-card highlight">
+          <h3>How are rules classified?</h3>
+          <p>
+            Each tracked federal or state rule for litigants is <strong>classified along
+            a spectrum</strong> &mdash; from outright prohibition through
+            disclosure-and-verification regimes to affirmative permission. Notably, some
+            rules <strong>treat tools like Lexis and Westlaw differently</strong> from
+            other AI, which may disadvantage less well-resourced litigants who lack
+            access to those platforms.
+          </p>
+        </div>
+
+        <div class="about-card highlight">
           <h3>How does it work?</h3>
           <p>
-            This project was built with
+            Built with
             <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener"><strong>Claude Code</strong></a>,
-            Anthropic&rsquo;s agentic coding tool. An autonomous agent runs as a
-            <a href="https://github.com/anthropics/claude-code-base-action" target="_blank" rel="noopener">GitHub Action</a>
-            on a <strong>weekly schedule</strong>, and each run it:
-          </p>
-          <ul>
-            <li><strong>Searches</strong> the web for new or updated judicial orders addressing AI</li>
-            <li><strong>Reads</strong> publicly-available court websites and PDFs to extract rule details</li>
-            <li><strong>Classifies</strong> each rule along the dashboard&rsquo;s category taxonomy</li>
-            <li><strong>Validates</strong> updates against a strict schema before committing them</li>
-          </ul>
-          <p>
-            Every source link aims to bring you <strong>directly to the primary source</strong>
-            &mdash; the actual court order or PDF &mdash; through publicly accessible websites.
-          </p>
-        </div>
-
-        <div class="about-card">
-          <h3>How is accuracy maintained?</h3>
-          <p>
-            Automated data gathering is inherently imperfect. Some court websites block
-            automated access, and AI classification can make mistakes. To address this,
-            there is a <strong>human in the loop</strong> who performs regular data
-            verification, maintenance, and spot-checks to the best of her ability.
-          </p>
-          <p>
-            Entries flagged as <strong>&ldquo;unverified&rdquo;</strong> have not yet been
-            reconciled against the primary source. If you spot an error, please reach out.
+            an autonomous agent runs on a <strong>weekly schedule</strong> to search
+            court websites, read PDFs, classify rules, and validate updates against a
+            strict schema. Every source link aims to bring you <strong>directly to the
+            primary source</strong>. A <strong>human in the loop</strong> performs
+            regular verification and spot-checks to the best of her ability.
           </p>
         </div>
       </div>
